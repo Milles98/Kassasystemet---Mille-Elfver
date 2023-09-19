@@ -31,44 +31,63 @@
             static void AllProducts()
             {
                 if (File.Exists("../../../Kvitto.txt")) return;
+
                 string products = "11 Jordgubbar 39.90 Styckpris\n" + "22 Nutella 19.90 Styckpris\n" + "33 Citron 4.90 Styckpris\n";
                 File.WriteAllText("../../../Kvitto.txt", products);
             }
 
-
-            try
+            bool programRunning = true;
+            do
             {
-                double val;
-
-                //Menylista för kassasystemet 
-                Console.Clear();
-                Console.WriteLine("****************");
-                Console.WriteLine("     KASSA      ");
-                Console.WriteLine("****************");
-                Console.WriteLine("1. Ny kund      ");
-                Console.WriteLine("0. Avsluta      ");
-                Console.WriteLine("****************");
-                Console.Write("Skriv 1 eller 0:  ");
-
-                val = Convert.ToDouble(Console.ReadLine());
-
-                switch (val)
+                try
                 {
-                    case 1:
-                        break;
-                    case 2:
-                        break;
-                    case 0:
-                        break;
+                    int val;
+
+                    //Menylista för kassasystemet 
+                    Console.Clear();
+                    Console.WriteLine("****************");
+                    Console.WriteLine("     KASSA      ");
+                    Console.WriteLine("****************");
+                    Console.WriteLine("1. Ny kund      ");
+                    Console.WriteLine("0. Avsluta      ");
+                    Console.WriteLine("****************");
+                    Console.Write("Skriv 1 eller 0:  ");
+
+                    val = Convert.ToInt32(Console.ReadLine());
+                    switch (val)
+                    {
+                        case 1:
+                            //Kassan startas med ny försäljning
+                            Console.Clear();
+                            Console.WriteLine("KASSA");
+                            //här ska kvittot visas
+                            AllProducts();
+                            //här ska kommandon skrivas på följande sätt:
+                            Console.WriteLine("kommandon:");
+                            //<productid> <antal>
+                            //PAY
+                            //Kommando: 300 4
+
+
+                            //3. Göra string manipulation (split) och spara i en (array[300] är kod), (array[300, 2] andra är antal
+
+                            Console.ReadKey();
+                            break;
+
+                        case 0:
+                            Console.WriteLine("Tryck valfri knapp för att avsluta programmet.");
+                            programRunning = false;
+                            Console.ReadKey();
+                            break;
+                    }
                 }
 
-            }
-
-            catch (FormatException)
-            {
-                Console.WriteLine("Felaktig inmatning, tryck *ENTER* för att återgå till menyn");
-                Console.ReadKey();
-            }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Felaktig inmatning, tryck *ENTER* för att återgå till menyn");
+                    Console.ReadKey();
+                }
+            } while (programRunning == true);
 
 
 
