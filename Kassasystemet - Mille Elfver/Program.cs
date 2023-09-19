@@ -25,16 +25,23 @@
             //4. file IO 
             //5. PAY
             //6. file IO igen
-            //7. ett meddelande (vad användaren gjort) sedan går tbx till 1
+            //7. ett meddelande (vad användaren gjort) sedan går tbx till 1 eller avslutar
+
+            //Seeding
+            static void AllProducts()
+            {
+                if (File.Exists("../../../Kvitto.txt")) return;
+                string products = "11 Jordgubbar 39.90 Styckpris\n" + "22 Nutella 19.90 Styckpris\n" + "33 Citron 4.90 Styckpris\n";
+                File.WriteAllText("../../../Kvitto.txt", products);
+            }
+
 
             try
             {
                 double val;
 
-                //Menylista för kassasystemet med lite färg
+                //Menylista för kassasystemet 
                 Console.Clear();
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine("****************");
                 Console.WriteLine("     KASSA      ");
                 Console.WriteLine("****************");
@@ -51,11 +58,7 @@
                         break;
                     case 2:
                         break;
-                    case 3:
-                        break;
-                    case 4:
-                        break;
-                    case 5:
+                    case 0:
                         break;
                 }
 
