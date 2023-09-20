@@ -5,7 +5,7 @@ namespace Kassasystemet___Mille_Elfver
     internal class Program
     {
 
-        //skapar en dictionary med alla produkter och kodnamn
+        //skapat en dictionary med alla produkter och kodnamn
         static Dictionary<string, Product> availableProducts = new Dictionary<string, Product>
         {
             { "300", new Product("Bananer", 40, "Styckpris") },
@@ -62,6 +62,7 @@ namespace Kassasystemet___Mille_Elfver
                     Console.Write("Svar: ");
 
                     val = Convert.ToInt32(Console.ReadLine());
+
                     switch (val)
                     {
                         case 1:
@@ -147,6 +148,7 @@ namespace Kassasystemet___Mille_Elfver
             //metod som lägger till produkterna till kvittot
             static void AddProductsToReceipt(string productId, int quantityOfProducts, ref string receipt)
             {
+                Console.Clear();
                 if (availableProducts.TryGetValue(productId, out Product selectedProduct))
                 {
                     if (quantityOfProducts < 1)
