@@ -31,17 +31,17 @@ namespace Kassasystemet___Mille_Elfver
         //skapat en dictionary med alla produkter och kodnamn
         static Dictionary<string, Product> availableProducts = new Dictionary<string, Product>
         {
-            { "300", new Product("Bananer", 40, "Styckpris") },
-            { "301", new Product("Nutella", 20, "Styckpris") },
-            { "302", new Product("Citron", 5, "Styckpris") },
-            { "303", new Product("Jordgubbar", 10, "Styckpris") },
-            { "304", new Product("Grädde", 16, "Styckpris") },
-            { "305", new Product("Choklad", 10, "Styckpris") },
-            { "306", new Product("Apelsiner", 30, "Styckpris") },
-            { "307", new Product("Mango", 30, "Styckpris") },
-            { "308", new Product("Tomater", 30, "Styckpris") },
-            { "309", new Product("Kött", 30, "Styckpris") },
-            { "310", new Product("Godis", 30, "Styckpris") }
+            { "300", new Product("Bananer", 15.50m, "Styckpris") },
+            { "301", new Product("Nutella", 21.90m, "Styckpris") },
+            { "302", new Product("Citron", 5.50m, "Styckpris") },
+            { "303", new Product("Jordgubbar", 39.90m, "Styckpris") },
+            { "304", new Product("Grädde", 24.90m, "Styckpris") },
+            { "305", new Product("Choklad", 22.90m, "Styckpris") },
+            { "306", new Product("Apelsiner", 10, "Styckpris") },
+            { "307", new Product("Mango", 20, "Styckpris") },
+            { "308", new Product("Tomater", 49.90m, "Styckpris") },
+            { "309", new Product("Kött", 229.90m, "Styckpris") },
+            { "310", new Product("Godis", 99.50m, "Styckpris") }
         };
 
 
@@ -226,12 +226,12 @@ namespace Kassasystemet___Mille_Elfver
         }
 
         //metod som räknar ut totalen som jag sen lägger in på kvittot
-        static int CalculateTotalAmount(string receipt)
+        static decimal CalculateTotalAmount(string receipt)
         {
             //splittar kvittot till individuella rader
             string[] linesInReceipt = receipt.Split('\n');
 
-            int totalAmount = 0;
+            decimal totalAmount = 0m;
 
             //foreach loop som kollar inuti varje rad
             foreach (string line in linesInReceipt)
@@ -242,7 +242,7 @@ namespace Kassasystemet___Mille_Elfver
                 //om raden är större än eller lika med 4, plussa på priset på totalen
                 if (partsInReceipt.Length >= 5)
                 {
-                    if (int.TryParse(partsInReceipt[partsInReceipt.Length - 1], out int totalPrice))
+                    if (decimal.TryParse(partsInReceipt[partsInReceipt.Length - 1], out decimal totalPrice))
                     {
                         totalAmount += totalPrice;
                     }
@@ -261,7 +261,7 @@ namespace Kassasystemet___Mille_Elfver
         public decimal Price { get; set; } //decimal för priserna
         public string PriceType { get; set; }
 
-        public Product(string name, int price, string priceType)
+        public Product(string name, decimal price, string priceType)
         {
             Name = name;
             Price = price;
