@@ -170,21 +170,51 @@ namespace Kassasystemet___Mille_Elfver
         //metod för att spara kvittot
         static void SaveAndDisplayReceipt(string receipt)
         {
+            //räknar ut totalen av allt som lagts in på kvittot och visar det
+            int totalAmount = CalculateTotalAmount(receipt);
+
             //får fram nuvarande tid
             DateTime dateTime = DateTime.Now;
 
             //formatterar datum och tid till en sträng
             string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
-            //lägger till datumet på kvittot
-            string receiptWithDate = $"KVITTO {formattedDate}\n{receipt}";
+            //lägger till datumet och total summan på kvittot:
+            string receiptWithDateandTotalAmount = $"KVITTO {formattedDate}\n{receipt}\nTotal: {totalAmount} KR ";
 
             //sparar ned kvittot
-            File.WriteAllText("../../../Receipt", receiptWithDate);
-            Console.WriteLine(receiptWithDate);
+            File.WriteAllText("../../../Receipt", receiptWithDateandTotalAmount);
+            Console.WriteLine(receiptWithDateandTotalAmount);
+        }
+
+        //metod som räknar ut totalen som jag sen lägger in på kvittot
+        static int CalculateTotalAmount(string receipt)
+        {
+            //splittar kvittot till individuella rader
+            string[] linesInReceipt = receipt.Split('\n');
+
+            int totalAmount = 0;
+
+            //foreach loop som kollar inuti varje rad
+            foreach (string line in linesInReceipt)
+            {
+                //splittar varje rad till enskilda delar
+                string[] partsInReceipt = line.Split(' ');
+
+                if (partsInReceipt.Length >= 5)
+                {
+                    if (int.TryParse(partsInReceipt[partsInReceipt.Length - 1], out int totalPrice))
+                    {
+                        totalAmount += totalPrice;
+                    }
+                }
+            }
+            return totalAmount;
         }
 
     }
+
+
 
     class Product
     {
