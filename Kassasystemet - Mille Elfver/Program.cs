@@ -37,11 +37,11 @@ namespace Kassasystemet___Mille_Elfver
             { "303", new Product("Jordgubbar", 10, "Styckpris") },
             { "304", new Product("Grädde", 16, "Styckpris") },
             { "305", new Product("Choklad", 10, "Styckpris") },
-            { "306", new Product("Apelsiner", 30, "Kilopris") },
+            { "306", new Product("Apelsiner", 30, "Styckpris") },
             { "307", new Product("Mango", 30, "Styckpris") },
-            { "308", new Product("Tomater", 30, "Kilopris") },
-            { "309", new Product("Kött", 30, "Kilopris") },
-            { "310", new Product("Godis", 30, "Kilopris") }
+            { "308", new Product("Tomater", 30, "Styckpris") },
+            { "309", new Product("Kött", 30, "Styckpris") },
+            { "310", new Product("Godis", 30, "Styckpris") }
         };
 
 
@@ -104,7 +104,7 @@ namespace Kassasystemet___Mille_Elfver
                 while (true)
                 {
                     Console.WriteLine("Kommandon:");
-                    Console.WriteLine("<productid> <antal> <PAY>");
+                    Console.WriteLine("<productid> <antal> <PAY> <ITEMS>");
                     Console.Write("Kommando: ");
                     string userInput = Console.ReadLine().Trim();
 
@@ -114,6 +114,15 @@ namespace Kassasystemet___Mille_Elfver
                         //sparar kvittot och visar det
                         SaveAndDisplayReceipt(receipt);
                         break;
+                    }
+
+                    //om användaren skriver items, string comparison så att användaren kan skriva items eller ITEMS
+                    if (userInput.Equals("ITEMS", StringComparison.OrdinalIgnoreCase))
+                    {
+                        //Skriver ut listan på alla produkter
+                        Console.WriteLine("Här är en lista för de produkter som finns:\n");
+                        DisplayTheProducts();
+                        continue;
                     }
 
                     //split för produktid och antal
