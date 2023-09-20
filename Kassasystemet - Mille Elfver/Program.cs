@@ -1,7 +1,26 @@
-﻿namespace Kassasystemet___Mille_Elfver
+﻿using System.Collections.Generic;
+
+namespace Kassasystemet___Mille_Elfver
 {
     internal class Program
     {
+
+        //skapar en dictionary med alla produkter och kodnamn
+        static Dictionary<string, Product> availableProducts = new Dictionary<string, Product>
+        {
+            { "300", new Product("Bananer", 40, "Styckpris") },
+            { "301", new Product("Nutella", 20, "Styckpris") },
+            { "302", new Product("Citron", 5, "Styckpris") },
+            { "303", new Product("Jordgubbar", 10, "Styckpris") },
+            { "304", new Product("Grädde", 16, "Styckpris") },
+            { "305", new Product("Choklad", 10, "Styckpris") },
+            { "306", new Product("Apelsiner", 30, "Kilopris") },
+            { "307", new Product("Mango", 30, "Styckpris") },
+            { "308", new Product("Tomater", 30, "Kilopris") },
+            { "309", new Product("Kött", 30, "Kilopris") },
+            { "310", new Product("Godis", 30, "Kilopris") }
+        };
+
         static void Main(string[] args)
         {
             //Programmera ett kassasystem - (som man har i kassan i en matbutik)
@@ -108,33 +127,17 @@
                 }
             } while (programRunning == true);
 
-            //Metod för att visa kvittot
-            static void DisplayKvittot()
-            {
-                string everythingInsideKvitto = File.ReadAllText("../../../Kvitto.txt");
-                Console.WriteLine("Kvittots innehåll: ");
-                Console.WriteLine(everythingInsideKvitto);
-            }
 
             //Seeding med file io
 
             //metod som visar alla tillgängliga produkter
             static void DisplayTheProducts()
             {
-                string products = "300 Bananer 40 Styckpris\n" +
-                          "301 Nutella 20 Styckpris\n" +
-                          "302 Citron 5 Styckpris\n" +
-                          "303 Jordgubbar 10 Styckpris\n" +
-                          "304 Grädde 16 Styckpris\n" +
-                          "305 Choklad 10 Styckpris\n" +
-                          "306 Apelsiner 30 Kilopris\n" +
-                          "307 Mango 30 Styckpris\n" +
-                          "308 Tomater 30 Kilopris\n" +
-                          "309 Kött 30 Kilopris\n" +
-                          "310 Godis 30 Kilopris\n";
-
                 Console.WriteLine("Tillgängliga produkter:");
-                Console.WriteLine(products);
+                foreach (var product in availableProducts)
+                {
+                    Console.WriteLine($"{product.Key}: {product.Value.Name} ({product.Value.Price} {product.Value.PriceType})");
+                }
             }
 
             //metod som lägger till produkterna till kvittot
@@ -147,7 +150,7 @@
                 string[] productLines = products.Split('\n');
 
                 //för varje produktrad i produkterna
-                foreach (string product in  productLines)
+                foreach (string product in productLines)
                 {
                     //om produkten börjar med ett produktid ska detta göras
                     if (product.StartsWith(productId))
@@ -182,6 +185,20 @@
                 Console.WriteLine(receipt);
             }
 
+        }
+
+        class Product
+        {
+            public string Name { get; set; }
+            public int Price { get; set; }
+            public string PriceType { get; set; }
+
+            public Product(string name, int price, string priceType)
+            {
+                Name = name;
+                Price = price;
+                PriceType = priceType;
+            }
         }
     }
 }
