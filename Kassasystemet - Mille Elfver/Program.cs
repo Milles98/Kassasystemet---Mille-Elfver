@@ -91,6 +91,15 @@ namespace Kassasystemet___Mille_Elfver
                 }
             } while (programRunning == true);
 
+
+
+
+
+
+
+
+
+
             //en metod för ny försäljning
             static string NewSale()
             {
