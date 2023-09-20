@@ -51,8 +51,39 @@
                             Console.WriteLine("KASSA");
                             //här ska kvittot visas efter att produkter med sitt id lagts in
 
-                            AddProducts();
-                            DisplayKvittot();
+                            //startar "kvitto" innehållet
+                            string receipt = "";
+
+                            while (true)
+                            {
+                                Console.WriteLine("<productid> <antal>");
+                                string userInput = Console.ReadLine().Trim();
+
+                                if (userInput.Equals("PAY", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    //sparar kvittot och visar det
+                                    SaveAndDisplayReceipt(receipt);
+                                    break;
+                                }
+
+                                //split för produktid och antal
+                                string[] productParts = userInput.Split(' ');
+
+                                if (productParts.Length != 2)
+                                {
+                                    Console.WriteLine("Det här valet fanns inte, försök igen (exempelvis 300 1 för en banan)");
+                                    continue;
+                                }
+
+
+
+
+
+
+
+
+
+                            }
 
                             Console.ReadKey();
                             break;
@@ -81,73 +112,35 @@
             }
 
             //Seeding med file io
-            static void AddProducts()
+
+            //metod som visar alla tillgängliga produkter
+            static void DisplayTheProducts()
             {
-                //Läser existerande kvitto fil om den finns
-                //if (File.Exists("../../../Kvitto.txt")) return;
+                string products = "300 Bananer 40 Styckpris\n" +
+                          "301 Nutella 20 Styckpris\n" +
+                          "302 Citron 5 Styckpris\n" +
+                          "303 Jordgubbar 10 Styckpris\n" +
+                          "304 Grädde 16 Styckpris\n" +
+                          "305 Choklad 10 Styckpris\n" +
+                          "306 Apelsiner 30 Kilopris\n" +
+                          "307 Mango 30 Styckpris\n" +
+                          "308 Tomater 30 Kilopris\n" +
+                          "309 Kött 30 Kilopris\n" +
+                          "310 Godis 30 Kilopris\n";
 
-                //lista med alla produkter i systemet
-                string products = "300 Bananer 10 Styckpris\n" +
-                                  "301 Nutella 20 Styckpris\n" +
-                                  "302 Citron 5 Styckpris\n" +
-                                  "303 Jordgubbar 10 Styckpris\n" +
-                                  "304 Grädde 16 Styckpris\n" +
-                                  "305 Choklad 10 Styckpris\n" +
-                                  "306 Apelsiner 30 Kilopris\n" +
-                                  "307 Mango 30 Styckpris\n" +
-                                  "308 Tomater 30 Kilopris\n" +
-                                  "309 Kött 30 Kilopris\n" +
-                                  "310 Godis 30 Kilopris\n";
-
-                //Läser upp alla de tillgängliga produkterna 
-                Console.WriteLine("Tillgängliga produkter:\n" + products);
-
-                //Ber användaren skriva in produktID och antalet av produkten
-                //här ska kommandon skrivas på följande sätt: <productid> <antal>
-                //låter användaren mata in vilken produkt samt antalet
-                Console.WriteLine("kommandon:");
-                Console.WriteLine("<productid <antal>");
-                Console.Write("Kommando: ");
-                string productId = Console.ReadLine();
-                int quantityOfProducts = Convert.ToInt32(Console.ReadLine());
-
-                //splittar "products" så att alla rader blir individuella
-                string[] productLines = products.Split('\n');
-                string productToAdd = "";
-
-                foreach (string product in productLines)
-                {
-                    if (product.StartsWith(productId))
-                    {
-                        string[] eachPartInProducts = product.Split(" ");
-                        if (eachPartInProducts.Length == 4)
-                        {
-                            int priceOfProduct = int.Parse(eachPartInProducts[3]);
-                            int totalPrice = priceOfProduct * quantityOfProducts;
-                            productToAdd += $"{eachPartInProducts[0]} {eachPartInProducts[1]} {quantityOfProducts} {eachPartInProducts[3]} {totalPrice}";
-                            break;
-                        }
-                    }
-                }
-
-                //append nya produkter eller uppdatera den existerande
-                if (!string.IsNullOrEmpty(productToAdd))
-                {
-                    //lägger till den uppdaterade produkt informationen
-                    products = string.Join("\n", productLines) + "\n" + productToAdd;
-                    File.WriteAllText("../../../Kvitto.txt", products);
-                    Console.Write("Produkten är tillagd till kvittot.");
-                }
-                else
-                {
-                    Console.WriteLine("Produkten finns inte i vårat sortiment (eller stavfel?)");
-                }
-
-                //File.WriteAllText("../../../Kvitto.txt", products);
+                Console.WriteLine("Tillgängliga produkter:");
+                Console.WriteLine(products);
             }
 
+            //metod som lägger till produkterna till kvittot
+            static void AddProductsToReceipt(string productId, int quantityOfProducts, ref string receipt)
+            {
+                //läser av existerande produkter om filen redan finns
+                string products = File.Exists("../../../Kvitto.txt") ? File.ReadAllText("../../../Kvitto.txt") : "";
 
-
+                //splittar upp products metoden till enskilda rader efter \n
+                string[] productLines = products.Split('\n');
+            }
 
 
         }
