@@ -72,12 +72,13 @@ namespace Kassasystemet___Mille_Elfver
 
                             //startar "kvitto" innehållet
                             string receipt = "";
-                            //visar alla produkter
-                            DisplayTheProducts();
 
                             while (true)
                             {
+                                Console.WriteLine("Kommandon:");
                                 Console.WriteLine("<productid> <antal>");
+                                Console.WriteLine("PAY");
+                                Console.Write("Kommando: ");
                                 string userInput = Console.ReadLine().Trim();
 
                                 //om användaren skriver pay:
