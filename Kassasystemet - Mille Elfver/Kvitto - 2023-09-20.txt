@@ -1,0 +1,7 @@
+KVITTO 2023-09-20 18:45:08
+
+301 Nutella 1 Styckpris 20
+302 Citron 1 Styckpris 5
+304 Grädde 1 Styckpris 16
+
+Total: 41 KR 
