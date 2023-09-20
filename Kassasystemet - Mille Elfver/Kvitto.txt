@@ -1,0 +1,4 @@
+300 Banan 12 Styckpris
+301 Nutella 40 Styckpris
+302 Citron 5 Styckpris
+303 Äpple 10 Styckpris

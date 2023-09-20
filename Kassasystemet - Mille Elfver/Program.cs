@@ -27,14 +27,33 @@
             //6. file IO igen
             //7. ett meddelande (vad användaren gjort) sedan går tbx till 1 eller avslutar
 
-            //Seeding
+            //Seeding med file io
             static void AllProducts()
             {
                 if (File.Exists("../../../Kvitto.txt")) return;
 
-                string products = "11 Jordgubbar 39.90 Styckpris\n" + "22 Nutella 19.90 Styckpris\n" + "33 Citron 4.90 Styckpris\n";
+                string products = "300 Bananer 40 Styckpris\n" +
+                                  "301 Nutella 20 Styckpris\n" +
+                                  "302 Citron 5 Styckpris\n" +
+                                  "303 Jordgubbar 10 Styckpris\n" +
+                                  "304 Grädde 16 Styckpris\n" +
+                                  "305 Choklad 10 Styckpris\n" +
+                                  "306 Apelsiner 30 Kilopris\n" +
+                                  "307 Mango 30 Styckpris\n" +
+                                  "308 Tomater 30 Kilopris\n" +
+                                  "309 Kött 30 Kilopris\n" +
+                                  "310 Godis 30 Kilopris\n";
+                string[] productLines = products.Split(' ');
+
+                foreach (string productLine in productLines)
+                {
+                    Console.Write(productLine);
+                }
+                
+
                 File.WriteAllText("../../../Kvitto.txt", products);
             }
+
 
             bool programRunning = true;
             do
@@ -45,13 +64,10 @@
 
                     //Menylista för kassasystemet 
                     Console.Clear();
-                    Console.WriteLine("****************");
-                    Console.WriteLine("     KASSA      ");
-                    Console.WriteLine("****************");
-                    Console.WriteLine("1. Ny kund      ");
-                    Console.WriteLine("0. Avsluta      ");
-                    Console.WriteLine("****************");
-                    Console.Write("Skriv 1 eller 0:  ");
+                    Console.WriteLine("KASSA");
+                    Console.WriteLine("1. Ny kund");
+                    Console.WriteLine("0. Avsluta");
+                    Console.Write("Svar: ");
 
                     val = Convert.ToInt32(Console.ReadLine());
                     switch (val)
@@ -60,17 +76,14 @@
                             //Kassan startas med ny försäljning
                             Console.Clear();
                             Console.WriteLine("KASSA");
-                            //här ska kvittot visas
-                            AllProducts();
-                            //här ska kommandon skrivas på följande sätt:
+                            //här ska kvittot visas efter att produkter med sitt id lagts in
+
+                            //här ska kommandon skrivas på följande sätt: <productid> <antal>
                             Console.WriteLine("kommandon:");
-                            //<productid> <antal>
-                            //PAY
-                            //Kommando: 300 4
+                            Console.WriteLine("<productid <antal>");
 
-
-                            //3. Göra string manipulation (split) och spara i en (array[300] är kod), (array[300, 2] andra är antal
-
+                            //låter användaren mata in vilken produkt samt antalet
+                            
                             Console.ReadKey();
                             break;
 
@@ -84,7 +97,7 @@
 
                 catch (FormatException)
                 {
-                    Console.WriteLine("Felaktig inmatning, tryck *ENTER* för att återgå till menyn");
+                    Console.WriteLine("Ogiltig inmatning, tryck valfri knapp för att återgå till menyn");
                     Console.ReadKey();
                 }
             } while (programRunning == true);
