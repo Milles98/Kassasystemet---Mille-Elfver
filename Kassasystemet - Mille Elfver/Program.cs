@@ -91,10 +91,6 @@ namespace Kassasystemet___Mille_Elfver
                 }
             } while (programRunning == true);
 
-
-
-
-
             //en metod för ny försäljning
             static string NewSale()
             {
@@ -156,7 +152,6 @@ namespace Kassasystemet___Mille_Elfver
                 return receipt;
             }
 
-
             //metod som visar alla tillgängliga produkter
             static void DisplayTheProducts()
             {
@@ -166,8 +161,6 @@ namespace Kassasystemet___Mille_Elfver
                     Console.WriteLine($"{product.Key}: {product.Value.Name} ({product.Value.Price} {product.Value.PriceType})\n");
                 }
             }
-
-            
 
             //metod som lägger till produkterna till kvittot
             static void AddProductsToReceipt(string productId, int quantityOfProducts, ref string receipt)
@@ -253,8 +246,6 @@ namespace Kassasystemet___Mille_Elfver
         }
 
     }
-
-
 
     class Product
     {
