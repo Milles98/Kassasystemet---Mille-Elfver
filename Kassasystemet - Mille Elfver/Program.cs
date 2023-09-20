@@ -44,6 +44,9 @@ namespace Kassasystemet___Mille_Elfver
             { "310", new Product("Godis", 30, "Kilopris") }
         };
 
+        //metod för att komma ihåg kvittonumret
+        static int receiptNumber = 1;
+
         static void Main(string[] args)
         {
             bool programRunning = true;
@@ -161,6 +164,8 @@ namespace Kassasystemet___Mille_Elfver
                 }
             }
 
+            
+
             //metod som lägger till produkterna till kvittot
             static void AddProductsToReceipt(string productId, int quantityOfProducts, ref string receipt)
             {
@@ -192,11 +197,17 @@ namespace Kassasystemet___Mille_Elfver
         //metod för att spara kvittot
         static void SaveAndDisplayReceipt(string receipt)
         {
+            //ökar kvittots nummer med 1 för varje nytt kvitto
+            int currentReceiptNumber = receiptNumber++;
+
             //räknar ut totalen av allt som lagts in på kvittot och visar det
             decimal totalAmount = CalculateTotalAmount(receipt);
 
             //får fram nuvarande tid
             DateTime dateTime = DateTime.Now;
+
+            //datum till kvittot när det skrivs ut (text filen)
+            var date = DateTime.Now.ToShortDateString();
 
             //formatterar datum och tid till en sträng
             string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
@@ -205,9 +216,11 @@ namespace Kassasystemet___Mille_Elfver
             Console.WriteLine();
             string receiptWithDateandTotalAmount = $"KVITTO {formattedDate}\n\n{receipt}\nTotal: {totalAmount} KR ";
 
-            //sparar ned kvittot
-            //TODO Skapa en AppendAllLines eller liknande så att det läggs till på kvittot (inte byter ut det som skrevs in innan)
-            File.WriteAllText("../../../Kvitto.txt", receiptWithDateandTotalAmount);
+            //filnamn för kvittot med kvittonummer och datum
+            string fileName = $"Kvitto nummer {currentReceiptNumber} - {date}.txt";
+
+            //sparar ned kvittot med en Append så att det fylls på med nya kvitton
+            File.AppendAllText($"../../../{fileName}", receiptWithDateandTotalAmount);
             Console.WriteLine(receiptWithDateandTotalAmount);
         }
 
