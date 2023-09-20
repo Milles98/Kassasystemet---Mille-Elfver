@@ -101,7 +101,7 @@ namespace Kassasystemet___Mille_Elfver
                                 int quantityOfProducts;
 
                                 //Felhantering om användaren inte börjar sin inmatning med produktID
-                                if (int.TryParse(productParts[1], out quantityOfProducts))
+                                if (!int.TryParse(productParts[1], out quantityOfProducts))
                                 {
                                     Console.WriteLine("Ogiltigt val, försök igen");
                                     continue;
@@ -148,10 +148,17 @@ namespace Kassasystemet___Mille_Elfver
             {
                 if (availableProducts.TryGetValue(productId, out Product selectedProduct))
                 {
-                    int totalPrice = selectedProduct.Price * quantityOfProducts;
-                    string productToAdd = $"{productId} {selectedProduct.Name} {quantityOfProducts} {selectedProduct.PriceType} {totalPrice}";
-                    receipt += productToAdd + "\n";
-                    Console.WriteLine($"{quantityOfProducts} {selectedProduct.Name}(s) har lagts till på kvittot.");
+                    if (quantityOfProducts < 1)
+                    {
+                        Console.WriteLine("Du kan inte ange mindre än 1 i antal!");
+                    }
+                    else
+                    {
+                        int totalPrice = selectedProduct.Price * quantityOfProducts;
+                        string productToAdd = $"{productId} {selectedProduct.Name} {quantityOfProducts} {selectedProduct.PriceType} {totalPrice}";
+                        receipt += productToAdd + "\n";
+                        Console.WriteLine($"{quantityOfProducts} {selectedProduct.Name}(s) har lagts till på kvittot.");
+                    }
                 }
                 else
                 {
