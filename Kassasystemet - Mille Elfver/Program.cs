@@ -68,51 +68,10 @@ namespace Kassasystemet___Mille_Elfver
                             //Kassan startas med ny försäljning
                             Console.Clear();
                             Console.WriteLine("KASSA");
+
+                            string receipt = NewSale();
+
                             //här ska kvittot visas efter att produkter med sitt id lagts in
-
-                            //deklarerar variabeln receipt som sedan kommer tilldelas info från SaveAndDisplayReceipt
-                            string receipt = "";
-
-                            while (true)
-                            {
-                                Console.WriteLine("Kommandon:");
-                                Console.WriteLine("<productid> <antal> <PAY>");
-                                Console.Write("Kommando: ");
-                                string userInput = Console.ReadLine().Trim();
-
-                                //om användaren skriver pay, string comparison så att användaren kan skriva pay eller PAY
-                                if (userInput.Equals("PAY", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    //sparar kvittot och visar det
-                                    SaveAndDisplayReceipt(receipt);
-                                    break;
-                                }
-
-                                //split för produktid och antal
-                                string[] productParts = userInput.Split(' ');
-
-                                if (productParts.Length != 2)
-                                {
-                                    Console.Clear();
-                                    Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                                    DisplayTheProducts();
-                                    continue;
-                                }
-
-                                string productId = productParts[0];
-                                int quantityOfProducts;
-
-                                //Felhantering om användaren inte börjar sin inmatning med produktID
-                                if (!int.TryParse(productParts[1], out quantityOfProducts))
-                                {
-                                    Console.WriteLine("Ogiltigt val, försök igen");
-                                    continue;
-                                }
-
-                                //lägger till produkterna till kvittot
-                                AddProductsToReceipt(productId, quantityOfProducts, ref receipt);
-
-                            }
 
                             Console.ReadKey();
                             break;
@@ -131,6 +90,57 @@ namespace Kassasystemet___Mille_Elfver
                     Console.ReadKey();
                 }
             } while (programRunning == true);
+
+            //en metod för ny försäljning
+            static string NewSale()
+            {
+                //deklarerar variabeln receipt som sedan kommer tilldelas info från SaveAndDisplayReceipt
+                string receipt = "";
+
+                while (true)
+                {
+                    Console.WriteLine("Kommandon:");
+                    Console.WriteLine("<productid> <antal> <PAY>");
+                    Console.Write("Kommando: ");
+                    string userInput = Console.ReadLine().Trim();
+
+                    //om användaren skriver pay, string comparison så att användaren kan skriva pay eller PAY
+                    if (userInput.Equals("PAY", StringComparison.OrdinalIgnoreCase))
+                    {
+                        //sparar kvittot och visar det
+                        SaveAndDisplayReceipt(receipt);
+                        break;
+                    }
+
+                    //split för produktid och antal
+                    string[] productParts = userInput.Split(' ');
+
+                    if (productParts.Length != 2)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
+                        DisplayTheProducts();
+                        continue;
+                    }
+
+                    string productId = productParts[0];
+                    int quantityOfProducts;
+
+                    //Felhantering om användaren inte börjar sin inmatning med produktID
+                    if (!int.TryParse(productParts[1], out quantityOfProducts))
+                    {
+                        Console.WriteLine("Ogiltigt val, försök igen");
+                        continue;
+                    }
+
+                    //lägger till produkterna till kvittot
+                    AddProductsToReceipt(productId, quantityOfProducts, ref receipt);
+
+                }
+
+                //return statement om while loopen inte användas
+                return receipt;
+            }
 
 
             //metod som visar alla tillgängliga produkter
@@ -155,7 +165,7 @@ namespace Kassasystemet___Mille_Elfver
                     }
                     else
                     {
-                        int totalPrice = selectedProduct.Price * quantityOfProducts;
+                        decimal totalPrice = selectedProduct.Price * quantityOfProducts;
                         string productToAdd = $"{productId} {selectedProduct.Name} {quantityOfProducts} {selectedProduct.PriceType} {totalPrice}";
                         receipt += productToAdd + "\n";
 
@@ -175,7 +185,7 @@ namespace Kassasystemet___Mille_Elfver
         static void SaveAndDisplayReceipt(string receipt)
         {
             //räknar ut totalen av allt som lagts in på kvittot och visar det
-            int totalAmount = CalculateTotalAmount(receipt);
+            decimal totalAmount = CalculateTotalAmount(receipt);
 
             //får fram nuvarande tid
             DateTime dateTime = DateTime.Now;
@@ -184,7 +194,8 @@ namespace Kassasystemet___Mille_Elfver
             string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
             //lägger till datumet och total summan på kvittot:
-            string receiptWithDateandTotalAmount = $"KVITTO {formattedDate}\n{receipt}\nTotal: {totalAmount} KR ";
+            Console.WriteLine();
+            string receiptWithDateandTotalAmount = $"KVITTO {formattedDate}\n\n{receipt}\nTotal: {totalAmount} KR ";
 
             //sparar ned kvittot
             File.WriteAllText("../../../Receipt", receiptWithDateandTotalAmount);
@@ -223,7 +234,7 @@ namespace Kassasystemet___Mille_Elfver
     class Product
     {
         public string Name { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; } //decimal för priserna
         public string PriceType { get; set; }
 
         public Product(string name, int price, string priceType)
