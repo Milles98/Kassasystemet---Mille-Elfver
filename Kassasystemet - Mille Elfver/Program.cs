@@ -28,11 +28,13 @@
             //7. ett meddelande (vad användaren gjort) sedan går tbx till 1 eller avslutar
 
             //Seeding med file io
-            static void AllProducts()
+            static void AddProducts()
             {
-                if (File.Exists("../../../Kvitto.txt")) return;
+                //Läser existerande kvitto fil om den finns
+                //if (File.Exists("../../../Kvitto.txt")) return;
 
-                string products = "300 Bananer 40 Styckpris\n" +
+                //lista med alla produkter i systemet
+                string products = "300 Bananer 10 Styckpris\n" +
                                   "301 Nutella 20 Styckpris\n" +
                                   "302 Citron 5 Styckpris\n" +
                                   "303 Jordgubbar 10 Styckpris\n" +
@@ -43,15 +45,52 @@
                                   "308 Tomater 30 Kilopris\n" +
                                   "309 Kött 30 Kilopris\n" +
                                   "310 Godis 30 Kilopris\n";
-                string[] productLines = products.Split(' ');
 
-                foreach (string productLine in productLines)
+                //Läser upp alla de tillgängliga produkterna 
+                Console.WriteLine("Tillgängliga produkter:\n" + products);
+
+                //Ber användaren skriva in produktID och antalet av produkten
+                //här ska kommandon skrivas på följande sätt: <productid> <antal>
+                //låter användaren mata in vilken produkt samt antalet
+                Console.WriteLine("kommandon:");
+                Console.WriteLine("<productid <antal>");
+                Console.Write("Kommando: ");
+                string productId = Console.ReadLine();
+                int quantityOfProducts = Convert.ToInt32(Console.ReadLine());
+
+                //splittar "products" så att alla rader blir individuella
+                string[] productLines = products.Split('\n');
+                string productToAdd = "";
+
+                foreach (string product in productLines)
                 {
-                    Console.Write(productLine);
+                    if (product.StartsWith(productId))
+                    {
+                        string[] eachPartInProducts = product.Split(" ");
+                        if (eachPartInProducts.Length == 4)
+                        {
+                            int priceOfProduct = int.Parse(eachPartInProducts[3]);
+                            int totalPrice = priceOfProduct * quantityOfProducts;
+                            productToAdd += $"{eachPartInProducts[0]} {eachPartInProducts[1]} {quantityOfProducts} {eachPartInProducts[3]} {totalPrice}";
+                            break;
+                        }
+                    }
                 }
-                
 
-                File.WriteAllText("../../../Kvitto.txt", products);
+                //append nya produkter eller uppdatera den existerande
+                if (!string.IsNullOrEmpty(productToAdd))
+                {
+                    //lägger till den uppdaterade produkt informationen
+                    products = string.Join("\n", productLines) + "\n" + productToAdd;
+                    File.WriteAllText("../../../Kvitto.txt", products);
+                    Console.Write("Produkten är tillagd till kvittot.");
+                }
+                else
+                {
+                    Console.WriteLine("Produkten finns inte i vårat sortiment (eller stavfel?)");
+                }
+
+                //File.WriteAllText("../../../Kvitto.txt", products);
             }
 
 
@@ -78,12 +117,8 @@
                             Console.WriteLine("KASSA");
                             //här ska kvittot visas efter att produkter med sitt id lagts in
 
-                            //här ska kommandon skrivas på följande sätt: <productid> <antal>
-                            Console.WriteLine("kommandon:");
-                            Console.WriteLine("<productid <antal>");
+                            AddProducts();
 
-                            //låter användaren mata in vilken produkt samt antalet
-                            
                             Console.ReadKey();
                             break;
 
