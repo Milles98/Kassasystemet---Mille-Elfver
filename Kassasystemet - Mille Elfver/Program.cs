@@ -75,13 +75,18 @@
                                     continue;
                                 }
 
+                                string productId = productParts[0];
+                                int quantityOfProducts;
 
+                                //Felhantering om användaren inte börjar sin inmatning med produktID
+                                if (int.TryParse(productParts[1], out quantityOfProducts))
+                                {
+                                    Console.WriteLine("Ogiltigt val, försök igen");
+                                    continue;
+                                }
 
-
-
-
-
-
+                                //lägger till produkterna till kvittot
+                                AddProductsToReceipt(productId, quantityOfProducts, ref receipt);
 
                             }
 
@@ -140,8 +145,42 @@
 
                 //splittar upp products metoden till enskilda rader efter \n
                 string[] productLines = products.Split('\n');
+
+                //för varje produktrad i produkterna
+                foreach (string product in  productLines)
+                {
+                    //om produkten börjar med ett produktid ska detta göras
+                    if (product.StartsWith(productId))
+                    {
+                        //om if-satsen ovan stämmer så ska mellanslagen splittas från product
+                        string[] partsOfProduct = product.Split(' ');
+
+                        //här kollar if-satsen om längden på produkten är det korrekta (4st efter split)
+                        if (partsOfProduct.Length == 4)
+                        {
+                            //tilldelar tredje delen efter split att det är priset på produkten
+                            int priceOfProduct = int.Parse(partsOfProduct[3]);
+                            //uträkning för produktens pris * antalet
+                            int totalPrice = priceOfProduct * quantityOfProducts;
+                            //lägger till alla delar av products in i strängen productToAdd
+                            string productToAdd = ($"{partsOfProduct[0]} {partsOfProduct[1]} {quantityOfProducts} {partsOfProduct[2]} {totalPrice}");
+                            //compound operator
+                            receipt += productToAdd + "\n";
+                            Console.WriteLine("Produkt tillagd till kvittot.");
+                            return;
+                        }
+                    }
+                }
+                Console.WriteLine("Produkten fanns inte, eller så angav du ogiltigt produktID");
             }
 
+            //metod för att spara kvittot
+            static void SaveAndDisplayReceipt(string receipt)
+            {
+                File.WriteAllText("../../../Receipt", receipt);
+                Console.WriteLine("\n Kvittot har sparats ned!");
+                Console.WriteLine(receipt);
+            }
 
         }
     }
