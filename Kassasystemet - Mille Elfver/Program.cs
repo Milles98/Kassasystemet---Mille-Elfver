@@ -72,12 +72,15 @@ namespace Kassasystemet___Mille_Elfver
 
                             //startar "kvitto" innehållet
                             string receipt = "";
+                            //visar alla produkter
+                            DisplayTheProducts();
 
                             while (true)
                             {
                                 Console.WriteLine("<productid> <antal>");
                                 string userInput = Console.ReadLine().Trim();
 
+                                //om användaren skriver pay:
                                 if (userInput.Equals("PAY", StringComparison.OrdinalIgnoreCase))
                                 {
                                     //sparar kvittot och visar det
@@ -143,62 +146,43 @@ namespace Kassasystemet___Mille_Elfver
             //metod som lägger till produkterna till kvittot
             static void AddProductsToReceipt(string productId, int quantityOfProducts, ref string receipt)
             {
-                //läser av existerande produkter om filen redan finns
-                string products = File.Exists("../../../Kvitto.txt") ? File.ReadAllText("../../../Kvitto.txt") : "";
-
-                //splittar upp products metoden till enskilda rader efter \n
-                string[] productLines = products.Split('\n');
-
-                //för varje produktrad i produkterna
-                foreach (string product in productLines)
+                if (availableProducts.TryGetValue(productId, out Product selectedProduct))
                 {
-                    //om produkten börjar med ett produktid ska detta göras
-                    if (product.StartsWith(productId))
-                    {
-                        //om if-satsen ovan stämmer så ska mellanslagen splittas från product
-                        string[] partsOfProduct = product.Split(' ');
-
-                        //här kollar if-satsen om längden på produkten är det korrekta (4st efter split)
-                        if (partsOfProduct.Length == 4)
-                        {
-                            //tilldelar tredje delen efter split att det är priset på produkten
-                            int priceOfProduct = int.Parse(partsOfProduct[3]);
-                            //uträkning för produktens pris * antalet
-                            int totalPrice = priceOfProduct * quantityOfProducts;
-                            //lägger till alla delar av products in i strängen productToAdd
-                            string productToAdd = ($"{partsOfProduct[0]} {partsOfProduct[1]} {quantityOfProducts} {partsOfProduct[2]} {totalPrice}");
-                            //compound operator
-                            receipt += productToAdd + "\n";
-                            Console.WriteLine("Produkt tillagd till kvittot.");
-                            return;
-                        }
-                    }
+                    int totalPrice = selectedProduct.Price * quantityOfProducts;
+                    string productToAdd = $"{productId} {selectedProduct.Name} {quantityOfProducts} {selectedProduct.PriceType} {totalPrice}";
+                    receipt += productToAdd + "\n";
+                    Console.WriteLine("Product added to the receipt.");
                 }
-                Console.WriteLine("Produkten fanns inte, eller så angav du ogiltigt produktID");
+                else
+                {
+                    Console.WriteLine("Product not found or invalid input.");
+                }
             }
-
-            //metod för att spara kvittot
-            static void SaveAndDisplayReceipt(string receipt)
-            {
-                File.WriteAllText("../../../Receipt", receipt);
-                Console.WriteLine("\n Kvittot har sparats ned!");
-                Console.WriteLine(receipt);
-            }
-
+            Console.WriteLine("Produkten fanns inte, eller så angav du ogiltigt produktID");
         }
 
-        class Product
+        //metod för att spara kvittot
+        static void SaveAndDisplayReceipt(string receipt)
         {
-            public string Name { get; set; }
-            public int Price { get; set; }
-            public string PriceType { get; set; }
+            File.WriteAllText("../../../Receipt", receipt);
+            Console.WriteLine("\n Kvittot har sparats ned!");
+            Console.WriteLine(receipt);
+        }
 
-            public Product(string name, int price, string priceType)
-            {
-                Name = name;
-                Price = price;
-                PriceType = priceType;
-            }
+    }
+
+    class Product
+    {
+        public string Name { get; set; }
+        public int Price { get; set; }
+        public string PriceType { get; set; }
+
+        public Product(string name, int price, string priceType)
+        {
+            Name = name;
+            Price = price;
+            PriceType = priceType;
         }
     }
+
 }
