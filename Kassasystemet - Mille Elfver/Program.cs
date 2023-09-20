@@ -71,8 +71,6 @@ namespace Kassasystemet___Mille_Elfver
 
                             string receipt = NewSale();
 
-                            //här ska kvittot visas efter att produkter med sitt id lagts in
-
                             Console.ReadKey();
                             break;
 
