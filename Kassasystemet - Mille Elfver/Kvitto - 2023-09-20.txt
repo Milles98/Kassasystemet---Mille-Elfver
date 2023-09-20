@@ -4,4 +4,10 @@ KVITTO 2023-09-20 18:55:07
 302 Citron 2 Styckpris 11,00
 305 Choklad 6 Styckpris 137,40
 
-Total: 0 KR 
+Total: 0 KR KVITTO 2023-09-20 19:00:18
+
+301 Nutella 1 Styckpris 21,90
+305 Choklad 6 Styckpris 137,40
+308 Tomater 5 Styckpris 249,50
+
+Total: 408,80 KR 

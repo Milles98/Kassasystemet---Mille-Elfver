@@ -225,15 +225,16 @@ namespace Kassasystemet___Mille_Elfver
             Console.WriteLine(receiptWithDateandTotalAmount);
         }
 
-        //metod som räknar ut totalen som jag sen lägger in på kvittot
+        //metod som räknar ut totalen på alla produkter som jag sen lägger in på kvittot
         static decimal CalculateTotalAmount(string receipt)
         {
             //splittar kvittot till individuella rader
             string[] linesInReceipt = receipt.Split('\n');
 
+            //tilldelar variabeln totalAmount 0, så fylls den på nedan sen
             decimal totalAmount = 0m;
 
-            //foreach loop som kollar inuti varje rad
+            //foreach loop som kollar inuti varje rad 
             foreach (string line in linesInReceipt)
             {
                 //splittar varje rad till enskilda delar
