@@ -71,14 +71,13 @@ namespace Kassasystemet___Mille_Elfver
                             Console.WriteLine("KASSA");
                             //här ska kvittot visas efter att produkter med sitt id lagts in
 
-                            //startar "kvitto" innehållet
+                            //deklarerar variabeln receipt som sedan kommer tilldelas info från SaveAndDisplayReceipt
                             string receipt = "";
 
                             while (true)
                             {
                                 Console.WriteLine("Kommandon:");
-                                Console.WriteLine("<productid> <antal>");
-                                Console.WriteLine("PAY");
+                                Console.WriteLine("<productid> <antal> <PAY>");
                                 Console.Write("Kommando: ");
                                 string userInput = Console.ReadLine().Trim();
 
@@ -133,8 +132,6 @@ namespace Kassasystemet___Mille_Elfver
             } while (programRunning == true);
 
 
-            //Seeding med file io
-
             //metod som visar alla tillgängliga produkter
             static void DisplayTheProducts()
             {
@@ -160,6 +157,9 @@ namespace Kassasystemet___Mille_Elfver
                         int totalPrice = selectedProduct.Price * quantityOfProducts;
                         string productToAdd = $"{productId} {selectedProduct.Name} {quantityOfProducts} {selectedProduct.PriceType} {totalPrice}";
                         receipt += productToAdd + "\n";
+
+                        //Rensar konsolen inför nästa produkt som läggs in
+                        Console.Clear();
                         Console.WriteLine($"{quantityOfProducts} {selectedProduct.Name} har lagts till på kvittot.");
                     }
                 }
