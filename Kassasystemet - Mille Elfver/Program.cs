@@ -27,6 +27,59 @@
             //6. file IO igen
             //7. ett meddelande (vad användaren gjort) sedan går tbx till 1 eller avslutar
 
+
+            bool programRunning = true;
+            do
+            {
+                try
+                {
+                    int val;
+
+                    //Menylista för kassasystemet 
+                    Console.Clear();
+                    Console.WriteLine("KASSA");
+                    Console.WriteLine("1. Ny kund");
+                    Console.WriteLine("0. Avsluta");
+                    Console.Write("Svar: ");
+
+                    val = Convert.ToInt32(Console.ReadLine());
+                    switch (val)
+                    {
+                        case 1:
+                            //Kassan startas med ny försäljning
+                            Console.Clear();
+                            Console.WriteLine("KASSA");
+                            //här ska kvittot visas efter att produkter med sitt id lagts in
+
+                            AddProducts();
+                            DisplayKvittot();
+
+                            Console.ReadKey();
+                            break;
+
+                        case 0:
+                            Console.WriteLine("Tryck valfri knapp för att avsluta programmet.");
+                            programRunning = false;
+                            Console.ReadKey();
+                            break;
+                    }
+                }
+
+                catch (FormatException)
+                {
+                    Console.WriteLine("Ogiltig inmatning, tryck valfri knapp för att återgå till menyn");
+                    Console.ReadKey();
+                }
+            } while (programRunning == true);
+
+            //Metod för att visa kvittot
+            static void DisplayKvittot()
+            {
+                string everythingInsideKvitto = File.ReadAllText("../../../Kvitto.txt");
+                Console.WriteLine("Kvittots innehåll: ");
+                Console.WriteLine(everythingInsideKvitto);
+            }
+
             //Seeding med file io
             static void AddProducts()
             {
@@ -92,53 +145,6 @@
 
                 //File.WriteAllText("../../../Kvitto.txt", products);
             }
-
-
-            bool programRunning = true;
-            do
-            {
-                try
-                {
-                    int val;
-
-                    //Menylista för kassasystemet 
-                    Console.Clear();
-                    Console.WriteLine("KASSA");
-                    Console.WriteLine("1. Ny kund");
-                    Console.WriteLine("0. Avsluta");
-                    Console.Write("Svar: ");
-
-                    val = Convert.ToInt32(Console.ReadLine());
-                    switch (val)
-                    {
-                        case 1:
-                            //Kassan startas med ny försäljning
-                            Console.Clear();
-                            Console.WriteLine("KASSA");
-                            //här ska kvittot visas efter att produkter med sitt id lagts in
-
-                            AddProducts();
-
-                            Console.ReadKey();
-                            break;
-
-                        case 0:
-                            Console.WriteLine("Tryck valfri knapp för att avsluta programmet.");
-                            programRunning = false;
-                            Console.ReadKey();
-                            break;
-                    }
-                }
-
-                catch (FormatException)
-                {
-                    Console.WriteLine("Ogiltig inmatning, tryck valfri knapp för att återgå till menyn");
-                    Console.ReadKey();
-                }
-            } while (programRunning == true);
-
-
-
 
 
 
