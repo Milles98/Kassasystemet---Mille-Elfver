@@ -94,7 +94,9 @@ namespace Kassasystemet___Mille_Elfver
 
                                 if (productParts.Length != 2)
                                 {
-                                    Console.WriteLine("Det här valet fanns inte, försök igen (exempelvis 300 1 för en banan)");
+                                    Console.Clear();
+                                    Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
+                                    DisplayTheProducts();
                                     continue;
                                 }
 
@@ -138,7 +140,7 @@ namespace Kassasystemet___Mille_Elfver
                 Console.WriteLine("Tillgängliga produkter:");
                 foreach (var product in availableProducts)
                 {
-                    Console.WriteLine($"{product.Key}: {product.Value.Name} ({product.Value.Price} {product.Value.PriceType})");
+                    Console.WriteLine($"{product.Key}: {product.Value.Name} ({product.Value.Price} {product.Value.PriceType})\n");
                 }
             }
 
