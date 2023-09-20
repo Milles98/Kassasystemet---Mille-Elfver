@@ -120,6 +120,7 @@ namespace Kassasystemet___Mille_Elfver
                     if (userInput.Equals("ITEMS", StringComparison.OrdinalIgnoreCase))
                     {
                         //Skriver ut listan på alla produkter
+                        Console.Clear();
                         Console.WriteLine("Här är en lista för de produkter som finns:\n");
                         DisplayTheProducts();
                         continue;
