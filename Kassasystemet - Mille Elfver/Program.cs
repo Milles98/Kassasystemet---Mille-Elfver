@@ -86,6 +86,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 catch (FormatException)
                 {
+                    Console.Clear();
                     Console.WriteLine("Ogiltig inmatning, tryck valfri knapp för att återgå till menyn");
                     Console.ReadKey();
                 }
@@ -207,7 +208,7 @@ namespace Kassasystemet___Mille_Elfver
             string receiptWithDateandTotalAmount = $"KVITTO {formattedDate}\n\n{receipt}\nTotal: {totalAmount} KR ";
 
             //sparar ned kvittot
-            File.WriteAllText("../../../Receipt", receiptWithDateandTotalAmount);
+            File.WriteAllText("../../../Kvitto.txt", receiptWithDateandTotalAmount);
             Console.WriteLine(receiptWithDateandTotalAmount);
         }
 
@@ -225,6 +226,7 @@ namespace Kassasystemet___Mille_Elfver
                 //splittar varje rad till enskilda delar
                 string[] partsInReceipt = line.Split(' ');
 
+                //om raden är större än eller lika med 4, plussa på priset på totalen
                 if (partsInReceipt.Length >= 5)
                 {
                     if (int.TryParse(partsInReceipt[partsInReceipt.Length - 1], out int totalPrice))
