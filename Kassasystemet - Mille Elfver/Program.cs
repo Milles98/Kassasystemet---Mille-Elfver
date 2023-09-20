@@ -151,14 +151,13 @@ namespace Kassasystemet___Mille_Elfver
                     int totalPrice = selectedProduct.Price * quantityOfProducts;
                     string productToAdd = $"{productId} {selectedProduct.Name} {quantityOfProducts} {selectedProduct.PriceType} {totalPrice}";
                     receipt += productToAdd + "\n";
-                    Console.WriteLine("Product added to the receipt.");
+                    Console.WriteLine($"{quantityOfProducts} {selectedProduct.Name}(s) har lagts till på kvittot.");
                 }
                 else
                 {
-                    Console.WriteLine("Product not found or invalid input.");
+                    Console.WriteLine("Produkt finns ej eller fel inmatning");
                 }
             }
-            Console.WriteLine("Produkten fanns inte, eller så angav du ogiltigt produktID");
         }
 
         //metod för att spara kvittot
