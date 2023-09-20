@@ -206,6 +206,7 @@ namespace Kassasystemet___Mille_Elfver
             string receiptWithDateandTotalAmount = $"KVITTO {formattedDate}\n\n{receipt}\nTotal: {totalAmount} KR ";
 
             //sparar ned kvittot
+            //TODO Skapa en AppendAllLines eller liknande så att det läggs till på kvittot (inte byter ut det som skrevs in innan)
             File.WriteAllText("../../../Kvitto.txt", receiptWithDateandTotalAmount);
             Console.WriteLine(receiptWithDateandTotalAmount);
         }
