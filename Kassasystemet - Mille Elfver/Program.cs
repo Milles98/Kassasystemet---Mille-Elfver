@@ -157,7 +157,7 @@ namespace Kassasystemet___Mille_Elfver
                         int totalPrice = selectedProduct.Price * quantityOfProducts;
                         string productToAdd = $"{productId} {selectedProduct.Name} {quantityOfProducts} {selectedProduct.PriceType} {totalPrice}";
                         receipt += productToAdd + "\n";
-                        Console.WriteLine($"{quantityOfProducts} {selectedProduct.Name}(s) har lagts till på kvittot.");
+                        Console.WriteLine($"{quantityOfProducts} {selectedProduct.Name} har lagts till på kvittot.");
                     }
                 }
                 else
@@ -170,9 +170,18 @@ namespace Kassasystemet___Mille_Elfver
         //metod för att spara kvittot
         static void SaveAndDisplayReceipt(string receipt)
         {
-            File.WriteAllText("../../../Receipt", receipt);
-            Console.WriteLine("\n Kvittot har sparats ned!");
-            Console.WriteLine(receipt);
+            //får fram nuvarande tid
+            DateTime dateTime = DateTime.Now;
+
+            //formatterar datum och tid till en sträng
+            string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+            //lägger till datumet på kvittot
+            string receiptWithDate = $"KVITTO {formattedDate}\n{receipt}";
+
+            //sparar ned kvittot
+            File.WriteAllText("../../../Receipt", receiptWithDate);
+            Console.WriteLine(receiptWithDate);
         }
 
     }
