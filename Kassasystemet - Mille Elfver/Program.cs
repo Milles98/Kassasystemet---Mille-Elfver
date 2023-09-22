@@ -44,29 +44,28 @@ namespace Kassasystemet___Mille_Elfver
             { "310", new Product("Godis", 99.50m, "st kostnad:") }
         };
 
-
         static void Main(string[] args)
         {
+
             MainMenu();
 
+            //en metod för menyn
             static void MainMenu()
             {
                 bool programRunning = true;
                 do
                 {
-                    try
+                    //Menylista för kassasystemet 
+                    Console.Clear();
+                    Console.WriteLine("KASSA");
+                    Console.WriteLine("1. Ny kund");
+                    Console.WriteLine("0. Avsluta");
+                    Console.Write("Svar: ");
+
+                    int val;
+                    string userInput = Console.ReadLine();
+                    if (int.TryParse(userInput, out val) && val >= 0 && val <= 1) //try parse istället för try catch
                     {
-                        int val;
-
-                        //Menylista för kassasystemet 
-                        Console.Clear();
-                        Console.WriteLine("KASSA");
-                        Console.WriteLine("1. Ny kund");
-                        Console.WriteLine("0. Avsluta");
-                        Console.Write("Svar: ");
-
-                        val = Convert.ToInt32(Console.ReadLine());
-
                         switch (val)
                         {
                             case 1:
@@ -86,13 +85,13 @@ namespace Kassasystemet___Mille_Elfver
                                 break;
                         }
                     }
-
-                    catch (FormatException)
+                    else
                     {
                         Console.Clear();
-                        Console.WriteLine("Ogiltig inmatning, tryck valfri knapp för att återgå till menyn");
-                        Console.ReadKey();
+                        Console.WriteLine("Ogiltig inmatning, tryck valfri knapp för att återgå till menyn och välj '1' eller '0'");
                     }
+                    Console.ReadKey();
+
                 } while (programRunning == true);
             }
 
@@ -257,6 +256,5 @@ namespace Kassasystemet___Mille_Elfver
         }
 
     }
-
 
 }
