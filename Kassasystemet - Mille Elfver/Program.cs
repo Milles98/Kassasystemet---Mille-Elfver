@@ -246,18 +246,5 @@ namespace Kassasystemet___Mille_Elfver
 
     }
 
-    class Product
-    {
-        public string Name { get; set; }
-        public decimal UnitPrice { get; set; }
-        public string PriceType { get; set; }
-
-        public Product(string name, decimal unitPrice, string priceType)
-        {
-            Name = name;
-            UnitPrice = unitPrice;
-            PriceType = priceType;
-        }
-    }
 
 }

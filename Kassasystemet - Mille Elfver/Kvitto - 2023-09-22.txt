@@ -80,3 +80,21 @@ KVITTO 2023-09-22 10:31:53
 302 Citron 5 st kostnad: 27,50
 
 Total: 127,00 KR
+KVITTO 2023-09-22 11:20:10
+
+300 Bananer 1 st kostnad: 15,50
+301 Nutella 1 st kostnad: 21,90
+302 Citron 1 st kostnad: 5,50
+303 Jordgubbar 1 st kostnad: 39,90
+304 Grädde 1 st kostnad: 24,90
+305 Choklad 1 st kostnad: 22,90
+
+Total: 130,60 KR
+KVITTO 2023-09-22 11:30:08
+
+301 Nutella 1 st kostnad: 21,90
+302 Citron 55 st kostnad: 302,50
+306 Apelsiner 4 st kostnad: 40
+308 Tomater 2 st kostnad: 99,80
+
+Total: 464,20 KR
