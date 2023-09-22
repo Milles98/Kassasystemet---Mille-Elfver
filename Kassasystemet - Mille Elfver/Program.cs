@@ -47,49 +47,54 @@ namespace Kassasystemet___Mille_Elfver
 
         static void Main(string[] args)
         {
-            bool programRunning = true;
-            do
+            MainMenu();
+
+            static void MainMenu()
             {
-                try
+                bool programRunning = true;
+                do
                 {
-                    int val;
-
-                    //Menylista för kassasystemet 
-                    Console.Clear();
-                    Console.WriteLine("KASSA");
-                    Console.WriteLine("1. Ny kund");
-                    Console.WriteLine("0. Avsluta");
-                    Console.Write("Svar: ");
-
-                    val = Convert.ToInt32(Console.ReadLine());
-
-                    switch (val)
+                    try
                     {
-                        case 1:
-                            //Kassan startas med ny försäljning
-                            Console.Clear();
-                            Console.WriteLine("KASSA");
+                        int val;
 
-                            string receipt = NewSale();
+                        //Menylista för kassasystemet 
+                        Console.Clear();
+                        Console.WriteLine("KASSA");
+                        Console.WriteLine("1. Ny kund");
+                        Console.WriteLine("0. Avsluta");
+                        Console.Write("Svar: ");
 
-                            Console.ReadKey();
-                            break;
+                        val = Convert.ToInt32(Console.ReadLine());
 
-                        case 0:
-                            Console.WriteLine("Tryck valfri knapp för att avsluta programmet.");
-                            programRunning = false;
-                            Console.ReadKey();
-                            break;
+                        switch (val)
+                        {
+                            case 1:
+                                //Kassan startas med ny försäljning
+                                Console.Clear();
+                                Console.WriteLine("KASSA");
+
+                                string receipt = NewSale();
+
+                                Console.ReadKey();
+                                break;
+
+                            case 0:
+                                Console.WriteLine("Tryck valfri knapp för att avsluta programmet.");
+                                programRunning = false;
+                                Console.ReadKey();
+                                break;
+                        }
                     }
-                }
 
-                catch (FormatException)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Ogiltig inmatning, tryck valfri knapp för att återgå till menyn");
-                    Console.ReadKey();
-                }
-            } while (programRunning == true);
+                    catch (FormatException)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Ogiltig inmatning, tryck valfri knapp för att återgå till menyn");
+                        Console.ReadKey();
+                    }
+                } while (programRunning == true);
+            }
 
             //en metod för ny försäljning
             static string NewSale()
@@ -100,7 +105,7 @@ namespace Kassasystemet___Mille_Elfver
                 while (true)
                 {
                     Console.WriteLine("Kommandon:");
-                    Console.WriteLine("<productid> <antal> <PAY> <ITEMS>");
+                    Console.WriteLine("<productid> <antal> <PAY> <ITEMS> <MENU>");
                     Console.Write("Kommando: ");
                     string userInput = Console.ReadLine().Trim();
 
@@ -122,9 +127,15 @@ namespace Kassasystemet___Mille_Elfver
                         continue;
                     }
 
+                    if (userInput.Equals("MENU", StringComparison.OrdinalIgnoreCase))
+                    {
+                        MainMenu();
+                    }
+
                     //split för produktid och antal
                     string[] productParts = userInput.Split(' ');
 
+                    //felhantering om längden inte är 2 (ex 300 1)
                     if (productParts.Length != 2)
                     {
                         Console.Clear();
@@ -139,8 +150,8 @@ namespace Kassasystemet___Mille_Elfver
                     //Felhantering om användaren inte börjar sin inmatning med produktID
                     if (!int.TryParse(productParts[1], out quantityOfProducts))
                     {
-                        Console.Clear();
-                        Console.WriteLine("Ogiltigt val, försök igen");
+                        Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
+                        DisplayTheProducts();
                         continue;
                     }
 
@@ -185,7 +196,8 @@ namespace Kassasystemet___Mille_Elfver
                 }
                 else
                 {
-                    Console.WriteLine("Produkt finns ej eller fel inmatning, försök igen.");
+                    Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
+                    DisplayTheProducts();
                 }
             }
         }
