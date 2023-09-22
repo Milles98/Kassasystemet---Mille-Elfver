@@ -1,13 +1,36 @@
-KVITTO 2023-09-20 18:55:07
+KVITTO 2023-09-20 19:14:03
 
+300 Bananer 1 Styckpris 15,50
 301 Nutella 1 Styckpris 21,90
-302 Citron 2 Styckpris 11,00
-305 Choklad 6 Styckpris 137,40
+302 Citron 1 Styckpris 5,50
+303 Jordgubbar 1 Styckpris 39,90
+303 Jordgubbar 1 Styckpris 39,90
+304 Grädde 1 Styckpris 24,90
+305 Choklad 1 Styckpris 22,90
 
-Total: 0 KR KVITTO 2023-09-20 19:00:18
+Total: 170,50 KR
+KVITTO 2023-09-20 19:14:58
 
+300 Bananer 1 Styckpris 15,50
 301 Nutella 1 Styckpris 21,90
-305 Choklad 6 Styckpris 137,40
-308 Tomater 5 Styckpris 249,50
+302 Citron 1 Styckpris 5,50
+303 Jordgubbar 1 Styckpris 39,90
+304 Grädde 1 Styckpris 24,90
+305 Choklad 1 Styckpris 22,90
+306 Apelsiner 1 Styckpris 10
+307 Mango 1 Styckpris 20
+308 Tomater 1 Styckpris 49,90
+309 Kött 1 Styckpris 229,90
+310 Godis 1 Styckpris 99,50
+305 Choklad 50 Styckpris 1145,00
 
-Total: 408,80 KR 
+Total: 1684,90 KR
+KVITTO 2023-09-20 19:39:56
+
+300 Bananer 5 Styckpris 77,50
+310 Godis 1 Styckpris 99,50
+307 Mango 3 Styckpris 60
+303 Jordgubbar 1 Styckpris 39,90
+302 Citron 1 Styckpris 5,50
+
+Total: 282,40 KR

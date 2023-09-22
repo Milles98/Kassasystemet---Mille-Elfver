@@ -31,17 +31,17 @@ namespace Kassasystemet___Mille_Elfver
         //skapat en dictionary med alla produkter och kodnamn
         static Dictionary<string, Product> availableProducts = new Dictionary<string, Product>
         {
-            { "300", new Product("Bananer", 15.50m, "Styckpris") },
-            { "301", new Product("Nutella", 21.90m, "Styckpris") },
-            { "302", new Product("Citron", 5.50m, "Styckpris") },
-            { "303", new Product("Jordgubbar", 39.90m, "Styckpris") },
-            { "304", new Product("Grädde", 24.90m, "Styckpris") },
-            { "305", new Product("Choklad", 22.90m, "Styckpris") },
-            { "306", new Product("Apelsiner", 10, "Styckpris") },
-            { "307", new Product("Mango", 20, "Styckpris") },
-            { "308", new Product("Tomater", 49.90m, "Styckpris") },
-            { "309", new Product("Kött", 229.90m, "Styckpris") },
-            { "310", new Product("Godis", 99.50m, "Styckpris") }
+            { "300", new Product("Bananer", 15.50m, "st kostnad:") },
+            { "301", new Product("Nutella", 21.90m, "st kostnad:") },
+            { "302", new Product("Citron", 5.50m, "st kostnad:") },
+            { "303", new Product("Jordgubbar", 39.90m, "st kostnad:") },
+            { "304", new Product("Grädde", 24.90m, "st kostnad:") },
+            { "305", new Product("Choklad", 22.90m, "st kostnad:") },
+            { "306", new Product("Apelsiner", 10, "st kostnad:") },
+            { "307", new Product("Mango", 20, "st kostnad:") },
+            { "308", new Product("Tomater", 49.90m, "st kostnad:") },
+            { "309", new Product("Kött", 229.90m, "st kostnad:") },
+            { "310", new Product("Godis", 99.50m, "st kostnad:") }
         };
 
 
@@ -109,15 +109,15 @@ namespace Kassasystemet___Mille_Elfver
                     {
                         //sparar kvittot och visar det
                         SaveAndDisplayReceipt(receipt);
+                        Console.WriteLine("\nKöpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
                         break;
                     }
 
-                    //om användaren skriver items, string comparison så att användaren kan skriva items eller ITEMS
+                    //om användaren skriver items, string comparison så att användaren kan skriva items hur den vill 
                     if (userInput.Equals("ITEMS", StringComparison.OrdinalIgnoreCase))
                     {
                         //Skriver ut listan på alla produkter
                         Console.Clear();
-                        Console.WriteLine("Här är en lista för de produkter som finns:\n");
                         DisplayTheProducts();
                         continue;
                     }
@@ -139,6 +139,7 @@ namespace Kassasystemet___Mille_Elfver
                     //Felhantering om användaren inte börjar sin inmatning med produktID
                     if (!int.TryParse(productParts[1], out quantityOfProducts))
                     {
+                        Console.Clear();
                         Console.WriteLine("Ogiltigt val, försök igen");
                         continue;
                     }
@@ -148,7 +149,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 }
 
-                //return statement om while loopen inte användas
+                //return receipt om while loopen inte används
                 return receipt;
             }
 
@@ -158,7 +159,7 @@ namespace Kassasystemet___Mille_Elfver
                 Console.WriteLine("Tillgängliga produkter:");
                 foreach (var product in availableProducts)
                 {
-                    Console.WriteLine($"{product.Key}: {product.Value.Name} ({product.Value.Price} {product.Value.PriceType})\n");
+                    Console.WriteLine($"{product.Key}: {product.Value.Name} ({product.Value.UnitPrice} {product.Value.PriceType})\n");
                 }
             }
 
@@ -174,18 +175,17 @@ namespace Kassasystemet___Mille_Elfver
                     }
                     else
                     {
-                        decimal totalPrice = selectedProduct.Price * quantityOfProducts;
+                        decimal totalPrice = selectedProduct.UnitPrice * quantityOfProducts;
                         string productToAdd = $"{productId} {selectedProduct.Name} {quantityOfProducts} {selectedProduct.PriceType} {totalPrice}";
                         receipt += productToAdd + "\n";
 
-                        //Rensar konsolen inför nästa produkt som läggs in
-                        Console.Clear();
-                        Console.WriteLine($"{quantityOfProducts} {selectedProduct.Name} har lagts till på kvittot.");
+                        //Skriver ut vad som lagts till i kassan
+                        Console.WriteLine($"Produkt: {selectedProduct.Name}, {quantityOfProducts} st, totalt pris: {totalPrice} kr har lagts till på kvittot.");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Produkt finns ej eller fel inmatning");
+                    Console.WriteLine("Produkt finns ej eller fel inmatning, försök igen.");
                 }
             }
         }
@@ -197,18 +197,17 @@ namespace Kassasystemet___Mille_Elfver
             //räknar ut totalen av allt som lagts in på kvittot och visar det
             decimal totalAmount = CalculateTotalAmount(receipt);
 
-            //får fram nuvarande tid
+            //får fram nuvarande tid till innehållet i kvittots textfil
             DateTime dateTime = DateTime.Now;
 
-            //datum till kvittot när det skrivs ut (text filen)
+            //datum till kvittot när det skrivs ut (i textfilens rubrik) 
             var date = DateTime.Now.ToShortDateString();
 
             //formatterar datum och tid till en sträng
             string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
             //lägger till datumet och total summan på kvittot:
-            Console.WriteLine();
-            string receiptWithDateandTotalAmount = $"KVITTO {formattedDate}\n\n{receipt}\nTotal: {totalAmount} KR ";
+            string receiptWithDateandTotalAmount = $"\nKVITTO {formattedDate}\n\n{receipt}\nTotal: {totalAmount} KR";
 
             //filnamn för kvittot med kvittonummer och datum
             string fileName = $"Kvitto - {date}.txt";
@@ -250,13 +249,13 @@ namespace Kassasystemet___Mille_Elfver
     class Product
     {
         public string Name { get; set; }
-        public decimal Price { get; set; } //decimal för priserna
+        public decimal UnitPrice { get; set; }
         public string PriceType { get; set; }
 
-        public Product(string name, decimal price, string priceType)
+        public Product(string name, decimal unitPrice, string priceType)
         {
             Name = name;
-            Price = price;
+            UnitPrice = unitPrice;
             PriceType = priceType;
         }
     }

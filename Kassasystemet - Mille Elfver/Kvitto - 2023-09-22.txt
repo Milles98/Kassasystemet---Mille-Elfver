@@ -1,0 +1,82 @@
+
+KVITTO 2023-09-22 09:43:14
+
+301 Nutella 1 Styckpris 21,90
+302 Citron 3 Styckpris 16,50
+
+Total: 38,40 KR
+KVITTO 2023-09-22 09:44:01
+
+301 Nutella 1 Styckpris 21,90
+
+Total: 21,90 KR
+KVITTO 2023-09-22 10:07:09
+
+
+Total: 0 KR
+KVITTO 2023-09-22 10:07:57
+
+
+Total: 0 KR
+KVITTO 2023-09-22 10:11:23
+
+300 Bananer 5 kr Styckpris 77,50
+310 Godis 1 kr Styckpris 99,50
+306 Apelsiner 5 kr Styckpris 50
+
+Total: 227,00 KR
+KVITTO 2023-09-22 10:13:10
+
+301 Nutella 1 kr Styckpris 21,90
+305 Choklad 5 kr Styckpris 114,50
+
+Total: 136,40 KR
+KVITTO 2023-09-22 10:13:49
+
+300 Bananer 1 kr Styckpris 15,50
+302 Citron 5 kr Styckpris 27,50
+
+Total: 43,00 KR
+KVITTO 2023-09-22 10:14:50
+
+300 Bananer 1 kr Styckpris 15,50
+
+Total: 15,50 KRKVITTO 2023-09-22 10:15:10
+
+300 Bananer 1 kr Styckpris 15,50
+
+Total: 15,50 KR
+KVITTO 2023-09-22 10:22:09
+
+301 Nutella 1 kr Styckpris 21,90
+302 Citron 2 kr Styckpris 11,00
+305 Choklad 50 kr Styckpris 1145,00
+
+Total: 1177,90 KR
+KVITTO 2023-09-22 10:28:17
+
+301 Nutella 1 kr Styckpris 21,90
+305 Choklad 55 kr Styckpris 1259,50
+
+Total: 1281,40 KR
+KVITTO 2023-09-22 10:29:07
+
+301 Nutella 1 st Styckpris 21,90
+
+Total: 21,90 KR
+KVITTO 2023-09-22 10:30:11
+
+302 Citron 1 per enhet Styckpris 5,50
+
+Total: 5,50 KR
+KVITTO 2023-09-22 10:31:10
+
+305 Choklad 4 st kostnad:  91,60
+
+Total: 91,60 KR
+KVITTO 2023-09-22 10:31:53
+
+310 Godis 1 st kostnad: 99,50
+302 Citron 5 st kostnad: 27,50
+
+Total: 127,00 KR
