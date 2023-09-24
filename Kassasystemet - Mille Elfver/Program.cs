@@ -217,8 +217,11 @@ namespace Kassasystemet___Mille_Elfver
             //formatterar datum och tid till en sträng
             string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
+            //denna gör så att 40 chars av - läggs på kvittot så att det blir lättare att skilja åt
+            string receiptSeparator = new string('-', 40);
+
             //lägger till datumet och total summan på kvittot:
-            string receiptWithDateandTotalAmount = $"\nKVITTO {formattedDate}\n\n{receipt}\nTotal: {totalAmount} KR";
+            string receiptWithDateandTotalAmount = $"\n{receiptSeparator}\nKVITTO {formattedDate}\n\n{receipt}\nTotal: {totalAmount} KR\n{receiptSeparator}";
 
             //filnamn för kvittot med kvittonummer och datum
             string fileName = $"Kvitto - {date}.txt";
@@ -231,16 +234,16 @@ namespace Kassasystemet___Mille_Elfver
         //metod som räknar ut totalen på alla produkter som jag sen lägger in på kvittot
         static decimal CalculateTotalAmount(string receipt)
         {
-            //splittar kvittot till individuella rader
+            //splittar produkterna i kvittot till individuella rader
             string[] linesInReceipt = receipt.Split('\n');
 
-            //tilldelar variabeln totalAmount 0, så fylls den på nedan sen
+            //tilldelar variabeln totalAmount 0, så fylls den på nedan
             decimal totalAmount = 0m;
 
             //foreach loop som kollar inuti varje rad 
             foreach (string line in linesInReceipt)
             {
-                //splittar varje rad till enskilda delar
+                //splittar innehållet i varje rad till enskilda delar
                 string[] partsInReceipt = line.Split(' ');
 
                 //om raden är större än eller lika med 4, plussa på priset på totalen

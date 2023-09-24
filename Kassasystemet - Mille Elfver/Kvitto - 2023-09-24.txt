@@ -1,0 +1,35 @@
+
+----------------------------------------
+KVITTO 2023-09-24 10:53:48
+
+300 Bananer 1 st kostnad: 15,50
+301 Nutella 1 st kostnad: 21,90
+302 Citron 1 st kostnad: 5,50
+303 Jordgubbar 1 st kostnad: 39,90
+304 Grädde 1 st kostnad: 24,90
+305 Choklad 1 st kostnad: 22,90
+306 Apelsiner 1 st kostnad: 10
+307 Mango 1 st kostnad: 20
+308 Tomater 1 st kostnad: 49,90
+309 Kött 1 st kostnad: 229,90
+310 Godis 1 st kostnad: 99,50
+
+Total: 539,90 KR
+----------------------------------------
+----------------------------------------
+KVITTO 2023-09-24 10:54:29
+
+300 Bananer 1 st kostnad: 15,50
+301 Nutella 1 st kostnad: 21,90
+302 Citron 1 st kostnad: 5,50
+303 Jordgubbar 1 st kostnad: 39,90
+304 Grädde 1 st kostnad: 24,90
+305 Choklad 1 st kostnad: 22,90
+306 Apelsiner 1 st kostnad: 10
+307 Mango 1 st kostnad: 20
+308 Tomater 1 st kostnad: 49,90
+309 Kött 1 st kostnad: 229,90
+310 Godis 1 st kostnad: 99,50
+
+Total: 539,90 KR
+----------------------------------------
