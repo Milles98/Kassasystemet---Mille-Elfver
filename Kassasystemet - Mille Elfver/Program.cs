@@ -186,8 +186,8 @@ namespace Kassasystemet___Mille_Elfver
                     else
                     {
                         decimal totalPrice = selectedProduct.UnitPrice * quantityOfProducts;
-                        //{productId} borttaget efter $" ", nu syns inte produktID på kvittot
-                        string productToAdd = $"{selectedProduct.Name} {quantityOfProducts} {selectedProduct.PriceType} {totalPrice}";
+                        //denna del läggs på kvittot i följd "produktnamn - antal produkter * priset = totalen
+                        string productToAdd = $"{selectedProduct.Name} - {quantityOfProducts}st * {selectedProduct.UnitPrice} = {totalPrice}";
                         receipt += productToAdd + "\n";
 
                         //Skriver ut vad som lagts till i kassan
