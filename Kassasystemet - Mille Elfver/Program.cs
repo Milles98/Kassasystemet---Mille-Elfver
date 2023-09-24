@@ -186,7 +186,8 @@ namespace Kassasystemet___Mille_Elfver
                     else
                     {
                         decimal totalPrice = selectedProduct.UnitPrice * quantityOfProducts;
-                        string productToAdd = $"{productId} {selectedProduct.Name} {quantityOfProducts} {selectedProduct.PriceType} {totalPrice}";
+                        //{productId} borttaget efter $" ", nu syns inte produktID på kvittot
+                        string productToAdd = $"{selectedProduct.Name} {quantityOfProducts} {selectedProduct.PriceType} {totalPrice}";
                         receipt += productToAdd + "\n";
 
                         //Skriver ut vad som lagts till i kassan
@@ -228,6 +229,7 @@ namespace Kassasystemet___Mille_Elfver
 
             //sparar ned kvittot med en Append så att det fylls på med nya kvitton
             File.AppendAllText($"../../../{fileName}", receiptWithDateandTotalAmount);
+
             Console.WriteLine(receiptWithDateandTotalAmount);
         }
 

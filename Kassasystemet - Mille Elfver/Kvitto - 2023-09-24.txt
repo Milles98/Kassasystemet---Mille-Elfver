@@ -32,4 +32,45 @@ KVITTO 2023-09-24 10:54:29
 310 Godis 1 st kostnad: 99,50
 
 Total: 539,90 KR
+----------------------------------------KVITTO 2023-09-24 11:06:33
+
+ID Produkt Antal Kostnad
+----------------------------------------
+----------------------------------------
+Total: 2363,30 KR
+----------------------------------------
+KVITTO 2023-09-24 11:07:23
+
+300 Bananer 1 st kostnad: 15,50
+302 Citron 5 st kostnad: 27,50
+307 Mango 4 st kostnad: 80
+
+Total: 123,00 KR
+----------------------------------------
+----------------------------------------
+KVITTO 2023-09-24 11:09:52
+
+300 Bananer 1 st kostnad: 15,50
+301 Nutella 1 st kostnad: 21,90
+302 Citron 3 st kostnad: 16,50
+303 Jordgubbar 4 st kostnad: 159,60
+304 Grädde 1 st kostnad: 24,90
+305 Choklad 1 st kostnad: 22,90
+306 Apelsiner 1 st kostnad: 10
+307 Mango 1 st kostnad: 20
+308 Tomater 1 st kostnad: 49,90
+309 Kött 1 st kostnad: 229,90
+310 Godis 1 st kostnad: 99,50
+
+Total: 670,60 KR
+----------------------------------------
+----------------------------------------
+KVITTO 2023-09-24 11:16:38
+
+Bananer 1 st kostnad: 15,50
+Nutella 1 st kostnad: 21,90
+Citron 1 st kostnad: 5,50
+Jordgubbar 1 st kostnad: 39,90
+
+Total: 82,80 KR
 ----------------------------------------
