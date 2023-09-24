@@ -221,8 +221,23 @@ namespace Kassasystemet___Mille_Elfver
             //denna gör så att 40 chars av - läggs på kvittot så att det blir lättare att skilja åt
             string receiptSeparator = new string('-', 40);
 
+            //sätter maxlängd till 40 chars
+            int maxWidth = 40;
+
+            // räknar ut tillgängliga spacen för total: linjen
+            int availableSpace = maxWidth - "Total:".Length;
+
+            //lägger till total amount till höger och använder "C" för svensk currency
+            string totalAmountText = totalAmount.ToString("C");
+
+            //räknar ut paddingen för totala mängden till höger om kvittot
+            string totalAmountPadding = new string(' ', availableSpace - totalAmountText.Length);
+
+            //denna sträng skriver ut total: till vänster om kvittot
+            string totalLine = $"Total:{totalAmountPadding}{totalAmountText}";
+
             //lägger till datumet och total summan på kvittot:
-            string receiptWithDateandTotalAmount = $"\n{receiptSeparator}\nKVITTO {formattedDate}\n\n{receipt}\nTotal: {totalAmount} KR\n{receiptSeparator}";
+            string receiptWithDateandTotalAmount = $"\n{receiptSeparator}\nKVITTO {formattedDate.PadLeft(33)}\n\n{receipt}\n{totalLine}\n{receiptSeparator}";
 
             //filnamn för kvittot med kvittonummer och datum
             string fileName = $"Kvitto - {date}.txt";
