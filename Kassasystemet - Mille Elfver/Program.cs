@@ -187,7 +187,7 @@ namespace Kassasystemet___Mille_Elfver
                     {
                         decimal totalPrice = selectedProduct.UnitPrice * quantityOfProducts;
                         //denna del läggs på kvittot i följd "produktnamn - antal produkter * priset = totalen
-                        string productToAdd = $"{selectedProduct.Name} {quantityOfProducts} * {selectedProduct.UnitPrice} = {totalPrice}";
+                        string productToAdd = $"{selectedProduct.Name, -15} {quantityOfProducts} * {selectedProduct.UnitPrice,6} {totalPrice, 10}";
                         receipt += productToAdd + "\n";
 
                         //Skriver ut vad som lagts till i kassan
