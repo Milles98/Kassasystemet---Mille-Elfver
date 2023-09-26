@@ -28,7 +28,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 if (userInput.Equals("ITEMS", StringComparison.OrdinalIgnoreCase))
                 {
-                    DisplayingProducts.DisplayTheProducts(); //Skriver ut listan på alla produkter
+                    SavingAndDisplayingReceipt.DisplayTheProducts(); //Skriver ut listan på alla produkter
                     continue;
                 }
 
@@ -45,14 +45,14 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     Console.Clear();
                     Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                    DisplayingProducts.DisplayTheProducts();
+                    SavingAndDisplayingReceipt.DisplayTheProducts();
                     continue;
                 }
 
                 if (!int.TryParse(productParts[1], out quantityOfProducts)) //kollar om quantityofproducts inte är på index 1, då skrivs följande:
                 {
                     Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                    DisplayingProducts.DisplayTheProducts();
+                    SavingAndDisplayingReceipt.DisplayTheProducts();
                     continue;
                 }
 
