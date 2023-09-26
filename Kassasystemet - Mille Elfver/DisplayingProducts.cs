@@ -10,6 +10,7 @@ namespace Kassasystemet___Mille_Elfver
     {
         public static void DisplayTheProducts()
         {
+            Console.Clear();
             Console.WriteLine("Tillgängliga produkter:");
             foreach (var product in Product.availableProducts)
             {

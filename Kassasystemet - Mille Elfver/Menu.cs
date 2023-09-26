@@ -26,13 +26,10 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     switch (val)
                     {
-                        //Kassan startas med ny försäljning
                         case 1:
-                            //om användaren väljer case 1 åker vi in i NewSale metoden!
                             NewCustomer();
                             break;
 
-                        //Avslutar programmet
                         case 0:
                             Console.WriteLine("Tryck valfri knapp för att avsluta programmet.");
                             programRunning = false;
@@ -52,8 +49,6 @@ namespace Kassasystemet___Mille_Elfver
         public static void NewCustomer()
         {
             Console.Clear();
-            Console.WriteLine("KASSA");
-            //om användaren väljer case 1 åker vi in i NewSale metoden!
             string receipt = NewSale.NewSales();
         }
 
