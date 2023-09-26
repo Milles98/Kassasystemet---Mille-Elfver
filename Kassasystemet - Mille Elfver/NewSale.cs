@@ -15,9 +15,7 @@ namespace Kassasystemet___Mille_Elfver
 
             while (true)
             {
-                Console.WriteLine("Kommandon:");
-                Console.WriteLine("<productid> <antal> <PAY> <ITEMS> <MENU>");
-                Console.Write("Kommando: ");
+                NewSaleMenu();
                 string userInput = Console.ReadLine().Trim();
 
                 //om användaren skriver pay, string comparison så att användaren kan skriva pay eller PAY
@@ -73,6 +71,13 @@ namespace Kassasystemet___Mille_Elfver
 
             //return receipt om while loopen inte används
             return receipt;
+
+        }
+        public static void NewSaleMenu()
+        {
+            Console.WriteLine("Kommandon:");
+            Console.WriteLine("<productid> <antal> <PAY> <ITEMS> <MENU>");
+            Console.Write("Kommando: ");
         }
     }
 }
