@@ -10,30 +10,22 @@ namespace Kassasystemet___Mille_Elfver
     {
         public static void SaveAndDisplayReceipt(string receipt)
         {
+            decimal totalAmount = TotalAmountCalculator.CalculateTotalAmount(receipt); //räknar ut totalen av allt som lagts in på kvittot och visar det
 
-            //räknar ut totalen av allt som lagts in på kvittot och visar det
-            decimal totalAmount = TotalAmountCalculator.CalculateTotalAmount(receipt);
+            DateTime dateTime = DateTime.Now; //får fram nuvarande tid till innehållet i kvittots textfil
 
-            //får fram nuvarande tid till innehållet i kvittots textfil
-            DateTime dateTime = DateTime.Now;
+            var date = DateTime.Now.ToShortDateString(); //datum till kvittot när det skrivs ut (i textfilens rubrik) 
 
-            //datum till kvittot när det skrivs ut (i textfilens rubrik) 
-            var date = DateTime.Now.ToShortDateString();
-
-            //formatterar datum och tid till en sträng
-            string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
+            string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss"); //formatterar datum och tid till en sträng
 
             //denna gör så att 40 chars av - läggs på kvittot så att det blir lättare att skilja åt
             string receiptSeparator = new string('-', 40);
 
-            //sätter maxlängd till 40 chars
-            int maxWidth = 40;
+            int maxWidth = 40; //sätter maxlängd till 40 chars
 
-            // räknar ut tillgängliga spacen för total: linjen
-            int availableSpace = maxWidth - "Total:".Length;
+            int availableSpace = maxWidth - "Total:".Length; // räknar ut tillgängliga spacen för total: linjen
 
-            //lägger till total amount till höger och använder "C" för svensk currency
-            string totalAmountText = totalAmount.ToString("C");
+            string totalAmountText = totalAmount.ToString("C"); //lägger till total amount till höger och använder "C" för svensk currency
 
             //räknar ut paddingen för totala mängden till höger om kvittot
             string totalAmountPadding = new string(' ', availableSpace - totalAmountText.Length);
@@ -44,8 +36,7 @@ namespace Kassasystemet___Mille_Elfver
             //lägger till datumet och total summan på kvittot:
             string receiptWithDateandTotalAmount = $"\n{receiptSeparator}\nKVITTO {formattedDate.PadLeft(33)}\n\n{receipt}\n{totalLine}\n{receiptSeparator}";
 
-            //filnamn för kvittot med kvittonummer och datum
-            string fileName = $"Kvitto - {date}.txt";
+            string fileName = $"Kvitto - {date}.txt"; //filnamn för kvittot med kvittonummer och datum
 
             //sparar ned kvittot med en Append så att det fylls på med nya kvitton
             File.AppendAllText($"../../../Receipts/{fileName}", receiptWithDateandTotalAmount);
