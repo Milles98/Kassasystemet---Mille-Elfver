@@ -38,8 +38,8 @@ namespace Kassasystemet___Mille_Elfver
                 }
 
                 string[] productParts = userInput.Split(' '); //splittar bort mellanslagen i userInput
-                string productId = productParts[0];
-                int quantityOfProducts;
+                string productId = productParts[0]; //productID väljer jag att det är på index 0 (pga dictionary)
+                int quantityOfProducts; //denna väljer jag är index 1 kolla rad 52
 
                 if (productParts.Length != 2) //felhantering om längden inte är ex 300 1
                 {
@@ -49,8 +49,7 @@ namespace Kassasystemet___Mille_Elfver
                     continue;
                 }
 
-                //Felhantering om användaren inte börjar sin inmatning med produktID
-                if (!int.TryParse(productParts[1], out quantityOfProducts))
+                if (!int.TryParse(productParts[1], out quantityOfProducts)) //kollar om quantityofproducts inte är på index 1, då skrivs följande:
                 {
                     Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
                     DisplayingProducts.DisplayTheProducts();
