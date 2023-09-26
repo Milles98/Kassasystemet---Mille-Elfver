@@ -6,8 +6,23 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    class Product
+    public class Product
     {
+        public static Dictionary<string, Product> availableProducts = new Dictionary<string, Product>
+        {
+            { "300", new Product("Bananer", 15.50m, "st") },
+            { "301", new Product("Nutella", 21.90m, "st") },
+            { "302", new Product("Citron", 5.50m, "st") },
+            { "303", new Product("Jordgubbar", 39.90m, "st") },
+            { "304", new Product("Grädde", 24.90m, "st") },
+            { "305", new Product("Choklad", 22.90m, "st") },
+            { "306", new Product("Apelsiner", 10, "st") },
+            { "307", new Product("Mango", 20, "st") },
+            { "308", new Product("Tomater", 49.90m, "st") },
+            { "309", new Product("Kött", 229.90m, "st") },
+            { "310", new Product("Godis", 99.50m, "st") }
+        };
+
         public string Name { get; set; }
         public decimal UnitPrice { get; set; }
         public string PriceType { get; set; }
