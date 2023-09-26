@@ -31,7 +31,7 @@ namespace Kassasystemet___Mille_Elfver
             else
             {
                 Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                SavingAndDisplayingReceipt.DisplayTheProducts();
+                Product.DisplayTheProducts();
             }
         }
     }

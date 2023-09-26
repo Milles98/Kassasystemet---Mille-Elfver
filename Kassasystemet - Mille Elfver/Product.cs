@@ -33,5 +33,15 @@ namespace Kassasystemet___Mille_Elfver
             UnitPrice = unitPrice;
             PriceType = priceType;
         }
+
+        public static void DisplayTheProducts()
+        {
+            Console.Clear();
+            Console.WriteLine("Tillgängliga produkter:");
+            foreach (var product in Product.availableProducts)
+            {
+                Console.WriteLine($"{product.Key}: {product.Value.Name} ({product.Value.UnitPrice} {product.Value.PriceType})\n");
+            }
+        }
     }
 }

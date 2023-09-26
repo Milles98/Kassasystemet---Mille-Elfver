@@ -33,14 +33,6 @@ namespace Kassasystemet___Mille_Elfver
             Console.WriteLine(receiptWithDateandTotalAmount);
         }
 
-        public static void DisplayTheProducts()
-        {
-            Console.Clear();
-            Console.WriteLine("Tillgängliga produkter:");
-            foreach (var product in Product.availableProducts)
-            {
-                Console.WriteLine($"{product.Key}: {product.Value.Name} ({product.Value.UnitPrice} {product.Value.PriceType})\n");
-            }
-        }
+        
     }
 }
