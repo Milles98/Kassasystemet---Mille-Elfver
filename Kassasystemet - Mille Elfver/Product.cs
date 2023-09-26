@@ -23,9 +23,9 @@ namespace Kassasystemet___Mille_Elfver
             { "310", new Product("Godis", 99.50m, "st") }
         };
 
-        public string Name { get; set; }
-        public decimal UnitPrice { get; set; }
-        public string PriceType { get; set; }
+        public string Name { get; }
+        public decimal UnitPrice { get; }
+        public string PriceType { get; }
 
         public Product(string name, decimal unitPrice, string priceType)
         {
