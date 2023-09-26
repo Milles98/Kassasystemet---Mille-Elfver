@@ -26,24 +26,18 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     switch (val)
                     {
+                        //Kassan startas med ny försäljning
                         case 1:
-                            //Kassan startas med ny försäljning
                             Console.Clear();
                             Console.WriteLine("KASSA");
-
                             //om användaren väljer case 1 åker vi in i NewSale metoden!
                             string receipt = NewSale.NewSales();
-
-                            Console.ReadKey();
                             break;
 
+                        //Avslutar programmet
                         case 0:
-                            //Avslutar programmet
                             Console.WriteLine("Tryck valfri knapp för att avsluta programmet.");
-
                             programRunning = false;
-
-                            Console.ReadKey();
                             break;
                     }
                 }
