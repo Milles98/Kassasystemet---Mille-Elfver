@@ -28,13 +28,14 @@ namespace Kassasystemet___Mille_Elfver
                 string[] partsInReceipt = line.Split(' ');
 
                 //om raden är större än eller lika med 4, plussa på priset på totalen
-                if (partsInReceipt.Length >= 5)
+                if (partsInReceipt.Length >= 4)
                 {
                     //hämtar totalprice från metoden AddProductsToReceipt sedan plussar på det i totalAmount
                     if (decimal.TryParse(partsInReceipt[partsInReceipt.Length - 1], out decimal totalPrice))
                     {
                         totalAmount += totalPrice;
                     }
+
                 }
             }
             return totalAmount;

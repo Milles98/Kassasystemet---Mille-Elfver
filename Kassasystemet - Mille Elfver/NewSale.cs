@@ -14,7 +14,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <returns></returns>
         public static string NewSales()
         {
-            //deklarerar variabeln receipt som sedan kommer tilldelas info från SaveAndDisplayReceipt
+            //deklarerar variabeln receipt som används till att hålla informationen under försäljningen
             string receipt = "";
 
             while (true)
@@ -41,9 +41,9 @@ namespace Kassasystemet___Mille_Elfver
                     Menu.MainMenu();
                 }
 
-                string[] productParts = userInput.Split(' '); //splittar bort mellanslagen i userInput
+                string[] productParts = userInput.Split(' '); //splittar bort mellanslagen i userInput, delimitern är mellanslag
                 string productId = productParts[0]; //productID väljer jag att det är på index 0 (pga dictionary)
-                int quantityOfProducts; //denna väljer jag är index 1 kolla rad 52
+                int quantityOfProducts; //kommer att spara antal från användaren
 
                 if (productParts.Length != 2) //felhantering om längden inte är ex 300 1
                 {
@@ -60,12 +60,12 @@ namespace Kassasystemet___Mille_Elfver
                     continue;
                 }
 
-                //lägger till produkterna till kvittot
+                //lägger till produkterna till kvittot om användarens formattering är korrekt
                 AddingToReceipt.AddProductsToReceipt(productId, quantityOfProducts, ref receipt);
 
             }
 
-            return receipt; //return receipt efter att den har gått igenom while-loopens val
+            return receipt; // efter att användaren köpt klart genom "PAY" returneras receipt som innehåller all köp info
 
         }
         /// <summary>

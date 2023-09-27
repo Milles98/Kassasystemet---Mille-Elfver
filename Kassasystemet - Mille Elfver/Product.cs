@@ -27,7 +27,7 @@ namespace Kassasystemet___Mille_Elfver
         public decimal Price { get; }
         public string PriceType { get; }
 
-
+        //name är ex bananer, price ex 15.50m, priceType ex kg
         public Product(string name, decimal price, string priceType)
         {
             Name = name;
