@@ -8,6 +8,12 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class AddingToReceipt
     {
+        /// <summary>
+        /// Saves product input, returns productID, quantity and receipt
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="quantityOfProducts"></param>
+        /// <param name="receipt"></param>
         public static void AddProductsToReceipt(string productId, int quantityOfProducts, ref string receipt)
         {
             Console.Clear();
@@ -19,9 +25,9 @@ namespace Kassasystemet___Mille_Elfver
                 }
                 else
                 {
-                    decimal totalPrice = selectedProduct.UnitPrice * quantityOfProducts;
+                    decimal totalPrice = selectedProduct.Price * quantityOfProducts;
                     //denna del läggs på kvittot i följd "produktnamn - antal produkter * priset = totalen
-                    string productToAdd = $"{selectedProduct.Name.PadRight(15)} {quantityOfProducts} * {selectedProduct.UnitPrice} {totalPrice, 10}";
+                    string productToAdd = $"{selectedProduct.Name.PadRight(15)} {quantityOfProducts} * {selectedProduct.Price}, {selectedProduct.PriceType} {totalPrice,14}";
                     receipt += productToAdd + "\n";
 
                     //Skriver ut vad som lagts till i kassan

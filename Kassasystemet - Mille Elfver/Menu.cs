@@ -20,17 +20,22 @@ namespace Kassasystemet___Mille_Elfver
                 Console.Clear();
                 Console.WriteLine("KASSA");
                 Console.WriteLine("1. Ny kund");
+                Console.WriteLine("2. Admin");
                 Console.WriteLine("0. Avsluta");
                 Console.Write("Svar: ");
 
                 int val;
                 string userInput = Console.ReadLine();
-                if (int.TryParse(userInput, out val) && val >= 0 && val <= 1) //try parse istället för try catch
+                if (int.TryParse(userInput, out val) && val >= 0 && val <= 2) //try parse istället för try catch
                 {
                     switch (val)
                     {
                         case 1:
                             NewCustomer();
+                            break;
+
+                        case 2:
+                            Admin.AdminMenu();
                             break;
 
                         case 0:
@@ -57,6 +62,8 @@ namespace Kassasystemet___Mille_Elfver
             Console.Clear();
             string receipt = NewSale.NewSales();
         }
+
+       
 
     }
 }
