@@ -19,15 +19,20 @@ namespace Kassasystemet___Mille_Elfver
             Console.Clear();
             if (Product.availableProducts.TryGetValue(productId, out Product selectedProduct))
             {
-                if (quantityOfProducts < 1)
+                if (quantityOfProducts <= 0)
                 {
                     Console.WriteLine("Du kan inte ange mindre än 1 i antal!");
                 }
                 else
                 {
                     decimal totalPrice = selectedProduct.Price * quantityOfProducts;
-                    //denna del läggs på kvittot i följd "produktnamn - antal produkter * priset = totalen
-                    string productToAdd = $"{selectedProduct.Name.PadRight(15)} {quantityOfProducts} * {selectedProduct.Price}, {selectedProduct.PriceType} {totalPrice,14}";
+
+                    string productInfo = $"{selectedProduct.Name.PadRight(15)} {quantityOfProducts}{selectedProduct.PriceType} * {selectedProduct.Price:F2}";
+
+                    int paddingSpaces = 40 - productInfo.Length - totalPrice.ToString("F2").Length;
+
+                    string productToAdd = $"{productInfo}{new string(' ', paddingSpaces)}{totalPrice:F2}";
+
                     receipt += productToAdd + "\n";
 
                     //Skriver ut vad som lagts till i kassan
