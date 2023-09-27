@@ -8,6 +8,10 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class NewSale
     {
+        /// <summary>
+        /// Starts a new sale for user to add products etc
+        /// </summary>
+        /// <returns></returns>
         public static string NewSales()
         {
             //deklarerar variabeln receipt som sedan kommer tilldelas info från SaveAndDisplayReceipt
@@ -64,6 +68,9 @@ namespace Kassasystemet___Mille_Elfver
             return receipt; //return receipt efter att den har gått igenom while-loopens val
 
         }
+        /// <summary>
+        /// Menu when user goes through option '1'
+        /// </summary>
         public static void NewSaleMenu()
         {
             Console.WriteLine("KASSA");

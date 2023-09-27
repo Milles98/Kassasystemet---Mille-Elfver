@@ -34,6 +34,9 @@ namespace Kassasystemet___Mille_Elfver
             PriceType = priceType;
         }
 
+        /// <summary>
+        /// Shows available products in dictionary to user
+        /// </summary>
         public static void DisplayTheProducts()
         {
             Console.Clear();

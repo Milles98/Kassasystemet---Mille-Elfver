@@ -8,6 +8,9 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class Menu
     {
+        /// <summary>
+        /// Shows the main menu to user
+        /// </summary>
         public static void MainMenu()
         {
             bool programRunning = true;
@@ -46,6 +49,9 @@ namespace Kassasystemet___Mille_Elfver
             } while (programRunning == true);
         }
 
+        /// <summary>
+        /// NewCustomer talks to NewSales and starts a new sale
+        /// </summary>
         public static void NewCustomer()
         {
             Console.Clear();

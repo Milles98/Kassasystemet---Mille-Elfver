@@ -8,6 +8,11 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class TotalAmountCalculator
     {
+        /// <summary>
+        /// Calculates all products added from user, saves it to totalAmount string that is then returned
+        /// </summary>
+        /// <param name="receipt"></param>
+        /// <returns></returns>
         public static decimal CalculateTotalAmount(string receipt)
         {
             //splittar produkterna i kvittot till individuella rader

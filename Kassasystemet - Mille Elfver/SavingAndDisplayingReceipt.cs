@@ -8,6 +8,10 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class SavingAndDisplayingReceipt
     {
+        /// <summary>
+        /// Saves all product input from user, shows receipt and saves it to .txt file
+        /// </summary>
+        /// <param name="receipt"></param>
         public static void SaveAndDisplayReceipt(string receipt)
         {
             decimal totalAmount = TotalAmountCalculator.CalculateTotalAmount(receipt); //räknar ut totalen av allt som lagts in på kvittot och visar det
