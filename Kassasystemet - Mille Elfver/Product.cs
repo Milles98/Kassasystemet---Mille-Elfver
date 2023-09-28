@@ -8,6 +8,7 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class Product
     {
+        //todo fixa om static delen så det är lite OOP
         public static Dictionary<string, Product> availableProducts = new Dictionary<string, Product>
         {
             { "300", new Product("Bananer", 15.50m, " kg") },
@@ -23,11 +24,13 @@ namespace Kassasystemet___Mille_Elfver
             { "310", new Product("Godis", 99.50m, " kg") }
         };
 
+        //auto implemented properties (typ som instansvariabler men fixade i bakgrunden)
         public string Name { get; }
         public decimal Price { get; }
         public string PriceType { get; }
 
         //name är ex bananer, price ex 15.50m, priceType ex kg
+        //konstruktor
         public Product(string name, decimal price, string priceType)
         {
             Name = name;

@@ -14,9 +14,12 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="productId"></param>
         /// <param name="quantityOfProducts"></param>
         /// <param name="receipt"></param>
+        
+        //ref receipt så att ändringar gjorda på variabeln inuti metoden även visas utanför metoden
         public static void AddProductsToReceipt(string productId, decimal quantityOfProducts, ref string receipt)
         {
             Console.Clear();
+            //hämtar produkt från product dictionary, om produkten hittas sparas det i selectedProduct variabeln
             if (Product.availableProducts.TryGetValue(productId, out Product selectedProduct))
             {
                 if (quantityOfProducts <= 0)
@@ -24,7 +27,7 @@ namespace Kassasystemet___Mille_Elfver
                     Console.WriteLine("Du kan inte ange mindre än 1 i antal!");
                 }
                 
-                else
+                else if (quantityOfProducts > 0) 
                 {
                     decimal totalPrice = selectedProduct.Price * quantityOfProducts;
 

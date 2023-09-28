@@ -13,7 +13,7 @@ namespace Kassasystemet___Mille_Elfver
         /// </summary>
         /// <param name="receipt"></param>
         /// <returns></returns>
-        public static decimal CalculateTotalAmount(string receipt)
+        public decimal CalculateTotalAmount(string receipt)
         {
             //splittar produkterna i kvittot till individuella rader
             string[] linesInReceipt = receipt.Split('\n');
