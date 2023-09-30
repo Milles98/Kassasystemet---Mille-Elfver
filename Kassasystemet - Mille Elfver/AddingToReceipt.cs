@@ -15,7 +15,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="quantityOfProducts"></param>
         /// <param name="receipt"></param>
         
-        //ref receipt så att ändringar gjorda på variabeln inuti metoden även visas utanför metoden
+        //static och ref receipt så att ändringar gjorda på variabeln inuti metoden även visas utanför metoden
         public static void AddProductsToReceipt(string productId, decimal quantityOfProducts, ref string receipt)
         {
             Console.Clear();

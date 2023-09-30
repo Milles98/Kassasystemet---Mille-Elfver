@@ -9,11 +9,11 @@ namespace Kassasystemet___Mille_Elfver
     public class TotalAmountCalculator
     {
         /// <summary>
-        /// Calculates all products added from user, saves it to totalAmount string that is then returned
+        /// Calculates all products added from user via receipt string, saves it to totalAmount string that is then returned
         /// </summary>
         /// <param name="receipt"></param>
         /// <returns></returns>
-        public decimal CalculateTotalAmount(string receipt)
+        public static decimal CalculateTotalAmount(string receipt)
         {
             //splittar produkterna i kvittot till individuella rader
             string[] linesInReceipt = receipt.Split('\n');
@@ -28,7 +28,7 @@ namespace Kassasystemet___Mille_Elfver
                 string[] partsInReceipt = line.Split(' ');
 
                 //om raden är större än eller lika med 4, plussa på priset på totalen
-                if (partsInReceipt.Length >= 4)
+                if (partsInReceipt.Length >= 1)
                 {
                     //hämtar totalprice från metoden AddProductsToReceipt sedan plussar på det i totalAmount
                     if (decimal.TryParse(partsInReceipt[partsInReceipt.Length - 1], out decimal totalPrice))

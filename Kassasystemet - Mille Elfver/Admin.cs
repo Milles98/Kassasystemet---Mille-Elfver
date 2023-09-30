@@ -10,26 +10,25 @@ namespace Kassasystemet___Mille_Elfver
     {
         public static void AdminTools()
         {
-
-            while (true)
+            bool programRunning = true;
+            while (programRunning)
             {
                 AdminMenu();
                 int userInput = Convert.ToInt32(Console.ReadLine());
 
-                if (userInput == 1)
+                switch (userInput)
                 {
-                
-                    break;
-                }
-
-                if (userInput == 2)
-                {
-                    continue;
-                }
-
-                if (userInput == 3)
-                {
-                    Menu.MainMenu();
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        Menu.MainMenu();
+                        break;
                 }
             }
         }
