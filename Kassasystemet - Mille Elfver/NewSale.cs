@@ -43,7 +43,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 string[] productParts = userInput.Split(' '); //splittar bort mellanslagen i userInput, delimitern är mellanslag
                 string productId = productParts[0]; //productID väljer jag att det är på index 0 (pga dictionary)
-                int quantityOfProducts; //kommer att spara antal från användaren
+                decimal quantityOfProducts; //kommer att spara antal från användaren
 
                 if (productParts.Length != 2) //felhantering om längden inte är ex 300 1
                 {
@@ -53,7 +53,7 @@ namespace Kassasystemet___Mille_Elfver
                     continue;
                 }
 
-                if (!int.TryParse(productParts[1], out quantityOfProducts)) //kollar om quantityofproducts inte är på index 1, då skrivs följande:
+                if (!decimal.TryParse(productParts[1], out quantityOfProducts)) //kollar om quantityofproducts inte är på index 1, då skrivs följande:
                 {
                     Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
                     Product.DisplayTheProducts();

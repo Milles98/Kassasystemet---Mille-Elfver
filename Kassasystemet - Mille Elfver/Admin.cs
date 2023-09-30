@@ -10,29 +10,27 @@ namespace Kassasystemet___Mille_Elfver
     {
         public static void AdminTools()
         {
-            bool programRunning = true;
-            while (programRunning)
+            AdminMenu();
+            int userInput = Convert.ToInt32(Console.ReadLine());
+            switch (userInput)
             {
-                AdminMenu();
-                int userInput = Convert.ToInt32(Console.ReadLine());
-
-                switch (userInput)
-                {
-                    case 1:
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        break;
-                    case 5:
-                        Menu.MainMenu();
-                        break;
-                }
+                case 1:
+                    Console.WriteLine("1. Ändra namn på produkter");
+                    break;
+                case 2:
+                    Console.WriteLine("2. Ändra pris på produkter");
+                    break;
+                case 3:
+                    Console.WriteLine("3. Lägga till produkter");
+                    break;
+                case 4:
+                    Console.WriteLine("4. Lägga till/ta bort kampanjpriser");
+                    break;
+                case 5:
+                    Menu.MainMenu();
+                    break;
             }
         }
-
         public static void AdminMenu()
         {
             Console.Clear();
@@ -42,6 +40,7 @@ namespace Kassasystemet___Mille_Elfver
             Console.WriteLine("3. Lägga till produkter");
             Console.WriteLine("4. Lägga till/ta bort kampanjpriser");
             Console.WriteLine("5. Gå till huvudmenyn");
+            Console.Write("Svar: ");
         }
 
     }

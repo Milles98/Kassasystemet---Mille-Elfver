@@ -51,7 +51,7 @@ namespace Kassasystemet___Mille_Elfver
                 }
                 Console.ReadKey();
 
-            } while (programRunning == true);
+            } while (programRunning);
         }
 
         /// <summary>
