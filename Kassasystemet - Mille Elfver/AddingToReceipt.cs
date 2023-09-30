@@ -14,7 +14,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="productId"></param>
         /// <param name="quantityOfProducts"></param>
         /// <param name="receipt"></param>
-        
+
         //static och ref receipt så att ändringar gjorda på variabeln inuti metoden även visas utanför metoden
         public static void AddProductsToReceipt(string productId, decimal quantityOfProducts, ref string receipt)
         {
@@ -24,23 +24,35 @@ namespace Kassasystemet___Mille_Elfver
             {
                 if (quantityOfProducts <= 0)
                 {
-                    Console.WriteLine("Du kan inte ange mindre än 1 i antal!");
+                    Console.WriteLine("Du kan inte ange mindre än 0,01 i antal!");
                 }
-                
-                else if (quantityOfProducts > 0) 
+
+                else
                 {
-                    decimal totalPrice = selectedProduct.Price * quantityOfProducts;
+                    decimal totalPrice;
+                    string productInfo;
 
-                    string productInfo = $"{selectedProduct.Name.PadRight(15)} {quantityOfProducts}{selectedProduct.PriceType} * {selectedProduct.Price:F2}";
+                    if (selectedProduct.IsKiloPrice)
+                    {
+                        totalPrice = selectedProduct.KiloPrice * quantityOfProducts;
+                        productInfo = $"{selectedProduct.Name.PadRight(15)} {quantityOfProducts:F2} kg * {selectedProduct.KiloPrice:F2}";
+                    }
+                    else
+                    {
+                        totalPrice = selectedProduct.UnitPrice * quantityOfProducts;
+                        productInfo = $"{selectedProduct.Name.PadRight(15)} {quantityOfProducts} st * {selectedProduct.UnitPrice:F2}";
+                    }
 
-                    int paddingSpaces = 40 - productInfo.Length - totalPrice.ToString("F2").Length;
+                    int paddingSpaces = Math.Max(0, 40 - productInfo.Length - totalPrice.ToString("F2").Length);
 
                     string productToAdd = $"{productInfo}{new string(' ', paddingSpaces)}{totalPrice:F2}";
 
                     receipt += productToAdd + "\n";
 
-                    //Skriver ut vad som lagts till i kassan
-                    Console.WriteLine($"Produkt: {selectedProduct.Name}, {quantityOfProducts} st, totalt pris: {totalPrice} kr har lagts till på kvittot.");
+                    string priceType = selectedProduct.IsKiloPrice ? "kilo" : "st";
+
+                    //    //Skriver ut vad som lagts till i kassan
+                    Console.WriteLine($"Produkt: {selectedProduct.Name}, {quantityOfProducts} {priceType}, totalt pris: {totalPrice} kr har lagts till på kvittot.");
                 }
             }
             else
