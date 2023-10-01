@@ -35,7 +35,7 @@ namespace Kassasystemet___Mille_Elfver
                             break;
 
                         case 2:
-                            Admin.AdminMenu();
+                            Admin.AdminTools();
                             break;
 
                         case 0:

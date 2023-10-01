@@ -16,6 +16,7 @@ namespace Kassasystemet___Mille_Elfver
             {
                 case 1:
                     Console.WriteLine("1. Ändra namn på produkter");
+                    //ex Product.Name = namnet Banan
                     break;
                 case 2:
                     Console.WriteLine("2. Ändra pris på produkter");

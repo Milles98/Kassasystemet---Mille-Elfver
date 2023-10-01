@@ -52,7 +52,7 @@ namespace Kassasystemet___Mille_Elfver
                     string priceType = selectedProduct.IsKiloPrice ? "kilo" : "st";
 
                     //    //Skriver ut vad som lagts till i kassan
-                    Console.WriteLine($"Produkt: {selectedProduct.Name}, {quantityOfProducts} {priceType}, totalt pris: {totalPrice} kr har lagts till på kvittot.");
+                    Console.WriteLine($"Produkt: {selectedProduct.Name}, {quantityOfProducts} {priceType:F2}, totalt pris: {totalPrice:F2} kr har lagts till på kvittot.");
                 }
             }
             else

@@ -11,11 +11,11 @@ namespace Kassasystemet___Mille_Elfver
     {
 
         //auto implemented properties (typ som instansvariabler men fixade i bakgrunden)
+        //todo göra om dom till getters och setters med villkor
         public string Name { get; }
         public decimal UnitPrice { get; }
         public decimal KiloPrice { get; }
         public bool IsKiloPrice { get; }
-        //public string PriceType { get; }
 
         //name är ex bananer, price ex 15.50m, priceType ex kg
         //konstruktor
