@@ -22,6 +22,10 @@ namespace Kassasystemet___Mille_Elfver
                 NewSaleMenu();
                 string userInput = Console.ReadLine().Trim();
 
+                string[] productParts = userInput.Split(' '); //splittar bort mellanslagen i userInput, delimitern är mellanslag
+                string productId = productParts[0]; //productID väljer jag att det är på index 0 (pga dictionary)
+                decimal quantityOfProducts; //kommer att spara antal från användaren
+
                 if (userInput.Equals("PAY", StringComparison.OrdinalIgnoreCase))
                 {
                     //sparar kvittot och visar det
@@ -40,10 +44,6 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     Menu.MainMenu();
                 }
-
-                string[] productParts = userInput.Split(' '); //splittar bort mellanslagen i userInput, delimitern är mellanslag
-                string productId = productParts[0]; //productID väljer jag att det är på index 0 (pga dictionary)
-                decimal quantityOfProducts; //kommer att spara antal från användaren
 
                 if (productParts.Length != 2) //felhantering om längden inte är ex 300 1
                 {

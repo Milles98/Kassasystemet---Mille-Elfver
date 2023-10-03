@@ -27,7 +27,6 @@ namespace Kassasystemet___Mille_Elfver
             IsKiloPrice = kiloPrice > 0;
         }
 
-
         public static readonly Dictionary<string, Product> availableProducts = new Dictionary<string, Product>
                 {
             //sista siffrorna = om det är över 0 blir det kilopris, om det är 0 = styckpris
