@@ -82,7 +82,7 @@ namespace Kassasystemet___Mille_Elfver
         /// Gets variable totalAmount from CalculateTotal method and generates a functional receipt
         /// </summary>
         /// <returns></returns>
-        public string GenerateReceipt()
+        public string CreateReceipt()
         {
             decimal totalAmount = CalculateTotal();
 

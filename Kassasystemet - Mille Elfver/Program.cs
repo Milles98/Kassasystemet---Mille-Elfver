@@ -4,19 +4,6 @@ namespace Kassasystemet___Mille_Elfver
 {
     internal class Program
     {
-
-        //Programmera ett kassasystem - (som man har i kassan i en matbutik)
-        //använd double till talen (avrunar typ banan till 19.50 (2 decimaler) kan använda Math.Round med 2 decimaler
-        //man får dock använda int istället om det blir jobbigt
-        //Kan göra kvitto tabell med ,30 osv, kolla övningsuppgifter
-
-        // ToUpper() (att använda till att göra "PAY" till stora bokstäver) nog bra att lösa med string kanske? osäker
-        //Console.WriteLine("Skriv in ditt namn");
-        //string name = Console.ReadLine();
-        //char firstLetter = name[0];
-        //string newName = char.ToUpper(firstLetter) + name.Substring(1).ToLower();
-        //Console.WriteLine(newName);
-
         //Kassasystemet how to:
         //0. Data seeding en fil med produkter
         //allt i en stor loop
