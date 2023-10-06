@@ -66,7 +66,7 @@ namespace Kassasystemet___Mille_Elfver
                 Console.WriteLine("KASSA");
                 Console.WriteLine("Kommandon:");
                 Console.WriteLine("<productid> <antal> <PAY> <ITEMS> <MENU>");
-                Console.WriteLine("Exempel: 300 1 = Banan 1kg, 308 0,5 = Tomater 0,5kg");
+                //Console.WriteLine("Exempel: 300 1 = Banan 1kg, 308 0,5 = Tomater 0,5kg");
                 Console.Write("Kommando: ");
             }
         }

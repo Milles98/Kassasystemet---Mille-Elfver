@@ -40,7 +40,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 receipt.AppendLine(productToAdd);
 
-                string priceType = product.IsKiloPrice ? "kilo" : "st";
+                string priceType = product.IsKiloPrice ? "kilo" : "st"; //ternary
 
                 Console.WriteLine($"Produkt: {product.Name}, {quantity} {priceType:F2}, totalt pris: {totalPrice:F2} kr har lagts till på kvittot.");
             }
@@ -84,7 +84,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <returns></returns>
         public string GenerateReceipt()
         {
-            decimal totalAmount = CalculateTotal(); 
+            decimal totalAmount = CalculateTotal();
 
             DateTime dateTime = DateTime.Now;
             string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
@@ -97,15 +97,16 @@ namespace Kassasystemet___Mille_Elfver
             string totalLine = $"\nTotal:{totalAmountPadding}{totalAmountText}";
 
             StringBuilder receiptText = new StringBuilder();
-            receiptText.AppendLine(receiptSeparator); 
-            receiptText.AppendLine($"KVITTO {formattedDate.PadLeft(33)}\n"); 
+            receiptText.AppendLine(receiptSeparator);
+            receiptText.AppendLine($"KVITTO {formattedDate.PadLeft(33)}\n");
 
             receiptText.Append(receipt.ToString());
 
-            receiptText.AppendLine(totalLine); 
-            receiptText.AppendLine(receiptSeparator); 
+            receiptText.AppendLine(totalLine);
+            receiptText.AppendLine(receiptSeparator);
 
             return receiptText.ToString();
+
         }
 
         /// <summary>
@@ -117,7 +118,8 @@ namespace Kassasystemet___Mille_Elfver
             try
             {
                 var date = DateTime.Now.ToShortDateString();
-                string fileName = $"Kvitto - {date}.txt"; 
+                string fileName = $"Kvitto - {date}.txt";
+                Directory.CreateDirectory($"../../../Receipts");
                 File.AppendAllText($"../../../Receipts/{fileName}", receiptText);
                 Console.WriteLine(receiptText);
             }
