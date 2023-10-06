@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public class NewSale
+    public class NewCustomer
     {
         /// <summary>
         /// Starts a new sale for user to add products etc
         /// </summary>
         /// <returns></returns>
-        public static string NewSales()
+        public static string NewCustomerChoices()
         {
             //deklarerar variabeln receipt som används till att hålla informationen under försäljningen
             string receipt = "";
 
             while (true)
             {
-                NewSaleMenu();
+                NewCustomerMenu();
                 string userInput = Console.ReadLine().Trim();
 
                 string[] productParts = userInput.Split(' '); //splittar bort mellanslagen i userInput, delimitern är mellanslag
@@ -36,7 +36,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 if (userInput.Equals("ITEMS", StringComparison.OrdinalIgnoreCase))
                 {
-                    Product.DisplayTheProducts(); //Skriver ut listan på alla produkter
+                    Products.DisplayTheProducts(); //Skriver ut listan på alla produkter
                     continue;
                 }
 
@@ -49,18 +49,18 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     Console.Clear();
                     Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                    Product.DisplayTheProducts();
+                    Products.DisplayTheProducts();
                     continue;
                 }
 
                 if (!decimal.TryParse(productParts[1], out quantityOfProducts)) //kollar om quantityofproducts inte är på index 1, då skrivs följande:
                 {
                     Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                    Product.DisplayTheProducts();
+                    Products.DisplayTheProducts();
                     continue;
                 }
 
-                //lägger till produkterna till kvittot om användarens formattering är korrekt
+                //lägger till produkterna till kvittot om användarens formattering är korrekt 
                 AddingToReceipt.AddProductsToReceipt(productId, quantityOfProducts, ref receipt);
 
             }
@@ -71,7 +71,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <summary>
         /// Menu when user goes through option '1'
         /// </summary>
-        public static void NewSaleMenu()
+        public static void NewCustomerMenu()
         {
             Console.WriteLine("KASSA");
             Console.WriteLine("Kommandon:");

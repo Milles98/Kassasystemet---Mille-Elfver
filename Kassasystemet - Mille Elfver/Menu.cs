@@ -60,7 +60,7 @@ namespace Kassasystemet___Mille_Elfver
         public static void NewCustomer()
         {
             Console.Clear();
-            string receipt = NewSale.NewSales();
+            string receipt = Kassasystemet___Mille_Elfver.NewCustomer.NewCustomerChoices();
         }
 
     }

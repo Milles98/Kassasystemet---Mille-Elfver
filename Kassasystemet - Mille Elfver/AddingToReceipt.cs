@@ -20,7 +20,7 @@ namespace Kassasystemet___Mille_Elfver
         {
             Console.Clear();
             //hämtar produkt från product dictionary, om produkten hittas sparas det i selectedProduct variabeln
-            if (Product.availableProducts.TryGetValue(productId, out Product selectedProduct))
+            if (Products.availableProducts.TryGetValue(productId, out Products selectedProduct))
             {
                 if (quantityOfProducts <= 0)
                 {
@@ -58,7 +58,7 @@ namespace Kassasystemet___Mille_Elfver
             else
             {
                 Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                Product.DisplayTheProducts();
+                Products.DisplayTheProducts();
             }
         }
     }
