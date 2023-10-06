@@ -29,7 +29,7 @@ namespace Kassasystemet___Mille_Elfver
                 if (userInput.Equals("PAY", StringComparison.OrdinalIgnoreCase))
                 {
                     //sparar kvittot och visar det
-                    SavingAndDisplayingReceipt.SaveAndDisplayReceipt(receipt);
+                    SavingReceipt.Receipt(receipt);
                     Console.WriteLine("\nKöpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
                     break;
                 }

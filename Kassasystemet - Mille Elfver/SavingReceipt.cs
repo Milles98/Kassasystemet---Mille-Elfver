@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public class SavingAndDisplayingReceipt
+    public class SavingReceipt
     {
         /// <summary>
         /// Saves all product input from user, shows receipt and saves it to .txt file
         /// </summary>
         /// <param name="receipt"></param>
-        public static void SaveAndDisplayReceipt(string receipt)
+        public static void Receipt(string receipt)
         {
-            decimal totalAmount = TotalAmountCalculator.CalculateTotalAmount(receipt); //räknar ut totalen av allt som lagts in på kvittot och visar det
+            decimal totalAmount = CalculateReceipt.ReceiptCalculator(receipt); //räknar ut totalen av allt som lagts in på kvittot och visar det
 
             DateTime dateTime = DateTime.Now; //får fram nuvarande tid till innehållet i kvittots textfil
             string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss"); //formatterar datum och tid till en sträng

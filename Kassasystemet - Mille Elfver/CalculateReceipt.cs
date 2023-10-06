@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public class TotalAmountCalculator
+    public class CalculateReceipt
     {
         /// <summary>
         /// Calculates all products added from user via receipt string, saves it to totalAmount string that is then returned
         /// </summary>
         /// <param name="receipt"></param>
         /// <returns></returns>
-        public static decimal CalculateTotalAmount(string receipt)
+        public static decimal ReceiptCalculator(string receipt)
         {
             //splittar produkterna i kvittot till individuella rader
             string[] linesInReceipt = receipt.Split('\n');
