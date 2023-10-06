@@ -31,7 +31,7 @@ namespace Kassasystemet___Mille_Elfver
                     switch (val)
                     {
                         case 1:
-                            NewCustomer();
+                            NewCustomerTest.NewCustomerChoices();
                             break;
 
                         case 2:
@@ -53,15 +53,5 @@ namespace Kassasystemet___Mille_Elfver
 
             } while (programRunning);
         }
-
-        /// <summary>
-        /// NewCustomer talks to NewSales and starts a new sale
-        /// </summary>
-        public static void NewCustomer()
-        {
-            Console.Clear();
-            string receipt = Kassasystemet___Mille_Elfver.NewCustomer.NewCustomerChoices();
-        }
-
     }
 }

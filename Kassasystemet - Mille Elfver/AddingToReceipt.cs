@@ -18,48 +18,48 @@ namespace Kassasystemet___Mille_Elfver
         //static och ref receipt så att ändringar gjorda på variabeln inuti metoden även visas utanför metoden
         public static void AddProductsToReceipt(string productId, decimal quantityOfProducts, ref string receipt)
         {
-            Console.Clear();
-            //hämtar produkt från product dictionary, om produkten hittas sparas det i selectedProduct variabeln
-            if (Products.availableProducts.TryGetValue(productId, out Products selectedProduct))
-            {
-                if (quantityOfProducts <= 0)
-                {
-                    Console.WriteLine("Du kan inte ange mindre än 0,01 i antal!");
-                }
+            //Console.Clear();
+            ////hämtar produkt från product dictionary, om produkten hittas sparas det i selectedProduct variabeln
+            //if (Products.availableProducts.TryGetValue(productId, out Products selectedProduct))
+            //{
+            //    if (quantityOfProducts <= 0)
+            //    {
+            //        Console.WriteLine("Du kan inte ange mindre än 0,01 i antal!");
+            //    }
 
-                else
-                {
-                    decimal totalPrice;
-                    string productInfo;
+            //    else
+            //    {
+            //        decimal totalPrice;
+            //        string productInfo;
 
-                    if (selectedProduct.IsKiloPrice)
-                    {
-                        totalPrice = selectedProduct.KiloPrice * quantityOfProducts;
-                        productInfo = $"{selectedProduct.Name.PadRight(15)} {quantityOfProducts:F2} kg * {selectedProduct.KiloPrice:F2}";
-                    }
-                    else
-                    {
-                        totalPrice = selectedProduct.UnitPrice * quantityOfProducts;
-                        productInfo = $"{selectedProduct.Name.PadRight(15)} {quantityOfProducts} st * {selectedProduct.UnitPrice:F2}";
-                    }
+            //        if (selectedProduct.IsKiloPrice)
+            //        {
+            //            totalPrice = selectedProduct.KiloPrice * quantityOfProducts;
+            //            productInfo = $"{selectedProduct.Name.PadRight(15)} {quantityOfProducts:F2} kg * {selectedProduct.KiloPrice:F2}";
+            //        }
+            //        else
+            //        {
+            //            totalPrice = selectedProduct.UnitPrice * quantityOfProducts;
+            //            productInfo = $"{selectedProduct.Name.PadRight(15)} {quantityOfProducts} st * {selectedProduct.UnitPrice:F2}";
+            //        }
 
-                    int paddingSpaces = Math.Max(0, 40 - productInfo.Length - totalPrice.ToString("F2").Length);
+            //        int paddingSpaces = Math.Max(0, 40 - productInfo.Length - totalPrice.ToString("F2").Length);
 
-                    string productToAdd = $"{productInfo}{new string(' ', paddingSpaces)}{totalPrice:F2}";
+            //        string productToAdd = $"{productInfo}{new string(' ', paddingSpaces)}{totalPrice:F2}";
 
-                    receipt += productToAdd + "\n";
+            //        receipt += productToAdd + "\n";
 
-                    string priceType = selectedProduct.IsKiloPrice ? "kilo" : "st"; //smidigare lösning på en IF sats dvs ternary
+            //        string priceType = selectedProduct.IsKiloPrice ? "kilo" : "st"; //smidigare lösning på en IF sats dvs ternary
 
-                    //    //Skriver ut vad som lagts till i kassan
-                    Console.WriteLine($"Produkt: {selectedProduct.Name}, {quantityOfProducts} {priceType:F2}, totalt pris: {totalPrice:F2} kr har lagts till på kvittot.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                Products.DisplayTheProducts();
-            }
+            //        //    //Skriver ut vad som lagts till i kassan
+            //        Console.WriteLine($"Produkt: {selectedProduct.Name}, {quantityOfProducts} {priceType:F2}, totalt pris: {totalPrice:F2} kr har lagts till på kvittot.");
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
+            //    Products.DisplayTheProducts();
+            //}
         }
     }
 }
