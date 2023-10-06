@@ -63,7 +63,5 @@ namespace Kassasystemet___Mille_Elfver
             string receipt = NewSale.NewSales();
         }
 
-       
-
     }
 }
