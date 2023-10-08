@@ -100,7 +100,7 @@ namespace Kassasystemet___Mille_Elfver
             int availableSpace = maxWidth - "Total:".Length;
             string totalAmountText = totalAmount.ToString("C");
             string totalAmountPadding = new string(' ', availableSpace - totalAmountText.Length);
-            string totalLine = $"\nTotal:{totalAmountPadding}{totalAmountText}";
+            string totalLine = $"\nTOTAL:{totalAmountPadding}{totalAmountText}";
 
             StringBuilder receiptText = new StringBuilder();
             receiptText.AppendLine(receiptSeparator);
@@ -153,7 +153,7 @@ namespace Kassasystemet___Mille_Elfver
             try
             {
                 var date = DateTime.Now.ToShortDateString();
-                string fileName = $"Kvitto - {date}.txt";
+                string fileName = $"Kvitton - {date}.txt";
                 Directory.CreateDirectory($"../../../Kvitton");
                 File.AppendAllText($"../../../Kvitton/{fileName}", receiptText);
                 Console.WriteLine(receiptText);
@@ -166,7 +166,7 @@ namespace Kassasystemet___Mille_Elfver
         }
 
         /// <summary>
-        /// Loads the last receipt number to "KvittoRäknare" textfile
+        /// Loads the last receipt number from "KvittoRäknare" textfile
         /// </summary>
         private void LoadReceiptCounter()
         {
