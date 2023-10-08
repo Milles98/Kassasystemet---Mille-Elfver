@@ -40,6 +40,18 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     Menu.MainMenu();
                 }
+                
+                if (userInput.Equals("HISTORIK", StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.Clear();
+                    var date = DateTime.Now.ToShortDateString();
+                    var allReceipts = File.ReadAllLines($"../../../Kvitton/Kvitton - {date}.txt");
+                    foreach (var receipt in allReceipts)
+                    {
+                        Console.WriteLine(receipt);
+                    }
+                    continue;
+                }
 
                 string[] productParts = userInput.Split(' ');
                 if (productParts.Length != 2 || !decimal.TryParse(productParts[1], out decimal quantity))
@@ -67,11 +79,11 @@ namespace Kassasystemet___Mille_Elfver
             /// </summary>
             static void NewCustomerMenu()
             {
-                Console.WriteLine(" ------------------------------------------");
-                Console.WriteLine("| KASSA                                    |");
-                Console.WriteLine("| Kommandon:                               |");
-                Console.WriteLine("| <productid> <antal> <PAY> <ITEMS> <MENU> |");
-                Console.WriteLine(" ------------------------------------------");
+                Console.WriteLine(" -----------------------------------------------------");
+                Console.WriteLine("| KASSA                                               |");
+                Console.WriteLine("| Kommandon:                                          |");
+                Console.WriteLine("| <productid> <antal> <PAY> <ITEMS> <MENU> <HISTORIK> |");
+                Console.WriteLine(" -----------------------------------------------------");
                 Console.Write("Kommando: ");
             }
         }

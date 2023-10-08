@@ -118,7 +118,7 @@ namespace Kassasystemet___Mille_Elfver
             Console.WriteLine($"300-305 är kilopris, 306-320 är styckpris");
             foreach (var product in availableProducts)
             {
-                Console.WriteLine($"ProduktID: {product.Key}: {product.Value.Name} Pris: {product.Value.UnitPrice}");
+                Console.WriteLine($"ProduktID: {product.Key}, {product.Value.Name}, Pris: {product.Value.UnitPrice}");
             }
         }
     }

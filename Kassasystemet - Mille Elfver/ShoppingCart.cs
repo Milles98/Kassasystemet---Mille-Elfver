@@ -8,7 +8,8 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class ShoppingCart
     {
-        private List<string> receipt = new List<string>();
+        ProductCatalog productCatalog = new ProductCatalog();
+        private StringBuilder receipt = new StringBuilder();
         private int receiptCounter = 1337;
 
         public ShoppingCart()
@@ -44,7 +45,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 string productToAdd = $"{productInfo}{new string(' ', paddingSpaces)}{totalPrice:F2}";
 
-                receipt.Add(productToAdd);
+                receipt.AppendLine(productToAdd);
 
                 string priceType = product.IsKiloPrice ? "kilo" : "st"; //ternary istället för if-sats
 
@@ -53,7 +54,7 @@ namespace Kassasystemet___Mille_Elfver
             else
             {
                 Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                ProductCatalog productCatalog = new ProductCatalog();
+                //ProductCatalog productCatalog = new ProductCatalog();
                 productCatalog.DisplayAvailableProducts();
             }
         }
@@ -65,9 +66,11 @@ namespace Kassasystemet___Mille_Elfver
         public decimal CalculateTotal()
         {
 
+            string[] linesInReceipt = receipt.ToString().Split('\n');
+
             decimal totalAmount = 0m;
 
-            foreach (string line in receipt)
+            foreach (string line in linesInReceipt)
             {
                 string[] partsInReceipt = line.Split(' ');
 
@@ -101,7 +104,9 @@ namespace Kassasystemet___Mille_Elfver
             string totalAmountPadding = new string(' ', availableSpace - totalAmountText.Length);
             string totalLine = $"\nTOTAL:{totalAmountPadding}{totalAmountText}";
 
+
             StringBuilder receiptText = new StringBuilder();
+
             receiptText.AppendLine(receiptSeparator);
             receiptText.AppendLine($"KVITTO NR: {receiptCounter}{formattedDate.PadLeft(30)}\n");
             receiptText.AppendLine($"Milles Butik ( +46 123 456 789 )");
@@ -109,10 +114,7 @@ namespace Kassasystemet___Mille_Elfver
             receiptText.AppendLine($"Årstaängsvägen 31, 117 43 Stockholm");
             receiptText.AppendLine($"Organisations Nr: 55421-7125\n");
 
-            foreach (string line in receipt)
-            {
-                receiptText.AppendLine(line);
-            }
+            receiptText.Append(receipt.ToString());
 
             receiptText.AppendLine($"\nTELLER SE / NO");
             receiptText.AppendLine($"BUTIKSNR: 76091234");
