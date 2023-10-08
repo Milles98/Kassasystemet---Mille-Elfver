@@ -14,7 +14,6 @@ namespace Kassasystemet___Mille_Elfver
         //5. PAY
         //6. file IO igen
         //7. ett meddelande (vad användaren gjort) sedan går tbx till 1 eller avslutar
-
         static void Main(string[] args)
         {
             Menu.MainMenu();

@@ -31,3 +31,70 @@ Tack Och Välkommen Åter!
 
 TOTAL:                               79,90 kr
 ---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1355           2023-10-08 17:52:46
+
+Milles Butik ( +46 123 456 789 )
+Milles Butik AB
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55421-7125
+
+System.Collections.Generic.List`1[System.String]
+TELLER SE / NO
+BUTIKSNR: 76091234
+TERM: 11477096-835026
+
+MasterCard
+Contactless
+************1234-1
+AID: A00000000030910
+TVR: 000000007101
+REF: 290643 480957 KC1
+RESP: 00
+PERIOD: 417
+
+KÖP
+GODKÄNT
+MOMS Punkt: 745201
+6B KVITTO NR: 1355
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                0,00 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1356           2023-10-08 17:54:12
+
+Milles Butik ( +46 123 456 789 )
+Milles Butik AB
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55421-7125
+
+Tomater         1,00 kg * 79,90         79,90
+Kyckling        1,00 kg * 129,90       129,90
+Choklad         1,00 st * 22,90         22,90
+
+TELLER SE / NO
+BUTIKSNR: 76091234
+TERM: 11477096-835026
+
+MasterCard
+Contactless
+************1234-1
+AID: A00000000030910
+TVR: 000000007101
+REF: 290643 480957 KC1
+RESP: 00
+PERIOD: 417
+
+KÖP
+GODKÄNT
+MOMS Punkt: 745201
+6B KVITTO NR: 1356
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                0,00 kr
+---------------------------------------------

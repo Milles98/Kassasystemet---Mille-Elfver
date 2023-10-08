@@ -8,7 +8,7 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class ShoppingCart
     {
-        private StringBuilder receipt = new StringBuilder();
+        private List<string> receipt = new List<string>();
         private int receiptCounter = 1337;
 
         public ShoppingCart()
@@ -44,7 +44,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 string productToAdd = $"{productInfo}{new string(' ', paddingSpaces)}{totalPrice:F2}";
 
-                receipt.AppendLine(productToAdd);
+                receipt.Add(productToAdd);
 
                 string priceType = product.IsKiloPrice ? "kilo" : "st"; //ternary istället för if-sats
 
@@ -110,7 +110,10 @@ namespace Kassasystemet___Mille_Elfver
             receiptText.AppendLine($"Årstaängsvägen 31, 117 43 Stockholm");
             receiptText.AppendLine($"Organisations Nr: 55421-7125\n");
 
-            receiptText.Append(receipt.ToString());
+            foreach (string line in receipt)
+            {
+                receiptText.AppendLine(line);
+            }
 
             receiptText.AppendLine($"\nTELLER SE / NO");
             receiptText.AppendLine($"BUTIKSNR: 76091234");
