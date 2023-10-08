@@ -8,6 +8,9 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class NewCustomer
     {
+        /// <summary>
+        /// Menu choices to add products, display items, pay for items and return to menu
+        /// </summary>
         public static void NewCustomerChoices()
         {
             ProductCatalog productCatalog = new ProductCatalog();
@@ -58,8 +61,9 @@ namespace Kassasystemet___Mille_Elfver
 
                 shoppingCart.AddingToReceipt(product, quantity);
             }
+
             /// <summary>
-            /// Menu when user goes through option '1'
+            /// Menu when user goes through option '1. Ny Kund'
             /// </summary>
             static void NewCustomerMenu()
             {
@@ -68,7 +72,6 @@ namespace Kassasystemet___Mille_Elfver
                 Console.WriteLine("| Kommandon:                               |");
                 Console.WriteLine("| <productid> <antal> <PAY> <ITEMS> <MENU> |");
                 Console.WriteLine(" ------------------------------------------");
-                //Console.WriteLine("Exempel: 300 1 = Banan 1kg, 308 0,5 = Tomater 0,5kg");
                 Console.Write("Kommando: ");
             }
         }

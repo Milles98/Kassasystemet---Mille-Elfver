@@ -98,6 +98,11 @@ namespace Kassasystemet___Mille_Elfver
         //    }
         //}
 
+        /// <summary>
+        /// Checks if productId input exists (example 300-320) otherwise returns null
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         public Product GetProduct(string productId)
         {
             if (availableProducts.TryGetValue(productId, out var product))
