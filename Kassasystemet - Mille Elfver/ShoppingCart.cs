@@ -169,6 +169,7 @@ namespace Kassasystemet___Mille_Elfver
         {
             try
             {
+                Directory.CreateDirectory($"../../../Kvitton");
                 File.WriteAllText("../../../Kvitton/KvittoRäknare.txt", receiptCounter.ToString());
             }
             catch (Exception ex)
