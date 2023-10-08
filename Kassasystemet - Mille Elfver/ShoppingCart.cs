@@ -64,11 +64,10 @@ namespace Kassasystemet___Mille_Elfver
         /// <returns></returns>
         public decimal CalculateTotal()
         {
-            string[] linesInReceipt = receipt.ToString().Split('\n');
 
             decimal totalAmount = 0m;
 
-            foreach (string line in linesInReceipt)
+            foreach (string line in receipt)
             {
                 string[] partsInReceipt = line.Split(' ');
 
