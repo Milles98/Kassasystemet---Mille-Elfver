@@ -20,9 +20,9 @@ namespace Kassasystemet___Mille_Elfver
 
                 if (userInput.Equals("PAY", StringComparison.OrdinalIgnoreCase))
                 {
+                    Console.Clear();
                     string receiptText = shoppingCart.CreateReceipt();
                     shoppingCart.SaveReceipt(receiptText);
-
                     Console.WriteLine("Köpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
                     break;
                 }

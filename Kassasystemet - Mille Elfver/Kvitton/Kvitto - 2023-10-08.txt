@@ -150,3 +150,215 @@ Choklad         55 st * 22,90              1259,50
 
 Total:                                 1 371,20 kr
 --------------------------------------------------
+--------------------------------------------------
+KVITTO 18                    2023-10-08 11:17:59
+
+Tomater         1,00 kg * 79,90              79,90
+Apelsiner       1,00 kg * 9,90                9,90
+Nutella         1,00 st * 21,90              21,90
+
+Total:                                   111,70 kr
+--------------------------------------------------
+--------------------------------------------------
+KVITTO 1336                    2023-10-08 11:18:21
+
+Tomater         1,00 kg * 79,90              79,90
+Apelsiner       1,00 kg * 9,90                9,90
+Nutella         1,00 st * 21,90              21,90
+
+Total:                                   111,70 kr
+--------------------------------------------------
+--------------------------------------------------
+KVITTO NR: 1337                 2023-10-08 11:19:02
+
+Tomater         1,00 kg * 79,90              79,90
+
+Total:                                    79,90 kr
+--------------------------------------------------
+--------------------------------------------------
+KVITTO NR: 1338                2023-10-08 11:19:15
+
+Tomater         1,00 kg * 79,90              79,90
+Apelsiner       1,00 kg * 9,90                9,90
+
+Total:                                    89,80 kr
+--------------------------------------------------
+--------------------------------------------------
+KVITTO NR: 1339                2023-10-08 11:19:56
+
+Tomater         1,00 kg * 79,90              79,90
+Apelsiner       1,00 kg * 9,90                9,90
+Godis           1,00 kg * 99,50              99,50
+
+Total:                                   189,30 kr
+--------------------------------------------------
+--------------------------------------------------
+KVITTO NR: 1340                2023-10-08 11:20:31
+
+Tomater         1,00 kg * 79,90              79,90
+Apelsiner       1,00 kg * 9,90                9,90
+Nutella         1,00 st * 21,90              21,90
+
+Total:                                   111,70 kr
+--------------------------------------------------
+--------------------------------------------------
+KVITTO NR: 1341                2023-10-08 11:25:49
+
+Arninge Butik ( +46 850 248 305 )
+Arninge Butik AB
+Saluvägen 5, 187 66 Täby Sweden
+Organisations Nr: 559300-7149
+Tomater         1,00 kg * 79,90              79,90
+Kyckling        1,00 kg * 129,90            129,90
+Choklad         1,00 st * 22,90              22,90
+
+Total:                                   232,70 kr
+--------------------------------------------------
+--------------------------------------------------
+KVITTO NR: 1342                2023-10-08 11:32:28
+
+Arninge Butik ( +46 850 248 305 )
+Arninge Butik AB
+Saluvägen 5, 187 66 Täby Sweden
+Organisations Nr: 559300-7149
+
+Tomater         1,00 kg * 79,90              79,90
+Apelsiner       1,00 kg * 9,90                9,90
+TELLER DK / CA
+BUTIKSNR: 76098847
+TERM: 19477096-975026
+
+MasterCard
+Contactless
+************2833-1
+AID: A00000000041010
+TVR: 000000008001
+REF: 287643 476957 KC1
+RESP: 00
+PERIOD: 450
+KÖP
+GODKÄNT
+MOMS-kod
+I 12.00%
+
+RICHARD CHALK
+MOMS Punkt: 764201
+6B KVITTO NR: 1342
+
+Din Kassör Idag Var Mille Elfver
+Tack För Att Du Handlar På Costco
+
+Total:                                    89,80 kr
+--------------------------------------------------
+--------------------------------------------------
+KVITTO NR: 1343                2023-10-08 11:34:12
+
+        Arninge Butik ( +46 850 248 305 )
+        Arninge Butik AB
+        Saluvägen 5, 187 66 Täby Sweden
+        Organisations Nr: 559300-7149
+
+Tomater         1,00 kg * 79,90              79,90
+Apelsiner       1,00 kg * 9,90                9,90
+Nutella         1,00 st * 21,90              21,90
+
+        TELLER DK / CA
+        BUTIKSNR: 76098847
+        TERM: 19477096-975026
+
+        MasterCard
+        Contactless
+        ************2833-1
+        AID: A00000000041010
+        TVR: 000000008001
+        REF: 287643 476957 KC1
+        RESP: 00
+        PERIOD: 450
+        KÖP
+        GODKÄNT
+        MOMS-kod
+        I 12.00%
+
+        RICHARD CHALK
+        MOMS Punkt: 764201
+        6B KVITTO NR: 1343
+
+        Din Kassör Idag Var Mille Elfver
+        Tack För Att Du Handlar På Costco
+
+Total:                                   111,70 kr
+--------------------------------------------------
+---------------------------------------------
+KVITTO NR: 1344           2023-10-08 11:35:00
+
+Arninge Butik ( +46 850 248 305 )
+Arninge Butik AB
+Saluvägen 5, 187 66 Täby Sweden
+Organisations Nr: 559300-7149
+
+Tomater         1,00 kg * 79,90         79,90
+Apelsiner       1,00 kg * 9,90           9,90
+Choklad         1,00 st * 22,90         22,90
+
+TELLER DK / CA
+BUTIKSNR: 76098847
+TERM: 19477096-975026
+
+MasterCard
+Contactless
+************2833-1
+AID: A00000000041010
+TVR: 000000008001
+REF: 287643 476957 KC1
+RESP: 00
+PERIOD: 450
+KÖP
+GODKÄNT
+MOMS-kod
+I 12.00%
+
+RICHARD CHALK
+MOMS Punkt: 764201
+6B KVITTO NR: 1344
+
+Din Kassör Idag Var Mille Elfver
+Tack För Att Du Handlar På Costco
+
+Total:                              112,70 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1345           2023-10-08 11:36:43
+
+Mille Butik ( +46 850 248 305 )
+Mille Butik AB
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55421-7125
+
+Tomater         1,00 kg * 79,90         79,90
+
+TELLER DK / CA
+BUTIKSNR: 76098847
+TERM: 19477096-975026
+
+MasterCard
+Contactless
+************2833-1
+AID: A00000000041010
+TVR: 000000008001
+REF: 287643 476957 KC1
+RESP: 00
+PERIOD: 450
+KÖP
+GODKÄNT
+MOMS-kod
+I 12.00%
+
+RICHARD CHALK
+MOMS Punkt: 764201
+6B KVITTO NR: 1345
+
+Din Kassör Idag Var Mille Elfver
+Tack För Att Du Handlar På Costco
+
+Total:                               79,90 kr
+---------------------------------------------

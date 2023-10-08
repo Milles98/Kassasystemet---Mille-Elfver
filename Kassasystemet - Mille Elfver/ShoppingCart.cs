@@ -9,7 +9,7 @@ namespace Kassasystemet___Mille_Elfver
     public class ShoppingCart
     {
         private StringBuilder receipt = new StringBuilder();
-        private int receiptCounter = 1;
+        private int receiptCounter = 1337;
 
         public ShoppingCart()
         {
@@ -37,16 +37,16 @@ namespace Kassasystemet___Mille_Elfver
                 else
                 {
                     totalPrice = product.UnitPrice * quantity;
-                    productInfo = $"{product.Name.PadRight(15)} {quantity} st * {product.UnitPrice:F2}";
+                    productInfo = $"{product.Name.PadRight(15)} {quantity:F2} st * {product.UnitPrice:F2}";
                 }
 
-                int paddingSpaces = Math.Max(0, 50 - productInfo.Length - totalPrice.ToString("F2").Length);
+                int paddingSpaces = Math.Max(0, 45 - productInfo.Length - totalPrice.ToString("F2").Length);
 
                 string productToAdd = $"{productInfo}{new string(' ', paddingSpaces)}{totalPrice:F2}";
 
                 receipt.AppendLine(productToAdd);
 
-                string priceType = product.IsKiloPrice ? "kilo" : "st"; //ternary
+                string priceType = product.IsKiloPrice ? "kilo" : "st"; //ternary istället för if-sats
 
                 Console.WriteLine($"Produkt: {product.Name}, {quantity} {priceType:F2}, totalt pris: {totalPrice:F2} kr har lagts till på kvittot.");
             }
@@ -95,8 +95,8 @@ namespace Kassasystemet___Mille_Elfver
             DateTime dateTime = DateTime.Now;
             string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
-            string receiptSeparator = new string('-', 50);
-            int maxWidth = 50;
+            string receiptSeparator = new string('-', 45);
+            int maxWidth = 45;
             int availableSpace = maxWidth - "Total:".Length;
             string totalAmountText = totalAmount.ToString("C");
             string totalAmountPadding = new string(' ', availableSpace - totalAmountText.Length);
@@ -104,9 +104,39 @@ namespace Kassasystemet___Mille_Elfver
 
             StringBuilder receiptText = new StringBuilder();
             receiptText.AppendLine(receiptSeparator);
-            receiptText.AppendLine($"KVITTO {receiptCounter}{formattedDate.PadLeft(42)}\n");
+            receiptText.AppendLine($"KVITTO NR: {receiptCounter}{formattedDate.PadLeft(30)}\n");
+            receiptText.AppendLine($"Mille Butik ( +46 850 248 305 )");
+            receiptText.AppendLine($"Mille Butik AB");
+            receiptText.AppendLine($"Årstaängsvägen 31, 117 43 Stockholm");
+            receiptText.AppendLine($"Organisations Nr: 55421-7125\n");
 
             receiptText.Append(receipt.ToString());
+
+            receiptText.AppendLine($"\nTELLER DK / CA");
+            receiptText.AppendLine($"BUTIKSNR: 76098847");
+            receiptText.AppendLine($"TERM: 19477096-975026\n");
+
+            receiptText.AppendLine($"MasterCard");
+            receiptText.AppendLine($"Contactless");
+            receiptText.AppendLine($"************2833-1");
+            receiptText.AppendLine($"AID: A00000000041010");
+            receiptText.AppendLine($"TVR: 000000008001");
+            receiptText.AppendLine($"REF: 287643 476957 KC1");
+            receiptText.AppendLine($"RESP: 00");
+            receiptText.AppendLine($"PERIOD: 450");
+
+            receiptText.AppendLine($"KÖP");
+            receiptText.AppendLine($"GODKÄNT");
+
+            receiptText.AppendLine($"MOMS-kod");
+            receiptText.AppendLine($"I 12.00%\n");
+
+            receiptText.AppendLine($"RICHARD CHALK");
+            receiptText.AppendLine($"MOMS Punkt: 764201");
+            receiptText.AppendLine($"6B KVITTO NR: {receiptCounter}\n");
+
+            receiptText.AppendLine($"Din Kassör Idag Var Mille");
+            receiptText.AppendLine($"Tack För Att Du Handlar Hos Oss På Milles Butik");
 
             receiptText.AppendLine(totalLine);
             receiptText.AppendLine(receiptSeparator);
