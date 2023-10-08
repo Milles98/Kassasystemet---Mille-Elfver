@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public class NewCustomerTest
+    public class NewCustomer
     {
         public static void NewCustomerChoices()
         {
@@ -63,9 +63,11 @@ namespace Kassasystemet___Mille_Elfver
             /// </summary>
             static void NewCustomerMenu()
             {
-                Console.WriteLine("KASSA");
-                Console.WriteLine("Kommandon:");
-                Console.WriteLine("<productid> <antal> <PAY> <ITEMS> <MENU>");
+                Console.WriteLine(" ------------------------------------------");
+                Console.WriteLine("| KASSA                                    |");
+                Console.WriteLine("| Kommandon:                               |");
+                Console.WriteLine("| <productid> <antal> <PAY> <ITEMS> <MENU> |");
+                Console.WriteLine(" ------------------------------------------");
                 //Console.WriteLine("Exempel: 300 1 = Banan 1kg, 308 0,5 = Tomater 0,5kg");
                 Console.Write("Kommando: ");
             }

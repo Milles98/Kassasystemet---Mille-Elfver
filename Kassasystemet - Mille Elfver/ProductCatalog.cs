@@ -15,9 +15,12 @@ namespace Kassasystemet___Mille_Elfver
         {
             DataSeeding();
 
-            LoadProductsFromFile();
+            //LoadProductsFromFile();
         }
 
+        /// <summary>
+        /// Loads all products and saves them to Produkter.txt
+        /// </summary>
         private void DataSeeding()
         {
             if (availableProducts.Count == 0)
@@ -48,6 +51,9 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
+        /// <summary>
+        /// Saves all products to Produkter.txt file
+        /// </summary>
         private void SaveProductsToFile()
         {
             try
@@ -67,29 +73,30 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
-        private void LoadProductsFromFile()
-        {
-            if (File.Exists("../../../Produkter/Produkter.txt"))
-            {
-                using (StreamReader reader = new StreamReader("../../../Produkter/Produkter.txt"))
-                {
-                    string line;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        string[] parts = line.Split(',');
-                        if (parts.Length == 5)
-                        {
-                            string code = parts[0].Trim();
-                            string name = parts[1].Trim();
-                            decimal price = decimal.Parse(parts[2].Trim());
-                            decimal discountedPrice = decimal.Parse(parts[3].Trim());
+        //todo ändra denna metod då logiken är brusten, skriver enbart ut kilopriser
+        //public void LoadProductsFromFile()
+        //{
+        //    if (File.Exists("../../../Produkter/Produkter.txt"))
+        //    {
+        //        using (StreamReader reader = new StreamReader("../../../Produkter/Produkter.txt"))
+        //        {
+        //            string line;
+        //            while ((line = reader.ReadLine()) != null)
+        //            {
+        //                string[] parts = line.Split(',');
+        //                if (parts.Length == 5)
+        //                {
+        //                    string id = parts[0].Trim();
+        //                    string name = parts[1].Trim();
+        //                    decimal unitPrice = decimal.Parse(parts[2].Trim());
+        //                    decimal kiloPrice = decimal.Parse(parts[3].Trim());
 
-                            availableProducts[code] = new Product(code, name, price, discountedPrice);
-                        }
-                    }
-                }
-            }
-        }
+        //                    availableProducts[id] = new Product(id, name, unitPrice, kiloPrice);
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 
         public Product GetProduct(string productId)
         {
@@ -102,7 +109,6 @@ namespace Kassasystemet___Mille_Elfver
 
         public void DisplayAvailableProducts()
         {
-            Console.Clear();
             Console.WriteLine("Tillgängliga produkter:");
             Console.WriteLine($"300-305 är kilopris, 306-320 är styckpris");
             foreach (var product in availableProducts)
