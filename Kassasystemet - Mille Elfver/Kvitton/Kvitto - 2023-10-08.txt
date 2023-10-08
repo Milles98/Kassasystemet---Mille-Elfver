@@ -362,3 +362,190 @@ Tack För Att Du Handlar På Costco
 
 Total:                               79,90 kr
 ---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1346           2023-10-08 11:42:56
+
+Milles Butik ( +46 850 248 305 )
+Milles Butik AB
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55421-7125
+
+Tomater         1,00 kg * 79,90         79,90
+Apelsiner       1,00 kg * 9,90           9,90
+Kyckling        1,00 kg * 129,90       129,90
+Apelsiner       1,00 kg * 9,90           9,90
+Kött            1,00 kg * 199,00       199,00
+Mango           1,00 st * 19,90         19,90
+Leverpastej     1,00 st * 24,90         24,90
+Glass           1,00 st * 39,90         39,90
+
+TELLER DK / CA
+BUTIKSNR: 76098847
+TERM: 19477096-975026
+
+MasterCard
+Contactless
+************2833-1
+AID: A00000000041010
+TVR: 000000008001
+REF: 287643 476957 KC1
+RESP: 00
+PERIOD: 450
+
+KÖP
+GODKÄNT
+
+KUND: ANONYM
+MOMS Punkt: 764201
+6B KVITTO NR: 1346
+
+Din Kassör Idag Var Mille
+Tack För Att Du Handlar Hos Oss På Milles Butik
+
+Total:                              513,30 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1347           2023-10-08 11:47:36
+
+Milles Butik ( +46 123 456 789 )
+Milles Butik AB
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55421-7125
+
+*********************************************
+Tomater         1,00 kg * 79,90         79,90
+Apelsiner       1,00 kg * 9,90           9,90
+*********************************************
+
+TELLER DK / CA
+BUTIKSNR: 76091234
+TERM: 11477096-835026
+
+MasterCard
+Contactless
+************1234-1
+AID: A00000000041010
+TVR: 000000008001
+REF: 290643 480957 KC1
+RESP: 00
+PERIOD: 417
+
+KÖP
+GODKÄNT
+
+KUND: ANONYM
+MOMS Punkt: 745201
+6B KVITTO NR: 1347
+
+Din Kassör Idag Var Mille
+Tack För Att Du Handlar Hos Oss
+
+Total:                               89,80 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1348           2023-10-08 11:51:53
+
+Milles Butik ( +46 123 456 789 )
+Milles Butik AB
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55421-7125
+
+Tomater         1,00 kg * 79,90         79,90
+Apelsiner       1,00 kg * 9,90           9,90
+Nutella         1,00 st * 21,90         21,90
+
+TELLER SE / NO
+BUTIKSNR: 76091234
+TERM: 11477096-835026
+
+MasterCard
+Contactless
+************1234-1
+AID: A00000000030910
+TVR: 000000007101
+REF: 290643 480957 KC1
+RESP: 00
+PERIOD: 417
+
+KÖP
+GODKÄNT
+MOMS Punkt: 745201
+6B KVITTO NR: 1348
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+Total:                              111,70 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1349           2023-10-08 11:53:13
+
+Milles Butik ( +46 123 456 789 )
+Milles Butik AB
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55421-7125
+
+Tomater         1,00 kg * 79,90         79,90
+Apelsiner       1,00 kg * 9,90           9,90
+Kött            1,50 kg * 199,00       298,50
+
+
+Total:                              388,30 kr
+
+TELLER SE / NO
+BUTIKSNR: 76091234
+TERM: 11477096-835026
+
+MasterCard
+Contactless
+************1234-1
+AID: A00000000030910
+TVR: 000000007101
+REF: 290643 480957 KC1
+RESP: 00
+PERIOD: 417
+
+KÖP
+GODKÄNT
+MOMS Punkt: 745201
+6B KVITTO NR: 1349
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1350           2023-10-08 11:53:50
+
+Milles Butik ( +46 123 456 789 )
+Milles Butik AB
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55421-7125
+
+Tomater         1,00 kg * 79,90         79,90
+Apelsiner       1,00 kg * 9,90           9,90
+Kyckling        1,00 kg * 129,90       129,90
+Kött            1,00 kg * 199,00       199,00
+
+Total:                              418,70 kr
+
+TELLER SE / NO
+BUTIKSNR: 76091234
+TERM: 11477096-835026
+
+MasterCard
+Contactless
+************1234-1
+AID: A00000000030910
+TVR: 000000007101
+REF: 290643 480957 KC1
+RESP: 00
+PERIOD: 417
+
+KÖP
+GODKÄNT
+MOMS Punkt: 745201
+6B KVITTO NR: 1350
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+---------------------------------------------

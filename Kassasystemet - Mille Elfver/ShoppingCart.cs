@@ -105,38 +105,34 @@ namespace Kassasystemet___Mille_Elfver
             StringBuilder receiptText = new StringBuilder();
             receiptText.AppendLine(receiptSeparator);
             receiptText.AppendLine($"KVITTO NR: {receiptCounter}{formattedDate.PadLeft(30)}\n");
-            receiptText.AppendLine($"Mille Butik ( +46 850 248 305 )");
-            receiptText.AppendLine($"Mille Butik AB");
+            receiptText.AppendLine($"Milles Butik ( +46 123 456 789 )");
+            receiptText.AppendLine($"Milles Butik AB");
             receiptText.AppendLine($"Årstaängsvägen 31, 117 43 Stockholm");
             receiptText.AppendLine($"Organisations Nr: 55421-7125\n");
 
             receiptText.Append(receipt.ToString());
 
-            receiptText.AppendLine($"\nTELLER DK / CA");
-            receiptText.AppendLine($"BUTIKSNR: 76098847");
-            receiptText.AppendLine($"TERM: 19477096-975026\n");
+            receiptText.AppendLine($"\nTELLER SE / NO");
+            receiptText.AppendLine($"BUTIKSNR: 76091234");
+            receiptText.AppendLine($"TERM: 11477096-835026\n");
 
             receiptText.AppendLine($"MasterCard");
             receiptText.AppendLine($"Contactless");
-            receiptText.AppendLine($"************2833-1");
-            receiptText.AppendLine($"AID: A00000000041010");
-            receiptText.AppendLine($"TVR: 000000008001");
-            receiptText.AppendLine($"REF: 287643 476957 KC1");
+            receiptText.AppendLine($"************1234-1");
+            receiptText.AppendLine($"AID: A00000000030910");
+            receiptText.AppendLine($"TVR: 000000007101");
+            receiptText.AppendLine($"REF: 290643 480957 KC1");
             receiptText.AppendLine($"RESP: 00");
-            receiptText.AppendLine($"PERIOD: 450");
+            receiptText.AppendLine($"PERIOD: 417");
 
-            receiptText.AppendLine($"KÖP");
+            receiptText.AppendLine($"\nKÖP");
             receiptText.AppendLine($"GODKÄNT");
 
-            receiptText.AppendLine($"MOMS-kod");
-            receiptText.AppendLine($"I 12.00%\n");
-
-            receiptText.AppendLine($"RICHARD CHALK");
-            receiptText.AppendLine($"MOMS Punkt: 764201");
+            receiptText.AppendLine($"MOMS Punkt: 745201");
             receiptText.AppendLine($"6B KVITTO NR: {receiptCounter}\n");
 
             receiptText.AppendLine($"Din Kassör Idag Var Mille");
-            receiptText.AppendLine($"Tack För Att Du Handlar Hos Oss På Milles Butik");
+            receiptText.AppendLine($"Tack Och Välkommen Åter!");
 
             receiptText.AppendLine(totalLine);
             receiptText.AppendLine(receiptSeparator);
