@@ -13,27 +13,82 @@ namespace Kassasystemet___Mille_Elfver
 
         public ProductCatalog()
         {
-            availableProducts.Add("300", new Product("300", "Bananer", 15.50m, 15.50m));
-            availableProducts.Add("301", new Product("301", "Tomater", 79.90m, 79.90m));
-            availableProducts.Add("302", new Product("302", "Apelsiner", 9.90m, 9.90m));
-            availableProducts.Add("303", new Product("303", "Godis", 99.50m, 99.50m));
-            availableProducts.Add("304", new Product("304", "Kött", 199m, 199m));
-            availableProducts.Add("305", new Product("305", "Kyckling", 129.90m, 129.90m));
-            availableProducts.Add("306", new Product("306", "Nutella", 21.90m, 0));
-            availableProducts.Add("307", new Product("307", "Citron", 5.50m, 0));
-            availableProducts.Add("308", new Product("308", "Jordgubbar", 39.90m, 0));
-            availableProducts.Add("309", new Product("309", "Grädde", 24.90m, 0));
-            availableProducts.Add("310", new Product("310", "Choklad", 22.90m, 0));
-            availableProducts.Add("311", new Product("311", "Mango", 19.90m, 0));
-            availableProducts.Add("312", new Product("312", "Öl", 15.50m, 0));
-            availableProducts.Add("313", new Product("313", "Kex", 23.90m, 0));
-            availableProducts.Add("314", new Product("314", "Gurka", 10m, 0));
-            availableProducts.Add("315", new Product("315", "Leverpastej", 24.90m, 0));
-            availableProducts.Add("316", new Product("316", "Chips", 27.90m, 0));
-            availableProducts.Add("317", new Product("317", "Bröd", 34.90m, 0));
-            availableProducts.Add("318", new Product("318", "Mjölk", 16.90m, 0));
-            availableProducts.Add("319", new Product("319", "Yoghurt", 29.90m, 0));
-            availableProducts.Add("320", new Product("320", "Glass", 39.90m, 0));
+            DataSeeding();
+
+            LoadProductsFromFile();
+        }
+
+        private void DataSeeding()
+        {
+            if (availableProducts.Count == 0)
+            {
+                availableProducts.Add("300", new Product("300", "Bananer", 15.50m, 15.50m));
+                availableProducts.Add("301", new Product("301", "Tomater", 79.90m, 79.90m));
+                availableProducts.Add("302", new Product("302", "Apelsiner", 9.90m, 9.90m));
+                availableProducts.Add("303", new Product("303", "Godis", 99.50m, 99.50m));
+                availableProducts.Add("304", new Product("304", "Kött", 199m, 199m));
+                availableProducts.Add("305", new Product("305", "Kyckling", 129.90m, 129.90m));
+                availableProducts.Add("306", new Product("306", "Nutella", 21.90m, 0));
+                availableProducts.Add("307", new Product("307", "Citron", 5.50m, 0));
+                availableProducts.Add("308", new Product("308", "Jordgubbar", 39.90m, 0));
+                availableProducts.Add("309", new Product("309", "Grädde", 24.90m, 0));
+                availableProducts.Add("310", new Product("310", "Choklad", 22.90m, 0));
+                availableProducts.Add("311", new Product("311", "Mango", 19.90m, 0));
+                availableProducts.Add("312", new Product("312", "Öl", 15.50m, 0));
+                availableProducts.Add("313", new Product("313", "Kex", 23.90m, 0));
+                availableProducts.Add("314", new Product("314", "Gurka", 10m, 0));
+                availableProducts.Add("315", new Product("315", "Leverpastej", 24.90m, 0));
+                availableProducts.Add("316", new Product("316", "Chips", 27.90m, 0));
+                availableProducts.Add("317", new Product("317", "Bröd", 34.90m, 0));
+                availableProducts.Add("318", new Product("318", "Mjölk", 16.90m, 0));
+                availableProducts.Add("319", new Product("319", "Yoghurt", 29.90m, 0));
+                availableProducts.Add("320", new Product("320", "Glass", 39.90m, 0));
+
+                SaveProductsToFile();
+            }
+        }
+
+        private void SaveProductsToFile()
+        {
+            try
+            {
+                Directory.CreateDirectory($"../../../Produkter");
+                using (StreamWriter writer = new StreamWriter("../../../Produkter/Produkter.txt"))
+                {
+                    foreach (var product in availableProducts.Values)
+                    {
+                        writer.WriteLine($"{product.Id}, {product.Name}, {product.UnitPrice}, {product.KiloPrice}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fel vid sparandet av produktlistan: {ex.Message}");
+            }
+        }
+
+        private void LoadProductsFromFile()
+        {
+            if (File.Exists("../../../Produkter/Produkter.txt"))
+            {
+                using (StreamReader reader = new StreamReader("../../../Produkter/Produkter.txt"))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        string[] parts = line.Split(',');
+                        if (parts.Length == 5)
+                        {
+                            string code = parts[0].Trim();
+                            string name = parts[1].Trim();
+                            decimal price = decimal.Parse(parts[2].Trim());
+                            decimal discountedPrice = decimal.Parse(parts[3].Trim());
+
+                            availableProducts[code] = new Product(code, name, price, discountedPrice);
+                        }
+                    }
+                }
+            }
         }
 
         public Product GetProduct(string productId)

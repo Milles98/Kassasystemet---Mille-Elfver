@@ -9,6 +9,12 @@ namespace Kassasystemet___Mille_Elfver
     public class ShoppingCart
     {
         private StringBuilder receipt = new StringBuilder();
+        private int receiptCounter = 1;
+
+        public ShoppingCart()
+        {
+            LoadReceiptCounter();
+        }
 
         /// <summary>
         /// Adds the productID and amount to receipt StringBuilder
@@ -98,12 +104,16 @@ namespace Kassasystemet___Mille_Elfver
 
             StringBuilder receiptText = new StringBuilder();
             receiptText.AppendLine(receiptSeparator);
-            receiptText.AppendLine($"KVITTO {formattedDate.PadLeft(33)}\n");
+            receiptText.AppendLine($"KVITTO {receiptCounter}{formattedDate.PadLeft(32)}\n");
 
             receiptText.Append(receipt.ToString());
 
             receiptText.AppendLine(totalLine);
             receiptText.AppendLine(receiptSeparator);
+
+            receiptCounter++;
+
+            SaveReceiptCounter();
 
             return receiptText.ToString();
 
@@ -119,15 +129,52 @@ namespace Kassasystemet___Mille_Elfver
             {
                 var date = DateTime.Now.ToShortDateString();
                 string fileName = $"Kvitto - {date}.txt";
-                Directory.CreateDirectory($"../../../Receipts");
-                File.AppendAllText($"../../../Receipts/{fileName}", receiptText);
+                Directory.CreateDirectory($"../../../Kvitton");
+                File.AppendAllText($"../../../Kvitton/{fileName}", receiptText);
                 Console.WriteLine(receiptText);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error saving receipt: {ex.Message}");
+                Console.WriteLine($"Fel vid sparandet av kvitto: {ex.Message}");
             }
 
+        }
+
+        /// <summary>
+        /// Loads the last receipt number to "KvittoRäknare" textfile
+        /// </summary>
+        private void LoadReceiptCounter()
+        {
+            try
+            {
+                if (File.Exists("../../../Kvitton/KvittoRäknare.txt"))
+                {
+                    string counterText = File.ReadAllText("../../../Kvitton/KvittoRäknare.txt");
+                    if (int.TryParse(counterText, out int counter))
+                    {
+                        receiptCounter = counter;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fel vid laddandet av kvittoräknare: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Saves the last receipt number to "KvittoRäknare" textfile
+        /// </summary>
+        private void SaveReceiptCounter()
+        {
+            try
+            {
+                File.WriteAllText("../../../Kvitton/KvittoRäknare.txt", receiptCounter.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fel vid sparandet av kvittoräknare: {ex.Message}");
+            }
         }
     }
 }
