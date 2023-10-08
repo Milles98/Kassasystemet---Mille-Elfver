@@ -40,7 +40,7 @@ namespace Kassasystemet___Mille_Elfver
                     productInfo = $"{product.Name.PadRight(15)} {quantity} st * {product.UnitPrice:F2}";
                 }
 
-                int paddingSpaces = Math.Max(0, 40 - productInfo.Length - totalPrice.ToString("F2").Length);
+                int paddingSpaces = Math.Max(0, 50 - productInfo.Length - totalPrice.ToString("F2").Length);
 
                 string productToAdd = $"{productInfo}{new string(' ', paddingSpaces)}{totalPrice:F2}";
 
@@ -95,8 +95,8 @@ namespace Kassasystemet___Mille_Elfver
             DateTime dateTime = DateTime.Now;
             string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
-            string receiptSeparator = new string('-', 40);
-            int maxWidth = 40;
+            string receiptSeparator = new string('-', 50);
+            int maxWidth = 50;
             int availableSpace = maxWidth - "Total:".Length;
             string totalAmountText = totalAmount.ToString("C");
             string totalAmountPadding = new string(' ', availableSpace - totalAmountText.Length);
@@ -104,7 +104,7 @@ namespace Kassasystemet___Mille_Elfver
 
             StringBuilder receiptText = new StringBuilder();
             receiptText.AppendLine(receiptSeparator);
-            receiptText.AppendLine($"KVITTO {receiptCounter}{formattedDate.PadLeft(32)}\n");
+            receiptText.AppendLine($"KVITTO {receiptCounter}{formattedDate.PadLeft(42)}\n");
 
             receiptText.Append(receipt.ToString());
 
@@ -112,7 +112,6 @@ namespace Kassasystemet___Mille_Elfver
             receiptText.AppendLine(receiptSeparator);
 
             receiptCounter++;
-
             SaveReceiptCounter();
 
             return receiptText.ToString();
