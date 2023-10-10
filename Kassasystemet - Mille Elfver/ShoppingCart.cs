@@ -109,30 +109,28 @@ namespace Kassasystemet___Mille_Elfver
 
             receiptText.AppendLine(receiptSeparator);
             receiptText.AppendLine($"KVITTO NR: {receiptCounter}{formattedDate.PadLeft(30)}\n");
-            receiptText.AppendLine($"Milles Butik ( +46 123 456 789 )");
-            receiptText.AppendLine($"Milles Butik AB");
+            receiptText.AppendLine($"Milles Butik AB ( +46 123 456 789 )");
             receiptText.AppendLine($"Årstaängsvägen 31, 117 43 Stockholm");
-            receiptText.AppendLine($"Organisations Nr: 55421-7125\n");
+            receiptText.AppendLine($"Organisations Nr: 55123-1234\n");
 
             receiptText.Append(receipt.ToString());
 
             receiptText.AppendLine($"\nTELLER SE / NO");
-            receiptText.AppendLine($"BUTIKSNR: 76091234");
-            receiptText.AppendLine($"TERM: 11477096-835026\n");
+            receiptText.AppendLine($"BUTIKSNR: 12345678");
+            receiptText.AppendLine($"TERM: 12345678-123456\n");
 
             receiptText.AppendLine($"MasterCard");
             receiptText.AppendLine($"Contactless");
-            receiptText.AppendLine($"************1234-1");
-            receiptText.AppendLine($"AID: A00000000030910");
-            receiptText.AppendLine($"TVR: 000000007101");
-            receiptText.AppendLine($"REF: 290643 480957 KC1");
-            receiptText.AppendLine($"RESP: 00");
+            receiptText.AppendLine($"************1234-5");
+            receiptText.AppendLine($"AID: A00000000012345");
+            receiptText.AppendLine($"TVR: 000000001234");
+            receiptText.AppendLine($"REF: 123456 123456 KC1");
+            receiptText.AppendLine($"RESP: 12");
             receiptText.AppendLine($"PERIOD: 417");
 
-            receiptText.AppendLine($"\nKÖP");
-            receiptText.AppendLine($"GODKÄNT");
+            receiptText.AppendLine($"\nKÖP GODKÄNT");
 
-            receiptText.AppendLine($"MOMS Punkt: 745201");
+            receiptText.AppendLine($"MOMS Punkt: 123456");
             receiptText.AppendLine($"6B KVITTO NR: {receiptCounter}\n");
 
             receiptText.AppendLine($"Din Kassör Idag Var Mille");

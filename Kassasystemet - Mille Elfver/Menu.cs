@@ -50,7 +50,7 @@ namespace Kassasystemet___Mille_Elfver
                 else
                 {
                     Console.Clear();
-                    Console.WriteLine("Ogiltig inmatning, tryck valfri knapp för att återgå till menyn och välj '1' eller '0'");
+                    Console.WriteLine("Ogiltig inmatning, tryck valfri knapp för att återgå till menyn och välj '1', '2' eller '0'");
                 }
                 Console.ReadKey();
 

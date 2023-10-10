@@ -15,11 +15,16 @@ namespace Kassasystemet___Mille_Elfver
             switch (userInput)
             {
                 case 1:
-                    Console.WriteLine("1. Ändra namn på produkter");
-                    string userAnswer = Console.ReadLine();
-                    //ex Product.Name = namnet Banan
                     ProductCatalog productCatalog = new ProductCatalog();
-                    productCatalog.DisplayAvailableProducts();
+
+                    //Console.Write("Ange namn på produkt: ");
+                    //string userAnswerId = Console.ReadLine();
+
+                    //Console.Write("Ange pris på produkt: ");
+                    //var productAnswerId = Console.ReadLine();
+
+                    //productCatalog.availableProducts.Add(userAnswerId, productAnswerId);
+
                     break;
                 case 2:
                     Console.WriteLine("2. Ändra pris på produkter");
@@ -44,7 +49,7 @@ namespace Kassasystemet___Mille_Elfver
             Console.WriteLine("3. Lägga till produkter");
             Console.WriteLine("4. Lägga till/ta bort kampanjpriser");
             Console.WriteLine("5. Gå till huvudmenyn");
-            Console.Write("Svar: ");
+            Console.Write("Inmatning: ");
         }
 
     }

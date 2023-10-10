@@ -9,7 +9,7 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class ProductCatalog
     {
-        private readonly Dictionary<string, Product> availableProducts = new Dictionary<string, Product>();
+        public Dictionary<string, Product> availableProducts = new Dictionary<string, Product>();
 
         public ProductCatalog()
         {
