@@ -8,12 +8,13 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class ShoppingCart
     {
-        ProductCatalog productCatalog = new ProductCatalog();
+        private ProductCatalog ProductCatalog;
         private StringBuilder receipt = new StringBuilder();
         private int receiptCounter = 1337;
 
-        public ShoppingCart()
+        public ShoppingCart(ProductCatalog productCatalog)
         {
+            ProductCatalog = productCatalog;
             LoadReceiptCounter();
         }
 
@@ -25,7 +26,8 @@ namespace Kassasystemet___Mille_Elfver
         public void AddingToReceipt(Product product, decimal quantity)
         {
             Console.Clear();
-            if (product != null) //kollar så produkten inte är null
+
+            if (product != null) 
             {
                 decimal totalPrice;
                 string productInfo;
@@ -54,8 +56,7 @@ namespace Kassasystemet___Mille_Elfver
             else
             {
                 Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                //ProductCatalog productCatalog = new ProductCatalog();
-                productCatalog.DisplayAvailableProducts();
+                ProductCatalog.DisplayAvailableProducts();
             }
         }
 

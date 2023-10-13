@@ -13,6 +13,9 @@ namespace Kassasystemet___Mille_Elfver
         /// </summary>
         public static void MainMenu()
         {
+            ProductCatalog productCatalog = new ProductCatalog();
+            ShoppingCart shoppingCart = new ShoppingCart(productCatalog);
+
             bool programRunning = true;
             do
             {
@@ -34,14 +37,15 @@ namespace Kassasystemet___Mille_Elfver
                     {
                         case 1:
                             Console.Clear();
-                            NewCustomer.NewCustomerChoices();
+                            NewCustomer.NewCustomerChoices(productCatalog);
                             break;
 
                         case 2:
-                            Admin.AdminTools();
+                            Admin.AdminTools(productCatalog);
                             break;
 
                         case 0:
+                            productCatalog.SaveProductsToFile();
                             Console.WriteLine("Tryck valfri knapp för att avsluta programmet.");
                             programRunning = false;
                             break;

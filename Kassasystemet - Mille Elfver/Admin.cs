@@ -8,29 +8,38 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class Admin
     {
-        public static void AdminTools()
+        public static void AdminTools(ProductCatalog productCatalog)
         {
             AdminMenu();
+            //ProductCatalog productCatalog = new ProductCatalog();
             int userInput = Convert.ToInt32(Console.ReadLine());
             switch (userInput)
             {
                 case 1:
-                    ProductCatalog productCatalog = new ProductCatalog();
-
-                    //Console.Write("Ange namn på produkt: ");
-                    //string userAnswerId = Console.ReadLine();
-
-                    //Console.Write("Ange pris på produkt: ");
-                    //var productAnswerId = Console.ReadLine();
-
-                    //productCatalog.availableProducts.Add(userAnswerId, productAnswerId);
-
+                    Console.WriteLine("Ändra namn på produkt");
                     break;
                 case 2:
                     Console.WriteLine("2. Ändra pris på produkter");
                     break;
                 case 3:
-                    Console.WriteLine("3. Lägga till produkter");
+                    Console.WriteLine("3. Lägga till produkter\n");
+                    Console.Write("Ange produktens ID: ");
+                    string productId = Console.ReadLine();
+                    Console.Write("Ange produktens namn: ");
+                    string productName = Console.ReadLine();
+                    Console.Write("Ange styckpris: ");
+                    if (!decimal.TryParse(Console.ReadLine(), out decimal unitPrice))
+                    {
+                        Console.WriteLine("Ogiltigt styckpris format");
+                        break;
+                    }
+                    Console.Write("Ange kilopris (0 om det är styckpris): ");
+                    if (!decimal.TryParse(Console.ReadLine(), out decimal kiloPrice))
+                    {
+                        Console.WriteLine("Ogiltigt kilopris format");
+                        break;
+                    }
+                    productCatalog.AddProduct(productId, productName, unitPrice, kiloPrice);
                     break;
                 case 4:
                     Console.WriteLine("4. Lägga till/ta bort kampanjpriser");

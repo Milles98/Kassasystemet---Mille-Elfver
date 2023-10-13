@@ -11,10 +11,9 @@ namespace Kassasystemet___Mille_Elfver
         /// <summary>
         /// Menu choices to add products, display items, pay for items and return to menu
         /// </summary>
-        public static void NewCustomerChoices()
+        public static void NewCustomerChoices(ProductCatalog productCatalog)
         {
-            ProductCatalog productCatalog = new ProductCatalog();
-            ShoppingCart shoppingCart = new ShoppingCart();
+            ShoppingCart shoppingCart = new ShoppingCart(productCatalog);
 
             while (true)
             {
