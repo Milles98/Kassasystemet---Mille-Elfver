@@ -70,6 +70,21 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
+        public void UpdateProductPrice(string productId, decimal newUnitPrice, decimal newKiloPrice)
+        {
+            if (availableProducts.ContainsKey(productId))
+            {
+                availableProducts[productId].UnitPrice = newUnitPrice;
+                availableProducts[productId].KiloPrice = newKiloPrice;
+                SaveProductsToFile(); // Save the changes to the file
+                Console.WriteLine($"Product price updated for ID {productId}.");
+            }
+            else
+            {
+                Console.WriteLine($"Product with ID {productId} does not exist.");
+            }
+        }
+
         /// <summary>
         /// Saves all products to Produkter.txt file
         /// </summary>

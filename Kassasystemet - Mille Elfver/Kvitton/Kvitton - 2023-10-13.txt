@@ -526,3 +526,34 @@ Tack Och Välkommen Åter!
 
 TOTAL:                               58,90 kr
 ---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1388           2023-10-13 11:59:29
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Vaniljglass     1,00 st * 39,90         39,90
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1388
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                               39,90 kr
+---------------------------------------------

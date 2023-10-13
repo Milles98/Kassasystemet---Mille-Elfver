@@ -26,9 +26,22 @@ namespace Kassasystemet___Mille_Elfver
 
                     productCatalog.UpdateProductName(productIdCase1, newName);
                     break;
+
                 case 2:
                     Console.WriteLine("2. Ändra pris på produkter");
+
+                    Console.Write("Ange produkt-ID: ");
+                    string productIdCase2 = Console.ReadLine();
+
+                    Console.Write("Ange nytt pris per styck: ");
+                    decimal newUnitPrice = decimal.Parse(Console.ReadLine());
+
+                    Console.Write("Ange nytt pris per kilo(0 om det är styckpris): ");
+                    decimal newKiloPrice = decimal.Parse(Console.ReadLine());
+
+                    productCatalog.UpdateProductPrice(productIdCase2, newUnitPrice, newKiloPrice);
                     break;
+
                 case 3:
                     Console.WriteLine("3. Lägga till produkter\n");
                     Console.Write("Ange produktens ID: ");
@@ -49,9 +62,11 @@ namespace Kassasystemet___Mille_Elfver
                     }
                     productCatalog.AddProduct(productIdCase3, productName, unitPrice, kiloPrice);
                     break;
+
                 case 4:
                     Console.WriteLine("4. Lägga till/ta bort kampanjpriser");
                     break;
+
                 case 5:
                     Menu.MainMenu(productCatalog);
                     break;
