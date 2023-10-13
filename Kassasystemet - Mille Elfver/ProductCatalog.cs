@@ -56,6 +56,20 @@ namespace Kassasystemet___Mille_Elfver
             availableProducts.Add("320", new Product("320", "Glass", 39.90m, 0));
         }
 
+        public void UpdateProductName(string productId, string newName)
+        {
+            if (availableProducts.ContainsKey(productId))
+            {
+                availableProducts[productId].Name = newName;
+                SaveProductsToFile(); 
+                Console.WriteLine($"Produktnamn uppdaterat på: {productId}.");
+            }
+            else
+            {
+                Console.WriteLine($"Produkt med ID {productId} finns ej.");
+            }
+        }
+
         /// <summary>
         /// Saves all products to Produkter.txt file
         /// </summary>

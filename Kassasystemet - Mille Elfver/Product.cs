@@ -8,10 +8,10 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class Product
     {
-        public string Id { get; }
-        public string Name { get; }
-        public decimal UnitPrice { get; }
-        public decimal KiloPrice { get; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal KiloPrice { get; set; }
         public bool IsKiloPrice { get; }
 
         public Product(string id, string name, decimal unitPrice, decimal kiloPrice)

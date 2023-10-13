@@ -17,6 +17,14 @@ namespace Kassasystemet___Mille_Elfver
             {
                 case 1:
                     Console.WriteLine("Ändra namn på produkt");
+
+                    Console.Write("Ange produkt-ID: ");
+                    string productIdCase1 = Console.ReadLine();
+
+                    Console.Write("Ange det nya namnet: ");
+                    string newName = Console.ReadLine();
+
+                    productCatalog.UpdateProductName(productIdCase1, newName);
                     break;
                 case 2:
                     Console.WriteLine("2. Ändra pris på produkter");
@@ -24,7 +32,7 @@ namespace Kassasystemet___Mille_Elfver
                 case 3:
                     Console.WriteLine("3. Lägga till produkter\n");
                     Console.Write("Ange produktens ID: ");
-                    string productId = Console.ReadLine();
+                    string productIdCase3 = Console.ReadLine();
                     Console.Write("Ange produktens namn: ");
                     string productName = Console.ReadLine();
                     Console.Write("Ange styckpris: ");
@@ -39,7 +47,7 @@ namespace Kassasystemet___Mille_Elfver
                         Console.WriteLine("Ogiltigt kilopris format");
                         break;
                     }
-                    productCatalog.AddProduct(productId, productName, unitPrice, kiloPrice);
+                    productCatalog.AddProduct(productIdCase3, productName, unitPrice, kiloPrice);
                     break;
                 case 4:
                     Console.WriteLine("4. Lägga till/ta bort kampanjpriser");
