@@ -27,9 +27,7 @@ namespace Kassasystemet___Mille_Elfver
                 StartingItems();
                 SaveProductsToFile();
             }
-
         }
-
 
         private void StartingItems()
         {
