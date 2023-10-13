@@ -37,7 +37,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 if (userInput.Equals("MENU", StringComparison.OrdinalIgnoreCase))
                 {
-                    Menu.MainMenu();
+                    Menu.MainMenu(productCatalog);
                 }
                 
                 if (userInput.Equals("HISTORIK", StringComparison.OrdinalIgnoreCase))

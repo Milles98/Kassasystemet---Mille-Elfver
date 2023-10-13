@@ -45,7 +45,7 @@ namespace Kassasystemet___Mille_Elfver
                     Console.WriteLine("4. Lägga till/ta bort kampanjpriser");
                     break;
                 case 5:
-                    Menu.MainMenu();
+                    Menu.MainMenu(productCatalog);
                     break;
             }
         }
