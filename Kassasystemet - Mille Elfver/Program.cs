@@ -17,7 +17,6 @@ namespace Kassasystemet___Mille_Elfver
         static void Main(string[] args)
         {
             ProductCatalog productCatalog = new ProductCatalog();
-            productCatalog.LoadProductsFromFile();
 
             Menu.MainMenu(productCatalog);
         }

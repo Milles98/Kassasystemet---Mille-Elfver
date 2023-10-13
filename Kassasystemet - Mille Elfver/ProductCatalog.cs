@@ -14,27 +14,22 @@ namespace Kassasystemet___Mille_Elfver
         public ProductCatalog()
         {
             DataSeeding();
-
         }
 
         /// <summary>
         /// Loads all products and saves them to Produkter.txt
         /// </summary>
-        private void DataSeeding()
+        public void DataSeeding()
         {
             LoadProductsFromFile();
-            bool productsAdded = false;
-
-            if (availableProducts.Count == 0)
+            if (availableProducts.Count <= 20)
             {
                 StartingItems();
-                productsAdded = true;
-            }
-            if (productsAdded)
-            {
                 SaveProductsToFile();
             }
+
         }
+
 
         private void StartingItems()
         {
