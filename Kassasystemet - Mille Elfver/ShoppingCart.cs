@@ -27,7 +27,7 @@ namespace Kassasystemet___Mille_Elfver
         public void AddingToReceipt(Product product, decimal quantity)
         {
             Console.Clear();
-            if (product != null) 
+            if (product != null)
             {
                 isCartEmpty = false;
                 decimal totalPrice;
@@ -172,7 +172,6 @@ namespace Kassasystemet___Mille_Elfver
             {
                 Console.WriteLine($"Fel vid sparandet av kvitto: {ex.Message}");
             }
-
         }
 
         /// <summary>
@@ -212,6 +211,5 @@ namespace Kassasystemet___Mille_Elfver
                 Console.WriteLine($"Fel vid sparandet av kvittoräknare: {ex.Message}");
             }
         }
-
     }
 }

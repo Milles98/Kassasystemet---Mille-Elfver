@@ -13,11 +13,10 @@ namespace Kassasystemet___Mille_Elfver
         /// </summary>
         public static void MainMenu(ProductCatalog productCatalog)
         {
-            
+
             bool programRunning = true;
             do
             {
-                //Menylista för kassasystemet 
                 Console.Clear();
                 Console.WriteLine(" ------------");
                 Console.WriteLine("| KASSA      |");
@@ -29,7 +28,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 int val;
                 string userInput = Console.ReadLine();
-                if (int.TryParse(userInput, out val) && val >= 0 && val <= 2) //try parse istället för try catch
+                if (int.TryParse(userInput, out val) && val >= 0 && val <= 2)
                 {
                     switch (val)
                     {

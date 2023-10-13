@@ -59,7 +59,7 @@ namespace Kassasystemet___Mille_Elfver
             if (availableProducts.ContainsKey(productId))
             {
                 availableProducts[productId].Name = newName;
-                SaveProductsToFile(); 
+                SaveProductsToFile();
                 Console.WriteLine($"Produktnamn uppdaterat på: {productId}.");
             }
             else
@@ -182,12 +182,6 @@ namespace Kassasystemet___Mille_Elfver
                 string priceInfo = product.IsKiloPrice ? $"{product.KiloPrice:F2} kr/kg" : $"{product.UnitPrice:F2} kr/st";
                 Console.WriteLine($"{product.Id.PadRight(4)}{product.Name.PadRight(16)}{priceInfo}");
             }
-            //Console.WriteLine("Tillgängliga produkter:");
-            //Console.WriteLine($"300-305 är kilopris, 306-320 är styckpris");
-            //foreach (var product in availableProducts)
-            //{
-            //    Console.WriteLine($"ProduktID: {product.Key}, {product.Value.Name}, Pris: {product.Value.UnitPrice}");
-            //}
         }
     }
 }
