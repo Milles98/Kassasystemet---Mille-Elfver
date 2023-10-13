@@ -20,7 +20,8 @@ namespace Kassasystemet___Mille_Elfver
             switch (userInput)
             {
                 case 1:
-                    Console.WriteLine("Ändra namn på produkt");
+                    productCatalog.DisplayAvailableProducts();
+                    Console.WriteLine("\n1. Ändra namn på produkt");
 
                     Console.Write("Ange produkt-ID: ");
                     string productIdCase1 = Console.ReadLine();
@@ -32,27 +33,36 @@ namespace Kassasystemet___Mille_Elfver
                     break;
 
                 case 2:
-                    Console.WriteLine("2. Ändra pris på produkter");
+                    productCatalog.DisplayAvailableProducts();
+                    decimal newUnitPrice;
+                    decimal newKiloPrice;
+                    Console.WriteLine("\n2. Ändra pris på produkter");
 
                     Console.Write("Ange produkt-ID: ");
                     string productIdCase2 = Console.ReadLine();
 
                     Console.Write("Ange nytt pris per styck: ");
-                    decimal newUnitPrice = decimal.Parse(Console.ReadLine());
+                    decimal.TryParse(Console.ReadLine(), out newUnitPrice);
 
                     Console.Write("Ange nytt pris per kilo(0 om det är styckpris): ");
-                    decimal newKiloPrice = decimal.Parse(Console.ReadLine());
+                    decimal.TryParse(Console.ReadLine(), out newKiloPrice);
 
                     productCatalog.UpdateProductPrice(productIdCase2, newUnitPrice, newKiloPrice);
                     break;
 
                 case 3:
-                    Console.WriteLine("3. Lägg till ny produkt\n");
+                    productCatalog.DisplayAvailableProducts();
+
+                    Console.WriteLine("\n3. Lägg till ny produkt\n");
+
                     Console.Write("Ange produktens ID: ");
                     string productIdCase3 = Console.ReadLine();
+
                     Console.Write("Ange produktens namn: ");
                     string productName = Console.ReadLine();
+
                     Console.Write("Ange styckpris: ");
+
                     if (!decimal.TryParse(Console.ReadLine(), out decimal unitPrice))
                     {
                         Console.WriteLine("Ogiltigt styckpris format");
@@ -68,7 +78,8 @@ namespace Kassasystemet___Mille_Elfver
                     break;
 
                 case 4:
-                    Console.WriteLine("4. Ta bort produkt");
+                    productCatalog.DisplayAvailableProducts();
+                    Console.WriteLine("\n4. Ta bort produkt");
 
                     Console.Write("Ange produkt ID: ");
                     string productIdCase4 = Console.ReadLine();
@@ -77,11 +88,13 @@ namespace Kassasystemet___Mille_Elfver
                     break;
 
                 case 5:
-                    Console.WriteLine("5. Lägga till kampanjpriser");
+                    productCatalog.DisplayAvailableProducts();
+                    Console.WriteLine("\n5. Lägga till kampanjpriser");
                     break;
 
                 case 6:
-                    Console.WriteLine("6. Ta bort kampanjpriser");
+                    productCatalog.DisplayAvailableProducts();
+                    Console.WriteLine("\n6. Ta bort kampanjpriser");
                     break;
 
                 case 7:
