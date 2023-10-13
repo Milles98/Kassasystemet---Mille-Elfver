@@ -31,6 +31,7 @@ namespace Kassasystemet___Mille_Elfver
 
         private void StartingItems()
         {
+            //todo ta bort onödiga id från höger sida och lite refactoring
             availableProducts.Add("300", new Product("300", "Bananer", 15.50m, 15.50m));
             availableProducts.Add("301", new Product("301", "Tomater", 79.90m, 79.90m));
             availableProducts.Add("302", new Product("302", "Apelsiner", 9.90m, 9.90m));

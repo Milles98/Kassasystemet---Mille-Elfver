@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,6 +32,12 @@ namespace Kassasystemet___Mille_Elfver
                     string receiptText = shoppingCart.CreateReceipt();
                     shoppingCart.SaveReceipt(receiptText);
                     Console.WriteLine("Köpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
+
+                    string soundFilePath = "../../../Files/KACHING.wav";
+                    SoundPlayer soundPlayer = new SoundPlayer(soundFilePath);
+                    soundPlayer.Load();
+                    soundPlayer.Play();
+
                     break;
                 }
 
