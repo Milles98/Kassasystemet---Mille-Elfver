@@ -88,7 +88,7 @@ namespace Kassasystemet___Mille_Elfver
                     while ((line = reader.ReadLine()) != null)
                     {
                         string[] parts = line.Split(' ');
-                        if (parts.Length == 5)
+                        if (parts.Length == 4)
                         {
                             string id = parts[0].Trim();
                             string name = parts[1].Trim();

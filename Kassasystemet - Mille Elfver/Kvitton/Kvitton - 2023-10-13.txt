@@ -409,3 +409,88 @@ Tack Och Välkommen Åter!
 
 TOTAL:                               19,00 kr
 ---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1385           2023-10-13 11:41:00
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Bananer         1,00 kg * 15,50         15,50
+Tomater         1,00 kg * 79,90         79,90
+Apelsiner       1,00 kg * 9,90           9,90
+Godis           1,00 kg * 99,50         99,50
+Kött            1,00 kg * 199,00       199,00
+Kyckling        1,00 kg * 129,90       129,90
+Nutella         1,00 st * 21,90         21,90
+Citron          1,00 st * 5,50           5,50
+Jordgubbar      1,00 st * 39,90         39,90
+Grädde          1,00 st * 24,90         24,90
+Choklad         1,00 st * 22,90         22,90
+Mango           1,00 st * 19,90         19,90
+Öl              1,00 st * 15,50         15,50
+Kex             1,00 st * 23,90         23,90
+Gurka           1,00 st * 10,00         10,00
+Leverpastej     1,00 st * 24,90         24,90
+Chips           1,00 st * 27,90         27,90
+Bröd            1,00 st * 34,90         34,90
+Mjölk           1,00 st * 16,90         16,90
+Yoghurt         1,00 st * 29,90         29,90
+Glass           1,00 st * 39,90         39,90
+Fanta           1,00 st * 19,00         19,00
+Godisis         1,00 kg * 99,00         99,00
+Hundben         1,00 st * 59,00         59,00
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1385
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                            1 069,50 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1386           2023-10-13 11:49:15
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+nånting         1,00 st * 9,00           9,00
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1386
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                9,00 kr
+---------------------------------------------
