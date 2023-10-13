@@ -27,7 +27,6 @@ namespace Kassasystemet___Mille_Elfver
         public void AddingToReceipt(Product product, decimal quantity)
         {
             Console.Clear();
-
             if (product != null) 
             {
                 isCartEmpty = false;
@@ -100,6 +99,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <returns></returns>
         public string CreateReceipt()
         {
+            Console.Clear();
             decimal totalAmount = CalculateTotal();
 
             DateTime dateTime = DateTime.Now;

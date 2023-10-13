@@ -21,3 +21,4 @@
 320 Vaniljglass 43,90 0
 321 Fanta 19 0
 322 Majs 19 19
+323 Vinäger 34,90 0

@@ -651,3 +651,108 @@ Tack Och Välkommen Åter!
 
 TOTAL:                               79,90 kr
 ---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1392           2023-10-13 13:40:22
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Vinäger         2,00 st * 34,90         69,80
+Leverpastej     1,00 st * 24,90         24,90
+Apelsiner       1,50 kg * 9,90          14,85
+Kyckling        0,50 kg * 129,90        64,95
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1392
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                              174,50 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1393           2023-10-13 13:41:28
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Vinäger         1,00 st * 34,90         34,90
+Mjölk           2,00 st * 16,90         33,80
+Chips           1,00 st * 27,90         27,90
+Kött            0,50 kg * 199,00        99,50
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1393
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                              196,10 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1394           2023-10-13 13:50:33
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Tomater         1,00 kg * 79,90         79,90
+Bananer         1,00 kg * 15,50         15,50
+Apelsiner       1,00 kg * 9,90           9,90
+Kyckling        1,00 kg * 129,90       129,90
+Citron          1,00 st * 5,50           5,50
+Choklad         1,00 st * 22,90         22,90
+Vinäger         1,00 st * 34,90         34,90
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1394
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                              298,50 kr
+---------------------------------------------
