@@ -11,6 +11,7 @@ namespace Kassasystemet___Mille_Elfver
         private ProductCatalog ProductCatalog;
         private StringBuilder receipt = new StringBuilder();
         private int receiptCounter = 1337;
+        private bool isCartEmpty = true;
 
         public ShoppingCart(ProductCatalog productCatalog)
         {
@@ -29,6 +30,7 @@ namespace Kassasystemet___Mille_Elfver
 
             if (product != null) 
             {
+                isCartEmpty = false;
                 decimal totalPrice;
                 string productInfo;
 
@@ -58,6 +60,11 @@ namespace Kassasystemet___Mille_Elfver
                 Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
                 ProductCatalog.DisplayAvailableProducts();
             }
+        }
+
+        public bool IsCartEmpty()
+        {
+            return isCartEmpty;
         }
 
         /// <summary>
@@ -205,5 +212,6 @@ namespace Kassasystemet___Mille_Elfver
                 Console.WriteLine($"Fel vid sparandet av kvittoräknare: {ex.Message}");
             }
         }
+
     }
 }

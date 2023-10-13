@@ -22,6 +22,11 @@ namespace Kassasystemet___Mille_Elfver
 
                 if (userInput.Equals("PAY", StringComparison.OrdinalIgnoreCase))
                 {
+                    if (shoppingCart.IsCartEmpty())
+                    {
+                        Console.WriteLine("Kundvagnen är tom, lägg till lite produkter först.");
+                        return;
+                    }
                     Console.Clear();
                     string receiptText = shoppingCart.CreateReceipt();
                     shoppingCart.SaveReceipt(receiptText);
@@ -31,6 +36,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 if (userInput.Equals("ITEMS", StringComparison.OrdinalIgnoreCase))
                 {
+                    Console.Clear();
                     productCatalog.DisplayAvailableProducts();
                     continue;
                 }

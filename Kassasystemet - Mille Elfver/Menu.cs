@@ -14,8 +14,6 @@ namespace Kassasystemet___Mille_Elfver
         public static void MainMenu(ProductCatalog productCatalog)
         {
             
-            //ShoppingCart shoppingCart = new ShoppingCart(productCatalog);
-
             bool programRunning = true;
             do
             {

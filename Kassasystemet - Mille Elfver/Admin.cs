@@ -47,7 +47,7 @@ namespace Kassasystemet___Mille_Elfver
                     break;
 
                 case 3:
-                    Console.WriteLine("3. Lägga till produkter\n");
+                    Console.WriteLine("3. Lägg till ny produkt\n");
                     Console.Write("Ange produktens ID: ");
                     string productIdCase3 = Console.ReadLine();
                     Console.Write("Ange produktens namn: ");
@@ -70,7 +70,7 @@ namespace Kassasystemet___Mille_Elfver
                 case 4:
                     Console.WriteLine("4. Ta bort produkt");
 
-                    Console.Write("Ange produkt-ID: ");
+                    Console.Write("Ange produkt ID: ");
                     string productIdCase4 = Console.ReadLine();
 
                     productCatalog.RemoveProduct(productIdCase4);
@@ -92,14 +92,16 @@ namespace Kassasystemet___Mille_Elfver
         public static void AdminMenu()
         {
             Console.Clear();
-            Console.WriteLine("Admin");
-            Console.WriteLine("1. Ändra namn på produkt");
-            Console.WriteLine("2. Ändra pris på produkt");
-            Console.WriteLine("3. Lägga till produkt");
-            Console.WriteLine("4. Ta bort produkt");
-            Console.WriteLine("5. Lägga till kampanjpris");
-            Console.WriteLine("6. Ta bort kampanjpris");
-            Console.WriteLine("7. Gå till huvudmenyn");
+            Console.WriteLine(" ----------------------------");
+            Console.WriteLine("|           Admin            |");
+            Console.WriteLine("| 1. Ändra namn på produkt   |");
+            Console.WriteLine("| 2. Ändra pris på produkt   |");
+            Console.WriteLine("| 3. Lägg till produkt       |");
+            Console.WriteLine("| 4. Ta bort produkt         |");
+            Console.WriteLine("| 5. Lägg till kampanjpris   |");
+            Console.WriteLine("| 6. Ta bort kampanjpris     |");
+            Console.WriteLine("| 7. Gå till huvudmenyn      |");
+            Console.WriteLine(" ----------------------------");
             Console.Write("Inmatning: ");
         }
 
