@@ -11,8 +11,12 @@ namespace Kassasystemet___Mille_Elfver
         public static void AdminTools(ProductCatalog productCatalog)
         {
             AdminMenu();
-            //ProductCatalog productCatalog = new ProductCatalog();
-            int userInput = Convert.ToInt32(Console.ReadLine());
+            int userInput;
+            if (!int.TryParse(Console.ReadLine(), out userInput))
+            {
+                Console.WriteLine("Ogiltig inmatning, försök igen.");
+                return;
+            }
             switch (userInput)
             {
                 case 1:
@@ -64,10 +68,23 @@ namespace Kassasystemet___Mille_Elfver
                     break;
 
                 case 4:
-                    Console.WriteLine("4. Lägga till/ta bort kampanjpriser");
+                    Console.WriteLine("4. Ta bort produkt");
+
+                    Console.Write("Ange produkt-ID: ");
+                    string productIdCase4 = Console.ReadLine();
+
+                    productCatalog.RemoveProduct(productIdCase4);
                     break;
 
                 case 5:
+                    Console.WriteLine("5. Lägga till kampanjpriser");
+                    break;
+
+                case 6:
+                    Console.WriteLine("6. Ta bort kampanjpriser");
+                    break;
+
+                case 7:
                     Menu.MainMenu(productCatalog);
                     break;
             }
@@ -76,11 +93,13 @@ namespace Kassasystemet___Mille_Elfver
         {
             Console.Clear();
             Console.WriteLine("Admin");
-            Console.WriteLine("1. Ändra namn på produkter");
-            Console.WriteLine("2. Ändra pris på produkter");
-            Console.WriteLine("3. Lägga till produkter");
-            Console.WriteLine("4. Lägga till/ta bort kampanjpriser");
-            Console.WriteLine("5. Gå till huvudmenyn");
+            Console.WriteLine("1. Ändra namn på produkt");
+            Console.WriteLine("2. Ändra pris på produkt");
+            Console.WriteLine("3. Lägga till produkt");
+            Console.WriteLine("4. Ta bort produkt");
+            Console.WriteLine("5. Lägga till kampanjpris");
+            Console.WriteLine("6. Ta bort kampanjpris");
+            Console.WriteLine("7. Gå till huvudmenyn");
             Console.Write("Inmatning: ");
         }
 

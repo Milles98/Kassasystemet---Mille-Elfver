@@ -21,4 +21,3 @@
 320 Vaniljglass 39,90 0
 321 Cola 25 0
 350 Chocolatte 9 0
-322 körv 19 0

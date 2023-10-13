@@ -77,11 +77,25 @@ namespace Kassasystemet___Mille_Elfver
                 availableProducts[productId].UnitPrice = newUnitPrice;
                 availableProducts[productId].KiloPrice = newKiloPrice;
                 SaveProductsToFile(); // Save the changes to the file
-                Console.WriteLine($"Product price updated for ID {productId}.");
+                Console.WriteLine($"Produktpris uppdaterat med ID {productId}.");
             }
             else
             {
-                Console.WriteLine($"Product with ID {productId} does not exist.");
+                Console.WriteLine($"Produkt med ID {productId} finns ej.");
+            }
+        }
+
+        public void RemoveProduct(string productId)
+        {
+            if (availableProducts.ContainsKey(productId))
+            {
+                availableProducts.Remove(productId);
+                SaveProductsToFile();
+                Console.WriteLine($"Produkt med ID {productId} har tagits bort.");
+            }
+            else
+            {
+                Console.WriteLine($"Produkt med ID {productId} finns ej.");
             }
         }
 
