@@ -18,13 +18,13 @@ namespace Kassasystemet___Mille_Elfver
             do
             {
                 Console.Clear();
-                Console.WriteLine(" ------------");
-                Console.WriteLine("| KASSA      |");
-                Console.WriteLine("| 1. Ny kund |");
-                Console.WriteLine("| 2. Admin   |");
-                Console.WriteLine("| 0. Avsluta |");
-                Console.WriteLine(" ------------");
-                Console.Write("Inmatning: ");
+                Console.WriteLine("╭────────────╮");
+                Console.WriteLine("│ KASSA      │");
+                Console.WriteLine("│ 1. Ny kund │");
+                Console.WriteLine("│ 2. Admin   │");
+                Console.WriteLine("│ 0. Avsluta │");
+                Console.WriteLine("╰────────────╯");
+                Console.Write(" Inmatning: ");
 
                 int val;
                 string userInput = Console.ReadLine();

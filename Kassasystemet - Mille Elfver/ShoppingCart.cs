@@ -89,7 +89,6 @@ namespace Kassasystemet___Mille_Elfver
                     }
                 }
             }
-
             return totalAmount;
         }
 
@@ -99,7 +98,6 @@ namespace Kassasystemet___Mille_Elfver
         /// <returns></returns>
         public string CreateReceipt()
         {
-            Console.Clear();
             decimal totalAmount = CalculateTotal();
 
             DateTime dateTime = DateTime.Now;
@@ -115,6 +113,7 @@ namespace Kassasystemet___Mille_Elfver
 
             StringBuilder receiptText = new StringBuilder();
 
+            Console.Clear();
             receiptText.AppendLine(receiptSeparator);
             receiptText.AppendLine($"KVITTO NR: {receiptCounter}{formattedDate.PadLeft(30)}\n");
             receiptText.AppendLine($"Milles Butik AB ( +46 123 456 789 )");

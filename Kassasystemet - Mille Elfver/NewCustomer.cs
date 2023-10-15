@@ -18,6 +18,7 @@ namespace Kassasystemet___Mille_Elfver
 
             while (true)
             {
+                productCatalog.DisplayAvailableProducts();
                 NewCustomerMenu();
                 string userInput = Console.ReadLine().Trim();
 
@@ -91,11 +92,11 @@ namespace Kassasystemet___Mille_Elfver
             /// </summary>
             static void NewCustomerMenu()
             {
-                Console.WriteLine(" -----------------------------------------------------");
-                Console.WriteLine("| KASSA                                               |");
-                Console.WriteLine("| Kommandon:                                          |");
-                Console.WriteLine("| <productid> <antal> <PAY> <ITEMS> <MENU> <HISTORIK> |");
-                Console.WriteLine(" -----------------------------------------------------");
+                Console.WriteLine("╭─────────────────────────────────────────────────────╮");
+                Console.WriteLine("│ KASSA                                               │");
+                Console.WriteLine("│ Kommandon:                                          │");
+                Console.WriteLine("│ <productid> <antal> <PAY> <ITEMS> <MENU> <HISTORIK> │");
+                Console.WriteLine("╰─────────────────────────────────────────────────────╯");
                 Console.Write("Kommando: ");
             }
         }

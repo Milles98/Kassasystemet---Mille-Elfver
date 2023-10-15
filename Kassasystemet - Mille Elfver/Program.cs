@@ -16,6 +16,7 @@ namespace Kassasystemet___Mille_Elfver
         //7. ett meddelande (vad användaren gjort) sedan går tbx till 1 eller avslutar
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             ProductCatalog productCatalog = new ProductCatalog();
 
             Menu.MainMenu(productCatalog);

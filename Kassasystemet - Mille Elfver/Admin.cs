@@ -30,6 +30,9 @@ namespace Kassasystemet___Mille_Elfver
                     string newName = Console.ReadLine();
 
                     productCatalog.UpdateProductName(productIdCase1, newName);
+
+                    productCatalog.DisplayAvailableProducts();
+                    Console.WriteLine("\nEnter för att gå till huvudmenyn");
                     break;
 
                 case 2:
@@ -48,6 +51,9 @@ namespace Kassasystemet___Mille_Elfver
                     decimal.TryParse(Console.ReadLine(), out newKiloPrice);
 
                     productCatalog.UpdateProductPrice(productIdCase2, newUnitPrice, newKiloPrice);
+
+                    productCatalog.DisplayAvailableProducts();
+                    Console.WriteLine("\nEnter för att gå till huvudmenyn");
                     break;
 
                 case 3:
@@ -65,7 +71,7 @@ namespace Kassasystemet___Mille_Elfver
 
                     if (!decimal.TryParse(Console.ReadLine(), out decimal unitPrice))
                     {
-                        Console.WriteLine("Ogiltigt styckpris format");
+                        Console.WriteLine("\nOgiltigt styckpris format");
                         break;
                     }
                     Console.Write("Ange kilopris (0 om det är styckpris): ");
@@ -75,6 +81,9 @@ namespace Kassasystemet___Mille_Elfver
                         break;
                     }
                     productCatalog.AddProduct(productIdCase3, productName, unitPrice, kiloPrice);
+
+                    productCatalog.DisplayAvailableProducts();
+                    Console.WriteLine("\nEnter för att gå till huvudmenyn");
                     break;
 
                 case 4:
@@ -85,6 +94,9 @@ namespace Kassasystemet___Mille_Elfver
                     string productIdCase4 = Console.ReadLine();
 
                     productCatalog.RemoveProduct(productIdCase4);
+
+                    productCatalog.DisplayAvailableProducts();
+                    Console.WriteLine("\nEnter för att gå till huvudmenyn");
                     break;
 
                 case 5:

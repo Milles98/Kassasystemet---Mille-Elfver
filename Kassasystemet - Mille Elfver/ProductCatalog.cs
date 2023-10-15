@@ -174,7 +174,6 @@ namespace Kassasystemet___Mille_Elfver
 
         public void DisplayAvailableProducts()
         {
-            Console.Clear();
             Console.WriteLine("Tillgängliga produkter:");
             Console.WriteLine("ID  Produkt          Pris");
 
@@ -183,6 +182,7 @@ namespace Kassasystemet___Mille_Elfver
                 string priceInfo = product.IsKiloPrice ? $"{product.KiloPrice:F2} kr/kg" : $"{product.UnitPrice:F2} kr/st";
                 Console.WriteLine($"{product.Id.PadRight(4)}{product.Name.PadRight(16)}{priceInfo}");
             }
+
         }
     }
 }
