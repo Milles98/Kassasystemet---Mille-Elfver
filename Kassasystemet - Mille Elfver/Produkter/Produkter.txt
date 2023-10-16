@@ -19,6 +19,3 @@
 318 Mjölk 16,90 0
 319 Yoghurt 29,90 0
 320 Glass 39,90 0
-321 Fanta 19,90 0
-322 Ris 49,90 49,90
-323 Smörgåsgurka 34,90 0

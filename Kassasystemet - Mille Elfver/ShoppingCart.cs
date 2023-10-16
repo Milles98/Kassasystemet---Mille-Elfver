@@ -11,7 +11,7 @@ namespace Kassasystemet___Mille_Elfver
         private ProductCatalog ProductCatalog;
         private StringBuilder receipt = new StringBuilder();
         private int receiptCounter = 1337;
-        private bool isCartEmpty = true;
+        private bool cartIsEmpty = true;
 
         public ShoppingCart(ProductCatalog productCatalog)
         {
@@ -29,7 +29,7 @@ namespace Kassasystemet___Mille_Elfver
             Console.Clear();
             if (product != null)
             {
-                isCartEmpty = false;
+                cartIsEmpty = false;
                 decimal totalPrice;
                 string productInfo;
 
@@ -61,9 +61,9 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
-        public bool IsCartEmpty()
+        public bool CartIsEmpty()
         {
-            return isCartEmpty;
+            return cartIsEmpty;
         }
 
         /// <summary>

@@ -25,7 +25,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 if (userInput.Equals("PAY", StringComparison.OrdinalIgnoreCase))
                 {
-                    if (shoppingCart.IsCartEmpty())
+                    if (shoppingCart.CartIsEmpty())
                     {
                         Console.WriteLine("Kundvagnen är tom, lägg till lite produkter först.");
                         return;

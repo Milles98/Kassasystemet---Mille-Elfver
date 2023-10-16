@@ -62,6 +62,7 @@ namespace Kassasystemet___Mille_Elfver
                             productCatalog.SaveProductsToFile();
                             Console.WriteLine("Tryck valfri knapp för att avsluta programmet.");
                             programRunning = false;
+                            Environment.Exit(0);
                             break;
                     }
                 }
