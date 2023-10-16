@@ -174,7 +174,9 @@ namespace Kassasystemet___Mille_Elfver
 
         public void DisplayAvailableProducts()
         {
-            Console.WriteLine("Tillgängliga produkter:");
+            Console.WriteLine("╭─────────────────────────────╮");
+            Console.WriteLine("│    Tillgängliga produkter   │");
+            Console.WriteLine("╰─────────────────────────────╯");
             Console.WriteLine("ID  Produkt          Pris");
 
             foreach (var product in availableProducts.Values)

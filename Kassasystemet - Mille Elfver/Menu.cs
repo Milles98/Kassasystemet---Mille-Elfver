@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Kassasystemet___Mille_Elfver
 {
@@ -18,17 +19,18 @@ namespace Kassasystemet___Mille_Elfver
             do
             {
                 Console.Clear();
-                Console.WriteLine("╭────────────╮");
-                Console.WriteLine("│ KASSA      │");
-                Console.WriteLine("│ 1. Ny kund │");
-                Console.WriteLine("│ 2. Admin   │");
-                Console.WriteLine("│ 0. Avsluta │");
-                Console.WriteLine("╰────────────╯");
+                Console.WriteLine("╭─────────────╮");
+                Console.WriteLine("│ KASSA       │");
+                Console.WriteLine("│ 1. Ny kund  │");
+                Console.WriteLine("│ 2. Admin    │");
+                Console.WriteLine("│ 3. Historik │");
+                Console.WriteLine("│ 0. Avsluta  │");
+                Console.WriteLine("╰─────────────╯");
                 Console.Write(" Inmatning: ");
 
                 int val;
                 string userInput = Console.ReadLine();
-                if (int.TryParse(userInput, out val) && val >= 0 && val <= 2)
+                if (int.TryParse(userInput, out val) && val >= 0 && val <= 3)
                 {
                     switch (val)
                     {
@@ -39,6 +41,21 @@ namespace Kassasystemet___Mille_Elfver
 
                         case 2:
                             Admin.AdminTools(productCatalog);
+                            break;
+
+                        case 3:
+                            Console.Clear();
+                            Console.WriteLine("╭───────────────────────────────────────────────────╮");
+                            Console.WriteLine("│ Historik för dagens kvitton... Tryck valfri knapp │");
+                            Console.WriteLine("╰───────────────────────────────────────────────────╯");
+                            Console.ReadKey();
+                            var date = DateTime.Now.ToShortDateString();
+                            var allReceipts = File.ReadAllLines($"../../../Kvitton/Kvitton - {date}.txt");
+                            foreach (var receipt in allReceipts)
+                            {
+                                Console.WriteLine(receipt);
+                            }
+                            Console.WriteLine("\nEnter för att gå tillbaka till huvudmenyn");
                             break;
 
                         case 0:

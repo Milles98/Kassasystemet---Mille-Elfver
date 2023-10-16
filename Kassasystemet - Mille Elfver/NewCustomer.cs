@@ -42,29 +42,29 @@ namespace Kassasystemet___Mille_Elfver
                     break;
                 }
 
-                if (userInput.Equals("ITEMS", StringComparison.OrdinalIgnoreCase))
-                {
-                    Console.Clear();
-                    productCatalog.DisplayAvailableProducts();
-                    continue;
-                }
+                //if (userInput.Equals("ITEMS", StringComparison.OrdinalIgnoreCase))
+                //{
+                //    Console.Clear();
+                //    productCatalog.DisplayAvailableProducts();
+                //    continue;
+                //}
 
                 if (userInput.Equals("MENU", StringComparison.OrdinalIgnoreCase))
                 {
                     Menu.MainMenu(productCatalog);
                 }
 
-                if (userInput.Equals("HISTORIK", StringComparison.OrdinalIgnoreCase))
-                {
-                    Console.Clear();
-                    var date = DateTime.Now.ToShortDateString();
-                    var allReceipts = File.ReadAllLines($"../../../Kvitton/Kvitton - {date}.txt");
-                    foreach (var receipt in allReceipts)
-                    {
-                        Console.WriteLine(receipt);
-                    }
-                    continue;
-                }
+                //if (userInput.Equals("HISTORIK", StringComparison.OrdinalIgnoreCase))
+                //{
+                //    Console.Clear();
+                //    var date = DateTime.Now.ToShortDateString();
+                //    var allReceipts = File.ReadAllLines($"../../../Kvitton/Kvitton - {date}.txt");
+                //    foreach (var receipt in allReceipts)
+                //    {
+                //        Console.WriteLine(receipt);
+                //    }
+                //    continue;
+                //}
 
                 string[] productParts = userInput.Split(' ');
                 if (productParts.Length != 2 || !decimal.TryParse(productParts[1], out decimal quantity))
@@ -93,11 +93,11 @@ namespace Kassasystemet___Mille_Elfver
             /// </summary>
             static void NewCustomerMenu()
             {
-                Console.WriteLine("╭─────────────────────────────────────────────────────╮");
-                Console.WriteLine("│ KASSA                                               │");
-                Console.WriteLine("│ Kommandon:                                          │");
-                Console.WriteLine("│ <productid> <antal> <PAY> <ITEMS> <MENU> <HISTORIK> │");
-                Console.WriteLine("╰─────────────────────────────────────────────────────╯");
+                Console.WriteLine("╭──────────────────────────────────╮");
+                Console.WriteLine("│ KASSA                            │");
+                Console.WriteLine("│ Kommandon:                       │");
+                Console.WriteLine("│ <productid> <antal> <PAY> <MENU> │");
+                Console.WriteLine("╰──────────────────────────────────╯");
                 Console.Write("Kommando: ");
             }
         }

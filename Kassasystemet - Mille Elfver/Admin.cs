@@ -20,6 +20,7 @@ namespace Kassasystemet___Mille_Elfver
             switch (userInput)
             {
                 case 1:
+                    Console.Clear();
                     productCatalog.DisplayAvailableProducts();
                     Console.WriteLine("\n1. Ändra namn på produkt");
 
@@ -31,11 +32,11 @@ namespace Kassasystemet___Mille_Elfver
 
                     productCatalog.UpdateProductName(productIdCase1, newName);
 
-                    productCatalog.DisplayAvailableProducts();
                     Console.WriteLine("\nEnter för att gå till huvudmenyn");
                     break;
 
                 case 2:
+                    Console.Clear();
                     productCatalog.DisplayAvailableProducts();
                     decimal newUnitPrice;
                     decimal newKiloPrice;
@@ -47,19 +48,19 @@ namespace Kassasystemet___Mille_Elfver
                     Console.Write("Ange nytt pris per styck: ");
                     decimal.TryParse(Console.ReadLine(), out newUnitPrice);
 
-                    Console.Write("Ange nytt pris per kilo(0 om det är styckpris): ");
+                    Console.Write("Ange nytt pris per kilo (0 om det är styckpris): ");
                     decimal.TryParse(Console.ReadLine(), out newKiloPrice);
 
                     productCatalog.UpdateProductPrice(productIdCase2, newUnitPrice, newKiloPrice);
 
-                    productCatalog.DisplayAvailableProducts();
                     Console.WriteLine("\nEnter för att gå till huvudmenyn");
                     break;
 
                 case 3:
+                    Console.Clear();
                     productCatalog.DisplayAvailableProducts();
 
-                    Console.WriteLine("\n3. Lägg till ny produkt\n");
+                    Console.WriteLine("\n3. Lägg till ny produkt");
 
                     Console.Write("Ange produktens ID: ");
                     string productIdCase3 = Console.ReadLine();
@@ -82,11 +83,11 @@ namespace Kassasystemet___Mille_Elfver
                     }
                     productCatalog.AddProduct(productIdCase3, productName, unitPrice, kiloPrice);
 
-                    productCatalog.DisplayAvailableProducts();
                     Console.WriteLine("\nEnter för att gå till huvudmenyn");
                     break;
 
                 case 4:
+                    Console.Clear();
                     productCatalog.DisplayAvailableProducts();
                     Console.WriteLine("\n4. Ta bort produkt");
 
@@ -95,7 +96,6 @@ namespace Kassasystemet___Mille_Elfver
 
                     productCatalog.RemoveProduct(productIdCase4);
 
-                    productCatalog.DisplayAvailableProducts();
                     Console.WriteLine("\nEnter för att gå till huvudmenyn");
                     break;
 
@@ -109,7 +109,7 @@ namespace Kassasystemet___Mille_Elfver
                     Console.WriteLine("\n6. Ta bort kampanjpriser");
                     break;
 
-                case 7:
+                case 0:
                     Menu.MainMenu(productCatalog);
                     break;
             }
@@ -117,16 +117,16 @@ namespace Kassasystemet___Mille_Elfver
         public static void AdminMenu()
         {
             Console.Clear();
-            Console.WriteLine(" ----------------------------");
-            Console.WriteLine("|           Admin            |");
-            Console.WriteLine("| 1. Ändra namn på produkt   |");
-            Console.WriteLine("| 2. Ändra pris på produkt   |");
-            Console.WriteLine("| 3. Lägg till produkt       |");
-            Console.WriteLine("| 4. Ta bort produkt         |");
-            Console.WriteLine("| 5. Lägg till kampanjpris   |");
-            Console.WriteLine("| 6. Ta bort kampanjpris     |");
-            Console.WriteLine("| 7. Gå till huvudmenyn      |");
-            Console.WriteLine(" ----------------------------");
+            Console.WriteLine("╭────────────────────────────╮");
+            Console.WriteLine("│           Admin            │");
+            Console.WriteLine("│ 1. Ändra namn på produkt   │");
+            Console.WriteLine("│ 2. Ändra pris på produkt   │");
+            Console.WriteLine("│ 3. Lägg till produkt       │");
+            Console.WriteLine("│ 4. Ta bort produkt         │");
+            Console.WriteLine("│ 5. Lägg till kampanjpris   │");
+            Console.WriteLine("│ 6. Ta bort kampanjpris     │");
+            Console.WriteLine("│ 0. Gå till huvudmenyn      │");
+            Console.WriteLine("╰────────────────────────────╯");
             Console.Write("Inmatning: ");
         }
 
