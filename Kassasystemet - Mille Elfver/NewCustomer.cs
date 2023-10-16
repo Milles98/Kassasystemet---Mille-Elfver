@@ -18,6 +18,7 @@ namespace Kassasystemet___Mille_Elfver
 
             while (true)
             {
+                Console.Clear();
                 productCatalog.DisplayAvailableProducts();
                 NewCustomerMenu();
                 string userInput = Console.ReadLine().Trim();
@@ -29,7 +30,6 @@ namespace Kassasystemet___Mille_Elfver
                         Console.WriteLine("Kundvagnen är tom, lägg till lite produkter först.");
                         return;
                     }
-                    Console.Clear();
                     string receiptText = shoppingCart.CreateReceipt();
                     shoppingCart.SaveReceipt(receiptText);
                     Console.WriteLine("Köpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
@@ -85,6 +85,7 @@ namespace Kassasystemet___Mille_Elfver
                 }
 
                 shoppingCart.AddingToReceipt(product, quantity);
+                Thread.Sleep(1000);
             }
 
             /// <summary>
