@@ -184,12 +184,12 @@ namespace Kassasystemet___Mille_Elfver
             Console.WriteLine("╭─────────────────────────────╮");
             Console.WriteLine("│    Tillgängliga produkter   │");
             Console.WriteLine("╰─────────────────────────────╯");
-            Console.WriteLine("ID  Produkt          Pris");
+            Console.WriteLine("ID  Produkt              Pris");
 
             foreach (var product in availableProducts.Values)
             {
                 string priceInfo = product.IsKiloPrice ? $"{product.KiloPrice:F2} kr/kg" : $"{product.UnitPrice:F2} kr/st";
-                Console.WriteLine($"{product.Id.PadRight(4)}{product.Name.PadRight(16)}{priceInfo}");
+                Console.WriteLine($"{product.Id.PadRight(4)}{product.Name.PadRight(20)}{priceInfo}");
             }
 
         }

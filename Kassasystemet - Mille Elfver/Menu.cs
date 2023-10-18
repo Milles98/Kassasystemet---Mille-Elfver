@@ -54,6 +54,7 @@ namespace Kassasystemet___Mille_Elfver
 
                             if (File.Exists(filePath))
                             {
+                                Console.Clear();
                                 var allReceipts = File.ReadAllLines(filePath);
 
                                 foreach (var receipt in allReceipts)
@@ -79,7 +80,7 @@ namespace Kassasystemet___Mille_Elfver
                 else
                 {
                     Console.Clear();
-                    Console.WriteLine("Ogiltig inmatning, tryck valfri knapp för att återgå till menyn och välj '1', '2' eller '0'");
+                    Console.WriteLine("Ogiltig inmatning, tryck valfri knapp för att återgå till menyn och välj '1', '2', '3' eller '0'");
                 }
                 Console.ReadKey();
 

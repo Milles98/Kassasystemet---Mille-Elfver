@@ -35,7 +35,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 if (product.IsKiloPrice)
                 {
-                    if (quantity >= 0)
+                    if (quantity > 0)
                     {
                         totalPrice = product.KiloPrice * quantity;
                         productInfo = $"{product.Name.PadRight(15)} {quantity:F2} kg * {product.KiloPrice:F2}";
@@ -48,7 +48,7 @@ namespace Kassasystemet___Mille_Elfver
                 }
                 else
                 {
-                    if (quantity >= 0 && quantity == (int)quantity)
+                    if (quantity > 0 && quantity == (int)quantity)
                     {
                         totalPrice = product.UnitPrice * quantity;
                         productInfo = $"{product.Name.PadRight(15)} {quantity:F0} st * {product.UnitPrice:F2}";
