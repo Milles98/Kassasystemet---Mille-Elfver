@@ -164,18 +164,23 @@ namespace Kassasystemet___Mille_Elfver
             {
                 if (unitPrice == kiloPrice || kiloPrice == 0)
                 {
+                    if (unitPrice <= 0 || kiloPrice < 0)
+                    {
+                        Console.WriteLine("\nDu kan inte ange 0 i styckpris!");
+                        return;
+                    }
                     availableProducts[productId] = new Product(productId, productName, unitPrice, kiloPrice);
                     SaveProductsToFile();
                     Console.WriteLine($"Produkt med ID {productId} har lagts till.");
                 }
                 else
                 {
-                    Console.WriteLine("Unit price and kilo price must be the same for the product.");
+                    Console.WriteLine("Styckpris och kilopris måste vara lika.");
                 }
             }
             else
             {
-                Console.WriteLine($"Product with ID {productId} already exists.");
+                Console.WriteLine($"Produkt med ID {productId} finns redan.");
             }
         }
 
