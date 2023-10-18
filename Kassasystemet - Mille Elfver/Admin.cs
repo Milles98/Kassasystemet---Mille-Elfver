@@ -25,10 +25,10 @@ namespace Kassasystemet___Mille_Elfver
                     Console.WriteLine("\n1. Ändra namn på produkt");
 
                     Console.Write("Ange produkt-ID: ");
-                    string productIdCase1 = Console.ReadLine();
+                    string productIdCase1 = Console.ReadLine().Trim();
 
                     Console.Write("Ange det nya namnet: ");
-                    string newName = Console.ReadLine();
+                    string newName = Console.ReadLine().Trim();
 
                     productCatalog.UpdateProductName(productIdCase1, newName);
 
@@ -43,13 +43,13 @@ namespace Kassasystemet___Mille_Elfver
                     Console.WriteLine("\n2. Ändra pris på produkter");
 
                     Console.Write("Ange produkt-ID: ");
-                    string productIdCase2 = Console.ReadLine();
+                    string productIdCase2 = Console.ReadLine().Trim();
 
                     Console.Write("Ange nytt pris per styck: ");
-                    decimal.TryParse(Console.ReadLine(), out newUnitPrice);
+                    decimal.TryParse(Console.ReadLine().Trim(), out newUnitPrice);
 
                     Console.Write("Ange nytt pris per kilo (0 om det är styckpris): ");
-                    decimal.TryParse(Console.ReadLine(), out newKiloPrice);
+                    decimal.TryParse(Console.ReadLine().Trim(), out newKiloPrice);
 
                     productCatalog.UpdateProductPrice(productIdCase2, newUnitPrice, newKiloPrice);
 
@@ -63,10 +63,10 @@ namespace Kassasystemet___Mille_Elfver
                     Console.WriteLine("\n3. Lägg till ny produkt");
 
                     Console.Write("Ange produktens ID: ");
-                    string productIdCase3 = Console.ReadLine();
+                    string productIdCase3 = Console.ReadLine().Trim();
 
                     Console.Write("Ange produktens namn: ");
-                    string productName = Console.ReadLine();
+                    string productName = Console.ReadLine().Trim();
 
                     Console.Write("Ange styckpris: ");
 
@@ -92,7 +92,7 @@ namespace Kassasystemet___Mille_Elfver
                     Console.WriteLine("\n4. Ta bort produkt");
 
                     Console.Write("Ange produkt ID: ");
-                    string productIdCase4 = Console.ReadLine();
+                    string productIdCase4 = Console.ReadLine().Trim();
 
                     productCatalog.RemoveProduct(productIdCase4);
 

@@ -162,13 +162,20 @@ namespace Kassasystemet___Mille_Elfver
         {
             if (!availableProducts.ContainsKey(productId))
             {
-                availableProducts[productId] = new Product(productId, productName, unitPrice, kiloPrice);
-                SaveProductsToFile();
-                Console.WriteLine($"Produkt med ID {productId} har lagts till.");
+                if (unitPrice == kiloPrice || kiloPrice == 0)
+                {
+                    availableProducts[productId] = new Product(productId, productName, unitPrice, kiloPrice);
+                    SaveProductsToFile();
+                    Console.WriteLine($"Produkt med ID {productId} har lagts till.");
+                }
+                else
+                {
+                    Console.WriteLine("Unit price and kilo price must be the same for the product.");
+                }
             }
             else
             {
-                Console.WriteLine($"Produkt med ID {productId} finns redan.");
+                Console.WriteLine($"Product with ID {productId} already exists.");
             }
         }
 
