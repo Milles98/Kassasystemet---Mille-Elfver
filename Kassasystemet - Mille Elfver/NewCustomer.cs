@@ -18,13 +18,13 @@ namespace Kassasystemet___Mille_Elfver
 
             while (true)
             {
-                Console.Clear();
                 productCatalog.DisplayAvailableProducts();
                 NewCustomerMenu();
                 string userInput = Console.ReadLine().Trim();
 
                 if (userInput.Equals("PAY", StringComparison.OrdinalIgnoreCase))
                 {
+                    Console.Clear();
                     if (shoppingCart.CartIsEmpty())
                     {
                         Console.WriteLine("Kundvagnen är tom, lägg till lite produkter först.");
@@ -42,36 +42,16 @@ namespace Kassasystemet___Mille_Elfver
                     break;
                 }
 
-                //if (userInput.Equals("ITEMS", StringComparison.OrdinalIgnoreCase))
-                //{
-                //    Console.Clear();
-                //    productCatalog.DisplayAvailableProducts();
-                //    continue;
-                //}
-
                 if (userInput.Equals("MENU", StringComparison.OrdinalIgnoreCase))
                 {
                     Menu.MainMenu(productCatalog);
                 }
 
-                //if (userInput.Equals("HISTORIK", StringComparison.OrdinalIgnoreCase))
-                //{
-                //    Console.Clear();
-                //    var date = DateTime.Now.ToShortDateString();
-                //    var allReceipts = File.ReadAllLines($"../../../Kvitton/Kvitton - {date}.txt");
-                //    foreach (var receipt in allReceipts)
-                //    {
-                //        Console.WriteLine(receipt);
-                //    }
-                //    continue;
-                //}
-
                 string[] productParts = userInput.Split(' ');
                 if (productParts.Length != 2 || !decimal.TryParse(productParts[1], out decimal quantity))
                 {
                     Console.Clear();
-                    Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                    productCatalog.DisplayAvailableProducts();
+                    Console.WriteLine("Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)");
                     continue;
                 }
 
@@ -79,8 +59,7 @@ namespace Kassasystemet___Mille_Elfver
                 if (product == null)
                 {
                     Console.Clear();
-                    Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                    productCatalog.DisplayAvailableProducts();
+                    Console.WriteLine("Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1");
                     continue;
                 }
 

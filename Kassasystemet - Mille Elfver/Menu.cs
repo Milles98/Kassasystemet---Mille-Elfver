@@ -48,11 +48,22 @@ namespace Kassasystemet___Mille_Elfver
                             Console.WriteLine("│ Historik för dagens kvitton... Tryck valfri knapp │");
                             Console.WriteLine("╰───────────────────────────────────────────────────╯");
                             Console.ReadKey();
+
                             var date = DateTime.Now.ToShortDateString();
-                            var allReceipts = File.ReadAllLines($"../../../Kvitton/Kvitton - {date}.txt");
-                            foreach (var receipt in allReceipts)
+                            var filePath = $"../../../Kvitton/Kvitton - {date}.txt";
+
+                            if (File.Exists(filePath))
                             {
-                                Console.WriteLine(receipt);
+                                var allReceipts = File.ReadAllLines(filePath);
+
+                                foreach (var receipt in allReceipts)
+                                {
+                                    Console.WriteLine(receipt);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Dagens kvittohistorik fil är tom/saknas (Har du sålt något ännu?).");
                             }
                             Console.WriteLine("\nEnter för att gå tillbaka till huvudmenyn");
                             break;
