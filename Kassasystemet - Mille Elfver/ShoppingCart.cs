@@ -35,13 +35,29 @@ namespace Kassasystemet___Mille_Elfver
 
                 if (product.IsKiloPrice)
                 {
-                    totalPrice = product.KiloPrice * quantity;
-                    productInfo = $"{product.Name.PadRight(15)} {quantity:F2} kg * {product.KiloPrice:F2}";
+                    if (quantity >= 0)
+                    {
+                        totalPrice = product.KiloPrice * quantity;
+                        productInfo = $"{product.Name.PadRight(15)} {quantity:F2} kg * {product.KiloPrice:F2}";
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ogiltig inmatning, du kan inte ange negativ mängd.");
+                        return;
+                    }
                 }
                 else
                 {
-                    totalPrice = product.UnitPrice * quantity;
-                    productInfo = $"{product.Name.PadRight(15)} {quantity:F2} st * {product.UnitPrice:F2}";
+                    if (quantity >= 0 && quantity == (int)quantity)
+                    {
+                        totalPrice = product.UnitPrice * quantity;
+                        productInfo = $"{product.Name.PadRight(15)} {quantity:F0} st * {product.UnitPrice:F2}";
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ogiltig mängd, Mängden behöver vara heltal!");
+                        return;
+                    }
                 }
 
                 int paddingSpaces = Math.Max(0, 45 - productInfo.Length - totalPrice.ToString("F2").Length);

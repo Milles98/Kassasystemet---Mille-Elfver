@@ -129,6 +129,5 @@ namespace Kassasystemet___Mille_Elfver
             Console.WriteLine("╰────────────────────────────╯");
             Console.Write("Inmatning: ");
         }
-
     }
 }

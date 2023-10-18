@@ -34,7 +34,7 @@ namespace Kassasystemet___Mille_Elfver
                     shoppingCart.SaveReceipt(receiptText);
                     Console.WriteLine("Köpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
 
-                    string soundFilePath = "../../../Files/KACHING.wav";
+                    string soundFilePath = "../../../Kvittoljud/KACHING.wav";
                     SoundPlayer soundPlayer = new SoundPlayer(soundFilePath);
                     soundPlayer.Load();
                     soundPlayer.Play();
@@ -85,7 +85,7 @@ namespace Kassasystemet___Mille_Elfver
                 }
 
                 shoppingCart.AddingToReceipt(product, quantity);
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
             }
 
             /// <summary>

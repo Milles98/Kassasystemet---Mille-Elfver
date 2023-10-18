@@ -13,11 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Files\" />
+    <Folder Include="Kvittoljud\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Files\KACHING.wav">
+    <None Update="Kvittoljud\KACHING.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

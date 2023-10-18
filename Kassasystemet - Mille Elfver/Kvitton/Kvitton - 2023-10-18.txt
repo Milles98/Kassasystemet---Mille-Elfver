@@ -1,0 +1,230 @@
+---------------------------------------------
+KVITTO NR: 1344           2023-10-18 08:33:05
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Bananer         1,50 kg * 15,50         23,25
+Choklad         1,00 st * 22,90         22,90
+Chips           1,00 st * 27,90         27,90
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1344
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                               74,05 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1345           2023-10-18 08:46:31
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Tomater         1,50 kg * 79,90        119,85
+Apelsiner       1,00 kg * 9,90           9,90
+Kyckling        1,00 kg * 129,90       129,90
+Choklad         1,00 st * 22,90         22,90
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1345
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                              282,55 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1346           2023-10-18 08:53:31
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Bananer         1,50 kg * 15,50         23,25
+Nutella         1,00 st * 21,90         21,90
+Choklad         1,00 st * 22,90         22,90
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1346
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                               68,05 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1347           2023-10-18 08:53:52
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Tomater         1,50 kg * 79,90        119,85
+Choklad         1,70 st * 22,90         38,93
+Choklad         1,00 st * 22,90         22,90
+Glass           1,00 st * 34,90         34,90
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1347
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                              216,58 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1348           2023-10-18 08:54:10
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Bananer         1,50 kg * 15,50         23,25
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1348
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                               23,25 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1349           2023-10-18 10:56:10
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Bananer         1,50 kg * 15,50         23,25
+Choklad         1,00 st * 22,90         22,90
+Leverpastej     1,00 st * 24,90         24,90
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1349
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                               71,05 kr
+---------------------------------------------
+---------------------------------------------
+KVITTO NR: 1350           2023-10-18 11:07:32
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Tomater         1,00 kg * 79,90         79,90
+Choklad         1 st * 22,90            22,90
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1350
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                              102,80 kr
+---------------------------------------------

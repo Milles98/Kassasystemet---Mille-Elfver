@@ -14,7 +14,6 @@ namespace Kassasystemet___Mille_Elfver
         /// </summary>
         public static void MainMenu(ProductCatalog productCatalog)
         {
-
             bool programRunning = true;
             do
             {
