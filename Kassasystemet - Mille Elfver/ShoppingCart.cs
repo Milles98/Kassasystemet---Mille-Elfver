@@ -42,7 +42,7 @@ namespace Kassasystemet___Mille_Elfver
                     }
                     else
                     {
-                        Console.WriteLine("Ogiltig inmatning, du kan inte ange negativ mängd.");
+                        Console.WriteLine("Ogiltig inmatning, du kan inte ange 0 eller mindre.");
                         return;
                     }
                 }
@@ -55,7 +55,7 @@ namespace Kassasystemet___Mille_Elfver
                     }
                     else
                     {
-                        Console.WriteLine("Ogiltig mängd, Mängden behöver vara heltal!");
+                        Console.WriteLine("Ogiltig inmatning, mängden behöver vara mer än 0 och heltal!");
                         return;
                     }
                 }

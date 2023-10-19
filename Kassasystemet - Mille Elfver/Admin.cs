@@ -100,13 +100,35 @@ namespace Kassasystemet___Mille_Elfver
                     break;
 
                 case 5:
+                    Console.Clear();
                     productCatalog.DisplayAvailableProducts();
                     Console.WriteLine("\n5. Lägga till kampanjpriser");
+
+                    Console.Write("Ange produkt ID: ");
+                    string productIdCase5 = Console.ReadLine().Trim();
+
+                    Console.Write("Ange rabatt (exempelvis 5 blir 5% rabatt etc): ");
+                    decimal productIdCase5Discount = Convert.ToDecimal(Console.ReadLine());
+
+                    Console.Write("Ange startdatum (yyyy-mm-dd): ");
+                    DateTime productIdCase5StartDate = DateTime.Parse(Console.ReadLine());
+
+                    Console.Write("Ange slutdatum (yyyy-mm-dd): ");
+                    DateTime productIdCase5EndDate = DateTime.Parse(Console.ReadLine());
+
+                    productCatalog.SetDiscount(productIdCase5, productIdCase5Discount, productIdCase5StartDate, productIdCase5EndDate);
+
                     break;
 
                 case 6:
+                    Console.Clear();
                     productCatalog.DisplayAvailableProducts();
                     Console.WriteLine("\n6. Ta bort kampanjpriser");
+
+                    Console.Write("Ange produkt ID: ");
+                    string productIdCase6 = Console.ReadLine().Trim();
+
+                    productCatalog.RemoveDiscount(productIdCase6);
                     break;
 
                 case 0:

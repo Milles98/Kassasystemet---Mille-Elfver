@@ -14,6 +14,10 @@ namespace Kassasystemet___Mille_Elfver
         public decimal KiloPrice { get; set; }
         public bool IsKiloPrice { get; }
 
+        public decimal Discount { get; set; } 
+        public DateTime DiscountStartDate { get; set; }
+        public DateTime DiscountEndDate { get; set; }
+
         public Product(string id, string name, decimal unitPrice, decimal kiloPrice)
         {
             Id = id;
@@ -21,6 +25,10 @@ namespace Kassasystemet___Mille_Elfver
             UnitPrice = unitPrice;
             KiloPrice = kiloPrice;
             IsKiloPrice = kiloPrice > 0;
+
+            Discount = 0; 
+            DiscountStartDate = DateTime.MinValue;
+            DiscountEndDate = DateTime.MinValue;
         }
     }
 }

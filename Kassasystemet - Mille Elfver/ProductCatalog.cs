@@ -55,6 +55,40 @@ namespace Kassasystemet___Mille_Elfver
             availableProducts.Add("320", new Product("320", "Glass", 39.90m, 0));
         }
 
+        public void SetDiscount(string productId, decimal discount, DateTime startDate, DateTime endDate)
+        {
+            if (availableProducts.ContainsKey(productId))
+            {
+                Product product = availableProducts[productId];
+                product.Discount = discount;
+                product.DiscountStartDate = startDate;
+                product.DiscountEndDate = endDate;
+                SaveProductsToFile();
+                Console.WriteLine($"Kampanjpris satt på produkt med ID {productId}.");
+            }
+            else
+            {
+                Console.WriteLine($"Produkt med ID {productId} finns ej.");
+            }
+        }
+
+        public void RemoveDiscount(string productId)
+        {
+            if (availableProducts.ContainsKey(productId))
+            {
+                availableProducts[productId].Discount = 0;
+                availableProducts[productId].DiscountStartDate = DateTime.MinValue;
+                availableProducts[productId].DiscountEndDate = DateTime.MinValue;
+                SaveProductsToFile();
+                Console.WriteLine($"Rabatt har tagits bort för produkt med ID {productId}.");
+            }
+            else
+            {
+                Console.WriteLine($"Produkt med ID {productId} finns ej.");
+            }
+        }
+
+
         public void UpdateProductName(string productId, string newName)
         {
             if (availableProducts.ContainsKey(productId))
@@ -194,7 +228,10 @@ namespace Kassasystemet___Mille_Elfver
             foreach (var product in availableProducts.Values)
             {
                 string priceInfo = product.IsKiloPrice ? $"{product.KiloPrice:F2} kr/kg" : $"{product.UnitPrice:F2} kr/st";
-                Console.WriteLine($"{product.Id.PadRight(4)}{product.Name.PadRight(20)}{priceInfo}");
+
+                string productInfo = product.Discount > 0 ? $"{product.Name} (Rabatt {product.Discount}%)*" : product.Name;
+
+                Console.WriteLine($"{product.Id.PadRight(4)}{productInfo.PadRight(20)}{priceInfo}");
             }
 
         }
