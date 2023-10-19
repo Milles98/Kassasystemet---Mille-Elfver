@@ -41,12 +41,12 @@ namespace Kassasystemet___Mille_Elfver
                         {
                             decimal discountedPrice = (product.KiloPrice - (product.KiloPrice * (product.Discount / 100))) * quantity;
                             totalPrice = discountedPrice;
-                            productInfo = $"{product.Name.PadRight(15)} {quantity:F2} kg * {product.KiloPrice:F2} (Rabatt {product.Discount:F0}%)";
+                            productInfo = $"{product.Name.PadRight(12)} {quantity:F2} kg * {product.KiloPrice:F2} (Rabatt {product.Discount:F0}%)";
                         }
                         else
                         {
                             totalPrice = product.KiloPrice * quantity;
-                            productInfo = $"{product.Name.PadRight(15)} {quantity:F2} kg * {product.KiloPrice:F2}";
+                            productInfo = $"{product.Name.PadRight(12)} {quantity:F2} kg * {product.KiloPrice:F2}";
                         }
                     }
                     else
@@ -64,12 +64,12 @@ namespace Kassasystemet___Mille_Elfver
                         {
                             decimal discountedPrice = (product.UnitPrice - (product.UnitPrice * (product.Discount / 100))) * quantity;
                             totalPrice = discountedPrice;
-                            productInfo = $"{product.Name.PadRight(15)} {quantity:F0} st * {product.UnitPrice:F2} (Rabatt {product.Discount:F0}%)";
+                            productInfo = $"{product.Name.PadRight(12)} {quantity:F0} st * {product.UnitPrice:F2} (Rabatt {product.Discount:F0}%)";
                         }
                         else
                         {
                             totalPrice = product.UnitPrice * quantity;
-                            productInfo = $"{product.Name.PadRight(15)} {quantity:F0} st * {product.UnitPrice:F2}";
+                            productInfo = $"{product.Name.PadRight(12)} {quantity:F0} st * {product.UnitPrice:F2}";
                         }
                     }
                     else
@@ -80,7 +80,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 }
 
-                int paddingSpaces = Math.Max(0, 45 - productInfo.Length - totalPrice.ToString("F2").Length);
+                int paddingSpaces = Math.Max(0, 55 - productInfo.Length - totalPrice.ToString("F2").Length);
 
                 string productToAdd = $"{productInfo}{new string(' ', paddingSpaces)}{totalPrice:F2}";
 
@@ -140,8 +140,8 @@ namespace Kassasystemet___Mille_Elfver
             DateTime dateTime = DateTime.Now;
             string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
-            string receiptSeparator = new string('-', 45);
-            int maxWidth = 45;
+            string receiptSeparator = new string('-', 55);
+            int maxWidth = 55;
             int availableSpace = maxWidth - "Total:".Length;
             string totalAmountText = totalAmount.ToString("C");
             string totalAmountPadding = new string(' ', availableSpace - totalAmountText.Length);
@@ -151,7 +151,7 @@ namespace Kassasystemet___Mille_Elfver
             StringBuilder receiptText = new StringBuilder();
 
             receiptText.AppendLine(receiptSeparator);
-            receiptText.AppendLine($"KVITTO NR: {receiptCounter}{formattedDate.PadLeft(30)}\n");
+            receiptText.AppendLine($"KVITTO NR: {receiptCounter}{formattedDate.PadLeft(40)}\n");
             receiptText.AppendLine($"Milles Butik AB ( +46 123 456 789 )");
             receiptText.AppendLine($"Årstaängsvägen 31, 117 43 Stockholm");
             receiptText.AppendLine($"Organisations Nr: 55123-1234\n");
