@@ -18,11 +18,11 @@ namespace Kassasystemet___Mille_Elfver
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            Console.WriteLine("Förord");
-            Console.WriteLine("1. Öppna konsolen i helskärm för bättre användarupplevelse.");
-            Console.WriteLine("2. Jag har haft problem med windows konsolen/terminalen, om det ser buggigt ut");
-            Console.WriteLine("Tryck valfri knapp för att fortsätta.");
-            Console.ReadKey();
+            //Console.WriteLine("Förord");
+            //Console.WriteLine("1. Öppna konsolen i helskärm för bättre användarupplevelse.");
+            //Console.WriteLine("2. Jag har haft problem med windows konsolen/terminalen,\nom det ser buggigt ut ändra terminalinställning från windows terminal till windows konsolvärd ");
+            //Console.WriteLine("Tryck valfri knapp för att fortsätta.");
+            //Console.ReadKey();
 
             ProductCatalog productCatalog = new ProductCatalog();
 

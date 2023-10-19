@@ -37,27 +37,47 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     if (quantity > 0)
                     {
-                        totalPrice = product.KiloPrice * quantity;
-                        productInfo = $"{product.Name.PadRight(15)} {quantity:F2} kg * {product.KiloPrice:F2}";
+                        if (product.Discount > 0 && DateTime.Now >= product.DiscountStartDate && DateTime.Now <= product.DiscountEndDate)
+                        {
+                            decimal discountedPrice = (product.KiloPrice - (product.KiloPrice * (product.Discount / 100))) * quantity;
+                            totalPrice = discountedPrice;
+                            productInfo = $"{product.Name.PadRight(15)} {quantity:F2} kg * {product.KiloPrice:F2} (Rabatt {product.Discount:F0}%)";
+                        }
+                        else
+                        {
+                            totalPrice = product.KiloPrice * quantity;
+                            productInfo = $"{product.Name.PadRight(15)} {quantity:F2} kg * {product.KiloPrice:F2}";
+                        }
                     }
                     else
                     {
                         Console.WriteLine("Ogiltig inmatning, du kan inte ange 0 eller mindre.");
                         return;
+
                     }
                 }
                 else
                 {
                     if (quantity > 0 && quantity == (int)quantity)
                     {
-                        totalPrice = product.UnitPrice * quantity;
-                        productInfo = $"{product.Name.PadRight(15)} {quantity:F0} st * {product.UnitPrice:F2}";
+                        if (product.Discount > 0 && DateTime.Now >= product.DiscountStartDate && DateTime.Now <= product.DiscountEndDate)
+                        {
+                            decimal discountedPrice = (product.UnitPrice - (product.UnitPrice * (product.Discount / 100))) * quantity;
+                            totalPrice = discountedPrice;
+                            productInfo = $"{product.Name.PadRight(15)} {quantity:F0} st * {product.UnitPrice:F2} (Rabatt {product.Discount:F0}%)";
+                        }
+                        else
+                        {
+                            totalPrice = product.UnitPrice * quantity;
+                            productInfo = $"{product.Name.PadRight(15)} {quantity:F0} st * {product.UnitPrice:F2}";
+                        }
                     }
                     else
                     {
                         Console.WriteLine("Ogiltig inmatning, mängden behöver vara mer än 0 och heltal!");
                         return;
                     }
+
                 }
 
                 int paddingSpaces = Math.Max(0, 45 - productInfo.Length - totalPrice.ToString("F2").Length);

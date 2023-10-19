@@ -109,7 +109,7 @@ namespace Kassasystemet___Mille_Elfver
             {
                 availableProducts[productId].UnitPrice = newUnitPrice;
                 availableProducts[productId].KiloPrice = newKiloPrice;
-                SaveProductsToFile(); // Save the changes to the file
+                SaveProductsToFile(); 
                 Console.WriteLine($"Produktpris uppdaterat med ID {productId}.");
             }
             else
@@ -144,7 +144,8 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     foreach (var product in availableProducts.Values)
                     {
-                        writer.WriteLine($"{product.Id} {product.Name} {product.UnitPrice} {product.KiloPrice}");
+                        string discountInfo = $"{product.Discount:F2} {product.DiscountStartDate:yyyy-MM-dd} {product.DiscountEndDate:yyyy-MM-dd}";
+                        writer.WriteLine($"{product.Id} {product.Name} {product.UnitPrice} {product.KiloPrice} {discountInfo}");
                     }
                 }
             }
@@ -164,14 +165,31 @@ namespace Kassasystemet___Mille_Elfver
                     while ((line = reader.ReadLine()) != null)
                     {
                         string[] parts = line.Split(' ');
-                        if (parts.Length == 4)
+                        if (parts.Length >= 4)
                         {
                             string id = parts[0].Trim();
                             string name = parts[1].Trim();
                             decimal unitPrice = decimal.Parse(parts[2].Trim());
                             decimal kiloPrice = decimal.Parse(parts[3].Trim());
 
-                            availableProducts[id] = new Product(id, name, unitPrice, kiloPrice);
+                            decimal discount = 0; 
+                            DateTime discountStartDate = DateTime.MinValue;
+                            DateTime discountEndDate = DateTime.MinValue;
+
+                            if (parts.Length >= 7)  
+                            {
+                                discount = decimal.Parse(parts[4].Trim());
+                                discountStartDate = DateTime.Parse(parts[5].Trim());
+                                discountEndDate = DateTime.Parse(parts[6].Trim());
+                            }
+
+                            availableProducts[id] = new Product(id, name, unitPrice, kiloPrice)
+                            {
+                                Discount = discount,
+                                DiscountStartDate = discountStartDate,
+                                DiscountEndDate = discountEndDate
+                            };
+
                         }
                     }
                 }

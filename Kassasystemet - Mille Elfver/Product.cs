@@ -26,7 +26,7 @@ namespace Kassasystemet___Mille_Elfver
             KiloPrice = kiloPrice;
             IsKiloPrice = kiloPrice > 0;
 
-            Discount = 0; 
+            Discount = 0;
             DiscountStartDate = DateTime.MinValue;
             DiscountEndDate = DateTime.MinValue;
         }
