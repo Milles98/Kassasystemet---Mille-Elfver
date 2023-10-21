@@ -14,7 +14,7 @@ namespace Kassasystemet___Mille_Elfver
         {
             return receiptCounter;
         }
-        public void IncrementCounter()
+        public void IncreaseCounter()
         {
             receiptCounter++;
             SaveReceiptCounter(); 

@@ -184,9 +184,7 @@ namespace Kassasystemet___Mille_Elfver
             receiptText.AppendLine(receiptSeparator);
 
             receiptCounter.SaveReceiptCounter();
-            receiptCounter.IncrementCounter();
-            //receiptCounter++;
-            //SaveReceiptCounter();
+            receiptCounter.IncreaseCounter();
 
             return receiptText.ToString();
 
