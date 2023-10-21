@@ -10,13 +10,13 @@ namespace Kassasystemet___Mille_Elfver
     {
         private ProductCatalog ProductCatalog;
         private StringBuilder receipt = new StringBuilder();
-        private int receiptCounter = 1337;
+        private ReceiptCounter receiptCounter = new ReceiptCounter();
         private bool cartIsEmpty = true;
 
         public ShoppingCart(ProductCatalog productCatalog)
         {
             ProductCatalog = productCatalog;
-            LoadReceiptCounter();
+            receiptCounter.LoadReceiptCounter();
         }
 
         /// <summary>
@@ -136,6 +136,7 @@ namespace Kassasystemet___Mille_Elfver
         {
             Console.Clear();
             decimal totalAmount = CalculateTotal();
+            int receiptNumber = receiptCounter.GetReceiptNumber();
 
             DateTime dateTime = DateTime.Now;
             string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
@@ -151,7 +152,7 @@ namespace Kassasystemet___Mille_Elfver
             StringBuilder receiptText = new StringBuilder();
 
             receiptText.AppendLine(receiptSeparator);
-            receiptText.AppendLine($"KVITTO NR: {receiptCounter}{formattedDate.PadLeft(40)}\n");
+            receiptText.AppendLine($"KVITTO NR: {receiptNumber}{formattedDate.PadLeft(40)}\n");
             receiptText.AppendLine($"Milles Butik AB ( +46 123 456 789 )");
             receiptText.AppendLine($"Årstaängsvägen 31, 117 43 Stockholm");
             receiptText.AppendLine($"Organisations Nr: 55123-1234\n");
@@ -174,7 +175,7 @@ namespace Kassasystemet___Mille_Elfver
             receiptText.AppendLine($"\nKÖP GODKÄNT");
 
             receiptText.AppendLine($"MOMS Punkt: 123456");
-            receiptText.AppendLine($"6B KVITTO NR: {receiptCounter}\n");
+            receiptText.AppendLine($"6B KVITTO NR: {receiptNumber}\n");
 
             receiptText.AppendLine($"Din Kassör Idag Var Mille");
             receiptText.AppendLine($"Tack Och Välkommen Åter!");
@@ -182,8 +183,10 @@ namespace Kassasystemet___Mille_Elfver
             receiptText.AppendLine(totalLine);
             receiptText.AppendLine(receiptSeparator);
 
-            receiptCounter++;
-            SaveReceiptCounter();
+            receiptCounter.SaveReceiptCounter();
+            receiptCounter.IncrementCounter();
+            //receiptCounter++;
+            //SaveReceiptCounter();
 
             return receiptText.ToString();
 
@@ -206,44 +209,6 @@ namespace Kassasystemet___Mille_Elfver
             catch (Exception ex)
             {
                 Console.WriteLine($"Fel vid sparandet av kvitto: {ex.Message}");
-            }
-        }
-
-        /// <summary>
-        /// Loads the last receipt number from "KvittoRäknare" textfile
-        /// </summary>
-        private void LoadReceiptCounter()
-        {
-            try
-            {
-                if (File.Exists("../../../Kvitton/KvittoRäknare.txt"))
-                {
-                    string counterText = File.ReadAllText("../../../Kvitton/KvittoRäknare.txt");
-                    if (int.TryParse(counterText, out int counter))
-                    {
-                        receiptCounter = counter;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Fel vid laddandet av kvittoräknare: {ex.Message}");
-            }
-        }
-
-        /// <summary>
-        /// Saves the last receipt number to "KvittoRäknare" textfile
-        /// </summary>
-        private void SaveReceiptCounter()
-        {
-            try
-            {
-                Directory.CreateDirectory($"../../../Kvitton");
-                File.WriteAllText("../../../Kvitton/KvittoRäknare.txt", receiptCounter.ToString());
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Fel vid sparandet av kvittoräknare: {ex.Message}");
             }
         }
     }
