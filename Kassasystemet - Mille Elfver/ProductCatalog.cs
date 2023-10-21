@@ -74,7 +74,7 @@ namespace Kassasystemet___Mille_Elfver
 
         public void RemoveDiscount(string productId)
         {
-            if (availableProducts.ContainsKey(productId))
+            if (availableProducts.ContainsKey(productId) && availableProducts[productId].Discount > 0)
             {
                 availableProducts[productId].Discount = 0;
                 availableProducts[productId].DiscountStartDate = DateTime.MinValue;
