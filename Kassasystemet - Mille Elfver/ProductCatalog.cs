@@ -316,7 +316,7 @@ namespace Kassasystemet___Mille_Elfver
                     Console.WriteLine("\nOgiltigt styckpris. Styckpriset måste vara större än 0.");
                     return;
                 }
-                if (priceType.ToLower() == "k" && kiloPrice < 0)
+                if (priceType.ToLower() == "k" && kiloPrice <= 0)
                 {
                     Console.WriteLine("\nOgiltigt kilopris. Kilopriset måste vara 0 eller större.");
                     return;
