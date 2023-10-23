@@ -83,17 +83,17 @@ namespace Kassasystemet___Mille_Elfver
 
                         Console.WriteLine("\n3. Lägg till ny produkt");
 
+                        Console.Write("Ange produktens ID: ");
+                        string productIdCase3 = Console.ReadLine().Trim();
+
+                        Console.Write("Ange produktens namn: ");
+                        string productName = Console.ReadLine().Trim();
+
                         Console.Write("Vill du ange styckpris eller kilopris (S/K)? ");
                         string priceTypeChoiceCase3 = Console.ReadLine().Trim().ToLower();
 
                         if (priceTypeChoiceCase3 == "s" || priceTypeChoiceCase3 == "k")
                         {
-                            Console.Write("Ange produktens ID: ");
-                            string productIdCase3 = Console.ReadLine().Trim();
-
-                            Console.Write("Ange produktens namn: ");
-                            string productName = Console.ReadLine().Trim();
-
                             Console.Write("Ange priset: ");
                             if (decimal.TryParse(Console.ReadLine().Trim(), out decimal newPriceCase3))
                             {
