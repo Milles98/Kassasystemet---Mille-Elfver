@@ -128,40 +128,50 @@ namespace Kassasystemet___Mille_Elfver
                         break;
 
                     case 5:
-                        Console.Clear();
-                        productCatalog.DisplayAvailableProducts();
-                        Console.WriteLine("\n5. Lägga till kampanjpriser");
-
-                        Console.Write("Ange produkt ID: ");
-                        string productIdCase5 = Console.ReadLine().Trim();
-
-                        Console.Write("Ange rabatt (exempelvis 5 blir 5% rabatt etc): ");
-                        if (!decimal.TryParse(Console.ReadLine(), out decimal productIdCase5Discount))
+                        while (true)
                         {
-                            Console.WriteLine("Ogiltig rabatt. Ange ett numeriskt värde.");
+                            Console.Clear();
+                            productCatalog.DisplayAvailableProducts();
+                            Console.WriteLine("\n5. Lägga till kampanjpriser");
+
+                            Console.Write("Ange produkt ID: ");
+                            string productIdCase5 = Console.ReadLine().Trim();
+                            if (productIdCase5.Length < 3)
+                            {
+                                Console.WriteLine("Ogiltigt produkt-ID. Det måste vara minst 3 tecken långt.");
+                                Console.ReadKey();
+                                continue;
+                            }
+
+                            Console.Write("Ange rabatt (exempelvis 5 blir 5% rabatt etc): ");
+                            if (!decimal.TryParse(Console.ReadLine(), out decimal productIdCase5Discount) || productIdCase5Discount <= 0)
+                            {
+                                Console.WriteLine("Ogiltig rabatt. Ange ett heltal.");
+                                Console.ReadKey();
+                                continue;
+                            }
+
+                            Console.Write("Ange startdatum (yyyy-mm-dd): ");
+                            if (!DateTime.TryParse(Console.ReadLine(), out DateTime productIdCase5StartDate))
+                            {
+                                Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-mm-dd'.");
+                                Console.ReadKey();
+                                continue;
+                            }
+
+                            Console.Write("Ange slutdatum (yyyy-mm-dd): ");
+                            if (!DateTime.TryParse(Console.ReadLine(), out DateTime productIdCase5EndDate))
+                            {
+                                Console.WriteLine("Ogiltigt slutdatum. Ange datum i formatet 'yyyy-mm-dd'.");
+                                Console.ReadKey();
+                                continue;
+                            }
+
+                            productCatalog.SetDiscount(productIdCase5, productIdCase5Discount, productIdCase5StartDate, productIdCase5EndDate);
+                            Console.Write("Enter för att gå till adminmenyn");
                             Console.ReadKey();
                             break;
                         }
-
-                        Console.Write("Ange startdatum (yyyy-mm-dd): ");
-                        if (!DateTime.TryParse(Console.ReadLine(), out DateTime productIdCase5StartDate))
-                        {
-                            Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-mm-dd'.");
-                            Console.ReadKey();
-                            break;
-                        }
-
-                        Console.Write("Ange slutdatum (yyyy-mm-dd): ");
-                        if (!DateTime.TryParse(Console.ReadLine(), out DateTime productIdCase5EndDate))
-                        {
-                            Console.WriteLine("Ogiltigt slutdatum. Ange datum i formatet 'yyyy-mm-dd'.");
-                            Console.ReadKey();
-                            break;
-                        }
-
-                        productCatalog.SetDiscount(productIdCase5, productIdCase5Discount, productIdCase5StartDate, productIdCase5EndDate);
-                        Console.Write("Enter för att gå till adminmenyn");
-                        Console.ReadKey();
                         break;
 
                     case 6:
