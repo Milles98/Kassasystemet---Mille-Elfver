@@ -221,8 +221,8 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     foreach (var product in availableProducts.Values)
                     {
-                        string discountInfo = $"{product.Discount:F2} {product.DiscountStartDate:yyyy-MM-dd} {product.DiscountEndDate:yyyy-MM-dd}";
-                        writer.WriteLine($"{product.Id} {product.Name} {product.UnitPrice} {product.KiloPrice} {discountInfo}");
+                        string discountInfo = $"{product.Discount:F2}|{product.DiscountStartDate:yyyy-MM-dd}|{product.DiscountEndDate:yyyy-MM-dd}";
+                        writer.WriteLine($"{product.Id}|{product.Name}|{product.UnitPrice}|{product.KiloPrice}|{discountInfo}");
                     }
                 }
             }
@@ -244,7 +244,7 @@ namespace Kassasystemet___Mille_Elfver
                     string line;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        string[] parts = line.Split(' ');
+                        string[] parts = line.Split('|');
                         if (parts.Length >= 4)
                         {
                             string id = parts[0].Trim();
