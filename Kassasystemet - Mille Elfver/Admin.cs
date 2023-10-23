@@ -24,57 +24,81 @@ namespace Kassasystemet___Mille_Elfver
                 switch (userInput)
                 {
                     case 1:
-                        Console.Clear();
-                        productCatalog.DisplayAvailableProducts();
-                        Console.WriteLine("\n1. Ändra namn på produkt");
-
-                        Console.Write("Ange produkt-ID: ");
-                        string productIdCase1 = Console.ReadLine().Trim();
-
-                        Console.Write("Ange det nya namnet: ");
-                        string newName = Console.ReadLine().Trim();
-
-                        productCatalog.UpdateProductName(productIdCase1, newName);
-
-                        Console.Write("Enter för att gå till adminmenyn");
-                        Console.ReadKey();
-                        break;
-
-                    case 2:
-                        Console.Clear();
-                        productCatalog.DisplayAvailableProducts();
-                        decimal newPrice;
-                        
-                        Console.WriteLine("\n2. Ändra pris på produkter");
-
-                        Console.Write("Ange produkt-ID: ");
-                        string productIdCase2 = Console.ReadLine().Trim();
-
-                        Console.Write("Vill du ändra till styckpris eller kilopris (S/K)? ");
-                        string priceTypeChoice = Console.ReadLine().Trim().ToLower();
-
-                        if (priceTypeChoice == "s")
+                        while (true)
                         {
-                            Console.Write("Ange nytt pris per styck: ");
-                            decimal.TryParse(Console.ReadLine().Trim(), out newPrice);
-                        }
-                        else if (priceTypeChoice == "k")
-                        {
-                            Console.Write("Ange nytt pris per kilo: ");
-                            decimal.TryParse(Console.ReadLine().Trim(), out newPrice);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Ogiltig inmatning. Ange 'S' för styckpris eller 'K' för kilopris.");
+                            Console.Clear();
+                            productCatalog.DisplayAvailableProducts();
+                            Console.WriteLine("\n1. Ändra namn på produkt");
+
+                            Console.Write("Ange produkt-ID: ");
+                            string productIdCase1 = Console.ReadLine().Trim();
+
+                            if (!productCatalog.ProductExists(productIdCase1))
+                            {
+                                Console.WriteLine($"Produkt med ID {productIdCase1} finns ej.");
+                                Console.Write("Valfri knapp, försök igen");
+                                Console.ReadKey();
+                                continue;
+                            }
+
+                            Console.Write("Ange det nya namnet: ");
+                            string newName = Console.ReadLine().Trim();
+
+                            productCatalog.UpdateProductName(productIdCase1, newName);
+
                             Console.Write("Enter för att gå till adminmenyn");
                             Console.ReadKey();
                             break;
                         }
-                       
-                        productCatalog.UpdateProductPrice(productIdCase2, newPrice, priceTypeChoice);
+                        break;
 
-                        Console.Write("Enter för att gå till adminmenyn");
-                        Console.ReadKey();
+                    case 2:
+                        while (true)
+                        {
+                            Console.Clear();
+                            productCatalog.DisplayAvailableProducts();
+                            decimal newPrice;
+
+                            Console.WriteLine("\n2. Ändra pris på produkter");
+
+                            Console.Write("Ange produkt-ID: ");
+                            string productIdCase2 = Console.ReadLine().Trim();
+
+                            if (!productCatalog.ProductExists(productIdCase2))
+                            {
+                                Console.WriteLine($"Produkt med ID {productIdCase2} finns ej.");
+                                Console.Write("Valfri knapp, försök igen");
+                                Console.ReadKey();
+                                continue;
+                            }
+
+                            Console.Write("Vill du ändra till styckpris eller kilopris (S/K)? ");
+                            string priceTypeChoice = Console.ReadLine().Trim().ToLower();
+
+                            if (priceTypeChoice == "s")
+                            {
+                                Console.Write("Ange nytt pris per styck: ");
+                                decimal.TryParse(Console.ReadLine().Trim(), out newPrice);
+                            }
+                            else if (priceTypeChoice == "k")
+                            {
+                                Console.Write("Ange nytt pris per kilo: ");
+                                decimal.TryParse(Console.ReadLine().Trim(), out newPrice);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Ogiltig inmatning. Ange 'S' för styckpris eller 'K' för kilopris.");
+                                Console.Write("Valfri knapp, försök igen");
+                                Console.ReadKey();
+                                continue;
+                            }
+
+                            productCatalog.UpdateProductPrice(productIdCase2, newPrice, priceTypeChoice);
+
+                            Console.Write("Enter för att gå till adminmenyn");
+                            Console.ReadKey();
+                            break;
+                        }
                         break;
 
                     case 3:
@@ -87,6 +111,14 @@ namespace Kassasystemet___Mille_Elfver
 
                             Console.Write("Ange produktens ID: ");
                             string productIdCase3 = Console.ReadLine().Trim();
+
+                            if (!productCatalog.ProductExists(productIdCase3))
+                            {
+                                Console.WriteLine($"Produkt med ID {productIdCase3} finns ej.");
+                                Console.Write("Enter för att gå till adminmenyn");
+                                Console.ReadKey();
+                                break;
+                            }
 
                             Console.Write("Ange produktens namn: ");
                             string productName = Console.ReadLine().Trim();
@@ -117,17 +149,29 @@ namespace Kassasystemet___Mille_Elfver
                         break;
 
                     case 4:
-                        Console.Clear();
-                        productCatalog.DisplayAvailableProducts();
-                        Console.WriteLine("\n4. Ta bort produkt");
+                        while (true)
+                        {
+                            Console.Clear();
+                            productCatalog.DisplayAvailableProducts();
+                            Console.WriteLine("\n4. Ta bort produkt");
 
-                        Console.Write("Ange produkt ID: ");
-                        string productIdCase4 = Console.ReadLine().Trim();
+                            Console.Write("Ange produkt ID: ");
+                            string productIdCase4 = Console.ReadLine().Trim();
 
-                        productCatalog.RemoveProduct(productIdCase4);
+                            if (!productCatalog.ProductExists(productIdCase4))
+                            {
+                                Console.WriteLine($"Produkt med ID {productIdCase4} finns ej.");
+                                Console.Write("Valfri knapp, försök igen.");
+                                Console.ReadKey();
+                                continue;
+                            }
 
-                        Console.Write("Enter för att gå till adminmenyn");
-                        Console.ReadKey();
+                            productCatalog.RemoveProduct(productIdCase4);
+
+                            Console.Write("Enter för att gå till adminmenyn");
+                            Console.ReadKey();
+                            break;
+                        }
                         break;
 
                     case 5:
@@ -139,9 +183,11 @@ namespace Kassasystemet___Mille_Elfver
 
                             Console.Write("Ange produkt ID: ");
                             string productIdCase5 = Console.ReadLine().Trim();
-                            if (productIdCase5.Length < 3 || productIdCase5.Length > 3)
+
+                            if (!productCatalog.ProductExists(productIdCase5))
                             {
-                                Console.WriteLine("Ogiltigt produkt-ID. Det måste vara 3 tecken långt.");
+                                Console.WriteLine($"Produkt med ID {productIdCase5} finns ej.");
+                                Console.Write("Valfri knapp, försök igen");
                                 Console.ReadKey();
                                 continue;
                             }
@@ -149,7 +195,7 @@ namespace Kassasystemet___Mille_Elfver
                             Console.Write("Ange rabatt (exempelvis 5 blir 5% rabatt etc): ");
                             if (!decimal.TryParse(Console.ReadLine(), out decimal productIdCase5Discount) || productIdCase5Discount <= 0)
                             {
-                                Console.WriteLine("Ogiltig rabatt. Ange ett heltal.");
+                                Console.WriteLine("Ogiltig rabatt, försök igen.");
                                 Console.ReadKey();
                                 continue;
                             }
