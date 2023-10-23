@@ -43,20 +43,35 @@ namespace Kassasystemet___Mille_Elfver
                     case 2:
                         Console.Clear();
                         productCatalog.DisplayAvailableProducts();
-                        decimal newUnitPrice;
-                        decimal newKiloPrice;
+                        decimal newPrice;
+                        
                         Console.WriteLine("\n2. Ändra pris på produkter");
 
                         Console.Write("Ange produkt-ID: ");
                         string productIdCase2 = Console.ReadLine().Trim();
 
-                        Console.Write("Ange nytt pris per styck: ");
-                        decimal.TryParse(Console.ReadLine().Trim(), out newUnitPrice);
+                        Console.Write("Vill du ange styckpris eller kilopris (S/K)? ");
+                        string priceTypeChoice = Console.ReadLine().Trim().ToLower();
 
-                        Console.Write("Ange nytt pris per kilo (0 om det är styckpris): ");
-                        decimal.TryParse(Console.ReadLine().Trim(), out newKiloPrice);
-
-                        productCatalog.UpdateProductPrice(productIdCase2, newUnitPrice, newKiloPrice);
+                        if (priceTypeChoice == "s")
+                        {
+                            Console.Write("Ange nytt pris per styck: ");
+                            decimal.TryParse(Console.ReadLine().Trim(), out newPrice);
+                        }
+                        else if (priceTypeChoice == "k")
+                        {
+                            Console.Write("Ange nytt pris per kilo: ");
+                            decimal.TryParse(Console.ReadLine().Trim(), out newPrice);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ogiltig inmatning. Ange 'S' för styckpris eller 'K' för kilopris.");
+                            Console.Write("Enter för att gå till adminmenyn");
+                            Console.ReadKey();
+                            break;
+                        }
+                       
+                        productCatalog.UpdateProductPrice(productIdCase2, newPrice, priceTypeChoice);
 
                         Console.Write("Enter för att gå till adminmenyn");
                         Console.ReadKey();
@@ -68,26 +83,31 @@ namespace Kassasystemet___Mille_Elfver
 
                         Console.WriteLine("\n3. Lägg till ny produkt");
 
-                        Console.Write("Ange produktens ID: ");
-                        string productIdCase3 = Console.ReadLine().Trim();
+                        Console.Write("Vill du ange styckpris eller kilopris (S/K)? ");
+                        string priceTypeChoiceCase3 = Console.ReadLine().Trim().ToLower();
 
-                        Console.Write("Ange produktens namn: ");
-                        string productName = Console.ReadLine().Trim();
-
-                        Console.Write("Ange styckpris: ");
-
-                        if (!decimal.TryParse(Console.ReadLine(), out decimal unitPrice))
+                        if (priceTypeChoiceCase3 == "s" || priceTypeChoiceCase3 == "k")
                         {
-                            Console.WriteLine("\nOgiltigt styckpris format");
-                            break;
+                            Console.Write("Ange produktens ID: ");
+                            string productIdCase3 = Console.ReadLine().Trim();
+
+                            Console.Write("Ange produktens namn: ");
+                            string productName = Console.ReadLine().Trim();
+
+                            Console.Write("Ange priset: ");
+                            if (decimal.TryParse(Console.ReadLine().Trim(), out decimal newPriceCase3))
+                            {
+                                productCatalog.AddProductWithPriceType(productIdCase3, productName, priceTypeChoiceCase3, newPriceCase3);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Ogiltigt pris format");
+                            }
                         }
-                        Console.Write("Ange kilopris (0 om det är styckpris): ");
-                        if (!decimal.TryParse(Console.ReadLine(), out decimal kiloPrice))
+                        else
                         {
-                            Console.WriteLine("Ogiltigt kilopris format");
-                            break;
+                            Console.WriteLine("Ogiltig inmatning. Ange 'S' för styckpris eller 'K' för kilopris.");
                         }
-                        productCatalog.AddProduct(productIdCase3, productName, unitPrice, kiloPrice);
 
                         Console.Write("Enter för att gå till adminmenyn");
                         Console.ReadKey();

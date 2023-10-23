@@ -1,6 +1,7 @@
 ﻿using Kassasystemet___Mille_Elfver;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace Kassasystemet___Mille_Elfver
         public ProductCatalog()
         {
             DataSeeding();
+            LoadProductsFromFile();
         }
 
         /// <summary>
@@ -139,19 +141,56 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="productId"></param>
         /// <param name="newUnitPrice"></param>
         /// <param name="newKiloPrice"></param>
-        public void UpdateProductPrice(string productId, decimal newUnitPrice, decimal newKiloPrice)
+        public void UpdateProductPrice(string productId, decimal newPrice, string priceType)
         {
             if (availableProducts.ContainsKey(productId))
             {
-                availableProducts[productId].UnitPrice = newUnitPrice;
-                availableProducts[productId].KiloPrice = newKiloPrice;
-                SaveProductsToFile(); 
+                if (priceType.ToLower() == "s")
+                {
+                    availableProducts[productId].UnitPrice = newPrice;
+                    availableProducts[productId].KiloPrice = 0;
+                }
+                else if (priceType.ToLower() == "k")
+                {
+                    availableProducts[productId].KiloPrice = newPrice;
+                    availableProducts[productId].UnitPrice = 0;
+                }
+                else
+                {
+                    Console.WriteLine("Ogiltig inmatning för pristyp. Ange 'S' för styckpris eller 'K' för kilopris.");
+                    return;
+                }
+
+                SaveProductsToFile();
+                LoadProductsFromFile();
                 Console.WriteLine($"\nProduktpris uppdaterat med ID {productId}.");
             }
             else
             {
                 Console.WriteLine($"\nProdukt med ID {productId} finns ej.");
             }
+        }
+
+        public void AddProductWithPriceType(string productId, string productName, string priceType, decimal price)
+        {
+            decimal unitPrice = 0;
+            decimal kiloPrice = 0;
+
+            if (priceType == "s")
+            {
+                unitPrice = price;
+            }
+            else if (priceType == "k")
+            {
+                kiloPrice = price;
+            }
+            else
+            {
+                Console.WriteLine("Ogiltig inmatning. Ange 'S' för styckpris eller 'K' för kilopris.");
+                return;
+            }
+
+            AddProduct(productId, productName, unitPrice, kiloPrice, priceType);
         }
 
         /// <summary>
@@ -215,11 +254,11 @@ namespace Kassasystemet___Mille_Elfver
                             decimal unitPrice = decimal.Parse(parts[2].Trim());
                             decimal kiloPrice = decimal.Parse(parts[3].Trim());
 
-                            decimal discount = 0; 
+                            decimal discount = 0;
                             DateTime discountStartDate = DateTime.MinValue;
                             DateTime discountEndDate = DateTime.MinValue;
 
-                            if (parts.Length >= 7)  
+                            if (parts.Length >= 7)
                             {
                                 discount = decimal.Parse(parts[4].Trim());
                                 discountStartDate = DateTime.Parse(parts[5].Trim());
@@ -260,25 +299,23 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="productName"></param>
         /// <param name="unitPrice"></param>
         /// <param name="kiloPrice"></param>
-        public void AddProduct(string productId, string productName, decimal unitPrice, decimal kiloPrice)
+        public void AddProduct(string productId, string productName, decimal unitPrice, decimal kiloPrice, string priceType)
         {
             if (!availableProducts.ContainsKey(productId))
             {
-                if (unitPrice == kiloPrice || kiloPrice == 0)
+                if (priceType.ToLower() == "s" && unitPrice <= 0)
                 {
-                    if (unitPrice <= 0 || kiloPrice < 0)
-                    {
-                        Console.WriteLine("\nDu kan inte ange 0 i styckpris!");
-                        return;
-                    }
-                    availableProducts[productId] = new Product(productId, productName, unitPrice, kiloPrice);
-                    SaveProductsToFile();
-                    Console.WriteLine($"Produkt med ID {productId} har lagts till.");
+                    Console.WriteLine("\nOgiltigt styckpris. Styckpriset måste vara större än 0.");
+                    return;
                 }
-                else
+                if (priceType.ToLower() == "k" && kiloPrice < 0)
                 {
-                    Console.WriteLine("Styckpris och kilopris måste vara lika.");
+                    Console.WriteLine("\nOgiltigt kilopris. Kilopriset måste vara 0 eller större.");
+                    return;
                 }
+                availableProducts[productId] = new Product(productId, productName, unitPrice, kiloPrice);
+                SaveProductsToFile();
+                Console.WriteLine($"Produkt med ID {productId} har lagts till.");
             }
             else
             {
