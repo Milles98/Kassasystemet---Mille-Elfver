@@ -143,6 +143,11 @@ namespace Kassasystemet___Mille_Elfver
         {
             if (availableProducts.ContainsKey(productId))
             {
+                if (newPrice <= 0)
+                {
+                    Console.WriteLine("Ogiltigt pris. Priset måste vara större än noll.");
+                    return;
+                }
                 if (priceType.ToLower() == "s")
                 {
                     availableProducts[productId].UnitPrice = newPrice;
