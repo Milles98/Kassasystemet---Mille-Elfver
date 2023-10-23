@@ -61,3 +61,69 @@ Tack Och Välkommen Åter!
 
 TOTAL:                                          0,00 kr
 -------------------------------------------------------
+-------------------------------------------------------
+KVITTO NR: 1373                     2023-10-23 11:21:37
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Glass        1,00 kg * 10,00 (Rabatt 5%)           9,50
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1373
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                          9,50 kr
+-------------------------------------------------------
+-------------------------------------------------------
+KVITTO NR: 1374                     2023-10-23 11:29:11
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Vaniljglass  1 st * 49,90 (Rabatt 25%)            37,43
+Mandariner   1,50 kg * 19,90                      29,85
+Fanta        1 st * 19,90                         19,90
+Öl           3 st * 15,50                         46,50
+Bananer      1,20 kg * 15,50                      18,60
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1374
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                        152,28 kr
+-------------------------------------------------------

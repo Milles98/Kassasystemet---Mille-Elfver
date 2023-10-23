@@ -50,7 +50,7 @@ namespace Kassasystemet___Mille_Elfver
                         Console.Write("Ange produkt-ID: ");
                         string productIdCase2 = Console.ReadLine().Trim();
 
-                        Console.Write("Vill du ange styckpris eller kilopris (S/K)? ");
+                        Console.Write("Vill du ändra till styckpris eller kilopris (S/K)? ");
                         string priceTypeChoice = Console.ReadLine().Trim().ToLower();
 
                         if (priceTypeChoice == "s")
@@ -89,7 +89,7 @@ namespace Kassasystemet___Mille_Elfver
                         Console.Write("Ange produktens namn: ");
                         string productName = Console.ReadLine().Trim();
 
-                        Console.Write("Vill du ange styckpris eller kilopris (S/K)? ");
+                        Console.Write("Styckpris eller kilopris (S/K)? ");
                         string priceTypeChoiceCase3 = Console.ReadLine().Trim().ToLower();
 
                         if (priceTypeChoiceCase3 == "s" || priceTypeChoiceCase3 == "k")

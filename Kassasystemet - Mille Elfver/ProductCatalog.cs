@@ -314,11 +314,11 @@ namespace Kassasystemet___Mille_Elfver
                 }
                 availableProducts[productId] = new Product(productId, productName, unitPrice, kiloPrice);
                 SaveProductsToFile();
-                Console.WriteLine($"Produkt med ID {productId} har lagts till.");
+                Console.WriteLine($"\nProdukt med ID {productId} har lagts till.");
             }
             else
             {
-                Console.WriteLine($"Produkt med ID {productId} finns redan.");
+                Console.WriteLine($"\nProdukt med ID {productId} finns redan.");
             }
         }
 

@@ -14,7 +14,7 @@ namespace Kassasystemet___Mille_Elfver
         public decimal KiloPrice { get; set; }
         public bool IsKiloPrice { get; }
 
-        public decimal Discount { get; set; } 
+        public decimal Discount { get; set; }
         public DateTime DiscountStartDate { get; set; }
         public DateTime DiscountEndDate { get; set; }
 
