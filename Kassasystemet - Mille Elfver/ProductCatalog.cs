@@ -125,7 +125,7 @@ namespace Kassasystemet___Mille_Elfver
             {
                 availableProducts[productId].Name = newName;
                 SaveProductsToFile();
-                Console.WriteLine($"Produktnamn uppdaterat på: {productId}.");
+                Console.WriteLine($"\nProduktnamn uppdaterat på: {productId}.");
             }
             else
             {
