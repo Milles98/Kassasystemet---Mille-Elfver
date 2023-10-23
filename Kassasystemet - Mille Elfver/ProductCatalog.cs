@@ -86,11 +86,11 @@ namespace Kassasystemet___Mille_Elfver
                 product.DiscountStartDate = startDate;
                 product.DiscountEndDate = endDate;
                 SaveProductsToFile();
-                Console.WriteLine($"Kampanjpris satt på produkt med ID {productId}.");
+                Console.WriteLine($"\nKampanjpris satt på produkt med ID {productId}.");
             }
             else
             {
-                Console.WriteLine($"Produkt med ID {productId} finns ej.");
+                Console.WriteLine($"\nProdukt med ID {productId} finns ej.");
             }
         }
 
@@ -106,11 +106,11 @@ namespace Kassasystemet___Mille_Elfver
                 availableProducts[productId].DiscountStartDate = DateTime.MinValue;
                 availableProducts[productId].DiscountEndDate = DateTime.MinValue;
                 SaveProductsToFile();
-                Console.WriteLine($"Rabatt har tagits bort för produkt med ID {productId}.");
+                Console.WriteLine($"\nRabatt har tagits bort för produkt med ID {productId}.");
             }
             else
             {
-                Console.WriteLine($"Produkt med ID {productId} finns ej.");
+                Console.WriteLine($"\nProdukt med ID {productId} finns ej.");
             }
         }
 
@@ -129,7 +129,7 @@ namespace Kassasystemet___Mille_Elfver
             }
             else
             {
-                Console.WriteLine($"Produkt med ID {productId} finns ej.");
+                Console.WriteLine($"\nProdukt med ID {productId} finns ej.");
             }
         }
 
@@ -146,11 +146,11 @@ namespace Kassasystemet___Mille_Elfver
                 availableProducts[productId].UnitPrice = newUnitPrice;
                 availableProducts[productId].KiloPrice = newKiloPrice;
                 SaveProductsToFile(); 
-                Console.WriteLine($"Produktpris uppdaterat med ID {productId}.");
+                Console.WriteLine($"\nProduktpris uppdaterat med ID {productId}.");
             }
             else
             {
-                Console.WriteLine($"Produkt med ID {productId} finns ej.");
+                Console.WriteLine($"\nProdukt med ID {productId} finns ej.");
             }
         }
 
@@ -164,11 +164,11 @@ namespace Kassasystemet___Mille_Elfver
             {
                 availableProducts.Remove(productId);
                 SaveProductsToFile();
-                Console.WriteLine($"Produkt med ID {productId} har tagits bort.");
+                Console.WriteLine($"\nProdukt med ID {productId} har tagits bort.");
             }
             else
             {
-                Console.WriteLine($"Produkt med ID {productId} finns ej.");
+                Console.WriteLine($"\nProdukt med ID {productId} finns ej.");
             }
         }
 

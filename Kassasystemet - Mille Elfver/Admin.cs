@@ -36,7 +36,7 @@ namespace Kassasystemet___Mille_Elfver
 
                         productCatalog.UpdateProductName(productIdCase1, newName);
 
-                        Console.WriteLine("Enter för att gå till adminmenyn");
+                        Console.Write("Enter för att gå till adminmenyn");
                         Console.ReadKey();
                         break;
 
@@ -58,7 +58,7 @@ namespace Kassasystemet___Mille_Elfver
 
                         productCatalog.UpdateProductPrice(productIdCase2, newUnitPrice, newKiloPrice);
 
-                        Console.WriteLine("\nEnter för att gå till adminmenyn");
+                        Console.Write("Enter för att gå till adminmenyn");
                         Console.ReadKey();
                         break;
 
@@ -89,7 +89,7 @@ namespace Kassasystemet___Mille_Elfver
                         }
                         productCatalog.AddProduct(productIdCase3, productName, unitPrice, kiloPrice);
 
-                        Console.WriteLine("\nEnter för att gå till adminmenyn");
+                        Console.Write("Enter för att gå till adminmenyn");
                         Console.ReadKey();
                         break;
 
@@ -103,7 +103,8 @@ namespace Kassasystemet___Mille_Elfver
 
                         productCatalog.RemoveProduct(productIdCase4);
 
-                        Console.WriteLine("\nEnter för att gå till adminmenyn");
+                        Console.Write("Enter för att gå till adminmenyn");
+                        Console.ReadKey();
                         break;
 
                     case 5:
@@ -124,7 +125,7 @@ namespace Kassasystemet___Mille_Elfver
                         DateTime productIdCase5EndDate = DateTime.Parse(Console.ReadLine());
 
                         productCatalog.SetDiscount(productIdCase5, productIdCase5Discount, productIdCase5StartDate, productIdCase5EndDate);
-                        Console.WriteLine("\nEnter för att gå till adminmenyn");
+                        Console.Write("Enter för att gå till adminmenyn");
                         Console.ReadKey();
                         break;
 
@@ -137,7 +138,7 @@ namespace Kassasystemet___Mille_Elfver
                         string productIdCase6 = Console.ReadLine().Trim();
 
                         productCatalog.RemoveDiscount(productIdCase6);
-                        Console.WriteLine("\nEnter för att gå till adminmenyn");
+                        Console.Write("Enter för att gå till adminmenyn");
                         Console.ReadKey();
                         break;
 
