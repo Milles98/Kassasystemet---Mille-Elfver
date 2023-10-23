@@ -112,12 +112,12 @@ namespace Kassasystemet___Mille_Elfver
                             Console.Write("Ange produktens ID: ");
                             string productIdCase3 = Console.ReadLine().Trim();
 
-                            if (!productCatalog.ProductExists(productIdCase3))
+                            if (productCatalog.ProductExists(productIdCase3))
                             {
-                                Console.WriteLine($"Produkt med ID {productIdCase3} finns ej.");
-                                Console.Write("Enter för att gå till adminmenyn");
+                                Console.WriteLine($"Produkt med ID {productIdCase3} finns redan.");
+                                Console.Write("Valfri knapp, försök igen");
                                 Console.ReadKey();
-                                break;
+                                continue;
                             }
 
                             Console.Write("Ange produktens namn: ");
@@ -132,6 +132,7 @@ namespace Kassasystemet___Mille_Elfver
                                 if (decimal.TryParse(Console.ReadLine().Trim(), out decimal newPriceCase3))
                                 {
                                     productCatalog.AddProductWithPriceType(productIdCase3, productName, priceTypeChoiceCase3, newPriceCase3);
+                                    Console.ReadKey();
                                     break; 
                                 }
                                 else

@@ -340,7 +340,12 @@ namespace Kassasystemet___Mille_Elfver
             {
                 string priceInfo = product.IsKiloPrice ? $"{product.KiloPrice:F2} kr/kg" : $"{product.UnitPrice:F2} kr/st";
 
-                string productInfo = product.Discount > 0 ? $"{product.Name} ({product.Discount}%)*" : product.Name;
+                string productInfo = product.Name;
+
+                if (product.Discount > 0 && DateTime.Today >= product.DiscountStartDate && DateTime.Today <= product.DiscountEndDate)
+                {
+                    productInfo += $" ({product.Discount}%)";
+                }
 
                 Console.WriteLine($"{product.Id.PadRight(4)}{productInfo.PadRight(22)}{priceInfo}");
             }
