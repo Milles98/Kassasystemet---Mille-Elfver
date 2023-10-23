@@ -36,13 +36,12 @@ namespace Kassasystemet___Mille_Elfver
         /// </summary>
         private void StartingItems()
         {
-            //availableProducts.Add("300", new Product("300", "Bananer", 15.50m, 15.50m));
-            AddProductToDictionary("300", "Bananer", 15.50m, 15.50m);
-            AddProductToDictionary("301", "Tomater", 79.90m, 79.90m);
-            AddProductToDictionary("302", "Apelsiner", 9.90m, 9.90m);
-            AddProductToDictionary("303", "Godis", 99.50m, 99.50m);
-            AddProductToDictionary("304", "Kött", 199m, 199m);
-            AddProductToDictionary("305", "Kyckling", 129.90m, 129.90m);
+            AddProductToDictionary("300", "Bananer", 0, 15.50m);
+            AddProductToDictionary("301", "Tomater", 0, 79.90m);
+            AddProductToDictionary("302", "Apelsiner", 0, 9.90m);
+            AddProductToDictionary("303", "Godis", 0, 99.50m);
+            AddProductToDictionary("304", "Kött", 0, 199m);
+            AddProductToDictionary("305", "Kyckling", 0, 129.90m);
             AddProductToDictionary("306", "Nutella", 21.90m, 0);
             AddProductToDictionary("307", "Citron", 5.50m, 0);
             AddProductToDictionary("308", "Jordgubbar", 39.90m, 0);
