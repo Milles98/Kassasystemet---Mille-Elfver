@@ -334,7 +334,7 @@ namespace Kassasystemet___Mille_Elfver
             Console.WriteLine("╭─────────────────────────────╮");
             Console.WriteLine("│    Tillgängliga produkter   │");
             Console.WriteLine("╰─────────────────────────────╯");
-            Console.WriteLine("ID  Produkt            Pris          Rabatter");
+            Console.WriteLine("ID  Produkt                Pris          Rabatter");
 
             foreach (var product in availableProducts.Values)
             {
@@ -353,7 +353,7 @@ namespace Kassasystemet___Mille_Elfver
                     }
                 }
 
-                Console.WriteLine($"{product.Id.PadRight(4)}{productInfo.PadRight(18)}{priceInfo.PadRight(14)}{discountInfo.PadRight(16)}");
+                Console.WriteLine($"{product.Id.PadRight(4)}{productInfo.PadRight(22)}{priceInfo.PadRight(14)}{discountInfo.PadRight(16)}");
             }
 
         }
