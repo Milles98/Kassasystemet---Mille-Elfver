@@ -136,9 +136,9 @@ namespace Kassasystemet___Mille_Elfver
 
                             Console.Write("Ange produkt ID: ");
                             string productIdCase5 = Console.ReadLine().Trim();
-                            if (productIdCase5.Length < 3)
+                            if (productIdCase5.Length < 3 || productIdCase5.Length > 3)
                             {
-                                Console.WriteLine("Ogiltigt produkt-ID. Det måste vara minst 3 tecken långt.");
+                                Console.WriteLine("Ogiltigt produkt-ID. Det måste vara 3 tecken långt.");
                                 Console.ReadKey();
                                 continue;
                             }
