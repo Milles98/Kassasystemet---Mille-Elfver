@@ -29,6 +29,9 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
+        /// <summary>
+        /// Contains all the pre-defined products for the cashregister
+        /// </summary>
         private void StartingItems()
         {
             //availableProducts.Add("300", new Product("300", "Bananer", 15.50m, 15.50m));
@@ -55,12 +58,25 @@ namespace Kassasystemet___Mille_Elfver
             AddProductToDictionary("320", "Glass", 39.90m, 0);
         }
 
+        /// <summary>
+        /// Adds products to the dictionary
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="unitPrice"></param>
+        /// <param name="kiloPrice"></param>
         private void AddProductToDictionary(string id, string name, decimal unitPrice, decimal kiloPrice)
         {
             var product = new Product(id, name, unitPrice, kiloPrice);
             availableProducts.Add(product.Id, product);
         }
-
+        /// <summary>
+        /// Creates discount on products
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="discount"></param>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
         public void SetDiscount(string productId, decimal discount, DateTime startDate, DateTime endDate)
         {
             if (availableProducts.ContainsKey(productId))
@@ -78,6 +94,10 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
+        /// <summary>
+        /// Removes discount on products
+        /// </summary>
+        /// <param name="productId"></param>
         public void RemoveDiscount(string productId)
         {
             if (availableProducts.ContainsKey(productId) && availableProducts[productId].Discount > 0)
@@ -94,7 +114,11 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
-
+        /// <summary>
+        /// Updates the products name
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="newName"></param>
         public void UpdateProductName(string productId, string newName)
         {
             if (availableProducts.ContainsKey(productId))
@@ -109,6 +133,12 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
+        /// <summary>
+        /// Updates the products price
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="newUnitPrice"></param>
+        /// <param name="newKiloPrice"></param>
         public void UpdateProductPrice(string productId, decimal newUnitPrice, decimal newKiloPrice)
         {
             if (availableProducts.ContainsKey(productId))
@@ -124,6 +154,10 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
+        /// <summary>
+        /// Removes a product
+        /// </summary>
+        /// <param name="productId"></param>
         public void RemoveProduct(string productId)
         {
             if (availableProducts.ContainsKey(productId))
@@ -161,6 +195,9 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
+        /// <summary>
+        /// Checks if file exists, then loads all products onto it
+        /// </summary>
         public void LoadProductsFromFile()
         {
             if (File.Exists("../../../Produkter/Produkter.txt"))
@@ -216,6 +253,13 @@ namespace Kassasystemet___Mille_Elfver
             return null;
         }
 
+        /// <summary>
+        /// Adds product onto the dictionary
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="productName"></param>
+        /// <param name="unitPrice"></param>
+        /// <param name="kiloPrice"></param>
         public void AddProduct(string productId, string productName, decimal unitPrice, decimal kiloPrice)
         {
             if (!availableProducts.ContainsKey(productId))
@@ -242,6 +286,9 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
+        /// <summary>
+        /// Displays all currently available products
+        /// </summary>
         public void DisplayAvailableProducts()
         {
             Console.WriteLine("╭─────────────────────────────╮");
