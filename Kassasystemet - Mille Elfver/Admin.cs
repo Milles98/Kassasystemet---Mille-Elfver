@@ -136,13 +136,28 @@ namespace Kassasystemet___Mille_Elfver
                         string productIdCase5 = Console.ReadLine().Trim();
 
                         Console.Write("Ange rabatt (exempelvis 5 blir 5% rabatt etc): ");
-                        decimal productIdCase5Discount = Convert.ToDecimal(Console.ReadLine());
+                        if (!decimal.TryParse(Console.ReadLine(), out decimal productIdCase5Discount))
+                        {
+                            Console.WriteLine("Ogiltig rabatt. Ange ett numeriskt värde.");
+                            Console.ReadKey();
+                            break;
+                        }
 
                         Console.Write("Ange startdatum (yyyy-mm-dd): ");
-                        DateTime productIdCase5StartDate = DateTime.Parse(Console.ReadLine());
+                        if (!DateTime.TryParse(Console.ReadLine(), out DateTime productIdCase5StartDate))
+                        {
+                            Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-mm-dd'.");
+                            Console.ReadKey();
+                            break;
+                        }
 
                         Console.Write("Ange slutdatum (yyyy-mm-dd): ");
-                        DateTime productIdCase5EndDate = DateTime.Parse(Console.ReadLine());
+                        if (!DateTime.TryParse(Console.ReadLine(), out DateTime productIdCase5EndDate))
+                        {
+                            Console.WriteLine("Ogiltigt slutdatum. Ange datum i formatet 'yyyy-mm-dd'.");
+                            Console.ReadKey();
+                            break;
+                        }
 
                         productCatalog.SetDiscount(productIdCase5, productIdCase5Discount, productIdCase5StartDate, productIdCase5EndDate);
                         Console.Write("Enter för att gå till adminmenyn");

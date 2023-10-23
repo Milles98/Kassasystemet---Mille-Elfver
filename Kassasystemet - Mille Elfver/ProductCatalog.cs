@@ -15,7 +15,6 @@ namespace Kassasystemet___Mille_Elfver
         public ProductCatalog()
         {
             DataSeeding();
-            LoadProductsFromFile();
         }
 
         /// <summary>
