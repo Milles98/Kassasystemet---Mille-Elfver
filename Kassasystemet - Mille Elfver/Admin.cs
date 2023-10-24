@@ -8,7 +8,7 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class Admin
     {
-        public static void AdminTools(ProductCatalog productCatalog)
+        public static void AdminTools(ProductServices productCatalog)
         {
             bool adminRunning = true;
             do

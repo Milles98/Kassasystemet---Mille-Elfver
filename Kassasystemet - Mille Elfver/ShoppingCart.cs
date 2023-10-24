@@ -8,12 +8,12 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class ShoppingCart
     {
-        private ProductCatalog ProductCatalog;
+        private ProductServices ProductCatalog;
         private StringBuilder receipt = new StringBuilder();
         private ReceiptCounter receiptCounter = new ReceiptCounter();
         private bool cartIsEmpty = true;
 
-        public ShoppingCart(ProductCatalog productCatalog)
+        public ShoppingCart(ProductServices productCatalog)
         {
             ProductCatalog = productCatalog;
             receiptCounter.LoadReceiptCounter();

@@ -12,7 +12,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <summary>
         /// Shows the main menu to user
         /// </summary>
-        public static void MainMenu(ProductCatalog productCatalog)
+        public static void MainMenu(ProductServices productCatalog)
         {
             bool programRunning = true;
             do
