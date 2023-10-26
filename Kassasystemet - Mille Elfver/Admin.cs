@@ -17,8 +17,9 @@ namespace Kassasystemet___Mille_Elfver
                 int userInput;
                 if (!int.TryParse(Console.ReadLine(), out userInput))
                 {
-                    Console.WriteLine("Ogiltig inmatning, försök igen.");
-                    return;
+                    Console.WriteLine("Ogiltig inmatning, valfri knapp försök igen.");
+                    Console.ReadKey();
+                    continue;
                 }
 
                 switch (userInput)
@@ -46,7 +47,7 @@ namespace Kassasystemet___Mille_Elfver
 
                             productCatalog.UpdateProductName(productIdCase1, newName);
 
-                            Console.Write("Enter för att gå till adminmenyn");
+                            Console.Write("Valfri knapp gå till adminmenyn");
                             Console.ReadKey();
                             break;
                         }
@@ -218,7 +219,7 @@ namespace Kassasystemet___Mille_Elfver
                             }
 
                             productCatalog.SetDiscount(productIdCase5, productIdCase5Discount, productIdCase5StartDate, productIdCase5EndDate);
-                            Console.Write("Enter för att gå till adminmenyn");
+                            Console.Write("Valfri knapp gå till adminmenyn");
                             Console.ReadKey();
                             break;
                         }
@@ -233,7 +234,7 @@ namespace Kassasystemet___Mille_Elfver
                         string productIdCase6 = Console.ReadLine().Trim();
 
                         productCatalog.RemoveDiscount(productIdCase6);
-                        Console.Write("Enter för att gå till adminmenyn");
+                        Console.Write("Valfri knapp gå till adminmenyn");
                         Console.ReadKey();
                         break;
 
