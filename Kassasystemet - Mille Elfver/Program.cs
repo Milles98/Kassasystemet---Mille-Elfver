@@ -24,9 +24,9 @@ namespace Kassasystemet___Mille_Elfver
             //Console.WriteLine("Tryck valfri knapp för att fortsätta.");
             //Console.ReadKey();
 
-            ProductServices productCatalog = new ProductServices();
+            ProductServices productServices = new ProductServices();
 
-            Menu.MainMenu(productCatalog);
+            Menu.MainMenu(productServices);
         }
 
     }

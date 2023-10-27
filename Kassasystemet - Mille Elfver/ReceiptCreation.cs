@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public class ShoppingCart
+    public class ReceiptCreation
     {
-        private ProductServices ProductCatalog;
+        private ProductServices ProductServices;
         private StringBuilder receipt = new StringBuilder();
         private ReceiptCounter receiptCounter = new ReceiptCounter();
         private bool cartIsEmpty = true;
 
-        public ShoppingCart(ProductServices productCatalog)
+        public ReceiptCreation(ProductServices productServices)
         {
-            ProductCatalog = productCatalog;
+            ProductServices = productServices;
             receiptCounter.LoadReceiptCounter();
         }
 
@@ -93,7 +93,7 @@ namespace Kassasystemet___Mille_Elfver
             else
             {
                 Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                ProductCatalog.DisplayAvailableProducts();
+                ProductServices.DisplayAvailableProducts();
             }
         }
 

@@ -12,7 +12,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <summary>
         /// Shows the main menu to user
         /// </summary>
-        public static void MainMenu(ProductServices productCatalog)
+        public static void MainMenu(ProductServices productServices)
         {
             bool programRunning = true;
             do
@@ -35,11 +35,11 @@ namespace Kassasystemet___Mille_Elfver
                     {
                         case 1:
                             Console.Clear();
-                            NewCustomer.NewCustomerChoices(productCatalog);
+                            NewCustomer.NewCustomerChoices(productServices);
                             break;
 
                         case 2:
-                            Admin.AdminTools(productCatalog);
+                            Admin.AdminTools(productServices);
                             break;
 
                         case 3:
@@ -70,7 +70,7 @@ namespace Kassasystemet___Mille_Elfver
                             break;
 
                         case 0:
-                            productCatalog.SaveProductsToFile();
+                            productServices.SaveProductsToFile();
                             Console.WriteLine("Tryck valfri knapp för att avsluta programmet.");
                             programRunning = false;
                             Environment.Exit(0);

@@ -12,26 +12,26 @@ namespace Kassasystemet___Mille_Elfver
         /// <summary>
         /// Menu choices to add products, display items, pay for items and return to menu
         /// </summary>
-        public static void NewCustomerChoices(ProductServices productCatalog)
+        public static void NewCustomerChoices(ProductServices productServices)
         {
-            ShoppingCart shoppingCart = new ShoppingCart(productCatalog);
+            ReceiptCreation receiptCreation = new ReceiptCreation(productServices);
 
             while (true)
             {
-                productCatalog.DisplayAvailableProducts();
+                productServices.DisplayAvailableProducts();
                 NewCustomerMenu();
                 string userInput = Console.ReadLine().Trim();
 
                 if (userInput.Equals("PAY", StringComparison.OrdinalIgnoreCase))
                 {
                     Console.Clear();
-                    if (shoppingCart.CartIsEmpty())
+                    if (receiptCreation.CartIsEmpty())
                     {
                         Console.WriteLine("Kundvagnen är tom, lägg till lite produkter först.");
                         return;
                     }
-                    string receiptText = shoppingCart.CreateReceipt();
-                    shoppingCart.SaveReceipt(receiptText);
+                    string receiptText = receiptCreation.CreateReceipt();
+                    receiptCreation.SaveReceipt(receiptText);
                     Console.WriteLine("Köpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
 
                     string soundFilePath = "../../../Kvittoljud/KACHING.wav";
@@ -44,7 +44,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 if (userInput.Equals("MENU", StringComparison.OrdinalIgnoreCase))
                 {
-                    Menu.MainMenu(productCatalog);
+                    Menu.MainMenu(productServices);
                 }
 
                 string[] productParts = userInput.Split(' ');
@@ -55,7 +55,7 @@ namespace Kassasystemet___Mille_Elfver
                     continue;
                 }
 
-                Product product = productCatalog.GetProduct(productParts[0]);
+                Product product = productServices.GetProduct(productParts[0]);
                 if (product == null)
                 {
                     Console.Clear();
@@ -63,7 +63,7 @@ namespace Kassasystemet___Mille_Elfver
                     continue;
                 }
 
-                shoppingCart.AddingToReceipt(product, quantity);
+                receiptCreation.AddingToReceipt(product, quantity);
                 Thread.Sleep(2000);
             }
 
