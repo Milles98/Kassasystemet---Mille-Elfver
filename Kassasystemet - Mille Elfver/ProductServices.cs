@@ -91,9 +91,8 @@ namespace Kassasystemet___Mille_Elfver
             if (availableProducts.ContainsKey(productId))
             {
                 Product product = availableProducts[productId];
-                product.Discount = discount;
-                product.DiscountStartDate = startDate;
-                product.DiscountEndDate = endDate;
+                product.Discounts = new ProductDiscount(discount, startDate, endDate);
+                
                 SaveProductsToFile();
                 Console.WriteLine($"\nKampanjpris satt på produkt med ID {productId}.");
             }
@@ -109,11 +108,10 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="productId"></param>
         public void RemoveDiscount(string productId)
         {
-            if (availableProducts.ContainsKey(productId) && availableProducts[productId].Discount > 0)
+            if (availableProducts.ContainsKey(productId) && availableProducts[productId].Discounts.Discount > 0)
             {
-                availableProducts[productId].Discount = 0;
-                availableProducts[productId].DiscountStartDate = DateTime.MinValue;
-                availableProducts[productId].DiscountEndDate = DateTime.MinValue;
+                availableProducts[productId].Discounts = new ProductDiscount(0, DateTime.MinValue, DateTime.MinValue);
+                
                 SaveProductsToFile();
                 Console.WriteLine($"\nRabatt har tagits bort för produkt med ID {productId}.");
             }
@@ -235,7 +233,7 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     foreach (var product in availableProducts.Values)
                     {
-                        string discountInfo = $"{product.Discount:F2}|{product.DiscountStartDate:yyyy-MM-dd}|{product.DiscountEndDate:yyyy-MM-dd}";
+                        string discountInfo = $"{product.Discounts.Discount:F2}|{product.Discounts.DiscountStartDate:yyyy-MM-dd}|{product.Discounts.DiscountEndDate:yyyy-MM-dd}";
                         writer.WriteLine($"{product.Id}|{product.Name}|{product.UnitPrice}|{product.KiloPrice}|{discountInfo}");
                     }
                 }
@@ -279,9 +277,7 @@ namespace Kassasystemet___Mille_Elfver
 
                             availableProducts[id] = new Product(id, name, unitPrice, kiloPrice)
                             {
-                                Discount = discount,
-                                DiscountStartDate = discountStartDate,
-                                DiscountEndDate = discountEndDate
+                                Discounts = new ProductDiscount(discount, discountStartDate, discountEndDate)
                             };
 
                         }
@@ -357,13 +353,13 @@ namespace Kassasystemet___Mille_Elfver
                 string productInfo = product.Name;
                 string discountInfo = string.Empty;
 
-                if (product.Discount > 0)
+                if (product.Discounts.Discount > 0)
                 {
-                    discountInfo = $"({product.Discount}%)";
+                    discountInfo = $"({product.Discounts.Discount}%)";
 
-                    if (DateTime.Today < product.DiscountStartDate)
+                    if (DateTime.Today < product.Discounts.DiscountStartDate)
                     {
-                        discountInfo += $" (börjar {product.DiscountStartDate:yyyy-MM-dd})";
+                        discountInfo += $" (börjar {product.Discounts.DiscountStartDate:yyyy-MM-dd})";
                     }
                 }
 

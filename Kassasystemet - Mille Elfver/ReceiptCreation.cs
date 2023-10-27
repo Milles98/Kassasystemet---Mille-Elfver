@@ -37,11 +37,11 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     if (quantity > 0)
                     {
-                        if (product.Discount > 0 && DateTime.Now >= product.DiscountStartDate && DateTime.Now <= product.DiscountEndDate)
+                        if (product.Discounts.Discount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
                         {
-                            decimal discountedPrice = (product.KiloPrice - (product.KiloPrice * (product.Discount / 100))) * quantity;
+                            decimal discountedPrice = (product.KiloPrice - (product.KiloPrice * (product.Discounts.Discount / 100))) * quantity;
                             totalPrice = discountedPrice;
-                            productInfo = $"{product.Name.PadRight(12)} {quantity:F2} kg * {product.KiloPrice:F2} (Rabatt {product.Discount:F0}%)";
+                            productInfo = $"{product.Name.PadRight(12)} {quantity:F2} kg * {product.KiloPrice:F2} (Rabatt {product.Discounts.Discount:F0}%)";
                         }
                         else
                         {
@@ -60,11 +60,11 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     if (quantity > 0 && quantity == (int)quantity)
                     {
-                        if (product.Discount > 0 && DateTime.Now >= product.DiscountStartDate && DateTime.Now <= product.DiscountEndDate)
+                        if (product.Discounts.Discount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
                         {
-                            decimal discountedPrice = (product.UnitPrice - (product.UnitPrice * (product.Discount / 100))) * quantity;
+                            decimal discountedPrice = (product.UnitPrice - (product.UnitPrice * (product.Discounts.Discount / 100))) * quantity;
                             totalPrice = discountedPrice;
-                            productInfo = $"{product.Name.PadRight(12)} {quantity:F0} st * {product.UnitPrice:F2} (Rabatt {product.Discount:F0}%)";
+                            productInfo = $"{product.Name.PadRight(12)} {quantity:F0} st * {product.UnitPrice:F2} (Rabatt {product.Discounts.Discount:F0}%)";
                         }
                         else
                         {

@@ -1,0 +1,32 @@
+-------------------------------------------------------
+KVITTO NR: 1387                     2023-10-27 12:52:56
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Bananer      1,00 kg * 15,50 (Rabatt 5%)          14,73
+Fanta        1 st * 19,90 (Rabatt 5%)             18,91
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1387
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                         33,64 kr
+-------------------------------------------------------
