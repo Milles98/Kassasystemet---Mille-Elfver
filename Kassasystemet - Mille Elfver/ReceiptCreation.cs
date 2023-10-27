@@ -47,6 +47,13 @@ namespace Kassasystemet___Mille_Elfver
                             totalPrice = discountedPrice;
 
                             productInfo = $"{product.Name.PadRight(12)} {quantity:F2} kg * {product.KiloPrice:F2} (Mängdrabatt {buyQuantity} för {payForQuantity})";
+
+                            if (product.Discounts.Discount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
+                            {
+                                decimal percentDiscountedPrice = discountedPrice - (discountedPrice * (product.Discounts.Discount / 100));
+                                totalPrice = percentDiscountedPrice;
+                                productInfo += $" + (Rabatt {product.Discounts.Discount:F0}%)";
+                            }
                         }
 
                         else if (product.Discounts.Discount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
@@ -86,7 +93,15 @@ namespace Kassasystemet___Mille_Elfver
                             decimal discountedPrice = product.UnitPrice * discountedQuantity;
                             totalPrice = discountedPrice;
 
-                            productInfo = $"{product.Name.PadRight(12)} {quantity:F0} st * {product.UnitPrice:F2} (Mängdrabatt {buyQuantity} för {payForQuantity})";
+                            productInfo = $"{product.Name.PadRight(12)} {quantity:F0} st * {product.UnitPrice:F2} ({buyQuantity} för {payForQuantity})";
+
+                            if (product.Discounts.Discount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
+                            {
+                                decimal percentDiscountedPrice = discountedPrice - (discountedPrice * (product.Discounts.Discount / 100));
+                                totalPrice = percentDiscountedPrice;
+                                productInfo += $" + (Rabatt {product.Discounts.Discount:F0}%)";
+                            }
+
                         }
 
                         else if (product.Discounts.Discount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
@@ -112,7 +127,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 }
 
-                int paddingSpaces = Math.Max(0, 55 - productInfo.Length - totalPrice.ToString("F2").Length);
+                int paddingSpaces = Math.Max(0, 70 - productInfo.Length - totalPrice.ToString("F2").Length);
 
                 string productToAdd = $"{productInfo}{new string(' ', paddingSpaces)}{totalPrice:F2}";
 
@@ -173,8 +188,8 @@ namespace Kassasystemet___Mille_Elfver
             DateTime dateTime = DateTime.Now;
             string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
-            string receiptSeparator = new string('-', 55);
-            int maxWidth = 55;
+            string receiptSeparator = new string('-', 70);
+            int maxWidth = 70;
             int availableSpace = maxWidth - "Total:".Length;
             string totalAmountText = totalAmount.ToString("C");
             string totalAmountPadding = new string(' ', availableSpace - totalAmountText.Length);
@@ -184,7 +199,7 @@ namespace Kassasystemet___Mille_Elfver
             StringBuilder receiptText = new StringBuilder();
 
             receiptText.AppendLine(receiptSeparator);
-            receiptText.AppendLine($"KVITTO NR: {receiptNumber}{formattedDate.PadLeft(40)}\n");
+            receiptText.AppendLine($"KVITTO NR: {receiptNumber}{formattedDate.PadLeft(55)}\n");
             receiptText.AppendLine($"Milles Butik AB ( +46 123 456 789 )");
             receiptText.AppendLine($"Årstaängsvägen 31, 117 43 Stockholm");
             receiptText.AppendLine($"Organisations Nr: 55123-1234\n");

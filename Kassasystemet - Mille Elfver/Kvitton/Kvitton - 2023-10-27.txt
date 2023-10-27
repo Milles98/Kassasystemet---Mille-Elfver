@@ -249,3 +249,174 @@ Tack Och Välkommen Åter!
 
 TOTAL:                                         16,90 kr
 -------------------------------------------------------
+-------------------------------------------------------
+KVITTO NR: 1395                     2023-10-27 14:27:27
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Glass        5 st * 39,90 (Mängdrabatt 5 för 2)   79,80
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1395
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                         79,80 kr
+-------------------------------------------------------
+-------------------------------------------------------
+KVITTO NR: 1396                     2023-10-27 14:32:33
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Glass        5 st * 39,90 (Mängdrabatt 5 för 2) + (Rabatt 5%)75,81
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1396
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                          0,00 kr
+-------------------------------------------------------
+-----------------------------------------------------------------
+KVITTO NR: 1397                               2023-10-27 14:33:43
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Glass        5 st * 39,90 (Mängdrabatt 5 för 2) + (Rabatt 5%)75,81
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1397
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                                    0,00 kr
+-----------------------------------------------------------------
+----------------------------------------------------------------------
+KVITTO NR: 1398                                    2023-10-27 14:34:30
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Glass        5 st * 39,90 (Mängdrabatt 5 för 2) + (Rabatt 5%)    75,81
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1398
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                                        75,81 kr
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+KVITTO NR: 1399                                    2023-10-27 14:35:16
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Glass        5 st * 39,90 (5 för 2) + (Rabatt 5%)                75,81
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1399
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                                        75,81 kr
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+KVITTO NR: 1400                                    2023-10-27 14:36:19
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Glass        5 st * 39,90 (5 för 2) + (Rabatt 5%)                75,81
+MOMS Punkt: 123456
+6B KVITTO NR: 1400
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                                        75,81 kr
+----------------------------------------------------------------------
