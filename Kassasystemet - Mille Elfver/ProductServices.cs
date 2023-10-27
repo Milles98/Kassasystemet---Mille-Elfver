@@ -67,8 +67,17 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="kiloPrice"></param>
         private void AddProductToDictionary(string id, string name, decimal unitPrice, decimal kiloPrice)
         {
-            var product = new Product(id, name, unitPrice, kiloPrice);
-            availableProducts.Add(product.Id, product);
+            if (availableProducts.ContainsKey(id))
+            {
+                availableProducts[id].Name = name;
+                availableProducts[id].UnitPrice = unitPrice;
+                availableProducts[id].KiloPrice = kiloPrice;
+            }
+            else
+            {
+                var product = new Product(id, name, unitPrice, kiloPrice);
+                availableProducts.Add(product.Id, product);
+            }
         }
         /// <summary>
         /// Creates discount on products
