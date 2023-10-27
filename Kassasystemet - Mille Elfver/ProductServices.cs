@@ -130,10 +130,10 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="productId"></param>
         public void RemoveDiscount(string productId)
         {
-            if (availableProducts.ContainsKey(productId) && availableProducts[productId].Discounts.Discount > 0)
+            if (availableProducts.ContainsKey(productId) && (availableProducts[productId].Discounts.Discount > 0 || availableProducts[productId].Discounts.BuyQuantity > 0))
             {
-                availableProducts[productId].Discounts = new ProductDiscount(0, DateTime.MinValue, DateTime.MinValue);
-                
+                availableProducts[productId].Discounts = new ProductDiscount(0, 0, 0, DateTime.MinValue, DateTime.MinValue);
+
                 SaveProductsToFile();
                 Console.WriteLine($"\nRabatt har tagits bort för produkt med ID {productId}.");
             }
