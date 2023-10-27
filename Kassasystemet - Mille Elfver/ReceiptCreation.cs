@@ -37,44 +37,76 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     if (quantity > 0)
                     {
-                        if (product.Discounts.Discount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
+                        if (product.Discounts.BuyQuantity > 0 && product.Discounts.PayForQuantity > 0)
+                        {
+                            int buyQuantity = product.Discounts.BuyQuantity;
+                            int payForQuantity = product.Discounts.PayForQuantity;
+
+                            int discountedQuantity = (int)(quantity / buyQuantity) * payForQuantity + (int)(quantity % buyQuantity);
+                            decimal discountedPrice = product.KiloPrice * discountedQuantity;
+                            totalPrice = discountedPrice;
+
+                            productInfo = $"{product.Name.PadRight(12)} {quantity:F2} kg * {product.KiloPrice:F2} (Mängdrabatt {buyQuantity} för {payForQuantity})";
+                        }
+
+                        else if (product.Discounts.Discount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
                         {
                             decimal discountedPrice = (product.KiloPrice - (product.KiloPrice * (product.Discounts.Discount / 100))) * quantity;
                             totalPrice = discountedPrice;
                             productInfo = $"{product.Name.PadRight(12)} {quantity:F2} kg * {product.KiloPrice:F2} (Rabatt {product.Discounts.Discount:F0}%)";
                         }
+
                         else
                         {
                             totalPrice = product.KiloPrice * quantity;
                             productInfo = $"{product.Name.PadRight(12)} {quantity:F2} kg * {product.KiloPrice:F2}";
                         }
                     }
+
                     else
                     {
                         Console.WriteLine("Ogiltig inmatning, du kan inte ange 0 eller mindre.");
                         return;
-
                     }
+
                 }
+
                 else
                 {
+
                     if (quantity > 0 && quantity == (int)quantity)
                     {
-                        if (product.Discounts.Discount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
+
+                        if (product.Discounts.BuyQuantity > 0 && product.Discounts.PayForQuantity > 0)
+                        {
+                            int buyQuantity = product.Discounts.BuyQuantity;
+                            int payForQuantity = product.Discounts.PayForQuantity;
+
+                            int discountedQuantity = (int)(quantity / buyQuantity) * payForQuantity + (int)(quantity % buyQuantity);
+                            decimal discountedPrice = product.UnitPrice * discountedQuantity;
+                            totalPrice = discountedPrice;
+
+                            productInfo = $"{product.Name.PadRight(12)} {quantity:F0} st * {product.UnitPrice:F2} (Mängdrabatt {buyQuantity} för {payForQuantity})";
+                        }
+
+                        else if (product.Discounts.Discount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
                         {
                             decimal discountedPrice = (product.UnitPrice - (product.UnitPrice * (product.Discounts.Discount / 100))) * quantity;
                             totalPrice = discountedPrice;
                             productInfo = $"{product.Name.PadRight(12)} {quantity:F0} st * {product.UnitPrice:F2} (Rabatt {product.Discounts.Discount:F0}%)";
                         }
+
                         else
                         {
                             totalPrice = product.UnitPrice * quantity;
                             productInfo = $"{product.Name.PadRight(12)} {quantity:F0} st * {product.UnitPrice:F2}";
                         }
+
                     }
+
                     else
                     {
-                        Console.WriteLine("Ogiltig inmatning, mängden behöver vara mer än 0 och heltal!");
+                        Console.WriteLine("Ogiltig inmatning, mängden behöver vara mer än 0 och ett heltal!");
                         return;
                     }
 

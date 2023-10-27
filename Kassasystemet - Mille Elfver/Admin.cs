@@ -181,47 +181,111 @@ namespace Kassasystemet___Mille_Elfver
                         {
                             Console.Clear();
                             productServices.DisplayAvailableProducts();
-                            Console.WriteLine("\n5. Lägga till kampanjpriser");
+                            Console.WriteLine("\n5. Lägga till rabatt");
+                            Console.WriteLine("1. Procentrabatt");
+                            Console.WriteLine("2. Mängdrabatt");
+                            Console.WriteLine("0. Tillbaka till adminmenyn");
 
-                            Console.Write("Ange produkt ID: ");
-                            string productIdCase5 = Console.ReadLine().Trim();
+                            Console.Write("Ange ditt val: ");
+                            int choice = Convert.ToInt32(Console.ReadLine().Trim());
 
-                            if (!productServices.ProductExists(productIdCase5))
+                            if (choice == 0)
                             {
-                                Console.WriteLine($"Produkt med ID {productIdCase5} finns ej.");
-                                Console.Write("Valfri knapp, försök igen");
-                                Console.ReadKey();
-                                continue;
+                                break; 
                             }
-
-                            Console.Write("Ange rabatt (exempelvis 5 blir 5% rabatt etc): ");
-                            if (!decimal.TryParse(Console.ReadLine(), out decimal productIdCase5Discount) || productIdCase5Discount <= 0)
+                            else if (choice == 1)
                             {
-                                Console.WriteLine("Ogiltig rabatt, försök igen.");
-                                Console.ReadKey();
-                                continue;
-                            }
+                                Console.Write("Ange produkt ID: ");
+                                string productId = Console.ReadLine().Trim();
 
-                            Console.Write("Ange startdatum (yyyy-mm-dd): ");
-                            if (!DateTime.TryParse(Console.ReadLine(), out DateTime productIdCase5StartDate))
+                                if (!productServices.ProductExists(productId))
+                                {
+                                    Console.WriteLine($"Produkt med ID {productId} finns ej.");
+                                    Console.Write("Valfri knapp, försök igen");
+                                    Console.ReadKey();
+                                    continue;
+                                }
+
+                                Console.Write("Ange rabatt i procent (exempelvis 5 för 5% rabatt): ");
+                                if (!decimal.TryParse(Console.ReadLine(), out decimal discount) || discount <= 0)
+                                {
+                                    Console.WriteLine("Ogiltig rabatt, försök igen.");
+                                    Console.ReadKey();
+                                    continue;
+                                }
+
+                                Console.Write("Ange startdatum (yyyy-MM-dd): ");
+                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate))
+                                {
+                                    Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.");
+                                    Console.ReadKey();
+                                    continue;
+                                }
+
+                                Console.Write("Ange slutdatum (yyyy-MM-dd): ");
+                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime endDate))
+                                {
+                                    Console.WriteLine("Ogiltigt slutdatum. Ange datum i formatet 'yyyy-MM-dd'.");
+                                    Console.ReadKey();
+                                    continue;
+                                }
+
+                                productServices.SetDiscount(productId, discount, startDate, endDate);
+                                Console.Write("Valfri knapp, gå till adminmenyn");
+                                Console.ReadKey();
+                                break;
+                            }
+                            else if (choice == 2)
                             {
-                                Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-mm-dd'.");
-                                Console.ReadKey();
-                                continue;
-                            }
+                                Console.Write("Ange produkt ID: ");
+                                string productId = Console.ReadLine().Trim();
 
-                            Console.Write("Ange slutdatum (yyyy-mm-dd): ");
-                            if (!DateTime.TryParse(Console.ReadLine(), out DateTime productIdCase5EndDate))
-                            {
-                                Console.WriteLine("Ogiltigt slutdatum. Ange datum i formatet 'yyyy-mm-dd'.");
-                                Console.ReadKey();
-                                continue;
-                            }
+                                if (!productServices.ProductExists(productId))
+                                {
+                                    Console.WriteLine($"Produkt med ID {productId} finns ej.");
+                                    Console.Write("Valfri knapp, försök igen");
+                                    Console.ReadKey();
+                                    continue;
+                                }
 
-                            productServices.SetDiscount(productIdCase5, productIdCase5Discount, productIdCase5StartDate, productIdCase5EndDate);
-                            Console.Write("Valfri knapp gå till adminmenyn");
-                            Console.ReadKey();
-                            break;
+                                Console.Write("Köp X antal: ");
+                                if (!int.TryParse(Console.ReadLine(), out int buyQuantity) || buyQuantity <= 0)
+                                {
+                                    Console.WriteLine("Ogiltigt köp-antal, försök igen.");
+                                    Console.ReadKey();
+                                    continue;
+                                }
+
+                                Console.Write("Mängd som behöver uppnås för att få X antalet i rabatt: ");
+                                if (!int.TryParse(Console.ReadLine(), out int payForQuantity) || payForQuantity <= 0)
+                                {
+                                    Console.WriteLine("Ogiltigt betal-antal, försök igen.");
+                                    Console.ReadKey();
+                                    continue;
+                                }
+
+                                Console.Write("Ange startdatum (yyyy-MM-dd): ");
+                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate))
+                                {
+                                    Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.");
+                                    Console.ReadKey();
+                                    continue;
+                                }
+
+                                Console.Write("Ange slutdatum (yyyy-MM-dd): ");
+                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime endDate))
+                                {
+                                    Console.WriteLine("Ogiltigt slutdatum. Ange datum i formatet 'yyyy-MM-dd'.");
+                                    Console.ReadKey();
+                                    continue;
+                                }
+
+                                productServices.SetQuantityDiscount(productId, buyQuantity, payForQuantity, startDate, endDate);
+
+                                Console.Write("Valfri knapp, gå till adminmenyn");
+                                Console.ReadKey();
+                                break;
+                            }
                         }
                         break;
 
