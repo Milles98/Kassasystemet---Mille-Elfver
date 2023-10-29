@@ -8,15 +8,15 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class ReceiptCreation
     {
-        private ProductServices ProductServices;
-        private StringBuilder receipt = new StringBuilder();
-        private ReceiptCounter receiptCounter = new ReceiptCounter();
-        private bool cartIsEmpty = true;
+        private ProductServices _productServices;
+        private StringBuilder _receipt = new StringBuilder();
+        private ReceiptCounter _receiptCounter = new ReceiptCounter();
+        private bool _cartIsEmpty = true;
 
         public ReceiptCreation(ProductServices productServices)
         {
-            ProductServices = productServices;
-            receiptCounter.LoadReceiptCounter();
+            _productServices = productServices;
+            _receiptCounter.LoadReceiptCounter();
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Kassasystemet___Mille_Elfver
             Console.Clear();
             if (product != null)
             {
-                cartIsEmpty = false;
+                _cartIsEmpty = false;
                 decimal totalPrice;
                 string productInfo;
 
@@ -131,7 +131,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 string productToAdd = $"{productInfo}{new string(' ', paddingSpaces)}{totalPrice:F2}";
 
-                receipt.AppendLine(productToAdd);
+                _receipt.AppendLine(productToAdd);
 
                 string priceType = product.IsKiloPrice ? "kilo" : "st"; //ternary istället för if-sats
 
@@ -140,13 +140,13 @@ namespace Kassasystemet___Mille_Elfver
             else
             {
                 Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                ProductServices.DisplayAvailableProducts();
+                _productServices.DisplayAvailableProducts();
             }
         }
 
         public bool CartIsEmpty()
         {
-            return cartIsEmpty;
+            return _cartIsEmpty;
         }
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace Kassasystemet___Mille_Elfver
         public decimal CalculateReceiptTotal()
         {
 
-            string[] linesInReceipt = receipt.ToString().Split('\n');
+            string[] linesInReceipt = _receipt.ToString().Split('\n');
 
             decimal totalAmount = 0m;
 
@@ -183,7 +183,7 @@ namespace Kassasystemet___Mille_Elfver
         {
             Console.Clear();
             decimal totalAmount = CalculateReceiptTotal();
-            int receiptNumber = receiptCounter.GetReceiptNumber();
+            int receiptNumber = _receiptCounter.GetReceiptNumber();
 
             DateTime dateTime = DateTime.Now;
             string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
@@ -204,7 +204,7 @@ namespace Kassasystemet___Mille_Elfver
             receiptText.AppendLine($"Årstaängsvägen 31, 117 43 Stockholm");
             receiptText.AppendLine($"Organisations Nr: 55123-1234\n");
 
-            receiptText.Append(receipt.ToString());
+            receiptText.Append(_receipt.ToString());
 
             receiptText.AppendLine($"\nTELLER SE / NO");
             receiptText.AppendLine($"BUTIKSNR: 12345678");
@@ -230,8 +230,8 @@ namespace Kassasystemet___Mille_Elfver
             receiptText.AppendLine(totalLine);
             receiptText.AppendLine(receiptSeparator);
 
-            receiptCounter.SaveReceiptCounter();
-            receiptCounter.IncreaseCounter();
+            _receiptCounter.SaveReceiptCounter();
+            _receiptCounter.IncreaseCounter();
 
             return receiptText.ToString();
 

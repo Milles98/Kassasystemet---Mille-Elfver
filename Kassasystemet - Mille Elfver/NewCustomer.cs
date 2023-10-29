@@ -64,7 +64,7 @@ namespace Kassasystemet___Mille_Elfver
                 }
 
                 receiptCreation.AddingToReceipt(product, quantity);
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
             }
 
             /// <summary>

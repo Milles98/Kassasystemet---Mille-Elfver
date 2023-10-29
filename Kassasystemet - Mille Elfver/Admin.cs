@@ -207,7 +207,7 @@ namespace Kassasystemet___Mille_Elfver
                                 }
 
                                 Console.Write("Ange rabatt i procent (exempelvis 5 för 5% rabatt): ");
-                                if (!decimal.TryParse(Console.ReadLine(), out decimal discount) || discount <= 0)
+                                if (!decimal.TryParse(Console.ReadLine(), out decimal percentageDiscount) || percentageDiscount <= 0)
                                 {
                                     Console.WriteLine("Ogiltig rabatt, försök igen.");
                                     Console.ReadKey();
@@ -230,7 +230,7 @@ namespace Kassasystemet___Mille_Elfver
                                     continue;
                                 }
 
-                                productServices.SetDiscount(productId, discount, startDate, endDate);
+                                productServices.SetPercentageDiscount(productId, percentageDiscount, startDate, endDate);
                                 Console.Write("Valfri knapp, gå till adminmenyn");
                                 Console.ReadKey();
                                 break;

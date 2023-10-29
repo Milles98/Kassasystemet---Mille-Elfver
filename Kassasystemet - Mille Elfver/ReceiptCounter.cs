@@ -8,15 +8,15 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class ReceiptCounter
     {
-        private int receiptCounter = 1337;
+        private int _receiptCounter = 1337;
 
         public int GetReceiptNumber()
         {
-            return receiptCounter;
+            return _receiptCounter;
         }
         public void IncreaseCounter()
         {
-            receiptCounter++;
+            _receiptCounter++;
             SaveReceiptCounter(); 
         }
         /// <summary>
@@ -31,7 +31,7 @@ namespace Kassasystemet___Mille_Elfver
                     string counterText = File.ReadAllText("../../../Kvitton/KvittoRäknare.txt");
                     if (int.TryParse(counterText, out int counter))
                     {
-                        receiptCounter = counter;
+                        _receiptCounter = counter;
                     }
                 }
             }
@@ -49,7 +49,7 @@ namespace Kassasystemet___Mille_Elfver
             try
             {
                 Directory.CreateDirectory($"../../../Kvitton");
-                File.WriteAllText("../../../Kvitton/KvittoRäknare.txt", receiptCounter.ToString());
+                File.WriteAllText("../../../Kvitton/KvittoRäknare.txt", _receiptCounter.ToString());
             }
             catch (Exception ex)
             {
