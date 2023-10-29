@@ -420,3 +420,128 @@ Tack Och Välkommen Åter!
 
 TOTAL:                                                        75,81 kr
 ----------------------------------------------------------------------
+----------------------------------------------------------------------
+KVITTO NR: 1401                                    2023-10-27 14:48:29
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Leverpastej  1 st * 24,90                                        24,90
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1401
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                                        24,90 kr
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+KVITTO NR: 1402                                    2023-10-27 14:50:53
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Vaniljglass Deluxe 3 st * 50,00 (3 för 2) + (Rabatt 20%)         80,00
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1402
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                                        80,00 kr
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+KVITTO NR: 1403                                    2023-10-27 14:57:14
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Coca Cola    1 st * 24,90                                        24,90
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1403
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                                        24,90 kr
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+KVITTO NR: 1404                                    2023-10-27 17:10:23
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Coca Cola Vanilj 1 st * 22,90 (10 för 7) + (Rabatt 10%)          20,61
+Coca Cola Vanilj 10 st * 22,90 (10 för 7) + (Rabatt 10%)        144,27
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1404
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                                       164,88 kr
+----------------------------------------------------------------------

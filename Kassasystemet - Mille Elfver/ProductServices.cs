@@ -23,11 +23,11 @@ namespace Kassasystemet___Mille_Elfver
         public void DataSeeding()
         {
             LoadProductsFromFile();
-            if (availableProducts.Count <= 20)
-            {
+            //if (availableProducts.Count <= 20)
+            //{
                 StartingItems();
                 SaveProductsToFile();
-            }
+            //}
         }
 
         /// <summary>

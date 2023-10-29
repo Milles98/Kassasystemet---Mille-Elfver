@@ -153,7 +153,7 @@ namespace Kassasystemet___Mille_Elfver
         /// Calculates all the products added to receipt StringBuilder
         /// </summary>
         /// <returns></returns>
-        public decimal CalculateTotal()
+        public decimal CalculateReceiptTotal()
         {
 
             string[] linesInReceipt = receipt.ToString().Split('\n');
@@ -182,7 +182,7 @@ namespace Kassasystemet___Mille_Elfver
         public string CreateReceipt()
         {
             Console.Clear();
-            decimal totalAmount = CalculateTotal();
+            decimal totalAmount = CalculateReceiptTotal();
             int receiptNumber = receiptCounter.GetReceiptNumber();
 
             DateTime dateTime = DateTime.Now;
