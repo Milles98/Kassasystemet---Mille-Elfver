@@ -79,7 +79,7 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
         /// <summary>
-        /// Creates discount on products
+        /// Creates percentage discount on products
         /// </summary>
         /// <param name="productId"></param>
         /// <param name="percentageDiscount"></param>
@@ -124,7 +124,7 @@ namespace Kassasystemet___Mille_Elfver
         }
 
         /// <summary>
-        /// Removes discount on products
+        /// Removes the current discounts on product
         /// </summary>
         /// <param name="productId"></param>
         public void RemoveDiscount(string productId)
@@ -342,7 +342,7 @@ namespace Kassasystemet___Mille_Elfver
         }
 
         /// <summary>
-        /// Adds product through admin onto the dictionary
+        /// Adds new product onto the dictionary
         /// </summary>
         /// <param name="productId"></param>
         /// <param name="productName"></param>
@@ -373,7 +373,7 @@ namespace Kassasystemet___Mille_Elfver
         }
 
         /// <summary>
-        /// Displays all currently available products
+        /// Displays all currently available products including discounts
         /// </summary>
         public void DisplayAvailableProducts()
         {

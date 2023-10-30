@@ -10,7 +10,7 @@ namespace Kassasystemet___Mille_Elfver
     public class Menu
     {
         /// <summary>
-        /// Shows the main menu to user
+        /// Displays main menu to user
         /// </summary>
         public static void MainMenu(ProductServices productServices)
         {

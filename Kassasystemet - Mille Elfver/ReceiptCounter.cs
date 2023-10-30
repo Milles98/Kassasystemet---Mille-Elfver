@@ -10,15 +10,24 @@ namespace Kassasystemet___Mille_Elfver
     {
         private int _receiptCounter = 1337;
 
+        /// <summary>
+        /// Gets the current receipt number
+        /// </summary>
+        /// <returns></returns>
         public int GetReceiptNumber()
         {
             return _receiptCounter;
         }
+
+        /// <summary>
+        /// Increases the receipt counter by one
+        /// </summary>
         public void IncreaseCounter()
         {
             _receiptCounter++;
             SaveReceiptCounter(); 
         }
+
         /// <summary>
         /// Loads the latest receipt number
         /// </summary>
@@ -42,7 +51,7 @@ namespace Kassasystemet___Mille_Elfver
         }
 
         /// <summary>
-        /// Saves the last receipt number to "KvittoRäknare" textfile
+        /// Saves the last receipt number to "KvittoRäknare" textfile and creates if it doesnt exist
         /// </summary>
         public void SaveReceiptCounter()
         {
