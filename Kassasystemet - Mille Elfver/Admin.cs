@@ -29,10 +29,16 @@ namespace Kassasystemet___Mille_Elfver
                         {
                             Console.Clear();
                             productServices.DisplayAvailableProducts();
-                            Console.WriteLine("\n1. Ändra namn på produkt");
+                            Console.WriteLine("\nÄndra namn på produkt");
+                            Console.WriteLine("Q = tillbaka till adminmenyn\n");
 
-                            Console.Write("Ange produkt-ID: ");
-                            string productIdCase1 = Console.ReadLine().Trim();
+                            Console.Write("Ange 'Q' eller produkt-ID: ");
+                            string productIdCase1 = Console.ReadLine().Trim().ToUpper();
+
+                            if (productIdCase1 == "Q")
+                            {
+                                break;
+                            }
 
                             if (!productServices.ProductExists(productIdCase1))
                             {
@@ -60,10 +66,16 @@ namespace Kassasystemet___Mille_Elfver
                             productServices.DisplayAvailableProducts();
                             decimal newPrice;
 
-                            Console.WriteLine("\n2. Ändra pris på produkter");
+                            Console.WriteLine("\nÄndra pris på produkter");
+                            Console.WriteLine("Q = tillbaka till adminmenyn\n");
 
-                            Console.Write("Ange produkt-ID: ");
-                            string productIdCase2 = Console.ReadLine().Trim();
+                            Console.Write("Ange 'Q' eller produkt-ID: ");
+                            string productIdCase2 = Console.ReadLine().Trim().ToUpper();
+
+                            if (productIdCase2 == "Q")
+                            {
+                                break;
+                            }
 
                             if (!productServices.ProductExists(productIdCase2))
                             {
@@ -108,10 +120,16 @@ namespace Kassasystemet___Mille_Elfver
                             Console.Clear();
                             productServices.DisplayAvailableProducts();
 
-                            Console.WriteLine("\n3. Lägg till ny produkt");
+                            Console.WriteLine("\nLägg till ny produkt");
+                            Console.WriteLine("Q = tillbaka till adminmenyn\n");
 
-                            Console.Write("Ange produktens ID: ");
-                            string productIdCase3 = Console.ReadLine().Trim();
+                            Console.Write("Ange 'Q' eller produktens ID: ");
+                            string productIdCase3 = Console.ReadLine().Trim().ToUpper();
+
+                            if (productIdCase3 == "Q")
+                            {
+                                break;
+                            }
 
                             if (productServices.ProductExists(productIdCase3))
                             {
@@ -155,10 +173,16 @@ namespace Kassasystemet___Mille_Elfver
                         {
                             Console.Clear();
                             productServices.DisplayAvailableProducts();
-                            Console.WriteLine("\n4. Ta bort produkt");
+                            Console.WriteLine("\nTa bort produkt");
+                            Console.WriteLine("Q = tillbaka till adminmenyn\n");
 
-                            Console.Write("Ange produkt ID: ");
-                            string productIdCase4 = Console.ReadLine().Trim();
+                            Console.Write("Ange 'Q' eller produkt ID: ");
+                            string productIdCase4 = Console.ReadLine().Trim().ToUpper();
+
+                            if (productIdCase4 == "Q")
+                            {
+                                break;
+                            }
 
                             if (!productServices.ProductExists(productIdCase4))
                             {
@@ -181,10 +205,10 @@ namespace Kassasystemet___Mille_Elfver
                         {
                             Console.Clear();
                             productServices.DisplayAvailableProducts();
-                            Console.WriteLine("\n5. Lägga till rabatt");
+                            Console.WriteLine("\nLägga till rabatt");
                             Console.WriteLine("1. Procentrabatt");
                             Console.WriteLine("2. Mängdrabatt");
-                            Console.WriteLine("0. Tillbaka till adminmenyn");
+                            Console.WriteLine("0. Tillbaka till adminmenyn\n");
 
                             Console.Write("Ange ditt val: ");
                             int choice = Convert.ToInt32(Console.ReadLine().Trim());
@@ -292,10 +316,16 @@ namespace Kassasystemet___Mille_Elfver
                     case 6:
                         Console.Clear();
                         productServices.DisplayAvailableProducts();
-                        Console.WriteLine("\n6. Ta bort kampanjpriser");
+                        Console.WriteLine("\nTa bort kampanjpriser");
+                        Console.WriteLine("Q = tillbaka till adminmenyn\n");
 
-                        Console.Write("Ange produkt ID: ");
-                        string productIdCase6 = Console.ReadLine().Trim();
+                        Console.Write("Ange 'Q' eller produkt ID: ");
+                        string productIdCase6 = Console.ReadLine().Trim().ToUpper();
+
+                        if (productIdCase6 == "Q")
+                        {
+                            break;
+                        }
 
                         productServices.RemoveDiscount(productIdCase6);
                         Console.Write("Valfri knapp gå till adminmenyn");

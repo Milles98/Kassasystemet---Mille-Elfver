@@ -23,7 +23,9 @@ namespace Kassasystemet___Mille_Elfver
         public void DataSeeding()
         {
             LoadProductsFromFile();
+
             StartingItems();
+
             SaveProductsToFile();
         }
 
@@ -315,6 +317,11 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
+        /// <summary>
+        /// Checks if the product ID exists
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         public bool ProductExists(string productId)
         {
             return _availableProducts.ContainsKey(productId);
