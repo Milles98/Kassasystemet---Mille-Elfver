@@ -10,13 +10,13 @@ namespace Kassasystemet___Mille_Elfver
     {
         public int BuyQuantity { get; set; }
         public int PayForQuantity { get; set; }
-        public decimal Discount { get; set; }
+        public decimal PercentageDiscount { get; set; }
         public DateTime DiscountStartDate { get; set; }
         public DateTime DiscountEndDate { get; set; }
 
-        public ProductDiscount(decimal discount, DateTime startDate, DateTime endDate)
+        public ProductDiscount(decimal percentageDiscount, DateTime startDate, DateTime endDate)
         {
-            Discount = discount;
+            PercentageDiscount = percentageDiscount;
             DiscountStartDate = startDate;
             DiscountEndDate = endDate;
         }
@@ -30,7 +30,7 @@ namespace Kassasystemet___Mille_Elfver
 
         public ProductDiscount(decimal discount, int buyQuantity, int payForQuantity, DateTime startDate, DateTime endDate)
         {
-            Discount = discount;
+            PercentageDiscount = discount;
             BuyQuantity = buyQuantity;
             PayForQuantity = payForQuantity;
             DiscountStartDate = startDate;

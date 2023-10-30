@@ -23,11 +23,8 @@ namespace Kassasystemet___Mille_Elfver
         public void DataSeeding()
         {
             LoadProductsFromFile();
-            //if (availableProducts.Count <= 20)
-            //{
-                StartingItems();
-                SaveProductsToFile();
-            //}
+            StartingItems();
+            SaveProductsToFile();
         }
 
         /// <summary>
@@ -92,7 +89,7 @@ namespace Kassasystemet___Mille_Elfver
             {
                 Product product = _availableProducts[productId];
 
-                product.Discounts.Discount = percentageDiscount;
+                product.Discounts.PercentageDiscount = percentageDiscount;
                 product.Discounts.DiscountStartDate = startDate;
                 product.Discounts.DiscountEndDate = endDate;
 
@@ -130,7 +127,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="productId"></param>
         public void RemoveDiscount(string productId)
         {
-            if (_availableProducts.ContainsKey(productId) && (_availableProducts[productId].Discounts.Discount > 0 || _availableProducts[productId].Discounts.BuyQuantity > 0))
+            if (_availableProducts.ContainsKey(productId) && (_availableProducts[productId].Discounts.PercentageDiscount > 0 || _availableProducts[productId].Discounts.BuyQuantity > 0))
             {
                 _availableProducts[productId].Discounts = new ProductDiscount(0, 0, 0, DateTime.MinValue, DateTime.MinValue);
 
@@ -226,7 +223,7 @@ namespace Kassasystemet___Mille_Elfver
         }
 
         /// <summary>
-        /// Removes a product
+        /// Removes a product from the dictionary
         /// </summary>
         /// <param name="productId"></param>
         public void RemoveProduct(string productId)
@@ -244,7 +241,7 @@ namespace Kassasystemet___Mille_Elfver
         }
 
         /// <summary>
-        /// Saves all products to Produkter.txt file
+        /// Saves all products to Produkter map & Produkter.txt file, if it doesnt exist, creates one
         /// </summary>
         public void SaveProductsToFile()
         {
@@ -255,7 +252,7 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     foreach (var product in _availableProducts.Values)
                     {
-                        string discountInfo = $"{product.Discounts.Discount:F2}";
+                        string discountInfo = $"{product.Discounts.PercentageDiscount:F2}";
                         string dateInfo = $"{product.Discounts.DiscountStartDate:yyyy-MM-dd}|{product.Discounts.DiscountEndDate:yyyy-MM-dd}";
                         string amountDiscountInfo = $"{product.Discounts.BuyQuantity}|{product.Discounts.PayForQuantity}";
                         writer.WriteLine($"{product.Id}|{product.Name}|{product.UnitPrice}|{product.KiloPrice}|{discountInfo}|{dateInfo}|{amountDiscountInfo}");
@@ -269,7 +266,7 @@ namespace Kassasystemet___Mille_Elfver
         }
 
         /// <summary>
-        /// Checks if file exists, then loads all products onto it
+        /// Checks if produkter map & txt file exists, then loads all products onto it
         /// </summary>
         public void LoadProductsFromFile()
         {
@@ -338,7 +335,7 @@ namespace Kassasystemet___Mille_Elfver
         }
 
         /// <summary>
-        /// Adds product onto the dictionary
+        /// Adds product through admin onto the dictionary
         /// </summary>
         /// <param name="productId"></param>
         /// <param name="productName"></param>
@@ -384,9 +381,9 @@ namespace Kassasystemet___Mille_Elfver
                 string productInfo = product.Name;
                 string discountInfo = string.Empty;
 
-                if (product.Discounts.Discount > 0)
+                if (product.Discounts.PercentageDiscount > 0)
                 {
-                    discountInfo = $"({product.Discounts.Discount}%)";
+                    discountInfo = $"({product.Discounts.PercentageDiscount}%)";
 
                     if (DateTime.Today < product.Discounts.DiscountStartDate)
                     {

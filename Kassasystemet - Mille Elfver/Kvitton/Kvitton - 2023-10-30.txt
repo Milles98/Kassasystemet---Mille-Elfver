@@ -1,0 +1,32 @@
+----------------------------------------------------------------------
+KVITTO NR: 1407                                    2023-10-30 07:37:41
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Mjölk        10 st * 16,90 (10 för 7) + (Rabatt 20%)             94,64
+Glass        3 st * 39,90 (3 för 2) + (Rabatt 25%)               59,85
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1407
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                                       154,49 kr
+----------------------------------------------------------------------
