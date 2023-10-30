@@ -20,13 +20,6 @@ namespace Kassasystemet___Mille_Elfver
             DiscountStartDate = startDate;
             DiscountEndDate = endDate;
         }
-        public ProductDiscount(int buyQuantity, int payForQuantity, DateTime startDate, DateTime endDate)
-        {
-            BuyQuantity = buyQuantity;
-            PayForQuantity = payForQuantity;
-            DiscountStartDate = startDate;
-            DiscountEndDate = endDate;
-        }
 
         public ProductDiscount(decimal discount, int buyQuantity, int payForQuantity, DateTime startDate, DateTime endDate)
         {
