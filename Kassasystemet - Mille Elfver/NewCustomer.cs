@@ -20,14 +20,15 @@ namespace Kassasystemet___Mille_Elfver
             {
                 productServices.DisplayAvailableProducts();
                 NewCustomerMenu();
-                string userInput = Console.ReadLine().Trim();
+                string userInput = Console.ReadLine().Trim().ToUpper();
 
-                if (userInput.Equals("PAY", StringComparison.OrdinalIgnoreCase))
+                if (userInput == "PAY")
                 {
                     Console.Clear();
                     if (receiptCreation.CartIsEmpty())
                     {
                         Console.WriteLine("Kundvagnen är tom, lägg till lite produkter först.");
+                        Console.WriteLine("Valfri knapp, gå tillbaka och gör om!");
                         return;
                     }
                     string receiptText = receiptCreation.CreateReceipt();
@@ -42,7 +43,7 @@ namespace Kassasystemet___Mille_Elfver
                     break;
                 }
 
-                if (userInput.Equals("MENU", StringComparison.OrdinalIgnoreCase))
+                if (userInput == "MENU")
                 {
                     Menu.MainMenu(productServices);
                 }
