@@ -27,13 +27,18 @@ namespace Kassasystemet___Mille_Elfver
                     Console.Clear();
                     if (receiptCreation.CartIsEmpty())
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Kundvagnen är tom, lägg till lite produkter först.");
                         Console.WriteLine("Valfri knapp, gå tillbaka och gör om!");
-                        return;
+                        Console.ReadKey();
+                        Console.ResetColor();
+                        continue;
                     }
                     string receiptText = receiptCreation.CreateReceipt();
                     receiptCreation.SaveReceipt(receiptText);
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Köpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
+                    Console.ResetColor();
 
                     string soundFilePath = "../../../Kvittoljud/KACHING.wav";
                     SoundPlayer soundPlayer = new SoundPlayer(soundFilePath);
@@ -52,7 +57,9 @@ namespace Kassasystemet___Mille_Elfver
                 if (productParts.Length != 2 || !decimal.TryParse(productParts[1], out decimal quantity))
                 {
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)");
+                    Console.ResetColor();
                     continue;
                 }
 
@@ -60,7 +67,9 @@ namespace Kassasystemet___Mille_Elfver
                 if (product == null)
                 {
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1");
+                    Console.ResetColor();
                     continue;
                 }
 
@@ -73,12 +82,16 @@ namespace Kassasystemet___Mille_Elfver
             /// </summary>
             static void NewCustomerMenu()
             {
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("╭──────────────────────────────────╮");
                 Console.WriteLine("│ KASSA                            │");
                 Console.WriteLine("│ Kommandon:                       │");
                 Console.WriteLine("│ <productid> <antal> <PAY> <MENU> │");
                 Console.WriteLine("╰──────────────────────────────────╯");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("Kommando: ");
+                Console.ResetColor();
             }
         }
     }

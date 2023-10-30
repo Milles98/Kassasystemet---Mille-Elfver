@@ -46,7 +46,9 @@ namespace Kassasystemet___Mille_Elfver
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Fel vid laddandet av kvittoräknare: {ex.Message}");
+                Console.ResetColor();
             }
         }
 
@@ -62,7 +64,9 @@ namespace Kassasystemet___Mille_Elfver
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Fel vid sparandet av kvittoräknare: {ex.Message}");
+                Console.ResetColor();
             }
         }
     }

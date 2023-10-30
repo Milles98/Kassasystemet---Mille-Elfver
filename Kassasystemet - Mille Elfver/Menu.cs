@@ -18,6 +18,7 @@ namespace Kassasystemet___Mille_Elfver
             do
             {
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("╭─────────────╮");
                 Console.WriteLine("│ KASSA       │");
                 Console.WriteLine("│ 1. Ny kund  │");
@@ -25,7 +26,10 @@ namespace Kassasystemet___Mille_Elfver
                 Console.WriteLine("│ 3. Historik │");
                 Console.WriteLine("│ 0. Avsluta  │");
                 Console.WriteLine("╰─────────────╯");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write(" Inmatning: ");
+                Console.ResetColor();
 
                 int val;
                 string userInput = Console.ReadLine();
@@ -44,9 +48,11 @@ namespace Kassasystemet___Mille_Elfver
 
                         case 3:
                             Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkCyan;
                             Console.WriteLine("╭───────────────────────────────────────────────────╮");
                             Console.WriteLine("│ Historik för dagens kvitton... Tryck valfri knapp │");
                             Console.WriteLine("╰───────────────────────────────────────────────────╯");
+                            Console.ResetColor();
                             Console.ReadKey();
 
                             var date = DateTime.Now.ToShortDateString();
@@ -64,7 +70,9 @@ namespace Kassasystemet___Mille_Elfver
                             }
                             else
                             {
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Dagens kvittohistorik fil är tom/saknas (Har du sålt något ännu?).");
+                                Console.ResetColor();
                             }
                             Console.WriteLine("\nEnter för att gå tillbaka till huvudmenyn");
                             break;
@@ -72,6 +80,7 @@ namespace Kassasystemet___Mille_Elfver
                         case 0:
                             productServices.SaveProductsToFile();
                             Console.WriteLine("Tryck valfri knapp för att avsluta programmet.");
+                            Console.ReadKey();
                             programRunning = false;
                             Environment.Exit(0);
                             break;
@@ -80,7 +89,9 @@ namespace Kassasystemet___Mille_Elfver
                 else
                 {
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Ogiltig inmatning, tryck valfri knapp för att återgå till menyn och välj '1', '2', '3' eller '0'");
+                    Console.ResetColor();
                 }
                 Console.ReadKey();
 

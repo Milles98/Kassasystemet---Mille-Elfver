@@ -72,7 +72,9 @@ namespace Kassasystemet___Mille_Elfver
 
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Ogiltig inmatning, du kan inte ange 0 eller mindre.");
+                        Console.ResetColor();
                         return;
                     }
 
@@ -121,7 +123,9 @@ namespace Kassasystemet___Mille_Elfver
 
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Ogiltig inmatning, mängden behöver vara mer än 0 och ett heltal!");
+                        Console.ResetColor();
                         return;
                     }
 
@@ -135,11 +139,15 @@ namespace Kassasystemet___Mille_Elfver
 
                 string priceType = product.IsKiloPrice ? "kilo" : "st"; //ternary istället för if-sats
 
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"Produkt: {product.Name}, {quantity} {priceType:F2}, totalt pris: {totalPrice:F2} kr har lagts till på kvittot.");
+                Console.ResetColor();
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
+                Console.ResetColor();
                 _productServices.DisplayAvailableProducts();
             }
         }
@@ -253,7 +261,9 @@ namespace Kassasystemet___Mille_Elfver
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Fel vid sparandet av kvitto: {ex.Message}");
+                Console.ResetColor();
             }
         }
     }
