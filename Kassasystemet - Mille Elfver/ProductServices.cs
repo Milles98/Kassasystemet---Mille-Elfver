@@ -440,7 +440,7 @@ namespace Kassasystemet___Mille_Elfver
             foreach (var product in _availableProducts.Values)
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                string priceInfo = product.IsKiloPrice ? $"{product.KiloPrice:F2} kr/kg" : $"{product.UnitPrice:F2} kr/st";
+                string priceInfo = product.IsKiloPrice ? $"{product.KiloPrice:F2} kr/kg" : $"{product.UnitPrice:F2} kr/st"; //ternary!
                 string productInfo = product.Name;
                 string discountInfo = string.Empty;
 
@@ -450,11 +450,11 @@ namespace Kassasystemet___Mille_Elfver
 
                     if (DateTime.Today < product.Discounts.PercentStartDate)
                     {
-                        discountInfo += $" (börjar {product.Discounts.PercentStartDate:yyyy-MM-dd})";
+                        discountInfo += $" (påbörjas {product.Discounts.PercentStartDate:yyyy-MM-dd})";
                     }
                     else if (DateTime.Today > product.Discounts.PercentEndDate)
                     {
-                        discountInfo += $" (slutade {product.Discounts.PercentEndDate:yyyy-MM-dd})";
+                        discountInfo += $" (avslutas{product.Discounts.PercentEndDate:yyyy-MM-dd})";
                     }
                 }
 
@@ -469,11 +469,11 @@ namespace Kassasystemet___Mille_Elfver
 
                     if (DateTime.Today < product.Discounts.BuyQuantityStartDate)
                     {
-                        discountInfo += $" (börjar {product.Discounts.BuyQuantityStartDate:yyyy-MM-dd})";
+                        discountInfo += $" (påbörjas {product.Discounts.BuyQuantityStartDate:yyyy-MM-dd})";
                     }
                     else if (DateTime.Today > product.Discounts.BuyQuantityEndDate)
                     {
-                        discountInfo += $" (slutade {product.Discounts.BuyQuantityEndDate:yyyy-MM-dd})";
+                        discountInfo += $" (avslutas {product.Discounts.BuyQuantityEndDate:yyyy-MM-dd})";
                     }
                 }
 

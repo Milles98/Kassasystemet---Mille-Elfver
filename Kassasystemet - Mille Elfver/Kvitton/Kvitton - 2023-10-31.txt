@@ -142,3 +142,34 @@ Tack Och Välkommen Åter!
 
 TOTAL:                                                       953,39 kr
 ----------------------------------------------------------------------
+----------------------------------------------------------------------
+KVITTO NR: 1420                                    2023-10-31 15:15:26
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Kaffe        3 st * 64,90 (3 för 2)                             129,80
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1420
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                                       129,80 kr
+----------------------------------------------------------------------
