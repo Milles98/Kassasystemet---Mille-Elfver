@@ -37,7 +37,7 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     if (quantity > 0)
                     {
-                        if (product.Discounts.BuyQuantity > 0 && product.Discounts.PayForQuantity > 0)
+                        if (product.Discounts.BuyQuantity > 0 && product.Discounts.PayForQuantity > 0 && DateTime.Now >= product.Discounts.BuyQuantityStartDate && DateTime.Now <= product.Discounts.BuyQuantityEndDate)
                         {
                             int buyQuantity = product.Discounts.BuyQuantity;
                             int payForQuantity = product.Discounts.PayForQuantity;
@@ -48,7 +48,7 @@ namespace Kassasystemet___Mille_Elfver
 
                             productInfo = $"{product.Name.PadRight(12)} {quantity:F2} kg * {product.KiloPrice:F2} (Mängdrabatt {buyQuantity} för {payForQuantity})";
 
-                            if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
+                            if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate && DateTime.Now <= product.Discounts.PercentEndDate)
                             {
                                 decimal percentDiscountedPrice = discountedPrice - (discountedPrice * (product.Discounts.PercentageDiscount / 100));
                                 totalPrice = percentDiscountedPrice;
@@ -56,7 +56,7 @@ namespace Kassasystemet___Mille_Elfver
                             }
                         }
 
-                        else if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
+                        else if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate && DateTime.Now <= product.Discounts.PercentEndDate)
                         {
                             decimal discountedPrice = (product.KiloPrice - (product.KiloPrice * (product.Discounts.PercentageDiscount / 100))) * quantity;
                             totalPrice = discountedPrice;
@@ -86,7 +86,7 @@ namespace Kassasystemet___Mille_Elfver
                     if (quantity > 0 && quantity == (int)quantity)
                     {
 
-                        if (product.Discounts.BuyQuantity > 0 && product.Discounts.PayForQuantity > 0)
+                        if (product.Discounts.BuyQuantity > 0 && product.Discounts.PayForQuantity > 0 && DateTime.Now >= product.Discounts.BuyQuantityStartDate && DateTime.Now <= product.Discounts.BuyQuantityEndDate)
                         {
                             int buyQuantity = product.Discounts.BuyQuantity;
                             int payForQuantity = product.Discounts.PayForQuantity;
@@ -97,7 +97,7 @@ namespace Kassasystemet___Mille_Elfver
 
                             productInfo = $"{product.Name.PadRight(12)} {quantity:F0} st * {product.UnitPrice:F2} ({buyQuantity} för {payForQuantity})";
 
-                            if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
+                            if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate && DateTime.Now <= product.Discounts.PercentEndDate)
                             {
                                 decimal percentDiscountedPrice = discountedPrice - (discountedPrice * (product.Discounts.PercentageDiscount / 100));
                                 totalPrice = percentDiscountedPrice;
@@ -106,7 +106,7 @@ namespace Kassasystemet___Mille_Elfver
 
                         }
 
-                        else if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.DiscountStartDate && DateTime.Now <= product.Discounts.DiscountEndDate)
+                        else if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate && DateTime.Now <= product.Discounts.PercentEndDate)
                         {
                             decimal discountedPrice = (product.UnitPrice - (product.UnitPrice * (product.Discounts.PercentageDiscount / 100))) * quantity;
                             totalPrice = discountedPrice;

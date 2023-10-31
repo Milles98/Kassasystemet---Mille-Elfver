@@ -92,8 +92,8 @@ namespace Kassasystemet___Mille_Elfver
                 Product product = _availableProducts[productId];
 
                 product.Discounts.PercentageDiscount = percentageDiscount;
-                product.Discounts.DiscountStartDate = startDate;
-                product.Discounts.DiscountEndDate = endDate;
+                product.Discounts.PercentStartDate = startDate;
+                product.Discounts.PercentEndDate = endDate;
 
                 SaveProductsToFile();
 
@@ -116,8 +116,8 @@ namespace Kassasystemet___Mille_Elfver
 
                 product.Discounts.BuyQuantity = buyQuantity;
                 product.Discounts.PayForQuantity = payForQuantity;
-                product.Discounts.DiscountStartDate = startDate;
-                product.Discounts.DiscountEndDate = endDate;
+                product.Discounts.BuyQuantityStartDate = startDate;
+                product.Discounts.BuyQuantityEndDate = endDate;
 
                 SaveProductsToFile();
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -140,7 +140,7 @@ namespace Kassasystemet___Mille_Elfver
         {
             if (_availableProducts.ContainsKey(productId) && (_availableProducts[productId].Discounts.PercentageDiscount > 0 || _availableProducts[productId].Discounts.BuyQuantity > 0))
             {
-                _availableProducts[productId].Discounts = new ProductDiscount(0, 0, 0, DateTime.MinValue, DateTime.MinValue);
+                _availableProducts[productId].Discounts = new ProductDiscount(0, 0, 0, DateTime.MinValue, DateTime.MinValue, DateTime.MinValue, DateTime.MinValue);
 
                 SaveProductsToFile();
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -287,8 +287,8 @@ namespace Kassasystemet___Mille_Elfver
                     foreach (var product in _availableProducts.Values)
                     {
                         string discountInfo = $"{product.Discounts.PercentageDiscount:F2}";
-                        string dateInfo = $"{product.Discounts.DiscountStartDate:yyyy-MM-dd}|{product.Discounts.DiscountEndDate:yyyy-MM-dd}";
-                        string amountDiscountInfo = $"{product.Discounts.BuyQuantity}|{product.Discounts.PayForQuantity}";
+                        string dateInfo = $"{product.Discounts.PercentStartDate:yyyy-MM-dd}|{product.Discounts.PercentEndDate:yyyy-MM-dd}";
+                        string amountDiscountInfo = $"{product.Discounts.BuyQuantity}|{product.Discounts.PayForQuantity}|{product.Discounts.BuyQuantityStartDate:yyyy-MM-dd}|{product.Discounts.BuyQuantityEndDate:yyyy-MM-dd}";
                         writer.WriteLine($"{product.Id}|{product.Name}|{product.UnitPrice}|{product.KiloPrice}|{discountInfo}|{dateInfo}|{amountDiscountInfo}");
                     }
                 }
@@ -326,6 +326,8 @@ namespace Kassasystemet___Mille_Elfver
                             int payForQuantity = 0;
                             DateTime discountStartDate = DateTime.MinValue;
                             DateTime discountEndDate = DateTime.MinValue;
+                            DateTime buyQuantityStartDate = DateTime.MinValue;
+                            DateTime buyQuantityEndDate = DateTime.MinValue;
 
                             if (parts.Length >= 7)
                             {
@@ -340,9 +342,18 @@ namespace Kassasystemet___Mille_Elfver
                                 payForQuantity = int.Parse(parts[8].Trim());
                             }
 
+                            if (parts.Length >= 11)
+                            {
+                                buyQuantity = int.Parse(parts[7].Trim());
+                                payForQuantity = int.Parse(parts[8].Trim());
+
+                                buyQuantityStartDate = DateTime.Parse(parts[9].Trim());
+                                buyQuantityEndDate = DateTime.Parse(parts[10].Trim());
+                            }
+
                             _availableProducts[id] = new Product(id, name, unitPrice, kiloPrice)
                             {
-                                Discounts = new ProductDiscount(discount, buyQuantity, payForQuantity, discountStartDate, discountEndDate)
+                                Discounts = new ProductDiscount(discount, buyQuantity, payForQuantity, discountStartDate, discountEndDate, buyQuantityStartDate, buyQuantityEndDate)
                             };
 
                         }
@@ -437,13 +448,13 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     discountInfo = $"({product.Discounts.PercentageDiscount}%)";
 
-                    if (DateTime.Today < product.Discounts.DiscountStartDate)
+                    if (DateTime.Today < product.Discounts.PercentStartDate)
                     {
-                        discountInfo += $" (börjar {product.Discounts.DiscountStartDate:yyyy-MM-dd})";
+                        discountInfo += $" (börjar {product.Discounts.PercentStartDate:yyyy-MM-dd})";
                     }
-                    else if (DateTime.Today > product.Discounts.DiscountEndDate)
+                    else if (DateTime.Today > product.Discounts.PercentEndDate)
                     {
-                        discountInfo += $" (slutade {product.Discounts.DiscountEndDate:yyyy-MM-dd})";
+                        discountInfo += $" (slutade {product.Discounts.PercentEndDate:yyyy-MM-dd})";
                     }
                 }
 
@@ -456,13 +467,13 @@ namespace Kassasystemet___Mille_Elfver
 
                     discountInfo += $"(Köp {product.Discounts.BuyQuantity}, Betala för {product.Discounts.PayForQuantity})";
 
-                    if (DateTime.Today < product.Discounts.DiscountStartDate)
+                    if (DateTime.Today < product.Discounts.BuyQuantityStartDate)
                     {
-                        discountInfo += $" (börjar {product.Discounts.DiscountStartDate:yyyy-MM-dd})";
+                        discountInfo += $" (börjar {product.Discounts.BuyQuantityStartDate:yyyy-MM-dd})";
                     }
-                    else if (DateTime.Today > product.Discounts.DiscountEndDate)
+                    else if (DateTime.Today > product.Discounts.BuyQuantityEndDate)
                     {
-                        discountInfo += $" (slutade {product.Discounts.DiscountEndDate:yyyy-MM-dd})";
+                        discountInfo += $" (slutade {product.Discounts.BuyQuantityEndDate:yyyy-MM-dd})";
                     }
                 }
 
