@@ -306,20 +306,20 @@ namespace Kassasystemet___Mille_Elfver
 
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Ange startdatum (yyyy-MM-dd): ");
-                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate))
+                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate) || startDate < DateTime.Today)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.");
+                                    Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.\nOBS kan ej börja innan dagens datum");
                                     Console.ReadKey();
                                     continue;
                                 }
 
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Ange slutdatum (yyyy-MM-dd): ");
-                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime endDate))
+                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime endDate) || endDate < DateTime.Today)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine("Ogiltigt slutdatum. Ange datum i formatet 'yyyy-MM-dd'.");
+                                    Console.WriteLine("Ogiltigt slutdatum. Ange datum i formatet 'yyyy-MM-dd'.\nOBS kan ej sluta innan dagens datum");
                                     Console.ReadKey();
                                     continue;
                                 }
@@ -368,20 +368,20 @@ namespace Kassasystemet___Mille_Elfver
 
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Ange startdatum (yyyy-MM-dd): ");
-                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate))
+                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate) || startDate < DateTime.Today)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.");
+                                    Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.\nOBS kan ej börja innan dagens datum");
                                     Console.ReadKey();
                                     continue;
                                 }
 
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Ange slutdatum (yyyy-MM-dd): ");
-                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime endDate))
+                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime endDate) || endDate < DateTime.Today)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine("Ogiltigt slutdatum. Ange datum i formatet 'yyyy-MM-dd'.");
+                                    Console.WriteLine("Ogiltigt slutdatum. Ange datum i formatet 'yyyy-MM-dd'.\nOBS kan ej sluta innan dagens datum");
                                     Console.ReadKey();
                                     continue;
                                 }

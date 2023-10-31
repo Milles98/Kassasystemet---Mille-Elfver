@@ -450,6 +450,10 @@ namespace Kassasystemet___Mille_Elfver
                     {
                         discountInfo = $"({product.Discounts.PercentageDiscount}%)";
                     }
+                    else if (product.Discounts.PercentStartDate > DateTime.Today)
+                    {
+                        discountInfo = $"({product.Discounts.PercentageDiscount}% *OBS* börjar gälla {product.Discounts.PercentStartDate:yyyy-MM-dd})";
+                    }
                     else
                     {
                         discountInfo = "(Rabatt har avslutats)";
@@ -469,6 +473,10 @@ namespace Kassasystemet___Mille_Elfver
                     if (DateTime.Today >= product.Discounts.BuyQuantityStartDate && DateTime.Today <= product.Discounts.BuyQuantityEndDate)
                     {
                         discountInfo += $"(Köp {product.Discounts.BuyQuantity}, Betala för {product.Discounts.PayForQuantity})";
+                    }
+                    else if (product.Discounts.BuyQuantityStartDate > DateTime.Today)
+                    {
+                        discountInfo = $"({product.Discounts.BuyQuantity} *OBS* börjar gälla {product.Discounts.BuyQuantityStartDate:yyyy-MM-dd})";
                     }
                     else
                     {
