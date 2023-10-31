@@ -446,15 +446,16 @@ namespace Kassasystemet___Mille_Elfver
 
                 if (product.Discounts.PercentageDiscount > 0)
                 {
-                    discountInfo = $"({product.Discounts.PercentageDiscount}%)";
-
-                    if (DateTime.Today < product.Discounts.PercentStartDate)
+                    if (DateTime.Today >= product.Discounts.PercentStartDate && DateTime.Today <= product.Discounts.PercentEndDate)
                     {
-                        discountInfo += $" (påbörjas {product.Discounts.PercentStartDate:yyyy-MM-dd})";
+                        discountInfo = $"({product.Discounts.PercentageDiscount}%)";
                     }
-                    else if (DateTime.Today > product.Discounts.PercentEndDate)
+                    else
                     {
-                        discountInfo += $" (avslutas{product.Discounts.PercentEndDate:yyyy-MM-dd})";
+                        discountInfo = "(Rabatt har avslutats)";
+                        product.Discounts.PercentageDiscount = 0;
+                        product.Discounts.PercentStartDate = DateTime.MinValue;
+                        product.Discounts.PercentEndDate = DateTime.MinValue;
                     }
                 }
 
@@ -465,15 +466,17 @@ namespace Kassasystemet___Mille_Elfver
                         discountInfo += ", ";
                     }
 
-                    discountInfo += $"(Köp {product.Discounts.BuyQuantity}, Betala för {product.Discounts.PayForQuantity})";
-
-                    if (DateTime.Today < product.Discounts.BuyQuantityStartDate)
+                    if (DateTime.Today >= product.Discounts.BuyQuantityStartDate && DateTime.Today <= product.Discounts.BuyQuantityEndDate)
                     {
-                        discountInfo += $" (påbörjas {product.Discounts.BuyQuantityStartDate:yyyy-MM-dd})";
+                        discountInfo += $"(Köp {product.Discounts.BuyQuantity}, Betala för {product.Discounts.PayForQuantity})";
                     }
-                    else if (DateTime.Today > product.Discounts.BuyQuantityEndDate)
+                    else
                     {
-                        discountInfo += $" (avslutas {product.Discounts.BuyQuantityEndDate:yyyy-MM-dd})";
+                        discountInfo += "(Rabatt har avslutats)";
+                        product.Discounts.BuyQuantity = 0;
+                        product.Discounts.PayForQuantity = 0;
+                        product.Discounts.BuyQuantityStartDate = DateTime.MinValue;
+                        product.Discounts.BuyQuantityEndDate = DateTime.MinValue;
                     }
                 }
 

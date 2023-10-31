@@ -173,3 +173,65 @@ Tack Och Välkommen Åter!
 
 TOTAL:                                                       129,80 kr
 ----------------------------------------------------------------------
+----------------------------------------------------------------------
+KVITTO NR: 1421                                    2023-10-31 15:35:43
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Bananer      3,00 kg * 15,50 (Mängdrabatt 3 för 2)               31,00
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1421
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                                        31,00 kr
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+KVITTO NR: 1422                                    2023-10-31 15:48:55
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Tryffel      0,10 kg * 1490,90                                  149,09
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1422
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                                       149,09 kr
+----------------------------------------------------------------------
