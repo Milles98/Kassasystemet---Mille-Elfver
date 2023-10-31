@@ -91,3 +91,54 @@ Tack Och Välkommen Åter!
 
 TOTAL:                                                       108,78 kr
 ----------------------------------------------------------------------
+----------------------------------------------------------------------
+KVITTO NR: 1419                                    2023-10-31 13:53:28
+
+Milles Butik AB ( +46 123 456 789 )
+Årstaängsvägen 31, 117 43 Stockholm
+Organisations Nr: 55123-1234
+
+Bananer      1,50 kg * 15,50                                     23,25
+Tomater      0,50 kg * 79,90                                     39,95
+Apelsiner    3,00 kg * 9,90                                      29,70
+Godis        0,50 kg * 99,50                                     49,75
+Kött         1,50 kg * 199,00                                   298,50
+Kyckling     0,30 kg * 129,90                                    38,97
+Nutella      1 st * 21,90                                        21,90
+Citron       5 st * 5,50                                         27,50
+Jordgubbar   1 st * 39,90                                        39,90
+Grädde       2 st * 24,90                                        49,80
+Choklad      1 st * 22,90 (Rabatt 5%)                            21,76
+Mango        2 st * 19,90                                        39,80
+Öl           1 st * 15,50                                        15,50
+Kex          2 st * 23,90                                        47,80
+Gurka        2 st * 10,00                                        20,00
+Leverpastej  1 st * 24,90                                        24,90
+Chips        1 st * 27,90                                        27,90
+Bröd         1 st * 34,90                                        34,90
+Mjölk        2 st * 16,90                                        33,80
+Yoghurt      1 st * 29,90                                        29,90
+Glass        1 st * 39,90 (5 för 3) + (Rabatt 5%)                37,91
+
+TELLER SE / NO
+BUTIKSNR: 12345678
+TERM: 12345678-123456
+
+MasterCard
+Contactless
+************1234-5
+AID: A00000000012345
+TVR: 000000001234
+REF: 123456 123456 KC1
+RESP: 12
+PERIOD: 417
+
+KÖP GODKÄNT
+MOMS Punkt: 123456
+6B KVITTO NR: 1419
+
+Din Kassör Idag Var Mille
+Tack Och Välkommen Åter!
+
+TOTAL:                                                       953,39 kr
+----------------------------------------------------------------------

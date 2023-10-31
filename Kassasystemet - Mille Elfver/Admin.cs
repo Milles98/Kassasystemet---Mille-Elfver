@@ -164,6 +164,15 @@ namespace Kassasystemet___Mille_Elfver
                                 continue;
                             }
 
+                            if (productIdCase3.Length != 3 || !productIdCase3.All(char.IsDigit))
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Ogiltigt produkt-ID. Ange ett 3-siffrigt numeriskt värde.");
+                                Console.Write("Valfri knapp, försök igen");
+                                Console.ReadKey();
+                                continue;
+                            }
+
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("Ange produktens namn: ");
                             string productName = Console.ReadLine().Trim();
