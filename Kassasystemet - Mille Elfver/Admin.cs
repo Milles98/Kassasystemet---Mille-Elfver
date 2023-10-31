@@ -135,7 +135,7 @@ namespace Kassasystemet___Mille_Elfver
                         break;
 
                     case 3:
-                        while (true) 
+                        while (true)
                         {
                             Console.Clear();
                             productServices.DisplayAvailableProducts();
@@ -178,7 +178,7 @@ namespace Kassasystemet___Mille_Elfver
                                 {
                                     productServices.AddProductWithPriceType(productIdCase3, productName, priceTypeChoiceCase3, newPriceCase3);
                                     Console.ReadKey();
-                                    break; 
+                                    break;
                                 }
                                 else
                                 {
@@ -251,11 +251,25 @@ namespace Kassasystemet___Mille_Elfver
 
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("Ange ditt val: ");
-                            int choice = Convert.ToInt32(Console.ReadLine().Trim());
+                            int choice;
+
+                            try
+                            {
+                                choice = Convert.ToInt32(Console.ReadLine().Trim());
+                            }
+
+                            catch (FormatException)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Ogiltigt val. Ange en siffra.");
+                                Console.Write("Valfri knapp, försök igen");
+                                Console.ReadKey();
+                                continue;
+                            }
 
                             if (choice == 0)
                             {
-                                break; 
+                                break;
                             }
                             else if (choice == 1)
                             {
