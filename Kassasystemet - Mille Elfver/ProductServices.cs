@@ -114,15 +114,24 @@ namespace Kassasystemet___Mille_Elfver
             {
                 Product product = _availableProducts[productId];
 
-                product.Discounts.BuyQuantity = buyQuantity;
-                product.Discounts.PayForQuantity = payForQuantity;
-                product.Discounts.BuyQuantityStartDate = startDate;
-                product.Discounts.BuyQuantityEndDate = endDate;
+                if (!product.IsKiloPrice)
+                {
+                    product.Discounts.BuyQuantity = buyQuantity;
+                    product.Discounts.PayForQuantity = payForQuantity;
+                    product.Discounts.BuyQuantityStartDate = startDate;
+                    product.Discounts.BuyQuantityEndDate = endDate;
 
-                SaveProductsToFile();
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\nMängdrabatt satt på produkt med ID {productId}.");
-                Console.ResetColor();
+                    SaveProductsToFile();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"\nMängdrabatt satt på produkt med ID {productId}.");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"\nProdukt med ID {productId} har kilopris och kan inte ha mängdrabatt.");
+                    Console.ResetColor();
+                }
             }
             else
             {
@@ -216,7 +225,7 @@ namespace Kassasystemet___Mille_Elfver
                 SaveProductsToFile();
                 LoadProductsFromFile();
 
-                Console.ForegroundColor= ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"\nProduktpris uppdaterat med ID {productId}.");
                 Console.ResetColor();
             }
