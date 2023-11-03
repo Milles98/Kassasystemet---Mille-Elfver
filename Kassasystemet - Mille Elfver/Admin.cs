@@ -37,8 +37,8 @@ namespace Kassasystemet___Mille_Elfver
                             Console.WriteLine("│Ändra namn på produkt       │");
                             Console.WriteLine("│Q = tillbaka till adminmenyn│");
                             Console.WriteLine("╰────────────────────────────╯");
+                            Console.ResetColor();
 
-                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("Ange 'Q' eller produkt-ID: ");
                             string productIdCase1 = Console.ReadLine().Trim().ToUpper();
 
@@ -52,19 +52,17 @@ namespace Kassasystemet___Mille_Elfver
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine($"Produkt med ID {productIdCase1} finns ej.");
                                 Console.Write("Valfri knapp, försök igen");
+                                Console.ResetColor();
                                 Console.ReadKey();
                                 continue;
                             }
 
-                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("Ange det nya namnet: ");
                             string newName = Console.ReadLine().Trim();
 
                             productServices.UpdateProductName(productIdCase1, newName);
 
-                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("Valfri knapp gå till adminmenyn");
-                            Console.ResetColor();
                             Console.ReadKey();
                             break;
                         }
@@ -82,8 +80,8 @@ namespace Kassasystemet___Mille_Elfver
                             Console.WriteLine("│Ändra pris på produkter     │");
                             Console.WriteLine("│Q = tillbaka till adminmenyn│");
                             Console.WriteLine("╰────────────────────────────╯");
+                            Console.ResetColor();
 
-                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("Ange 'Q' eller produkt-ID: ");
                             string productIdCase2 = Console.ReadLine().Trim().ToUpper();
 
@@ -97,11 +95,11 @@ namespace Kassasystemet___Mille_Elfver
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine($"Produkt med ID {productIdCase2} finns ej.");
                                 Console.Write("Valfri knapp, försök igen");
+                                Console.ResetColor();
                                 Console.ReadKey();
                                 continue;
                             }
 
-                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("Vill du ändra till styckpris eller kilopris (S/K)? ");
                             string priceTypeChoice = Console.ReadLine().Trim().ToLower();
 
@@ -120,15 +118,14 @@ namespace Kassasystemet___Mille_Elfver
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Ogiltig inmatning. Ange 'S' för styckpris eller 'K' för kilopris.");
                                 Console.Write("Valfri knapp, försök igen");
+                                Console.ResetColor();
                                 Console.ReadKey();
                                 continue;
                             }
 
                             productServices.UpdateProductPrice(productIdCase2, newPrice, priceTypeChoice);
 
-                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("Enter för att gå till adminmenyn");
-                            Console.ResetColor();
                             Console.ReadKey();
                             break;
                         }
@@ -145,8 +142,8 @@ namespace Kassasystemet___Mille_Elfver
                             Console.WriteLine("│Lägg till ny produkt        │");
                             Console.WriteLine("│Q = tillbaka till adminmenyn│");
                             Console.WriteLine("╰────────────────────────────╯");
+                            Console.ResetColor();
 
-                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("Ange 'Q' eller produktens ID: ");
                             string productIdCase3 = Console.ReadLine().Trim().ToUpper();
 
@@ -160,6 +157,7 @@ namespace Kassasystemet___Mille_Elfver
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine($"Produkt med ID {productIdCase3} finns redan.");
                                 Console.Write("Valfri knapp, försök igen");
+                                Console.ResetColor();
                                 Console.ReadKey();
                                 continue;
                             }
@@ -169,11 +167,11 @@ namespace Kassasystemet___Mille_Elfver
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Ogiltigt produkt-ID. Ange ett 3-siffrigt numeriskt värde.");
                                 Console.Write("Valfri knapp, försök igen");
+                                Console.ResetColor();
                                 Console.ReadKey();
                                 continue;
                             }
 
-                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("Ange produktens namn: ");
                             string productName = Console.ReadLine().Trim();
 
@@ -193,6 +191,7 @@ namespace Kassasystemet___Mille_Elfver
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Ogiltigt pris format");
+                                    Console.ResetColor();
                                     Console.ReadKey();
                                 }
                             }
@@ -200,10 +199,10 @@ namespace Kassasystemet___Mille_Elfver
                             {
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Ogiltig inmatning. Ange 'S' för styckpris eller 'K' för kilopris.");
+                                Console.ResetColor();
                                 Console.ReadKey();
                             }
                         }
-                        Console.ResetColor();
                         break;
 
                     case 4:
@@ -217,8 +216,8 @@ namespace Kassasystemet___Mille_Elfver
                             Console.WriteLine("│Ta bort produkt             │");
                             Console.WriteLine("│Q = tillbaka till adminmenyn│");
                             Console.WriteLine("╰────────────────────────────╯");
+                            Console.ResetColor();
 
-                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("Ange 'Q' eller produkt ID: ");
                             string productIdCase4 = Console.ReadLine().Trim().ToUpper();
 
@@ -232,15 +231,14 @@ namespace Kassasystemet___Mille_Elfver
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine($"Produkt med ID {productIdCase4} finns ej.");
                                 Console.Write("Valfri knapp, försök igen.");
+                                Console.ResetColor();
                                 Console.ReadKey();
                                 continue;
                             }
 
                             productServices.RemoveProduct(productIdCase4);
 
-                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("Enter för att gå till adminmenyn");
-                            Console.ResetColor();
                             Console.ReadKey();
                             break;
                         }
@@ -257,8 +255,8 @@ namespace Kassasystemet___Mille_Elfver
                             Console.WriteLine("1. Procentrabatt");
                             Console.WriteLine("2. Mängdrabatt");
                             Console.WriteLine("0. Tillbaka till adminmenyn\n");
+                            Console.ResetColor();
 
-                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("Ange ditt val: ");
                             int choice;
 
@@ -272,6 +270,7 @@ namespace Kassasystemet___Mille_Elfver
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Ogiltigt val. Ange en siffra.");
                                 Console.Write("Valfri knapp, försök igen");
+                                Console.ResetColor();
                                 Console.ReadKey();
                                 continue;
                             }
@@ -290,6 +289,7 @@ namespace Kassasystemet___Mille_Elfver
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine($"Produkt med ID {productId} finns ej.");
                                     Console.Write("Valfri knapp, försök igen");
+                                    Console.ResetColor();
                                     Console.ReadKey();
                                     continue;
                                 }
@@ -300,40 +300,38 @@ namespace Kassasystemet___Mille_Elfver
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Ogiltig rabatt, försök igen.");
+                                    Console.ResetColor();
                                     Console.ReadKey();
                                     continue;
                                 }
 
-                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Ange startdatum (yyyy-MM-dd): ");
                                 if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate) || startDate < DateTime.Today)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.\nOBS kan ej börja innan dagens datum");
+                                    Console.ResetColor();
                                     Console.ReadKey();
                                     continue;
                                 }
 
-                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Ange slutdatum (yyyy-MM-dd): ");
                                 if (!DateTime.TryParse(Console.ReadLine(), out DateTime endDate) || endDate < DateTime.Today)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Ogiltigt slutdatum. Ange datum i formatet 'yyyy-MM-dd'.\nOBS kan ej sluta innan dagens datum");
+                                    Console.ResetColor();
                                     Console.ReadKey();
                                     continue;
                                 }
 
-                                Console.ForegroundColor = ConsoleColor.Green;
                                 productServices.SetPercentageDiscount(productId, percentageDiscount, startDate, endDate);
                                 Console.Write("Valfri knapp, gå till adminmenyn");
-                                Console.ResetColor();
                                 Console.ReadKey();
                                 break;
                             }
                             else if (choice == 2)
                             {
-                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Ange produkt ID: ");
                                 string productId = Console.ReadLine().Trim();
 
@@ -342,55 +340,54 @@ namespace Kassasystemet___Mille_Elfver
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine($"Produkt med ID {productId} finns ej.");
                                     Console.Write("Valfri knapp, försök igen");
+                                    Console.ResetColor();
                                     Console.ReadKey();
                                     continue;
                                 }
 
-                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Köp X antal: ");
                                 if (!int.TryParse(Console.ReadLine(), out int buyQuantity) || buyQuantity <= 0)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Ogiltigt köp-antal, försök igen.");
+                                    Console.ResetColor();
                                     Console.ReadKey();
                                     continue;
                                 }
 
-                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Mängd som behöver uppnås för att få X antalet i rabatt: ");
                                 if (!int.TryParse(Console.ReadLine(), out int payForQuantity) || payForQuantity <= 0)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Ogiltigt betal-antal, försök igen.");
+                                    Console.ResetColor();
                                     Console.ReadKey();
                                     continue;
                                 }
 
-                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Ange startdatum (yyyy-MM-dd): ");
                                 if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate) || startDate < DateTime.Today)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.\nOBS kan ej börja innan dagens datum");
+                                    Console.ResetColor();
                                     Console.ReadKey();
                                     continue;
                                 }
 
-                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Ange slutdatum (yyyy-MM-dd): ");
                                 if (!DateTime.TryParse(Console.ReadLine(), out DateTime endDate) || endDate < DateTime.Today)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Ogiltigt slutdatum. Ange datum i formatet 'yyyy-MM-dd'.\nOBS kan ej sluta innan dagens datum");
+                                    Console.ResetColor();
                                     Console.ReadKey();
                                     continue;
                                 }
 
                                 productServices.SetQuantityDiscount(productId, buyQuantity, payForQuantity, startDate, endDate);
 
-                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Valfri knapp, gå till adminmenyn");
-                                Console.ResetColor();
                                 Console.ReadKey();
                                 break;
                             }
@@ -406,8 +403,8 @@ namespace Kassasystemet___Mille_Elfver
                         Console.WriteLine("│Ta bort kampanjpriser       │");
                         Console.WriteLine("│Q = tillbaka till adminmenyn│");
                         Console.WriteLine("╰────────────────────────────╯");
+                        Console.ResetColor();
 
-                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write("Ange 'Q' eller produkt ID: ");
                         string productIdCase6 = Console.ReadLine().Trim().ToUpper();
 
@@ -418,9 +415,7 @@ namespace Kassasystemet___Mille_Elfver
 
                         productServices.RemoveDiscount(productIdCase6);
 
-                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write("Valfri knapp gå till adminmenyn");
-                        Console.ResetColor();
                         Console.ReadKey();
                         break;
 
@@ -446,9 +441,7 @@ namespace Kassasystemet___Mille_Elfver
             Console.WriteLine("│ 0. Gå till huvudmenyn      │");
             Console.WriteLine("╰────────────────────────────╯");
             Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("Inmatning: ");
-            Console.ResetColor();
         }
     }
 }

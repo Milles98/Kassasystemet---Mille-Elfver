@@ -27,9 +27,7 @@ namespace Kassasystemet___Mille_Elfver
                 Console.WriteLine("│ 0. Avsluta  │");
                 Console.WriteLine("╰─────────────╯");
                 Console.ResetColor();
-                Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write(" Inmatning: ");
-                Console.ResetColor();
 
                 int val;
                 string userInput = Console.ReadLine();

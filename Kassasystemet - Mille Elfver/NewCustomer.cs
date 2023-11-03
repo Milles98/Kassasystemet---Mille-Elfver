@@ -30,8 +30,8 @@ namespace Kassasystemet___Mille_Elfver
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Kundvagnen är tom, lägg till lite produkter först.");
                         Console.WriteLine("Valfri knapp, gå tillbaka och gör om!");
-                        Console.ReadKey();
                         Console.ResetColor();
+                        Console.ReadKey();
                         continue;
                     }
                     string receiptText = receiptCreation.CreateReceipt();
@@ -89,9 +89,7 @@ namespace Kassasystemet___Mille_Elfver
                 Console.WriteLine("│ <productid> <antal> <PAY> <MENU> │");
                 Console.WriteLine("╰──────────────────────────────────╯");
                 Console.ResetColor();
-                Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("Kommando: ");
-                Console.ResetColor();
             }
         }
     }
