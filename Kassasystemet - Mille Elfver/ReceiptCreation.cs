@@ -152,6 +152,10 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
+        /// <summary>
+        /// Returns true (cart is indeed empty) if no products has been added to the receipt
+        /// </summary>
+        /// <returns></returns>
         public bool CartIsEmpty()
         {
             return _cartIsEmpty;
