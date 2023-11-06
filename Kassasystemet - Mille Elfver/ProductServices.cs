@@ -177,9 +177,9 @@ namespace Kassasystemet___Mille_Elfver
             {
                 _availableProducts[productId].Name = newName;
                 SaveProductsToFile();
-                //Console.ForegroundColor = ConsoleColor.Green;
-                //Console.WriteLine($"\nProduktnamn uppdaterat på: {productId}.");
-                //Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\nProduktnamn uppdaterat på: {productId}.");
+                Console.ResetColor();
             }
             else
             {

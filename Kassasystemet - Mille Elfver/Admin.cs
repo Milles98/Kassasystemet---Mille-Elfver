@@ -59,6 +59,15 @@ namespace Kassasystemet___Mille_Elfver
 
                             Console.Write("Ange det nya namnet: ");
                             string newName = Console.ReadLine().Trim();
+                            if (newName.Length > 20 || newName.Length < 1)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Ogiltigt produkt namn. Ange något mellan 1-20 bokstäver.");
+                                Console.Write("Valfri knapp, försök igen");
+                                Console.ResetColor();
+                                Console.ReadKey();
+                                continue;
+                            }
 
                             productServices.UpdateProductName(productIdCase1, newName);
 
@@ -174,6 +183,15 @@ namespace Kassasystemet___Mille_Elfver
 
                             Console.Write("Ange produktens namn: ");
                             string productName = Console.ReadLine().Trim();
+                            if (productName.Length > 20 || productName.Length < 1)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Ogiltigt produkt namn. Ange något mellan 1-20 bokstäver.");
+                                Console.Write("Valfri knapp, försök igen");
+                                Console.ResetColor();
+                                Console.ReadKey();
+                                continue;
+                            }
 
                             Console.Write("Styckpris eller kilopris (S/K)? ");
                             string priceTypeChoiceCase3 = Console.ReadLine().Trim().ToLower();
