@@ -147,9 +147,11 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="productId"></param>
         public void RemoveDiscount(string productId)
         {
-            if (_availableProducts.ContainsKey(productId) && (_availableProducts[productId].Discounts.PercentageDiscount > 0 || _availableProducts[productId].Discounts.BuyQuantity > 0))
+            if (_availableProducts.ContainsKey(productId) && (_availableProducts[productId].Discounts.PercentageDiscount > 0
+                || _availableProducts[productId].Discounts.BuyQuantity > 0))
             {
-                _availableProducts[productId].Discounts = new ProductDiscount(0, 0, 0, DateTime.MinValue, DateTime.MinValue, DateTime.MinValue, DateTime.MinValue);
+                _availableProducts[productId].Discounts = new ProductDiscount(0, 0, 0, DateTime.MinValue,
+                    DateTime.MinValue, DateTime.MinValue, DateTime.MinValue);
 
                 SaveProductsToFile();
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -296,9 +298,14 @@ namespace Kassasystemet___Mille_Elfver
                     foreach (var product in _availableProducts.Values)
                     {
                         string discountInfo = $"{product.Discounts.PercentageDiscount:F2}";
+
                         string dateInfo = $"{product.Discounts.PercentStartDate:yyyy-MM-dd}|{product.Discounts.PercentEndDate:yyyy-MM-dd}";
-                        string amountDiscountInfo = $"{product.Discounts.BuyQuantity}|{product.Discounts.PayForQuantity}|{product.Discounts.BuyQuantityStartDate:yyyy-MM-dd}|{product.Discounts.BuyQuantityEndDate:yyyy-MM-dd}";
-                        writer.WriteLine($"{product.Id}|{product.Name}|{product.UnitPrice}|{product.KiloPrice}|{discountInfo}|{dateInfo}|{amountDiscountInfo}");
+
+                        string amountDiscountInfo = $"{product.Discounts.BuyQuantity}|{product.Discounts.PayForQuantity}|" +
+                            $"{product.Discounts.BuyQuantityStartDate:yyyy-MM-dd}|{product.Discounts.BuyQuantityEndDate:yyyy-MM-dd}";
+
+                        writer.WriteLine($"{product.Id}|{product.Name}|{product.UnitPrice}|{product.KiloPrice}|" +
+                            $"{discountInfo}|{dateInfo}|{amountDiscountInfo}");
                     }
                 }
             }
@@ -362,7 +369,8 @@ namespace Kassasystemet___Mille_Elfver
 
                             _availableProducts[id] = new Product(id, name, unitPrice, kiloPrice)
                             {
-                                Discounts = new ProductDiscount(discount, buyQuantity, payForQuantity, discountStartDate, discountEndDate, buyQuantityStartDate, buyQuantityEndDate)
+                                Discounts = new ProductDiscount(discount, buyQuantity, payForQuantity, discountStartDate,
+                                discountEndDate, buyQuantityStartDate, buyQuantityEndDate)
                             };
 
                         }
