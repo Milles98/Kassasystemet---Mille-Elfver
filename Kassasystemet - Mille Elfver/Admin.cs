@@ -269,10 +269,12 @@ namespace Kassasystemet___Mille_Elfver
                             productServices.DisplayAvailableProducts();
 
                             Console.ForegroundColor = ConsoleColor.DarkCyan;
-                            Console.WriteLine("\nLägga till rabatt");
-                            Console.WriteLine("1. Procentrabatt");
-                            Console.WriteLine("2. Mängdrabatt");
-                            Console.WriteLine("0. Tillbaka till adminmenyn\n");
+                            Console.WriteLine("\n╭──────────────────────────────╮");
+                            Console.WriteLine("│Lägga till rabatt             │");
+                            Console.WriteLine("│1. Procentrabatt              │");
+                            Console.WriteLine("│2. Mängdrabatt                │");
+                            Console.WriteLine("│0. Tillbaka till adminmenyn   │");
+                            Console.WriteLine("╰──────────────────────────────╯");
                             Console.ResetColor();
 
                             Console.Write("Ange ditt val: ");
@@ -313,20 +315,20 @@ namespace Kassasystemet___Mille_Elfver
                                 }
 
                                 Console.Write("Ange rabatt i procent (exempelvis 5 för 5% rabatt): ");
-                                if (!decimal.TryParse(Console.ReadLine(), out decimal percentageDiscount) || percentageDiscount <= 0 || percentageDiscount >= 100)
+                                if (!decimal.TryParse(Console.ReadLine(), out decimal percentageDiscount) || percentageDiscount < 1 || percentageDiscount >= 100)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Ogiltig rabatt, försök igen.");
-                                    Console.WriteLine("Ange % rabatt mellan 0-100%");
+                                    Console.WriteLine("Ange % rabatt mellan 1-100%");
                                     Console.ReadKey();
                                     continue;
                                 }
 
                                 Console.Write("Ange startdatum (yyyy-MM-dd): ");
-                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate) || startDate < DateTime.Today)
+                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate))
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.\nOBS kan ej börja innan dagens datum");
+                                    Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.");
                                     Console.ResetColor();
                                     Console.ReadKey();
                                     continue;
@@ -385,10 +387,10 @@ namespace Kassasystemet___Mille_Elfver
                                 }
 
                                 Console.Write("Ange startdatum (yyyy-MM-dd): ");
-                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate) || startDate < DateTime.Today)
+                                if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate))
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.\nOBS kan ej börja innan dagens datum");
+                                    Console.WriteLine("Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.");
                                     Console.ResetColor();
                                     Console.ReadKey();
                                     continue;

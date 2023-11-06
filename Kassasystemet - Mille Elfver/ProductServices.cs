@@ -98,7 +98,7 @@ namespace Kassasystemet___Mille_Elfver
                 SaveProductsToFile();
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\nKampanjpris satt på produkt med ID {productId}.");
+                Console.WriteLine($"Kampanjpris satt på produkt med ID {productId}.");
                 Console.ResetColor();
             }
             else
@@ -114,7 +114,7 @@ namespace Kassasystemet___Mille_Elfver
             {
                 Product product = _availableProducts[productId];
 
-                if (!product.IsKiloPrice)
+                if (!product.IsKiloPrice && buyQuantity > payForQuantity)
                 {
                     product.Discounts.BuyQuantity = buyQuantity;
                     product.Discounts.PayForQuantity = payForQuantity;
@@ -123,13 +123,14 @@ namespace Kassasystemet___Mille_Elfver
 
                     SaveProductsToFile();
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"\nMängdrabatt satt på produkt med ID {productId}.");
+                    Console.WriteLine($"Mängdrabatt satt på produkt med ID {productId}.");
                     Console.ResetColor();
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"\nProdukt med ID {productId} har kilopris och kan inte ha mängdrabatt.");
+                    Console.WriteLine($"OBS du kan inte välja exempelvis köp 5 betala för 10!");
                     Console.ResetColor();
                 }
             }
@@ -155,7 +156,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 SaveProductsToFile();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\nRabatt har tagits bort för produkt med ID {productId}.");
+                Console.WriteLine($"Rabatt har tagits bort för produkt med ID {productId}.");
                 Console.ResetColor();
             }
             else
@@ -178,7 +179,7 @@ namespace Kassasystemet___Mille_Elfver
                 _availableProducts[productId].Name = newName;
                 SaveProductsToFile();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\nProduktnamn uppdaterat på: {productId}.");
+                Console.WriteLine($"Produktnamn uppdaterat på: {productId}.");
                 Console.ResetColor();
             }
             else
@@ -228,7 +229,7 @@ namespace Kassasystemet___Mille_Elfver
                 LoadProductsFromFile();
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\nProduktpris uppdaterat med ID {productId}.");
+                Console.WriteLine($"Produktpris uppdaterat med ID {productId}.");
                 Console.ResetColor();
             }
             else
@@ -274,7 +275,7 @@ namespace Kassasystemet___Mille_Elfver
                 _availableProducts.Remove(productId);
                 SaveProductsToFile();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\nProdukt med ID {productId} har tagits bort.");
+                Console.WriteLine($"Produkt med ID {productId} har tagits bort.");
                 Console.ResetColor();
             }
             else
@@ -431,7 +432,7 @@ namespace Kassasystemet___Mille_Elfver
                 _availableProducts[productId] = new Product(productId, productName, unitPrice, kiloPrice);
                 SaveProductsToFile();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\nProdukt med ID {productId} har lagts till.");
+                Console.WriteLine($"Produkt med ID {productId} har lagts till.");
                 Console.ResetColor();
             }
             else
@@ -465,11 +466,11 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     if (DateTime.Today >= product.Discounts.PercentStartDate && DateTime.Today <= product.Discounts.PercentEndDate)
                     {
-                        discountInfo = $"({product.Discounts.PercentageDiscount}%)";
+                        discountInfo = $" PÅGÅENDE: ({product.Discounts.PercentageDiscount}%) t.o.m. {product.Discounts.PercentEndDate:yyyy-MM-dd}";
                     }
                     else if (product.Discounts.PercentStartDate > DateTime.Today)
                     {
-                        discountInfo = $"({product.Discounts.PercentageDiscount}% *OBS* börjar gälla {product.Discounts.PercentStartDate:yyyy-MM-dd})";
+                        discountInfo = $"*KOMMANDE: ({product.Discounts.PercentageDiscount}%) fr.o.m. {product.Discounts.PercentStartDate:yyyy-MM-dd}";
                     }
                     else
                     {
@@ -489,11 +490,13 @@ namespace Kassasystemet___Mille_Elfver
 
                     if (DateTime.Today >= product.Discounts.BuyQuantityStartDate && DateTime.Today <= product.Discounts.BuyQuantityEndDate)
                     {
-                        discountInfo += $"(Köp {product.Discounts.BuyQuantity}, Betala för {product.Discounts.PayForQuantity})";
+                        discountInfo += $" PÅGÅENDE: (Köp {product.Discounts.BuyQuantity}, Betala för {product.Discounts.PayForQuantity}) " +
+                            $"t.o.m. {product.Discounts.BuyQuantityEndDate:yyyy-MM-dd}";
                     }
                     else if (product.Discounts.BuyQuantityStartDate > DateTime.Today)
                     {
-                        discountInfo = $"({product.Discounts.BuyQuantity} *OBS* börjar gälla {product.Discounts.BuyQuantityStartDate:yyyy-MM-dd})";
+                        discountInfo = $"*KOMMANDE: (Köp {product.Discounts.BuyQuantity}, Betala för {product.Discounts.PayForQuantity}) " +
+                            $"fr.o.m. {product.Discounts.BuyQuantityStartDate:yyyy-MM-dd}";
                     }
                     else
                     {
