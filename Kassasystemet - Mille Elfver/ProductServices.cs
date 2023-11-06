@@ -465,7 +465,7 @@ namespace Kassasystemet___Mille_Elfver
                     }
                     else
                     {
-                        discountInfo = "(Rabatt har avslutats)";
+                        discountInfo = "(Rabatt har utgått)";
                         product.Discounts.PercentageDiscount = 0;
                         product.Discounts.PercentStartDate = DateTime.MinValue;
                         product.Discounts.PercentEndDate = DateTime.MinValue;
@@ -489,7 +489,7 @@ namespace Kassasystemet___Mille_Elfver
                     }
                     else
                     {
-                        discountInfo += "(Rabatt har avslutats)";
+                        discountInfo += "(Rabatt har utgått)";
                         product.Discounts.BuyQuantity = 0;
                         product.Discounts.PayForQuantity = 0;
                         product.Discounts.BuyQuantityStartDate = DateTime.MinValue;
