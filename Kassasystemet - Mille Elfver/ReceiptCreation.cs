@@ -152,6 +152,7 @@ namespace Kassasystemet___Mille_Elfver
                 Console.WriteLine($"Produkt: {product.Name}, {quantity} {priceType:F2}, totalt pris: {totalPrice:F2} kr har lagts till på kvittot.");
                 Console.ResetColor();
             }
+
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
