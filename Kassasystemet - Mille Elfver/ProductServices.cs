@@ -452,7 +452,7 @@ namespace Kassasystemet___Mille_Elfver
             Console.WriteLine("╭─────────────────────────────╮");
             Console.WriteLine("│    Tillgängliga produkter   │");
             Console.WriteLine("╰─────────────────────────────╯");
-            Console.WriteLine("ID  Produkt                Pris         Rabatter");
+            Console.WriteLine("ID  Produkt                Pris          Rabatter");
             Console.ResetColor();
 
             foreach (var product in _availableProducts.Values)

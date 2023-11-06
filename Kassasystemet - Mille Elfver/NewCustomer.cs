@@ -84,9 +84,12 @@ namespace Kassasystemet___Mille_Elfver
             {
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("╭──────────────────────────────────╮");
-                Console.WriteLine("│ KASSA                            │");
-                Console.WriteLine("│ Kommandon:                       │");
-                Console.WriteLine("│ <productid> <antal> <PAY> <MENU> │");
+                Console.WriteLine("│KASSA                             │");
+                Console.WriteLine("│                                  │");
+                Console.WriteLine("│Kommandon:                        │");
+                Console.WriteLine("│<productid> <antal> <PAY> <MENU>  │");
+                Console.WriteLine("│                                  │");
+                Console.WriteLine("│Exempel: 300 1,5 = Bananer 1,5kg  │");
                 Console.WriteLine("╰──────────────────────────────────╯");
                 Console.ResetColor();
                 Console.Write("Kommando: ");
