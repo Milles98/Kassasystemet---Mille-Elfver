@@ -9,7 +9,24 @@ namespace Kassasystemet___Mille_Elfver
     public class Product
     {
         public string Id { get; set; }
-        public string Name { get; set; }
+        private string _name;
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                if (value.Length < 15 && value.Length > 1)
+                {
+                    _name = value;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Error, för långt namn, vänligen välj kortare");
+                    Console.ResetColor();
+                }
+            }
+        }
         public decimal UnitPrice { get; set; }
         public decimal KiloPrice { get; set; }
         public bool IsKiloPrice { get; }

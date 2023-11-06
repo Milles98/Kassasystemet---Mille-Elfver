@@ -294,13 +294,12 @@ namespace Kassasystemet___Mille_Elfver
                                     continue;
                                 }
 
-                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Ange rabatt i procent (exempelvis 5 för 5% rabatt): ");
-                                if (!decimal.TryParse(Console.ReadLine(), out decimal percentageDiscount) || percentageDiscount <= 0)
+                                if (!decimal.TryParse(Console.ReadLine(), out decimal percentageDiscount) || percentageDiscount <= 0 || percentageDiscount >= 100)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Ogiltig rabatt, försök igen.");
-                                    Console.ResetColor();
+                                    Console.WriteLine("Ange % rabatt mellan 0-100%");
                                     Console.ReadKey();
                                     continue;
                                 }
@@ -345,6 +344,7 @@ namespace Kassasystemet___Mille_Elfver
                                     continue;
                                 }
 
+                                Console.WriteLine("Exempel: ta 3 betala för 2, i det här fallet är X = 3");
                                 Console.Write("Köp X antal: ");
                                 if (!int.TryParse(Console.ReadLine(), out int buyQuantity) || buyQuantity <= 0)
                                 {
@@ -355,7 +355,8 @@ namespace Kassasystemet___Mille_Elfver
                                     continue;
                                 }
 
-                                Console.Write("Mängd som behöver uppnås för att få X antalet i rabatt: ");
+                                Console.WriteLine("Exempel: ta 3 betala för 2, i det här fallet är Y = 2");
+                                Console.Write("Betala för Y: ");
                                 if (!int.TryParse(Console.ReadLine(), out int payForQuantity) || payForQuantity <= 0)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
