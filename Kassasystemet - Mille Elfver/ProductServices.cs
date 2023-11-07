@@ -60,21 +60,21 @@ namespace Kassasystemet___Mille_Elfver
         /// <summary>
         /// Adds products to the dictionary
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="productId"></param>
         /// <param name="name"></param>
         /// <param name="unitPrice"></param>
         /// <param name="kiloPrice"></param>
-        private void AddProductToDictionary(string id, string name, decimal unitPrice, decimal kiloPrice)
+        private void AddProductToDictionary(string productId, string name, decimal unitPrice, decimal kiloPrice)
         {
-            if (_availableProducts.ContainsKey(id))
+            if (_availableProducts.ContainsKey(productId))
             {
-                _availableProducts[id].Name = name;
-                _availableProducts[id].UnitPrice = unitPrice;
-                _availableProducts[id].KiloPrice = kiloPrice;
+                _availableProducts[productId].Name = name;
+                _availableProducts[productId].UnitPrice = unitPrice;
+                _availableProducts[productId].KiloPrice = kiloPrice;
             }
             else
             {
-                var product = new Product(id, name, unitPrice, kiloPrice);
+                var product = new Product(productId, name, unitPrice, kiloPrice);
                 _availableProducts.Add(product.Id, product);
             }
         }

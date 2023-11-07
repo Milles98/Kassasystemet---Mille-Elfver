@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public class NewCustomer
+    public static class NewCustomer
     {
         /// <summary>
         /// Menu choices to add products, display items, pay for items and return to menu
