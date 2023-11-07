@@ -30,7 +30,7 @@ namespace Kassasystemet___Mille_Elfver
                             productServices.DisplayAvailableProducts();
 
                             Console.ForegroundColor = ConsoleColor.DarkCyan;
-                            Console.WriteLine("\n╭────────────────────────────╮");
+                            Console.WriteLine("╭────────────────────────────╮");
                             Console.WriteLine("│Ändra namn på produkt       │");
                             Console.WriteLine("│Q = tillbaka till adminmenyn│");
                             Console.WriteLine("╰────────────────────────────╯");
@@ -72,7 +72,7 @@ namespace Kassasystemet___Mille_Elfver
                             decimal newPrice;
 
                             Console.ForegroundColor = ConsoleColor.DarkCyan;
-                            Console.WriteLine("\n╭────────────────────────────╮");
+                            Console.WriteLine("╭────────────────────────────╮");
                             Console.WriteLine("│Ändra pris på produkter     │");
                             Console.WriteLine("│Q = tillbaka till adminmenyn│");
                             Console.WriteLine("╰────────────────────────────╯");
@@ -123,7 +123,7 @@ namespace Kassasystemet___Mille_Elfver
                             productServices.DisplayAvailableProducts();
 
                             Console.ForegroundColor = ConsoleColor.DarkCyan;
-                            Console.WriteLine("\n╭────────────────────────────╮");
+                            Console.WriteLine("╭────────────────────────────╮");
                             Console.WriteLine("│Lägg till ny produkt        │");
                             Console.WriteLine("│Q = tillbaka till adminmenyn│");
                             Console.WriteLine("╰────────────────────────────╯");
@@ -186,7 +186,7 @@ namespace Kassasystemet___Mille_Elfver
                             productServices.DisplayAvailableProducts();
 
                             Console.ForegroundColor = ConsoleColor.DarkCyan;
-                            Console.WriteLine("\n╭────────────────────────────╮");
+                            Console.WriteLine("╭────────────────────────────╮");
                             Console.WriteLine("│Ta bort produkt             │");
                             Console.WriteLine("│Q = tillbaka till adminmenyn│");
                             Console.WriteLine("╰────────────────────────────╯");
@@ -219,7 +219,7 @@ namespace Kassasystemet___Mille_Elfver
                             productServices.DisplayAvailableProducts();
 
                             Console.ForegroundColor = ConsoleColor.DarkCyan;
-                            Console.WriteLine("\n╭──────────────────────────────╮");
+                            Console.WriteLine("╭──────────────────────────────╮");
                             Console.WriteLine("│Lägga till rabatt             │");
                             Console.WriteLine("│1. Procentrabatt              │");
                             Console.WriteLine("│2. Mängdrabatt                │");
@@ -256,9 +256,9 @@ namespace Kassasystemet___Mille_Elfver
                                 }
 
                                 Console.Write("Ange rabatt i procent (exempelvis 5 för 5% rabatt): ");
-                                if (!decimal.TryParse(Console.ReadLine(), out decimal percentageDiscount) || percentageDiscount < 1 || percentageDiscount >= 100)
+                                if (!decimal.TryParse(Console.ReadLine(), out decimal percentageDiscount) || percentageDiscount < 1 || percentageDiscount > 100)
                                 {
-                                    ErrorMessage($"Ogiltig rabatt, försök igen.\nAnge % rabatt mellan 1-100%");
+                                    ErrorMessage($"Ogiltig rabatt, försök igen.\nAnge % rabatt mellan 1-99%");
                                     continue;
                                 }
 
@@ -333,7 +333,7 @@ namespace Kassasystemet___Mille_Elfver
                         productServices.DisplayAvailableProducts();
 
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("\n╭────────────────────────────╮");
+                        Console.WriteLine("╭────────────────────────────╮");
                         Console.WriteLine("│Ta bort kampanjpriser       │");
                         Console.WriteLine("│Q = tillbaka till adminmenyn│");
                         Console.WriteLine("╰────────────────────────────╯");

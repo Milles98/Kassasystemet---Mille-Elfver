@@ -47,7 +47,7 @@ namespace Kassasystemet___Mille_Elfver
                             decimal discountedPrice = product.KiloPrice * discountedQuantity;
                             totalPrice = discountedPrice;
 
-                            productInfo = $"{product.Name.PadRight(12)} {quantity:F2} kg * {product.KiloPrice:F2} " +
+                            productInfo = $"{product.Name.PadRight(20)} {quantity:F2} kg * {product.KiloPrice:F2} " +
                                 $"(Mängdrabatt {buyQuantity} för {payForQuantity})";
 
                             if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate &&
@@ -55,7 +55,7 @@ namespace Kassasystemet___Mille_Elfver
                             {
                                 decimal percentDiscountedPrice = discountedPrice - (discountedPrice * (product.Discounts.PercentageDiscount / 100));
                                 totalPrice = percentDiscountedPrice;
-                                productInfo += $" + (Rabatt {product.Discounts.PercentageDiscount:F0}%)";
+                                productInfo += $" + ({product.Discounts.PercentageDiscount:F0}%)";
                             }
                         }
 
@@ -64,14 +64,14 @@ namespace Kassasystemet___Mille_Elfver
                         {
                             decimal discountedPrice = (product.KiloPrice - (product.KiloPrice * (product.Discounts.PercentageDiscount / 100))) * quantity;
                             totalPrice = discountedPrice;
-                            productInfo = $"{product.Name.PadRight(12)} {quantity:F2} kg * {product.KiloPrice:F2} " +
+                            productInfo = $"{product.Name.PadRight(20)} {quantity:F2} kg * {product.KiloPrice:F2} " +
                                 $"(Rabatt {product.Discounts.PercentageDiscount:F0}%)";
                         }
 
                         else
                         {
                             totalPrice = product.KiloPrice * quantity;
-                            productInfo = $"{product.Name.PadRight(12)} {quantity:F2} kg * {product.KiloPrice:F2}";
+                            productInfo = $"{product.Name.PadRight(20)} {quantity:F2} kg * {product.KiloPrice:F2}";
                         }
                     }
 
@@ -99,14 +99,14 @@ namespace Kassasystemet___Mille_Elfver
                             decimal discountedPrice = product.UnitPrice * discountedQuantity;
                             totalPrice = discountedPrice;
 
-                            productInfo = $"{product.Name.PadRight(12)} {quantity:F0} st * {product.UnitPrice:F2} ({buyQuantity} för {payForQuantity})";
+                            productInfo = $"{product.Name.PadRight(20)} {quantity:F0} st * {product.UnitPrice:F2} ({buyQuantity} för {payForQuantity})";
 
                             if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate &&
                                 DateTime.Now <= product.Discounts.PercentEndDate)
                             {
                                 decimal percentDiscountedPrice = discountedPrice - (discountedPrice * (product.Discounts.PercentageDiscount / 100));
                                 totalPrice = percentDiscountedPrice;
-                                productInfo += $" + (Rabatt {product.Discounts.PercentageDiscount:F0}%)";
+                                productInfo += $" + ({product.Discounts.PercentageDiscount:F0}%)";
                             }
 
                         }
@@ -116,14 +116,14 @@ namespace Kassasystemet___Mille_Elfver
                         {
                             decimal discountedPrice = (product.UnitPrice - (product.UnitPrice * (product.Discounts.PercentageDiscount / 100))) * quantity;
                             totalPrice = discountedPrice;
-                            productInfo = $"{product.Name.PadRight(12)} {quantity:F0} st * {product.UnitPrice:F2} " +
+                            productInfo = $"{product.Name.PadRight(20)} {quantity:F0} st * {product.UnitPrice:F2} " +
                                 $"(Rabatt {product.Discounts.PercentageDiscount:F0}%)";
                         }
 
                         else
                         {
                             totalPrice = product.UnitPrice * quantity;
-                            productInfo = $"{product.Name.PadRight(12)} {quantity:F0} st * {product.UnitPrice:F2}";
+                            productInfo = $"{product.Name.PadRight(20)} {quantity:F0} st * {product.UnitPrice:F2}";
                         }
 
                     }
