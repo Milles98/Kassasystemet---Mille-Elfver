@@ -77,9 +77,7 @@ namespace Kassasystemet___Mille_Elfver
 
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Ogiltig inmatning, du kan inte ange 0 eller mindre.");
-                        Console.ResetColor();
+                        ErrorMessage("Ogiltig inmatning, du kan inte ange 0 eller mindre.");
                         return;
                     }
 
@@ -132,9 +130,7 @@ namespace Kassasystemet___Mille_Elfver
 
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Ogiltig inmatning, mängden behöver vara mer än 0 och ett heltal!");
-                        Console.ResetColor();
+                        ErrorMessage("Ogiltig inmatning, mängden behöver vara mer än 0 och ett heltal!");
                         return;
                     }
 
@@ -155,9 +151,7 @@ namespace Kassasystemet___Mille_Elfver
 
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Det här valet fanns inte, här är en lista för produkterna:\n");
-                Console.ResetColor();
+                ErrorMessage("Det här valet fanns inte, här är en lista för produkterna:\n");
                 _productServices.DisplayAvailableProducts();
             }
         }
@@ -275,10 +269,15 @@ namespace Kassasystemet___Mille_Elfver
             }
             catch (Exception ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Fel vid sparandet av kvitto: {ex.Message}");
-                Console.ResetColor();
+                ErrorMessage($"Fel vid sparandet av kvitto: {ex.Message}");
             }
+        }
+
+        private void ErrorMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
     }
 }

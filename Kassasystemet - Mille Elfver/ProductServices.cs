@@ -97,15 +97,12 @@ namespace Kassasystemet___Mille_Elfver
 
                 SaveProductsToFile();
 
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Kampanjpris satt på produkt med ID {productId}.");
-                Console.ResetColor();
+                CorrectMessage($"Kampanjpris satt på produkt med ID {productId}.");
+
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\nProdukt med ID {productId} finns ej.");
-                Console.ResetColor();
+                ErrorMessage($"\nProdukt med ID {productId} finns ej.");
             }
         }
         public void SetQuantityDiscount(string productId, int buyQuantity, int payForQuantity, DateTime startDate, DateTime endDate)
@@ -122,23 +119,18 @@ namespace Kassasystemet___Mille_Elfver
                     product.Discounts.BuyQuantityEndDate = endDate;
 
                     SaveProductsToFile();
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"Mängdrabatt satt på produkt med ID {productId}.");
-                    Console.ResetColor();
+
+                    CorrectMessage($"Mängdrabatt satt på produkt med ID {productId}.");
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"\nProdukt med ID {productId} har kilopris och kan inte ha mängdrabatt.");
-                    Console.WriteLine($"OBS du kan inte välja exempelvis köp 5 betala för 10!");
-                    Console.ResetColor();
+                    ErrorMessage($"\nProdukt med ID {productId} har kilopris och kan inte ha mängdrabatt." +
+                        $"\nOBS du kan inte välja exempelvis köp 5 betala för 10!");
                 }
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\nProdukt med ID {productId} finns ej.");
-                Console.ResetColor();
+                ErrorMessage($"\nProdukt med ID {productId} finns ej.");
             }
         }
 
@@ -155,15 +147,12 @@ namespace Kassasystemet___Mille_Elfver
                     DateTime.MinValue, DateTime.MinValue, DateTime.MinValue);
 
                 SaveProductsToFile();
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Rabatt har tagits bort för produkt med ID {productId}.");
-                Console.ResetColor();
+
+                CorrectMessage($"Rabatt har tagits bort för produkt med ID {productId}.");
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\nProdukt med ID {productId} finns ej.");
-                Console.ResetColor();
+                ErrorMessage($"\nProdukt med ID {productId} finns ej.");
             }
         }
 
@@ -178,15 +167,12 @@ namespace Kassasystemet___Mille_Elfver
             {
                 _availableProducts[productId].Name = newName;
                 SaveProductsToFile();
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Produktnamn uppdaterat på: {productId}.");
-                Console.ResetColor();
+
+                CorrectMessage($"Produktnamn uppdaterat på: {productId}.");
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\nProdukt med ID {productId} finns ej.");
-                Console.ResetColor();
+                ErrorMessage($"\nProdukt med ID {productId} finns ej.");
             }
         }
 
@@ -202,9 +188,7 @@ namespace Kassasystemet___Mille_Elfver
             {
                 if (newPrice <= 0)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Ogiltigt pris. Priset måste vara större än noll.");
-                    Console.ResetColor();
+                    ErrorMessage("Ogiltigt pris. Priset måste vara större än noll.");
                     return;
                 }
                 if (priceType.ToLower() == "s")
@@ -219,24 +203,18 @@ namespace Kassasystemet___Mille_Elfver
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Ogiltig inmatning för pristyp. Ange 'S' för styckpris eller 'K' för kilopris.");
-                    Console.ResetColor();
+                    ErrorMessage("Ogiltig inmatning för pristyp. Ange 'S' för styckpris eller 'K' för kilopris.");
                     return;
                 }
 
                 SaveProductsToFile();
                 LoadProductsFromFile();
 
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Produktpris uppdaterat med ID {productId}.");
-                Console.ResetColor();
+                CorrectMessage($"Produktpris uppdaterat med ID {productId}.");
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\nProdukt med ID {productId} finns ej.");
-                Console.ResetColor();
+                ErrorMessage($"\nProdukt med ID {productId} finns ej.");
             }
         }
 
@@ -255,9 +233,7 @@ namespace Kassasystemet___Mille_Elfver
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Ogiltig inmatning. Ange 'S' för styckpris eller 'K' för kilopris.");
-                Console.ResetColor();
+                ErrorMessage("Ogiltig inmatning. Ange 'S' för styckpris eller 'K' för kilopris.");
                 return;
             }
 
@@ -274,15 +250,12 @@ namespace Kassasystemet___Mille_Elfver
             {
                 _availableProducts.Remove(productId);
                 SaveProductsToFile();
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Produkt med ID {productId} har tagits bort.");
-                Console.ResetColor();
+
+                CorrectMessage($"Produkt med ID {productId} har tagits bort.");
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\nProdukt med ID {productId} finns ej.");
-                Console.ResetColor();
+                ErrorMessage($"\nProdukt med ID {productId} finns ej.");
             }
         }
 
@@ -312,9 +285,7 @@ namespace Kassasystemet___Mille_Elfver
             }
             catch (Exception ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Fel vid sparandet av produktlistan: {ex.Message}");
-                Console.ResetColor();
+                ErrorMessage($"Fel vid sparandet av produktlistan: {ex.Message}");
             }
         }
 
@@ -417,29 +388,21 @@ namespace Kassasystemet___Mille_Elfver
             {
                 if (priceType.ToLower() == "s" && unitPrice <= 1)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nOgiltigt styckpris. Styckpriset måste vara större än 0.");
-                    Console.ResetColor();
+                    ErrorMessage("\nOgiltigt styckpris. Styckpriset måste vara större än 0.");
                     return;
                 }
                 if (priceType.ToLower() == "k" && kiloPrice <= 1)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nOgiltigt kilopris. Kilopriset måste vara större än 0.");
-                    Console.ResetColor();
+                    ErrorMessage("\nOgiltigt kilopris. Kilopriset måste vara större än 0.");
                     return;
                 }
                 _availableProducts[productId] = new Product(productId, productName, unitPrice, kiloPrice);
                 SaveProductsToFile();
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Produkt med ID {productId} har lagts till.");
-                Console.ResetColor();
+                CorrectMessage($"Produkt med ID {productId} har lagts till.");
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\nProdukt med ID {productId} finns redan.");
-                Console.ResetColor();
+                ErrorMessage($"\nProdukt med ID {productId} finns redan.");
             }
         }
 
@@ -511,7 +474,18 @@ namespace Kassasystemet___Mille_Elfver
                 Console.WriteLine($"{product.Id.PadRight(4)}{productInfo.PadRight(22)}{priceInfo.PadRight(14)}{discountInfo.PadRight(40)}");
                 Console.ResetColor();
             }
-
+        }
+        private void ErrorMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+        private void CorrectMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
     }
 }
