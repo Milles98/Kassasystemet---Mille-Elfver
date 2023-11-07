@@ -415,17 +415,17 @@ namespace Kassasystemet___Mille_Elfver
         {
             if (!_availableProducts.ContainsKey(productId))
             {
-                if (priceType.ToLower() == "s" && unitPrice <= 0)
+                if (priceType.ToLower() == "s" && unitPrice <= 1)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nOgiltigt styckpris. Styckpriset måste vara större än 0.");
                     Console.ResetColor();
                     return;
                 }
-                if (priceType.ToLower() == "k" && kiloPrice <= 0)
+                if (priceType.ToLower() == "k" && kiloPrice <= 1)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nOgiltigt kilopris. Kilopriset måste vara 0 eller större.");
+                    Console.WriteLine("\nOgiltigt kilopris. Kilopriset måste vara större än 0.");
                     Console.ResetColor();
                     return;
                 }
