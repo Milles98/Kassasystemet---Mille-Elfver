@@ -17,10 +17,7 @@ namespace Kassasystemet___Mille_Elfver
                 int userInput;
                 if (!int.TryParse(Console.ReadLine(), out userInput))
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nOgiltig inmatning, valfri knapp försök igen.");
-                    Console.ResetColor();
-                    Console.ReadKey();
+                    ErrorMessage($"\nOgiltig inmatning, valfri knapp försök igen.");
                     continue;
                 }
 
@@ -63,8 +60,7 @@ namespace Kassasystemet___Mille_Elfver
 
                             productServices.UpdateProductName(productIdCase1, newName);
 
-                            Console.Write("Valfri knapp gå till adminmenyn");
-                            Console.ReadKey();
+                            BackToAdminMenuMsg();
                             break;
                         }
                         break;
@@ -118,8 +114,7 @@ namespace Kassasystemet___Mille_Elfver
 
                             productServices.UpdateProductPrice(productIdCase2, newPrice, priceTypeChoice);
 
-                            Console.Write("Enter för att gå till adminmenyn");
-                            Console.ReadKey();
+                            BackToAdminMenuMsg();
                             break;
                         }
                         break;
@@ -174,7 +169,7 @@ namespace Kassasystemet___Mille_Elfver
                                 if (decimal.TryParse(Console.ReadLine().Trim(), out decimal newPriceCase3))
                                 {
                                     productServices.AddProductWithPriceType(productIdCase3, productName, priceTypeChoiceCase3, newPriceCase3);
-                                    Console.ReadKey();
+                                    BackToAdminMenuMsg();
                                     break;
                                 }
                                 else
@@ -218,8 +213,7 @@ namespace Kassasystemet___Mille_Elfver
 
                             productServices.RemoveProduct(productIdCase4);
 
-                            Console.Write("Enter för att gå till adminmenyn");
-                            Console.ReadKey();
+                            BackToAdminMenuMsg();
                             break;
                         }
                         break;
@@ -290,8 +284,7 @@ namespace Kassasystemet___Mille_Elfver
                                 }
 
                                 productServices.SetPercentageDiscount(productId, percentageDiscount, startDate, endDate);
-                                Console.Write("Valfri knapp, gå till adminmenyn");
-                                Console.ReadKey();
+                                BackToAdminMenuMsg();
                                 break;
                             }
                             else if (choice == 2)
@@ -337,8 +330,7 @@ namespace Kassasystemet___Mille_Elfver
 
                                 productServices.SetQuantityDiscount(productId, buyQuantity, payForQuantity, startDate, endDate);
 
-                                Console.Write("Valfri knapp, gå till adminmenyn");
-                                Console.ReadKey();
+                                BackToAdminMenuMsg();
                                 break;
                             }
                         }
@@ -365,8 +357,7 @@ namespace Kassasystemet___Mille_Elfver
 
                         productServices.RemoveDiscount(productIdCase6);
 
-                        Console.Write("Valfri knapp gå till adminmenyn");
-                        Console.ReadKey();
+                        BackToAdminMenuMsg();
                         break;
 
                     case 0:
@@ -394,12 +385,18 @@ namespace Kassasystemet___Mille_Elfver
             Console.Write("Inmatning: ");
         }
 
-        public static void ErrorMessage(string message)
+        private static void ErrorMessage(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(message);
             Console.ResetColor();
             Console.Write("Valfri knapp, försök igen");
+            Console.ReadKey();
+        }
+
+        private static void BackToAdminMenuMsg()
+        {
+            Console.Write("Valfri knapp gå till adminmenyn");
             Console.ReadKey();
         }
     }
