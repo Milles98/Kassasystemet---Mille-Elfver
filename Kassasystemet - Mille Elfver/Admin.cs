@@ -36,8 +36,7 @@ namespace Kassasystemet___Mille_Elfver
                             Console.WriteLine("╰────────────────────────────╯");
                             Console.ResetColor();
 
-                            Console.Write("Ange 'Q' eller produkt-ID: ");
-                            string productIdCase1 = Console.ReadLine().Trim().ToUpper();
+                            string productIdCase1 = GetUserInput("Ange 'Q' eller produkt-ID: ").ToUpper();
 
                             if (productIdCase1 == "Q")
                             {
@@ -50,8 +49,8 @@ namespace Kassasystemet___Mille_Elfver
                                 continue;
                             }
 
-                            Console.Write("Ange det nya namnet: ");
-                            string newName = Console.ReadLine().Trim();
+                            string newName = GetUserInput("Ange det nya namnet: ");
+
                             if (newName.Length > 20 || newName.Length < 1)
                             {
                                 ErrorMessage($"Ogiltigt produkt namn. Ange något mellan 1-20 bokstäver.");
@@ -79,8 +78,7 @@ namespace Kassasystemet___Mille_Elfver
                             Console.WriteLine("╰────────────────────────────╯");
                             Console.ResetColor();
 
-                            Console.Write("Ange 'Q' eller produkt-ID: ");
-                            string productIdCase2 = Console.ReadLine().Trim().ToUpper();
+                            string productIdCase2 = GetUserInput("Ange 'Q' eller produkt-ID: ").ToUpper();
 
                             if (productIdCase2 == "Q")
                             {
@@ -93,8 +91,7 @@ namespace Kassasystemet___Mille_Elfver
                                 continue;
                             }
 
-                            Console.Write("Vill du ändra till styckpris eller kilopris (S/K)? ");
-                            string priceTypeChoice = Console.ReadLine().Trim().ToLower();
+                            string priceTypeChoice = GetUserInput("Vill du ändra till styckpris eller kilopris (S/K)? ").ToLower();
 
                             if (priceTypeChoice == "s")
                             {
@@ -132,8 +129,7 @@ namespace Kassasystemet___Mille_Elfver
                             Console.WriteLine("╰────────────────────────────╯");
                             Console.ResetColor();
 
-                            Console.Write("Ange 'Q' eller produktens ID: ");
-                            string productIdCase3 = Console.ReadLine().Trim().ToUpper();
+                            string productIdCase3 = GetUserInput("Ange 'Q' eller produktens ID: ").ToUpper();
 
                             if (productIdCase3 == "Q")
                             {
@@ -152,16 +148,15 @@ namespace Kassasystemet___Mille_Elfver
                                 continue;
                             }
 
-                            Console.Write("Ange produktens namn: ");
-                            string productName = Console.ReadLine().Trim();
+                            string productName = GetUserInput("Ange produktens namn: ");
+
                             if (productName.Length > 20 || productName.Length < 1)
                             {
                                 ErrorMessage($"Ogiltigt produkt namn. Ange något mellan 1-20 bokstäver.");
                                 continue;
                             }
 
-                            Console.Write("Styckpris eller kilopris (S/K)? ");
-                            string priceTypeChoiceCase3 = Console.ReadLine().Trim().ToLower();
+                            string priceTypeChoiceCase3 = GetUserInput("Styckpris eller kilopris (S/K)? ").ToLower();
 
                             if (priceTypeChoiceCase3 == "s" || priceTypeChoiceCase3 == "k")
                             {
@@ -197,8 +192,7 @@ namespace Kassasystemet___Mille_Elfver
                             Console.WriteLine("╰────────────────────────────╯");
                             Console.ResetColor();
 
-                            Console.Write("Ange 'Q' eller produkt ID: ");
-                            string productIdCase4 = Console.ReadLine().Trim().ToUpper();
+                            string productIdCase4 = GetUserInput("Ange 'Q' eller produkt ID: ").ToUpper();
 
                             if (productIdCase4 == "Q")
                             {
@@ -253,8 +247,7 @@ namespace Kassasystemet___Mille_Elfver
                             }
                             else if (choice == 1)
                             {
-                                Console.Write("Ange produkt ID: ");
-                                string productId = Console.ReadLine().Trim();
+                                string productId = GetUserInput("Ange produkt ID: ");
 
                                 if (!productServices.ProductExists(productId))
                                 {
@@ -289,8 +282,7 @@ namespace Kassasystemet___Mille_Elfver
                             }
                             else if (choice == 2)
                             {
-                                Console.Write("Ange produkt ID: ");
-                                string productId = Console.ReadLine().Trim();
+                                string productId = GetUserInput("Ange produkt ID: ");
 
                                 if (!productServices.ProductExists(productId))
                                 {
@@ -347,8 +339,7 @@ namespace Kassasystemet___Mille_Elfver
                         Console.WriteLine("╰────────────────────────────╯");
                         Console.ResetColor();
 
-                        Console.Write("Ange 'Q' eller produkt ID: ");
-                        string productIdCase6 = Console.ReadLine().Trim().ToUpper();
+                        string productIdCase6 = GetUserInput("Ange 'Q' eller produkt ID: ").ToUpper();
 
                         if (productIdCase6 == "Q")
                         {
@@ -398,6 +389,13 @@ namespace Kassasystemet___Mille_Elfver
         {
             Console.Write("Valfri knapp gå till adminmenyn");
             Console.ReadKey();
+        }
+
+        private static string GetUserInput(string msg)
+        {
+            Console.Write(msg);
+            string userInput = Console.ReadLine().Trim();
+            return userInput;
         }
     }
 }
