@@ -358,6 +358,9 @@ namespace Kassasystemet___Mille_Elfver
                 }
             } while (adminRunning);
         }
+        /// <summary>
+        /// Shows the admin menu
+        /// </summary>
         private static void AdminMenu()
         {
             Console.Clear();
@@ -376,6 +379,10 @@ namespace Kassasystemet___Mille_Elfver
             Console.Write("Inmatning: ");
         }
 
+        /// <summary>
+        /// Shows error message if input is invalid
+        /// </summary>
+        /// <param name="message"></param>
         private static void ErrorMessage(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -385,12 +392,20 @@ namespace Kassasystemet___Mille_Elfver
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// Gives message that user is going to go back to admin menu
+        /// </summary>
         private static void BackToAdminMenuMsg()
         {
             Console.Write("Valfri knapp gå till adminmenyn");
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// Gets the users input
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <returns></returns>
         private static string GetUserInput(string msg)
         {
             Console.Write(msg);
