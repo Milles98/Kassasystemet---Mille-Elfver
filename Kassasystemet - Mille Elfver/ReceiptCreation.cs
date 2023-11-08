@@ -38,31 +38,31 @@ namespace Kassasystemet___Mille_Elfver
                     if (quantity > 0)
                     {
                         //kollar kilopris köp x betala för y uträkning o lägger in på totalPrice variabeln
-                        if (product.Discounts.BuyQuantity > 0 && product.Discounts.PayForQuantity > 0 &&
-                            DateTime.Now >= product.Discounts.BuyQuantityStartDate && DateTime.Now <= product.Discounts.BuyQuantityEndDate)
-                        {
-                            int buyQuantity = product.Discounts.BuyQuantity;
-                            int payForQuantity = product.Discounts.PayForQuantity;
+                        //if (product.Discounts.BuyQuantity > 0 && product.Discounts.PayForQuantity > 0 &&
+                        //    DateTime.Now >= product.Discounts.BuyQuantityStartDate && DateTime.Now <= product.Discounts.BuyQuantityEndDate)
+                        //{
+                        //    int buyQuantity = product.Discounts.BuyQuantity;
+                        //    int payForQuantity = product.Discounts.PayForQuantity;
 
-                            int discountedQuantity = (int)(quantity / buyQuantity) * payForQuantity + (int)(quantity % buyQuantity);
-                            decimal discountedPrice = product.KiloPrice * discountedQuantity;
-                            totalPrice = discountedPrice;
+                        //    int discountedQuantity = (int)(quantity / buyQuantity) * payForQuantity + (int)(quantity % buyQuantity);
+                        //    decimal discountedPrice = product.KiloPrice * discountedQuantity;
+                        //    totalPrice = discountedPrice;
 
-                            productInfo = $"{product.Name.PadRight(20)} {quantity:F2} kg * {product.KiloPrice:F2} " +
-                                $"(Mängdrabatt {buyQuantity} för {payForQuantity})";
+                        //    productInfo = $"{product.Name.PadRight(20)} {quantity:F2} kg * {product.KiloPrice:F2} " +
+                        //        $"(Mängdrabatt {buyQuantity} för {payForQuantity})";
 
-                            //kollar om kilopriset även har en procentrabatt och lägger in den uträkningen i totalPrice
-                            if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate &&
-                                DateTime.Now <= product.Discounts.PercentEndDate)
-                            {
-                                decimal percentDiscountedPrice = discountedPrice - (discountedPrice * (product.Discounts.PercentageDiscount / 100));
-                                totalPrice = percentDiscountedPrice;
-                                productInfo += $" + ({product.Discounts.PercentageDiscount:F0}%)";
-                            }
-                        }
+                        //    //kollar om kilopriset även har en procentrabatt och lägger in den uträkningen i totalPrice
+                        //    if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate &&
+                        //        DateTime.Now <= product.Discounts.PercentEndDate)
+                        //    {
+                        //        decimal percentDiscountedPrice = discountedPrice - (discountedPrice * (product.Discounts.PercentageDiscount / 100));
+                        //        totalPrice = percentDiscountedPrice;
+                        //        productInfo += $" + ({product.Discounts.PercentageDiscount:F0}%)";
+                        //    }
+                        //}
 
                         //kollar kilopris procentrabatt uträkning o lägger in på totalPrice variabeln
-                        else if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate &&
+                        if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate &&
                             DateTime.Now <= product.Discounts.PercentEndDate)
                         {
                             decimal discountedPrice = (product.KiloPrice - (product.KiloPrice * (product.Discounts.PercentageDiscount / 100))) * quantity;
