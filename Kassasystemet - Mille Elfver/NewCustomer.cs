@@ -54,14 +54,15 @@ namespace Kassasystemet___Mille_Elfver
                 }
 
                 string[] productParts = userInput.Split(' ');
-                if (productParts.Length != 2 || !decimal.TryParse(productParts[1], out decimal quantity))
+
+                Product product = productServices.GetProduct(productParts[0]);
+                if (product == null)
                 {
                     ErrorMessage();
                     continue;
                 }
 
-                Product product = productServices.GetProduct(productParts[0]);
-                if (product == null)
+                if (productParts.Length != 2 || !decimal.TryParse(productParts[1], out decimal quantity))
                 {
                     ErrorMessage();
                     continue;

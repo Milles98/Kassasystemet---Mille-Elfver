@@ -24,9 +24,11 @@ namespace Kassasystemet___Mille_Elfver
         {
             LoadProductsFromFile();
 
-            StartingItems();
-
-            SaveProductsToFile();
+            if (_availableProducts.Count == 0)
+            {
+                StartingItems();
+                SaveProductsToFile();
+            }
         }
 
         /// <summary>
@@ -208,7 +210,7 @@ namespace Kassasystemet___Mille_Elfver
                 }
 
                 SaveProductsToFile();
-                LoadProductsFromFile();
+                //LoadProductsFromFile();
 
                 CorrectMessage($"Produktpris uppdaterat med ID {productId}.");
             }
