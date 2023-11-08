@@ -61,7 +61,7 @@ namespace Kassasystemet___Mille_Elfver
                     ErrorMessage();
                     continue;
                 }
-                if (productParts.Length != 2 || !decimal.TryParse(productParts[1], out decimal quantity))
+                if (productParts.Length != 2 || !decimal.TryParse(productParts[1], out decimal quantity) || quantity > 50000)
                 {
                     ErrorMessage();
                     continue;
