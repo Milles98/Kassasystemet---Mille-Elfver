@@ -37,6 +37,7 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     if (quantity > 0)
                     {
+                        //kollar kilopris köp x betala för y uträkning o lägger in på totalPrice variabeln
                         if (product.Discounts.BuyQuantity > 0 && product.Discounts.PayForQuantity > 0 &&
                             DateTime.Now >= product.Discounts.BuyQuantityStartDate && DateTime.Now <= product.Discounts.BuyQuantityEndDate)
                         {
@@ -50,6 +51,7 @@ namespace Kassasystemet___Mille_Elfver
                             productInfo = $"{product.Name.PadRight(20)} {quantity:F2} kg * {product.KiloPrice:F2} " +
                                 $"(Mängdrabatt {buyQuantity} för {payForQuantity})";
 
+                            //kollar om kilopriset även har en procentrabatt och lägger in den uträkningen i totalPrice
                             if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate &&
                                 DateTime.Now <= product.Discounts.PercentEndDate)
                             {
@@ -59,6 +61,7 @@ namespace Kassasystemet___Mille_Elfver
                             }
                         }
 
+                        //kollar kilopris procentrabatt uträkning o lägger in på totalPrice variabeln
                         else if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate &&
                             DateTime.Now <= product.Discounts.PercentEndDate)
                         {
@@ -67,7 +70,7 @@ namespace Kassasystemet___Mille_Elfver
                             productInfo = $"{product.Name.PadRight(20)} {quantity:F2} kg * {product.KiloPrice:F2} " +
                                 $"(Rabatt {product.Discounts.PercentageDiscount:F0}%)";
                         }
-
+                        //kollar kilopris uträkning o lägger in på totalPrice variabeln
                         else
                         {
                             totalPrice = product.KiloPrice * quantity;
@@ -88,7 +91,7 @@ namespace Kassasystemet___Mille_Elfver
 
                     if (quantity > 0 && quantity == (int)quantity)
                     {
-
+                        //kollar styckpris köp x betala för y uträkning o lägger in på totalPrice variabeln
                         if (product.Discounts.BuyQuantity > 0 && product.Discounts.PayForQuantity > 0 &&
                             DateTime.Now >= product.Discounts.BuyQuantityStartDate && DateTime.Now <= product.Discounts.BuyQuantityEndDate)
                         {
@@ -101,6 +104,7 @@ namespace Kassasystemet___Mille_Elfver
 
                             productInfo = $"{product.Name.PadRight(20)} {quantity:F0} st * {product.UnitPrice:F2} ({buyQuantity} för {payForQuantity})";
 
+                            //kollar om styckpriset även har en procentrabatt och lägger in den uträkningen i totalPrice
                             if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate &&
                                 DateTime.Now <= product.Discounts.PercentEndDate)
                             {
@@ -110,7 +114,7 @@ namespace Kassasystemet___Mille_Elfver
                             }
 
                         }
-
+                        //kollar styckpris procentrabatt uträkning o lägger in på totalPrice variabeln
                         else if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate &&
                             DateTime.Now <= product.Discounts.PercentEndDate)
                         {
@@ -119,7 +123,7 @@ namespace Kassasystemet___Mille_Elfver
                             productInfo = $"{product.Name.PadRight(20)} {quantity:F0} st * {product.UnitPrice:F2} " +
                                 $"(Rabatt {product.Discounts.PercentageDiscount:F0}%)";
                         }
-
+                        //kollar styckpris uträkning o lägger in på totalPrice variabeln
                         else
                         {
                             totalPrice = product.UnitPrice * quantity;

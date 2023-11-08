@@ -69,7 +69,7 @@ namespace Kassasystemet___Mille_Elfver
                         {
                             Console.Clear();
                             productServices.DisplayAvailableProducts();
-                            decimal newPrice;
+                            decimal newPrice = 0;
 
                             Console.ForegroundColor = ConsoleColor.DarkCyan;
                             Console.WriteLine("╭────────────────────────────╮");
@@ -93,26 +93,32 @@ namespace Kassasystemet___Mille_Elfver
 
                             string priceTypeChoice = GetUserInput("Vill du ändra till styckpris eller kilopris (S/K)? ").ToLower();
 
-                            if (priceTypeChoice == "s")
+                            if (priceTypeChoice == "s" || priceTypeChoice == "k")
                             {
-                                Console.Write("Ange nytt pris per styck: ");
-                                decimal.TryParse(Console.ReadLine().Trim(), out newPrice);
-                            }
-                            else if (priceTypeChoice == "k")
-                            {
-                                Console.Write("Ange nytt pris per kilo: ");
-                                decimal.TryParse(Console.ReadLine().Trim(), out newPrice);
+                                Console.Write($"Ange nytt pris per {priceTypeChoice}: ");
+                                if (decimal.TryParse(Console.ReadLine().Trim(), out newPrice))
+                                {
+                                    if (newPrice > 0 && newPrice <= 50000) // Kontrollera om priset är inom intervallet
+                                    {
+                                        productServices.UpdateProductPrice(productIdCase2, newPrice, priceTypeChoice);
+                                        BackToAdminMenuMsg();
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        ErrorMessage("Priset måste vara mellan 1 kr och 50 000 kr.");
+                                    }
+                                }
+                                else
+                                {
+                                    ErrorMessage("Ogiltig inmatning. Ange ett giltigt pris.");
+                                }
                             }
                             else
                             {
                                 ErrorMessage($"Ogiltig inmatning. Ange 'S' för styckpris eller 'K' för kilopris.");
                                 continue;
                             }
-
-                            productServices.UpdateProductPrice(productIdCase2, newPrice, priceTypeChoice);
-
-                            BackToAdminMenuMsg();
-                            break;
                         }
                         break;
 

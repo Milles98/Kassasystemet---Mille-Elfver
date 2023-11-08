@@ -53,10 +53,10 @@ namespace Kassasystemet___Mille_Elfver
                     Menu.MainMenu(productServices);
                 }
 
-                string[] productParts = userInput.Split(' ');
+                string[] productParts = userInput.Split(' '); // splittar inmatningen index 0 och 1
 
-                Product product = productServices.GetProduct(productParts[0]);
-                if (product == null)
+                Product productID = productServices.GetProduct(productParts[0]);
+                if (productID == null)
                 {
                     ErrorMessage();
                     continue;
@@ -68,7 +68,7 @@ namespace Kassasystemet___Mille_Elfver
                     continue;
                 }
 
-                receiptCreation.AddingToReceipt(product, quantity);
+                receiptCreation.AddingToReceipt(productID, quantity);
                 Thread.Sleep(1000);
             }
 
