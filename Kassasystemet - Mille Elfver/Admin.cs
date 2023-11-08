@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -169,15 +170,23 @@ namespace Kassasystemet___Mille_Elfver
                                 Console.Write("Ange priset: ");
                                 if (decimal.TryParse(Console.ReadLine().Trim(), out decimal newPriceCase3))
                                 {
-                                    productServices.AddProductWithPriceType(productIdCase3, productName, priceTypeChoiceCase3, newPriceCase3);
-                                    BackToAdminMenuMsg();
-                                    break;
+                                    if (newPriceCase3 > 0 && newPriceCase3 <= 50000)
+                                    {
+                                        productServices.AddProductWithPriceType(productIdCase3, productName, priceTypeChoiceCase3, newPriceCase3);
+                                        BackToAdminMenuMsg();
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        ErrorMessage("Priset måste vara mellan 1 kr och 50 000 kr.");
+                                    }
                                 }
                                 else
                                 {
-                                    ErrorMessage($"Ogiltigt pris format");
+                                    ErrorMessage("Ogiltigt prisformat");
                                 }
                             }
+
                             else
                             {
                                 ErrorMessage($"Ogiltig inmatning. Ange 'S' för styckpris eller 'K' för kilopris.");
