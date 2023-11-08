@@ -81,7 +81,7 @@ namespace Kassasystemet___Mille_Elfver
                 Console.WriteLine("│KASSA                             │");
                 Console.WriteLine("│Kommandon:                        │");
                 Console.WriteLine("│<productid> <antal> <PAY> <MENU>  │");
-                Console.WriteLine("│Exempel: 300 1,5 = Bananer 1,5kg  │");
+                Console.WriteLine("│Exempel: 300 mellanslag 1,5       │");
                 Console.WriteLine("╰──────────────────────────────────╯");
                 Console.ResetColor();
                 Console.Write("Kommando: ");

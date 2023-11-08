@@ -99,7 +99,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 SaveProductsToFile();
 
-                CorrectMessage($"Kampanjpris satt på produkt med ID {productId}.");
+                InputSuccessMessage($"Kampanjpris satt på produkt med ID {productId}.");
 
             }
             else
@@ -122,7 +122,7 @@ namespace Kassasystemet___Mille_Elfver
 
                     SaveProductsToFile();
 
-                    CorrectMessage($"Mängdrabatt satt på produkt med ID {productId}.");
+                    InputSuccessMessage($"Mängdrabatt satt på produkt med ID {productId}.");
                 }
                 else
                 {
@@ -150,7 +150,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 SaveProductsToFile();
 
-                CorrectMessage($"Rabatt har tagits bort för produkt med ID {productId}.");
+                InputSuccessMessage($"Rabatt har tagits bort för produkt med ID {productId}.");
             }
             else
             {
@@ -170,7 +170,7 @@ namespace Kassasystemet___Mille_Elfver
                 _availableProducts[productId].Name = newName;
                 SaveProductsToFile();
 
-                CorrectMessage($"Produktnamn uppdaterat på: {productId}.");
+                InputSuccessMessage($"Produktnamn uppdaterat på: {productId}.");
             }
             else
             {
@@ -210,9 +210,9 @@ namespace Kassasystemet___Mille_Elfver
                 }
 
                 SaveProductsToFile();
-                //LoadProductsFromFile();
+                LoadProductsFromFile();
 
-                CorrectMessage($"Produktpris uppdaterat med ID {productId}.");
+                InputSuccessMessage($"Produktpris uppdaterat med ID {productId}.");
             }
             else
             {
@@ -253,7 +253,7 @@ namespace Kassasystemet___Mille_Elfver
                 _availableProducts.Remove(productId);
                 SaveProductsToFile();
 
-                CorrectMessage($"Produkt med ID {productId} har tagits bort.");
+                InputSuccessMessage($"Produkt med ID {productId} har tagits bort.");
             }
             else
             {
@@ -400,7 +400,7 @@ namespace Kassasystemet___Mille_Elfver
                 }
                 _availableProducts[productId] = new Product(productId, productName, unitPrice, kiloPrice);
                 SaveProductsToFile();
-                CorrectMessage($"Produkt med ID {productId} har lagts till.");
+                InputSuccessMessage($"Produkt med ID {productId} har lagts till.");
             }
             else
             {
@@ -483,7 +483,7 @@ namespace Kassasystemet___Mille_Elfver
             Console.WriteLine(message);
             Console.ResetColor();
         }
-        private void CorrectMessage(string message)
+        private void InputSuccessMessage(string message)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(message);
