@@ -305,7 +305,6 @@ namespace Kassasystemet___Mille_Elfver
                                     continue;
                                 }
 
-                                Console.WriteLine("Exempel: ta 3 betala för 2, i det här fallet är X = 3");
                                 Console.Write("Köp X antal: ");
                                 if (!int.TryParse(Console.ReadLine(), out int buyQuantity) || buyQuantity <= 0)
                                 {
@@ -313,7 +312,6 @@ namespace Kassasystemet___Mille_Elfver
                                     continue;
                                 }
 
-                                Console.WriteLine("Exempel: ta 3 betala för 2, i det här fallet är Y = 2");
                                 Console.Write("Betala för Y: ");
                                 if (!int.TryParse(Console.ReadLine(), out int payForQuantity) || payForQuantity <= 0)
                                 {

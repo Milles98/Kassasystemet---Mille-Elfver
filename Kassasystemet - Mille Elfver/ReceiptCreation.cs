@@ -37,30 +37,6 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     if (quantity > 0)
                     {
-                        //kollar kilopris köp x betala för y uträkning o lägger in på totalPrice variabeln
-                        //if (product.Discounts.BuyQuantity > 0 && product.Discounts.PayForQuantity > 0 &&
-                        //    DateTime.Now >= product.Discounts.BuyQuantityStartDate && DateTime.Now <= product.Discounts.BuyQuantityEndDate)
-                        //{
-                        //    int buyQuantity = product.Discounts.BuyQuantity;
-                        //    int payForQuantity = product.Discounts.PayForQuantity;
-
-                        //    int discountedQuantity = (int)(quantity / buyQuantity) * payForQuantity + (int)(quantity % buyQuantity);
-                        //    decimal discountedPrice = product.KiloPrice * discountedQuantity;
-                        //    totalPrice = discountedPrice;
-
-                        //    productInfo = $"{product.Name.PadRight(20)} {quantity:F2} kg * {product.KiloPrice:F2} " +
-                        //        $"(Mängdrabatt {buyQuantity} för {payForQuantity})";
-
-                        //    //kollar om kilopriset även har en procentrabatt och lägger in den uträkningen i totalPrice
-                        //    if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate &&
-                        //        DateTime.Now <= product.Discounts.PercentEndDate)
-                        //    {
-                        //        decimal percentDiscountedPrice = discountedPrice - (discountedPrice * (product.Discounts.PercentageDiscount / 100));
-                        //        totalPrice = percentDiscountedPrice;
-                        //        productInfo += $" + ({product.Discounts.PercentageDiscount:F0}%)";
-                        //    }
-                        //}
-
                         //kollar kilopris procentrabatt uträkning o lägger in på totalPrice variabeln
                         if (product.Discounts.PercentageDiscount > 0 && DateTime.Now >= product.Discounts.PercentStartDate &&
                             DateTime.Now <= product.Discounts.PercentEndDate)
@@ -77,18 +53,15 @@ namespace Kassasystemet___Mille_Elfver
                             productInfo = $"{product.Name.PadRight(20)} {quantity:F2} kg * {product.KiloPrice:F2}";
                         }
                     }
-
                     else
                     {
                         ErrorMessage("Ogiltig inmatning, du kan inte ange 0 eller mindre.");
                         return;
                     }
-
                 }
 
                 else
                 {
-
                     if (quantity > 0 && quantity == (int)quantity)
                     {
                         //kollar styckpris köp x betala för y uträkning o lägger in på totalPrice variabeln
@@ -129,15 +102,12 @@ namespace Kassasystemet___Mille_Elfver
                             totalPrice = product.UnitPrice * quantity;
                             productInfo = $"{product.Name.PadRight(20)} {quantity:F0} st * {product.UnitPrice:F2}";
                         }
-
                     }
-
                     else
                     {
                         ErrorMessage("Ogiltig inmatning, mängden behöver vara mer än 0 och ett heltal!");
                         return;
                     }
-
                 }
 
                 int paddingSpaces = Math.Max(0, 70 - productInfo.Length - totalPrice.ToString("F2").Length);
