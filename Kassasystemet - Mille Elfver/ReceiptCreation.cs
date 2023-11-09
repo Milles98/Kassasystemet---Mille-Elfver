@@ -247,10 +247,10 @@ namespace Kassasystemet___Mille_Elfver
             }
         }
 
-        private void ErrorMessage(string message)
+        private void ErrorMessage(string msg)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(message);
+            Console.WriteLine(msg);
             Console.ResetColor();
         }
     }
