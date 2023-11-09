@@ -8,13 +8,13 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class ReceiptCreation
     {
-        private ProductServices _productServices;
+        private IProductService _productServices;
         private StringBuilder _receipt = new StringBuilder();
         private ReceiptCounter _receiptCounter = new ReceiptCounter();
         private FileManager _fileManager = new FileManager();
         private bool _cartIsEmpty = true;
 
-        public ReceiptCreation(ProductServices productServices)
+        public ReceiptCreation(IProductService productServices)
         {
             _productServices = productServices;
             int currentReceiptCounter = _fileManager.LoadReceiptCounter();

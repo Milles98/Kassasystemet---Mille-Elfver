@@ -9,7 +9,7 @@ namespace Kassasystemet___Mille_Elfver
 {
     public static class AdminMenu
     {
-        public static void AdminTools(ProductServices productServices)
+        public static void AdminTools(IProductService productServices)
         {
             bool adminRunning = true;
             do
@@ -56,7 +56,7 @@ namespace Kassasystemet___Mille_Elfver
             } while (adminRunning);
         }
 
-        private static void ChangeProductName(ProductServices productServices)
+        private static void ChangeProductName(IProductService productServices)
         {
             while (true)
             {
@@ -97,7 +97,7 @@ namespace Kassasystemet___Mille_Elfver
                 break;
             }
         }
-        private static void ChangeProductPrice(ProductServices productServices)
+        private static void ChangeProductPrice(IProductService productServices)
         {
             while (true)
             {
@@ -155,7 +155,7 @@ namespace Kassasystemet___Mille_Elfver
                 }
             }
         }
-        private static void AddProduct(ProductServices productServices)
+        private static void AddProduct(IProductService productServices)
         {
             while (true)
             {
@@ -226,7 +226,7 @@ namespace Kassasystemet___Mille_Elfver
                 }
             }
         }
-        private static void RemoveProduct(ProductServices productServices)
+        private static void RemoveProduct(IProductService productServices)
         {
             while (true)
             {
@@ -259,7 +259,7 @@ namespace Kassasystemet___Mille_Elfver
                 break;
             }
         }
-        private static void AddDiscount(ProductServices productServices)
+        private static void AddDiscount(IProductService productServices)
         {
             while (true)
             {
@@ -373,7 +373,7 @@ namespace Kassasystemet___Mille_Elfver
                 }
             }
         }
-        private static void RemoveDiscount(ProductServices productServices)
+        private static void RemoveDiscount(IProductService productServices)
         {
             while (true)
             {

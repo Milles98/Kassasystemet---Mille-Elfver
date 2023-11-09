@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public class ProductServices
+    public class ProductServices : IProductService
     {
         private Dictionary<string, Product> _products = new Dictionary<string, Product>();
         private FileManager _fileManager = new FileManager();

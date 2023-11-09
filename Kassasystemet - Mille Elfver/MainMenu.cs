@@ -12,7 +12,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <summary>
         /// Displays main menu to user
         /// </summary>
-        public static void Menu(ProductServices productServices)
+        public static void Menu(IProductService productServices)
         {
             bool programRunning = true;
             do
@@ -45,34 +45,7 @@ namespace Kassasystemet___Mille_Elfver
                             break;
 
                         case 3:
-                            Console.Clear();
-                            Console.ForegroundColor = ConsoleColor.DarkCyan;
-                            Console.WriteLine("╭───────────────────────────────────────────────────╮");
-                            Console.WriteLine("│ Historik för dagens kvitton... Tryck valfri knapp │");
-                            Console.WriteLine("╰───────────────────────────────────────────────────╯");
-                            Console.ResetColor();
-                            Console.ReadKey();
-
-                            var date = DateTime.Now.ToShortDateString();
-                            var filePath = $"../../../Kvitton/Kvitton - {date}.txt";
-
-                            if (File.Exists(filePath))
-                            {
-                                Console.Clear();
-                                var allReceipts = File.ReadAllLines(filePath);
-
-                                foreach (var receipt in allReceipts)
-                                {
-                                    Console.WriteLine(receipt);
-                                }
-                            }
-                            else
-                            {
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Dagens kvittohistorik fil är tom/saknas (Har du sålt något ännu?).");
-                                Console.ResetColor();
-                            }
-                            Console.WriteLine("\nEnter för att gå tillbaka till huvudmenyn");
+                            DisplayReceipts();
                             break;
 
                         case 0:
@@ -93,6 +66,37 @@ namespace Kassasystemet___Mille_Elfver
                 Console.ReadKey();
 
             } while (programRunning);
+        }
+        public static void DisplayReceipts()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("╭───────────────────────────────────────────────────╮");
+            Console.WriteLine("│ Historik för dagens kvitton... Tryck valfri knapp │");
+            Console.WriteLine("╰───────────────────────────────────────────────────╯");
+            Console.ResetColor();
+            Console.ReadKey();
+
+            var date = DateTime.Now.ToShortDateString();
+            var filePath = $"../../../Kvitton/Kvitton - {date}.txt";
+
+            if (File.Exists(filePath))
+            {
+                Console.Clear();
+                var allReceipts = File.ReadAllLines(filePath);
+
+                foreach (var receipt in allReceipts)
+                {
+                    Console.WriteLine(receipt);
+                }
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Dagens kvittohistorik fil är tom/saknas (Har du sålt något ännu?).");
+                Console.ResetColor();
+            }
+            Console.WriteLine("\nEnter för att gå tillbaka till huvudmenyn");
         }
     }
 }
