@@ -51,7 +51,7 @@ namespace Kassasystemet___Mille_Elfver
 
                 if (userInput == "MENU")
                 {
-                    Menu.MainMenu(productServices);
+                    MainMenu.Menu(productServices);
                 }
 
                 // splittar inmatningen index 0 (produktID) och index 1 (antal)

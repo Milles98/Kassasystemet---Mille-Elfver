@@ -7,12 +7,12 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public static class Menu
+    public static class MainMenu
     {
         /// <summary>
         /// Displays main menu to user
         /// </summary>
-        public static void MainMenu(ProductServices productServices)
+        public static void Menu(ProductServices productServices)
         {
             bool programRunning = true;
             do

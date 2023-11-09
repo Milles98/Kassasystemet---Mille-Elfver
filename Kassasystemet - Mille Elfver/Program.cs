@@ -17,7 +17,7 @@ namespace Kassasystemet___Mille_Elfver
 
             ProductServices productServices = new ProductServices();
 
-            Menu.MainMenu(productServices);
+            MainMenu.Menu(productServices);
         }
 
     }

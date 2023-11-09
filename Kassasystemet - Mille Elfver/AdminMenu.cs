@@ -14,7 +14,7 @@ namespace Kassasystemet___Mille_Elfver
             bool adminRunning = true;
             do
             {
-                AdminOptionsText();
+                AdminOptions();
                 int userInput;
                 if (!int.TryParse(Console.ReadLine(), out userInput))
                 {
@@ -366,7 +366,7 @@ namespace Kassasystemet___Mille_Elfver
 
                     case 0:
                         adminRunning = false;
-                        Menu.MainMenu(productServices);
+                        MainMenu.Menu(productServices);
                         break;
                 }
             } while (adminRunning);
@@ -374,7 +374,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <summary>
         /// Shows the admin menu
         /// </summary>
-        private static void AdminOptionsText()
+        private static void AdminOptions()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkCyan;
