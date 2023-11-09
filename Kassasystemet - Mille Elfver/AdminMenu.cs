@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public static class Admin
+    public static class AdminMenu
     {
         public static void AdminTools(ProductServices productServices)
         {
             bool adminRunning = true;
             do
             {
-                AdminMenu();
+                AdminOptionsText();
                 int userInput;
                 if (!int.TryParse(Console.ReadLine(), out userInput))
                 {
@@ -374,7 +374,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <summary>
         /// Shows the admin menu
         /// </summary>
-        private static void AdminMenu()
+        private static void AdminOptionsText()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkCyan;
