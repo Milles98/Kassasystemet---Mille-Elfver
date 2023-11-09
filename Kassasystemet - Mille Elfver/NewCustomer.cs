@@ -28,23 +28,14 @@ namespace Kassasystemet___Mille_Elfver
                     Console.Clear();
                     if (receiptCreation.CartIsEmpty())
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Kundvagnen är tom, lägg till lite produkter först.");
-                        Console.WriteLine("Valfri knapp, gå tillbaka och gör om!");
-                        Console.ResetColor();
-                        Console.ReadKey();
+                        ErrorMessage("Kundvagnen är tom, lägg till lite produkter först.");
+                        Thread.Sleep(1000);
                         continue;
                     }
-                    string receiptText = receiptCreation.CreateReceipt();
-                    fileManager.SaveReceipt(receiptText);
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Köpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
-                    Console.ResetColor();
 
-                    string soundFilePath = "../../../Kvittoljud/KACHING.wav";
-                    SoundPlayer soundPlayer = new SoundPlayer(soundFilePath);
-                    soundPlayer.Load();
-                    soundPlayer.Play();
+                    PaymentSuccessful(receiptCreation, fileManager);
+
+                    MakeSound();
 
                     break;
                 }
@@ -59,17 +50,34 @@ namespace Kassasystemet___Mille_Elfver
                 Product productID = productServices.GetProduct(productParts[0]);
                 if (productID == null)
                 {
-                    ErrorMessage();
+                    ErrorMessage("\"Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)\"");
                     continue;
                 }
                 if (productParts.Length != 2 || !decimal.TryParse(productParts[1], out decimal quantity) || quantity > 50000)
                 {
-                    ErrorMessage();
+                    ErrorMessage("\"Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)\"");
                     continue;
                 }
 
                 receiptCreation.AddingToReceipt(productID, quantity);
                 Thread.Sleep(1000);
+            }
+
+            static void MakeSound()
+            {
+                string soundFilePath = "../../../Kvittoljud/KACHING.wav";
+                SoundPlayer soundPlayer = new SoundPlayer(soundFilePath);
+                soundPlayer.Load();
+                soundPlayer.Play();
+            }
+
+            static void PaymentSuccessful(ReceiptCreation receiptCreation, FileManager fileManager)
+            {
+                string receiptText = receiptCreation.CreateReceipt();
+                fileManager.SaveReceipt(receiptText);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Köpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
+                Console.ResetColor();
             }
 
             /// <summary>
@@ -88,11 +96,11 @@ namespace Kassasystemet___Mille_Elfver
                 Console.Write("Kommando: ");
             }
 
-            static void ErrorMessage()
+            static void ErrorMessage(string message)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)");
+                Console.WriteLine(message);
                 Console.ResetColor();
             }
         }
