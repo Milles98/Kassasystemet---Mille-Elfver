@@ -9,7 +9,18 @@ namespace Kassasystemet___Mille_Elfver
     public class ReceiptCounter
     {
         private int _receiptCounter = 1337;
-
+        FileManager fileManager = new FileManager();
+        public void SetReceiptCounter(int receiptCounter)
+        {
+            if (receiptCounter > 0)
+            {
+                _receiptCounter = receiptCounter;
+            }
+            else
+            {
+                _receiptCounter = 1337;
+            }
+        }
         /// <summary>
         /// Gets the current receipt number
         /// </summary>
@@ -25,49 +36,7 @@ namespace Kassasystemet___Mille_Elfver
         public void IncreaseCounter()
         {
             _receiptCounter++;
-            SaveReceiptCounter(); 
-        }
-
-        /// <summary>
-        /// Loads the latest receipt number
-        /// </summary>
-        public void LoadReceiptCounter()
-        {
-            try
-            {
-                if (File.Exists("../../../Kvitton/KvittoRäknare.txt"))
-                {
-                    string counterText = File.ReadAllText("../../../Kvitton/KvittoRäknare.txt");
-                    if (int.TryParse(counterText, out int counter))
-                    {
-                        _receiptCounter = counter;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Fel vid laddandet av kvittoräknare: {ex.Message}");
-                Console.ResetColor();
-            }
-        }
-
-        /// <summary>
-        /// Saves the last receipt number to "KvittoRäknare" textfile and creates if it doesnt exist
-        /// </summary>
-        public void SaveReceiptCounter()
-        {
-            try
-            {
-                Directory.CreateDirectory($"../../../Kvitton");
-                File.WriteAllText("../../../Kvitton/KvittoRäknare.txt", _receiptCounter.ToString());
-            }
-            catch (Exception ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Fel vid sparandet av kvittoräknare: {ex.Message}");
-                Console.ResetColor();
-            }
+            fileManager.SaveReceiptCounter(_receiptCounter);
         }
     }
 }

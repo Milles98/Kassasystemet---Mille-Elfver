@@ -10,7 +10,8 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class ProductServices
     {
-        private Dictionary<string, Product> _availableProducts = new Dictionary<string, Product>();
+        private Dictionary<string, Product> _products = new Dictionary<string, Product>();
+        private FileManager _fileManager = new FileManager();
 
         public ProductServices()
         {
@@ -22,12 +23,12 @@ namespace Kassasystemet___Mille_Elfver
         /// </summary>
         public void DataSeeding()
         {
-            LoadProductsFromFile();
+            _fileManager.LoadProductsFromFile(_products);
 
-            if (_availableProducts.Count == 0)
+            if (_products.Count == 0)
             {
                 StartingItems();
-                SaveProductsToFile();
+                _fileManager.SaveProductsToFile(_products);
             }
         }
 
@@ -68,16 +69,16 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="kiloPrice"></param>
         private void AddProductToDictionary(string productId, string name, decimal unitPrice, decimal kiloPrice)
         {
-            if (_availableProducts.ContainsKey(productId))
+            if (_products.ContainsKey(productId))
             {
-                _availableProducts[productId].Name = name;
-                _availableProducts[productId].UnitPrice = unitPrice;
-                _availableProducts[productId].KiloPrice = kiloPrice;
+                _products[productId].Name = name;
+                _products[productId].UnitPrice = unitPrice;
+                _products[productId].KiloPrice = kiloPrice;
             }
             else
             {
                 var product = new Product(productId, name, unitPrice, kiloPrice);
-                _availableProducts.Add(product.Id, product);
+                _products.Add(product.Id, product);
             }
         }
         /// <summary>
@@ -89,15 +90,15 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="endDate"></param>
         public void SetPercentageDiscount(string productId, decimal percentageDiscount, DateTime startDate, DateTime endDate)
         {
-            if (_availableProducts.ContainsKey(productId))
+            if (_products.ContainsKey(productId))
             {
-                Product product = _availableProducts[productId];
+                Product product = _products[productId];
 
                 product.Discounts.PercentageDiscount = percentageDiscount;
                 product.Discounts.PercentStartDate = startDate;
                 product.Discounts.PercentEndDate = endDate;
 
-                SaveProductsToFile();
+                _fileManager.SaveProductsToFile(_products);
 
                 InputSuccessMessage($"Kampanjpris satt på produkt med ID {productId}.");
 
@@ -109,9 +110,9 @@ namespace Kassasystemet___Mille_Elfver
         }
         public void SetQuantityDiscount(string productId, int buyQuantity, int payForQuantity, DateTime startDate, DateTime endDate)
         {
-            if (_availableProducts.ContainsKey(productId))
+            if (_products.ContainsKey(productId))
             {
-                Product product = _availableProducts[productId];
+                Product product = _products[productId];
 
                 if (!product.IsKiloPrice && buyQuantity > payForQuantity)
                 {
@@ -120,7 +121,7 @@ namespace Kassasystemet___Mille_Elfver
                     product.Discounts.BuyQuantityStartDate = startDate;
                     product.Discounts.BuyQuantityEndDate = endDate;
 
-                    SaveProductsToFile();
+                    _fileManager.SaveProductsToFile(_products);
 
                     InputSuccessMessage($"Mängdrabatt satt på produkt med ID {productId}.");
                 }
@@ -142,13 +143,13 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="productId"></param>
         public void RemoveDiscount(string productId)
         {
-            if (_availableProducts.ContainsKey(productId) && (_availableProducts[productId].Discounts.PercentageDiscount > 0
-                || _availableProducts[productId].Discounts.BuyQuantity > 0))
+            if (_products.ContainsKey(productId) && (_products[productId].Discounts.PercentageDiscount > 0
+                || _products[productId].Discounts.BuyQuantity > 0))
             {
-                _availableProducts[productId].Discounts = new ProductDiscount(0, 0, 0, DateTime.MinValue,
+                _products[productId].Discounts = new ProductDiscount(0, 0, 0, DateTime.MinValue,
                     DateTime.MinValue, DateTime.MinValue, DateTime.MinValue);
 
-                SaveProductsToFile();
+                _fileManager.SaveProductsToFile(_products);
 
                 InputSuccessMessage($"Rabatt har tagits bort för produkt med ID {productId}.");
             }
@@ -165,10 +166,10 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="newName"></param>
         public void UpdateProductName(string productId, string newName)
         {
-            if (_availableProducts.ContainsKey(productId))
+            if (_products.ContainsKey(productId))
             {
-                _availableProducts[productId].Name = newName;
-                SaveProductsToFile();
+                _products[productId].Name = newName;
+                _fileManager.SaveProductsToFile(_products);
 
                 InputSuccessMessage($"Produktnamn uppdaterat på: {productId}.");
             }
@@ -186,7 +187,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="newKiloPrice"></param>
         public void UpdateProductPrice(string productId, decimal newPrice, string priceType)
         {
-            if (_availableProducts.ContainsKey(productId))
+            if (_products.ContainsKey(productId))
             {
                 if (newPrice <= 0)
                 {
@@ -195,13 +196,13 @@ namespace Kassasystemet___Mille_Elfver
                 }
                 if (priceType.ToLower() == "s")
                 {
-                    _availableProducts[productId].UnitPrice = newPrice;
-                    _availableProducts[productId].KiloPrice = 0;
+                    _products[productId].UnitPrice = newPrice;
+                    _products[productId].KiloPrice = 0;
                 }
                 else if (priceType.ToLower() == "k")
                 {
-                    _availableProducts[productId].KiloPrice = newPrice;
-                    _availableProducts[productId].UnitPrice = 0;
+                    _products[productId].KiloPrice = newPrice;
+                    _products[productId].UnitPrice = 0;
                 }
                 else
                 {
@@ -209,8 +210,8 @@ namespace Kassasystemet___Mille_Elfver
                     return;
                 }
 
-                SaveProductsToFile();
-                LoadProductsFromFile();
+                _fileManager.SaveProductsToFile(_products);
+                _fileManager.LoadProductsFromFile(_products);
 
                 InputSuccessMessage($"Produktpris uppdaterat med ID {productId}.");
             }
@@ -248,10 +249,10 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="productId"></param>
         public void RemoveProduct(string productId)
         {
-            if (_availableProducts.ContainsKey(productId))
+            if (_products.ContainsKey(productId))
             {
-                _availableProducts.Remove(productId);
-                SaveProductsToFile();
+                _products.Remove(productId);
+                _fileManager.SaveProductsToFile(_products);
 
                 InputSuccessMessage($"Produkt med ID {productId} har tagits bort.");
             }
@@ -262,105 +263,13 @@ namespace Kassasystemet___Mille_Elfver
         }
 
         /// <summary>
-        /// Saves all products to Produkter map & Produkter.txt file, if it doesnt exist, creates one
-        /// </summary>
-        public void SaveProductsToFile()
-        {
-            try
-            {
-                Directory.CreateDirectory($"../../../Produkter");
-                using (StreamWriter writer = new StreamWriter("../../../Produkter/Produkter.txt"))
-                {
-                    foreach (var product in _availableProducts.Values)
-                    {
-                        string discountInfo = $"{product.Discounts.PercentageDiscount:F2}";
-
-                        string dateInfo = $"{product.Discounts.PercentStartDate:yyyy-MM-dd}|{product.Discounts.PercentEndDate:yyyy-MM-dd}";
-
-                        string amountDiscountInfo = $"{product.Discounts.BuyQuantity}|{product.Discounts.PayForQuantity}|" +
-                            $"{product.Discounts.BuyQuantityStartDate:yyyy-MM-dd}|{product.Discounts.BuyQuantityEndDate:yyyy-MM-dd}";
-
-                        writer.WriteLine($"{product.Id}|{product.Name}|{product.UnitPrice}|{product.KiloPrice}|" +
-                            $"{discountInfo}|{dateInfo}|{amountDiscountInfo}");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorMessage($"Fel vid sparandet av produktlistan: {ex.Message}");
-            }
-        }
-
-        /// <summary>
-        /// Checks if produkter map & txt file exists, then loads all products onto it
-        /// </summary>
-        public void LoadProductsFromFile()
-        {
-            if (File.Exists("../../../Produkter/Produkter.txt"))
-            {
-                using (StreamReader reader = new StreamReader("../../../Produkter/Produkter.txt"))
-                {
-                    string line;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        string[] parts = line.Split('|');
-                        if (parts.Length >= 4)
-                        {
-                            string id = parts[0].Trim();
-                            string name = parts[1].Trim();
-                            decimal unitPrice = decimal.Parse(parts[2].Trim());
-                            decimal kiloPrice = decimal.Parse(parts[3].Trim());
-
-                            decimal discount = 0;
-                            int buyQuantity = 0;
-                            int payForQuantity = 0;
-                            DateTime discountStartDate = DateTime.MinValue;
-                            DateTime discountEndDate = DateTime.MinValue;
-                            DateTime buyQuantityStartDate = DateTime.MinValue;
-                            DateTime buyQuantityEndDate = DateTime.MinValue;
-
-                            if (parts.Length >= 7)
-                            {
-                                discount = decimal.Parse(parts[4].Trim());
-                                discountStartDate = DateTime.Parse(parts[5].Trim());
-                                discountEndDate = DateTime.Parse(parts[6].Trim());
-                            }
-
-                            if (parts.Length >= 9)
-                            {
-                                buyQuantity = int.Parse(parts[7].Trim());
-                                payForQuantity = int.Parse(parts[8].Trim());
-                            }
-
-                            if (parts.Length >= 11)
-                            {
-                                buyQuantity = int.Parse(parts[7].Trim());
-                                payForQuantity = int.Parse(parts[8].Trim());
-
-                                buyQuantityStartDate = DateTime.Parse(parts[9].Trim());
-                                buyQuantityEndDate = DateTime.Parse(parts[10].Trim());
-                            }
-
-                            _availableProducts[id] = new Product(id, name, unitPrice, kiloPrice)
-                            {
-                                Discounts = new ProductDiscount(discount, buyQuantity, payForQuantity, discountStartDate,
-                                discountEndDate, buyQuantityStartDate, buyQuantityEndDate)
-                            };
-
-                        }
-                    }
-                }
-            }
-        }
-
-        /// <summary>
         /// Checks if the product ID exists
         /// </summary>
         /// <param name="productId"></param>
         /// <returns></returns>
         public bool ProductExists(string productId)
         {
-            return _availableProducts.ContainsKey(productId);
+            return _products.ContainsKey(productId);
         }
 
         /// <summary>
@@ -370,7 +279,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <returns></returns>
         public Product GetProduct(string productId)
         {
-            if (_availableProducts.TryGetValue(productId, out var product))
+            if (_products.TryGetValue(productId, out var product))
             {
                 return product;
             }
@@ -386,7 +295,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="kiloPrice"></param>
         public void AddProduct(string productId, string productName, decimal unitPrice, decimal kiloPrice, string priceType)
         {
-            if (!_availableProducts.ContainsKey(productId))
+            if (!_products.ContainsKey(productId))
             {
                 if (priceType.ToLower() == "s" && unitPrice <= 1)
                 {
@@ -398,8 +307,8 @@ namespace Kassasystemet___Mille_Elfver
                     ErrorMessage("\nOgiltigt kilopris. Kilopriset måste vara större än 0.");
                     return;
                 }
-                _availableProducts[productId] = new Product(productId, productName, unitPrice, kiloPrice);
-                SaveProductsToFile();
+                _products[productId] = new Product(productId, productName, unitPrice, kiloPrice);
+                _fileManager.SaveProductsToFile(_products);
                 InputSuccessMessage($"Produkt med ID {productId} har lagts till.");
             }
             else
@@ -420,7 +329,7 @@ namespace Kassasystemet___Mille_Elfver
             Console.WriteLine("ID  Produkt                Pris          Rabatter");
             Console.ResetColor();
 
-            foreach (var product in _availableProducts.Values)
+            foreach (var product in _products.Values)
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 string priceInfo = product.IsKiloPrice ? $"{product.KiloPrice:F2} kr/kg" : $"{product.UnitPrice:F2} kr/st"; //ternary!

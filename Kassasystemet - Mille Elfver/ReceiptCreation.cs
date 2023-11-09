@@ -11,12 +11,14 @@ namespace Kassasystemet___Mille_Elfver
         private ProductServices _productServices;
         private StringBuilder _receipt = new StringBuilder();
         private ReceiptCounter _receiptCounter = new ReceiptCounter();
+        private FileManager _fileManager = new FileManager();
         private bool _cartIsEmpty = true;
 
         public ReceiptCreation(ProductServices productServices)
         {
             _productServices = productServices;
-            _receiptCounter.LoadReceiptCounter();
+            int currentReceiptCounter = _fileManager.LoadReceiptCounter();
+            _receiptCounter.SetReceiptCounter(currentReceiptCounter);
         }
 
         /// <summary>
@@ -220,31 +222,10 @@ namespace Kassasystemet___Mille_Elfver
             receiptText.AppendLine(totalLine);
             receiptText.AppendLine(receiptSeparator);
 
-            _receiptCounter.SaveReceiptCounter();
             _receiptCounter.IncreaseCounter();
 
             return receiptText.ToString();
 
-        }
-
-        /// <summary>
-        /// Takes variable receiptText from GenerateReceipt method and saves it to Kvitto.txt file
-        /// </summary>
-        /// <param name="receiptText"></param>
-        public void SaveReceipt(string receiptText)
-        {
-            try
-            {
-                var date = DateTime.Now.ToShortDateString();
-                string fileName = $"Kvitton - {date}.txt";
-                Directory.CreateDirectory($"../../../Kvitton");
-                File.AppendAllText($"../../../Kvitton/{fileName}", receiptText);
-                Console.WriteLine(receiptText);
-            }
-            catch (Exception ex)
-            {
-                ErrorMessage($"Fel vid sparandet av kvitto: {ex.Message}");
-            }
         }
 
         private void ErrorMessage(string msg)

@@ -76,7 +76,6 @@ namespace Kassasystemet___Mille_Elfver
                             break;
 
                         case 0:
-                            productServices.SaveProductsToFile();
                             Console.WriteLine("Tryck valfri knapp för att avsluta programmet.");
                             Console.ReadKey();
                             programRunning = false;

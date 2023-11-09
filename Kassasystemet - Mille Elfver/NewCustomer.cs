@@ -15,6 +15,7 @@ namespace Kassasystemet___Mille_Elfver
         public static void NewCustomerChoices(ProductServices productServices)
         {
             ReceiptCreation receiptCreation = new ReceiptCreation(productServices);
+            FileManager fileManager = new FileManager();
 
             while (true)
             {
@@ -35,7 +36,7 @@ namespace Kassasystemet___Mille_Elfver
                         continue;
                     }
                     string receiptText = receiptCreation.CreateReceipt();
-                    receiptCreation.SaveReceipt(receiptText);
+                    fileManager.SaveReceipt(receiptText);
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Köpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
                     Console.ResetColor();
