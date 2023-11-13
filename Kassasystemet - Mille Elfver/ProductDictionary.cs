@@ -78,7 +78,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="kiloPrice"></param>
         private void AddProductToDictionary(string productId, string name, decimal unitPrice, decimal kiloPrice)
         {
-            if (_products.ContainsKey(productId))
+            if (_products.ContainsKey(productId)) // om ID redan finns ska en ny product ej skapas
             {
                 _products[productId].Name = name;
                 _products[productId].UnitPrice = unitPrice;

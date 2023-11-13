@@ -33,7 +33,8 @@ namespace Kassasystemet___Mille_Elfver
                         continue;
                     }
 
-                    PaymentSuccessful(receiptCreation, fileManager);
+                    string receiptText = receiptCreation.CreateReceipt();
+                    SaveReceipt(receiptText, fileManager);
 
                     MakeSound();
 
@@ -50,12 +51,12 @@ namespace Kassasystemet___Mille_Elfver
                 Product productID = productServices.GetProduct(productParts[0]);
                 if (productID == null)
                 {
-                    ErrorMessage("\"Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)\"");
+                    ErrorMessage("Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)");
                     continue;
                 }
                 if (productParts.Length != 2 || !decimal.TryParse(productParts[1], out decimal quantity) || quantity > 50000)
                 {
-                    ErrorMessage("\"Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)\"");
+                    ErrorMessage("Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)");
                     continue;
                 }
 
@@ -71,13 +72,13 @@ namespace Kassasystemet___Mille_Elfver
                 soundPlayer.Play();
             }
 
-            static void PaymentSuccessful(ReceiptCreation receiptCreation, FileManager fileManager)
+            static void SaveReceipt(string receiptText, FileManager fileManager)
             {
-                string receiptText = receiptCreation.CreateReceipt();
                 fileManager.SaveReceipt(receiptText);
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Köpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
                 Console.ResetColor();
+
             }
 
             /// <summary>
