@@ -10,8 +10,8 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class ProductServices : IProductService
     {
-        private ProductCatalog _productCatalog;
-        private FileManager _fileManager;
+        private IProductCatalog _productCatalog;
+        private IFileManager _fileManager;
 
         public ProductServices()
         {

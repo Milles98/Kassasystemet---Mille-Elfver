@@ -52,6 +52,9 @@ namespace Kassasystemet___Mille_Elfver
                     MakeSound();
 
                     Console.ReadKey();
+
+                    MainMenu.Menu(productServices);
+
                 }
 
                 if (userInput == "MENU")

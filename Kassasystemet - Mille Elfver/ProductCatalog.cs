@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public class ProductCatalog
+    public class ProductCatalog : IProductCatalog
     {
-        private static ProductCatalog _instance;
+        private static IProductCatalog _instance = new ProductCatalog();
         private Dictionary<string, Product> _products;
-        private FileManager _fileManager;
+        private IFileManager _fileManager;
 
         private ProductCatalog()
         {
@@ -18,17 +18,8 @@ namespace Kassasystemet___Mille_Elfver
             _fileManager = new FileManager();
             DataSeeding();
         }
-        public static ProductCatalog Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new ProductCatalog();
-                }
-                return _instance;
-            }
-        }
+
+        public static IProductCatalog Instance => _instance;
 
         public void DataSeeding()
         {
