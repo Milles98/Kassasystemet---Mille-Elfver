@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public interface IProductService
+    public interface IProductServices
     {
         void SetPercentageDiscount(string productId, decimal percentage, DateTime startDate, DateTime endDate);
         void SetQuantityDiscount(string productId, int buyQuantity, int payForQuantity, DateTime startDate, DateTime endDate);

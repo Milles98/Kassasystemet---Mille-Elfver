@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public class ProductServices : IProductService
+    public class ProductServices : IProductServices
     {
         private IProductCatalog _productCatalog;
         private IFileManager _fileManager;

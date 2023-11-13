@@ -13,7 +13,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <summary>
         /// Menu choices to add products, display items, pay for items and return to menu
         /// </summary>
-        public static void ProcessCustomer(IProductService productServices)
+        public static void ProcessCustomer(IProductServices productServices)
         {
             ReceiptCreation receiptCreation = new ReceiptCreation(productServices);
             FileManager fileManager = new FileManager();
@@ -34,7 +34,7 @@ namespace Kassasystemet___Mille_Elfver
                 }
             }
 
-            static void ProcessUserInput(string userInput, IProductService productServices, ReceiptCreation receiptCreation, FileManager fileManager)
+            static void ProcessUserInput(string userInput, IProductServices productServices, ReceiptCreation receiptCreation, FileManager fileManager)
             {
                 if (userInput == "PAY")
                 {
