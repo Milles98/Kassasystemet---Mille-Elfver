@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public class ProductDictionary
+    public class ProductCatalog
     {
-        private static ProductDictionary _instance;
+        private static ProductCatalog _instance;
         private Dictionary<string, Product> _products;
         private FileManager _fileManager;
 
-        private ProductDictionary()
+        private ProductCatalog()
         {
             _products = new Dictionary<string, Product>();
             _fileManager = new FileManager();
             DataSeeding();
         }
-        public static ProductDictionary Instance
+        public static ProductCatalog Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new ProductDictionary();
+                    _instance = new ProductCatalog();
                 }
                 return _instance;
             }
@@ -46,27 +46,27 @@ namespace Kassasystemet___Mille_Elfver
         /// </summary>
         private void StartingItems()
         {
-            AddProductToDictionary("300", "Bananer", 0, 15.50m);
-            AddProductToDictionary("301", "Tomater", 0, 79.90m);
-            AddProductToDictionary("302", "Apelsiner", 0, 9.90m);
-            AddProductToDictionary("303", "Godis", 0, 99.50m);
-            AddProductToDictionary("304", "Kött", 0, 199m);
-            AddProductToDictionary("305", "Kyckling", 0, 129.90m);
-            AddProductToDictionary("306", "Nutella", 21.90m, 0);
-            AddProductToDictionary("307", "Citron", 5.50m, 0);
-            AddProductToDictionary("308", "Jordgubbar", 39.90m, 0);
-            AddProductToDictionary("309", "Grädde", 24.90m, 0);
-            AddProductToDictionary("310", "Choklad", 22.90m, 0);
-            AddProductToDictionary("311", "Mango", 19.90m, 0);
-            AddProductToDictionary("312", "Öl", 15.50m, 0);
-            AddProductToDictionary("313", "Kex", 23.90m, 0);
-            AddProductToDictionary("314", "Gurka", 10m, 0);
-            AddProductToDictionary("315", "Leverpastej", 24.90m, 0);
-            AddProductToDictionary("316", "Chips", 27.90m, 0);
-            AddProductToDictionary("317", "Bröd", 34.90m, 0);
-            AddProductToDictionary("318", "Mjölk", 16.90m, 0);
-            AddProductToDictionary("319", "Yoghurt", 29.90m, 0);
-            AddProductToDictionary("320", "Glass", 39.90m, 0);
+            AddProductToCatalog("300", "Bananer", 0, 15.50m);
+            AddProductToCatalog("301", "Tomater", 0, 79.90m);
+            AddProductToCatalog("302", "Apelsiner", 0, 9.90m);
+            AddProductToCatalog("303", "Godis", 0, 99.50m);
+            AddProductToCatalog("304", "Kött", 0, 199m);
+            AddProductToCatalog("305", "Kyckling", 0, 129.90m);
+            AddProductToCatalog("306", "Nutella", 21.90m, 0);
+            AddProductToCatalog("307", "Citron", 5.50m, 0);
+            AddProductToCatalog("308", "Jordgubbar", 39.90m, 0);
+            AddProductToCatalog("309", "Grädde", 24.90m, 0);
+            AddProductToCatalog("310", "Choklad", 22.90m, 0);
+            AddProductToCatalog("311", "Mango", 19.90m, 0);
+            AddProductToCatalog("312", "Öl", 15.50m, 0);
+            AddProductToCatalog("313", "Kex", 23.90m, 0);
+            AddProductToCatalog("314", "Gurka", 10m, 0);
+            AddProductToCatalog("315", "Leverpastej", 24.90m, 0);
+            AddProductToCatalog("316", "Chips", 27.90m, 0);
+            AddProductToCatalog("317", "Bröd", 34.90m, 0);
+            AddProductToCatalog("318", "Mjölk", 16.90m, 0);
+            AddProductToCatalog("319", "Yoghurt", 29.90m, 0);
+            AddProductToCatalog("320", "Glass", 39.90m, 0);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="name"></param>
         /// <param name="unitPrice"></param>
         /// <param name="kiloPrice"></param>
-        private void AddProductToDictionary(string productId, string name, decimal unitPrice, decimal kiloPrice)
+        private void AddProductToCatalog(string productId, string name, decimal unitPrice, decimal kiloPrice)
         {
             if (_products.ContainsKey(productId)) // om ID redan finns ska en ny product ej skapas
             {

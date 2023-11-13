@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public static class NewCustomer
+    public static class CheckoutProcess
     {
+
         /// <summary>
         /// Menu choices to add products, display items, pay for items and return to menu
         /// </summary>
-        public static void NewCustomerChoices(IProductService productServices)
+        public static void ProcessCustomer(IProductService productServices)
         {
             ReceiptCreation receiptCreation = new ReceiptCreation(productServices);
             FileManager fileManager = new FileManager();
@@ -20,9 +21,21 @@ namespace Kassasystemet___Mille_Elfver
             while (true)
             {
                 productServices.DisplayAvailableProducts();
-                NewCustomerMenu();
+                DisplayMenu();
                 string userInput = Console.ReadLine().Trim().ToUpper();
 
+                try
+                {
+                    ProcessUserInput(userInput, productServices, receiptCreation, fileManager);
+                }
+                catch (FormatException ex)
+                {
+                    ErrorMessage($"Fel vid inmatning: {ex.Message}");
+                }
+            }
+
+            static void ProcessUserInput(string userInput, IProductService productServices, ReceiptCreation receiptCreation, FileManager fileManager)
+            {
                 if (userInput == "PAY")
                 {
                     Console.Clear();
@@ -30,7 +43,7 @@ namespace Kassasystemet___Mille_Elfver
                     {
                         ErrorMessage("Kundvagnen är tom, lägg till lite produkter först.");
                         Thread.Sleep(1000);
-                        continue;
+                        return;
                     }
 
                     string receiptText = receiptCreation.CreateReceipt();
@@ -38,7 +51,7 @@ namespace Kassasystemet___Mille_Elfver
 
                     MakeSound();
 
-                    break;
+                    Console.ReadKey();
                 }
 
                 if (userInput == "MENU")
@@ -46,18 +59,19 @@ namespace Kassasystemet___Mille_Elfver
                     MainMenu.Menu(productServices);
                 }
 
-                // splittar inmatningen index 0 (produktID) och index 1 (antal)
                 string[] productParts = userInput.Split(' ');
                 Product productID = productServices.GetProduct(productParts[0]);
+
                 if (productID == null)
                 {
                     ErrorMessage("Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)");
-                    continue;
+                    return;
                 }
+
                 if (productParts.Length != 2 || !decimal.TryParse(productParts[1], out decimal quantity) || quantity > 50000)
                 {
                     ErrorMessage("Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)");
-                    continue;
+                    return;
                 }
 
                 receiptCreation.AddingToReceipt(productID, quantity);
@@ -78,13 +92,12 @@ namespace Kassasystemet___Mille_Elfver
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Köpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
                 Console.ResetColor();
-
             }
 
             /// <summary>
             /// Menu when user goes through option '1. Ny Kund'
             /// </summary>
-            static void NewCustomerMenu()
+            static void DisplayMenu()
             {
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("╭──────────────────────────────────╮");

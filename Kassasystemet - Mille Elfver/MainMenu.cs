@@ -37,7 +37,7 @@ namespace Kassasystemet___Mille_Elfver
                     {
                         case 1:
                             Console.Clear();
-                            NewCustomer.NewCustomerChoices(productServices);
+                            CheckoutProcess.ProcessCustomer(productServices);
                             break;
 
                         case 2:

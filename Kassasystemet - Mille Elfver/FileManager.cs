@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet___Mille_Elfver
 {
-    public class FileManager
+    public class FileManager : IFileManager
     {
 
         /// <summary>

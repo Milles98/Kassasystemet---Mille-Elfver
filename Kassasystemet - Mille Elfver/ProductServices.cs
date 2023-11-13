@@ -10,12 +10,12 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class ProductServices : IProductService
     {
-        private ProductDictionary _productDictionary;
+        private ProductCatalog _productCatalog;
         private FileManager _fileManager;
 
         public ProductServices()
         {
-            _productDictionary = ProductDictionary.Instance;
+            _productCatalog = ProductCatalog.Instance;
             _fileManager = new FileManager();
         }
 
@@ -28,7 +28,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="endDate"></param>
         public void SetPercentageDiscount(string productId, decimal percentageDiscount, DateTime startDate, DateTime endDate)
         {
-            Dictionary<string, Product> products = _productDictionary.GetProducts();
+            Dictionary<string, Product> products = _productCatalog.GetProducts();
 
             if (products.ContainsKey(productId))
             {
@@ -50,7 +50,7 @@ namespace Kassasystemet___Mille_Elfver
         }
         public void SetQuantityDiscount(string productId, int buyQuantity, int payForQuantity, DateTime startDate, DateTime endDate)
         {
-            Dictionary<string, Product> products = _productDictionary.GetProducts();
+            Dictionary<string, Product> products = _productCatalog.GetProducts();
 
             if (products.ContainsKey(productId))
             {
@@ -85,7 +85,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="productId"></param>
         public void RemoveDiscount(string productId)
         {
-            Dictionary<string, Product> products = _productDictionary.GetProducts();
+            Dictionary<string, Product> products = _productCatalog.GetProducts();
 
             if (products.ContainsKey(productId) && (products[productId].Discounts.PercentageDiscount > 0
                 || products[productId].Discounts.BuyQuantity > 0))
@@ -110,7 +110,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="newName"></param>
         public void UpdateProductName(string productId, string newName)
         {
-            Dictionary<string, Product> products = _productDictionary.GetProducts();
+            Dictionary<string, Product> products = _productCatalog.GetProducts();
 
             if (products.ContainsKey(productId))
             {
@@ -133,7 +133,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="newKiloPrice"></param>
         public void UpdateProductPrice(string productId, decimal newPrice, string priceType)
         {
-            Dictionary<string, Product> products = _productDictionary.GetProducts();
+            Dictionary<string, Product> products = _productCatalog.GetProducts();
 
             if (products.ContainsKey(productId))
             {
@@ -197,7 +197,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="productId"></param>
         public void RemoveProduct(string productId)
         {
-            Dictionary<string, Product> products = _productDictionary.GetProducts();
+            Dictionary<string, Product> products = _productCatalog.GetProducts();
 
             if (products.ContainsKey(productId))
             {
@@ -219,7 +219,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <returns></returns>
         public bool ProductExists(string productId)
         {
-            Dictionary<string, Product> products = _productDictionary.GetProducts();
+            Dictionary<string, Product> products = _productCatalog.GetProducts();
 
             return products.ContainsKey(productId);
         }
@@ -231,7 +231,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <returns></returns>
         public Product GetProduct(string productId)
         {
-            Dictionary<string, Product> products = _productDictionary.GetProducts();
+            Dictionary<string, Product> products = _productCatalog.GetProducts();
 
             if (products.TryGetValue(productId, out var product))
             {
@@ -249,7 +249,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="kiloPrice"></param>
         public void AddProduct(string productId, string productName, decimal unitPrice, decimal kiloPrice, string priceType)
         {
-            Dictionary<string, Product> products = _productDictionary.GetProducts();
+            Dictionary<string, Product> products = _productCatalog.GetProducts();
 
             if (!products.ContainsKey(productId))
             {
@@ -278,7 +278,7 @@ namespace Kassasystemet___Mille_Elfver
         /// </summary>
         public void DisplayAvailableProducts()
         {
-            Dictionary<string, Product> products = _productDictionary.GetProducts();
+            Dictionary<string, Product> products = _productCatalog.GetProducts();
 
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("╭─────────────────────────────╮");
