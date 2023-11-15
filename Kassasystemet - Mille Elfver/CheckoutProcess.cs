@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
@@ -15,110 +16,113 @@ namespace Kassasystemet___Mille_Elfver
         /// </summary>
         public static void ProcessCustomer(IProductServices productServices)
         {
-            ReceiptCreation receiptCreation = new ReceiptCreation(productServices);
-            FileManager fileManager = new FileManager();
-
-            while (true)
+            using (var container = AutoFacRegistration.RegisteredContainers())
             {
-                productServices.DisplayAvailableProducts();
-                DisplayMenu();
-                string userInput = Console.ReadLine().Trim().ToUpper();
+                ReceiptCreation receiptCreation = container.Resolve<ReceiptCreation>();
+                IFileManager fileManager = container.Resolve<IFileManager>();
 
-                try
+                while (true)
                 {
-                    ProcessUserInput(userInput, productServices, receiptCreation, fileManager);
-                }
-                catch (FormatException ex)
-                {
-                    ErrorMessage($"Fel vid inmatning: {ex.Message}");
-                }
-            }
+                    productServices.DisplayAvailableProducts();
+                    DisplayMenu();
+                    string userInput = Console.ReadLine().Trim().ToUpper();
 
-            static void ProcessUserInput(string userInput, IProductServices productServices, ReceiptCreation receiptCreation, FileManager fileManager)
-            {
-                if (userInput == "PAY")
-                {
-                    Console.Clear();
-                    if (receiptCreation.CartIsEmpty())
+                    try
                     {
-                        ErrorMessage("Kundvagnen är tom, lägg till lite produkter först.");
-                        Thread.Sleep(1000);
+                        ProcessUserInput(userInput, productServices, receiptCreation, fileManager);
+                    }
+                    catch (FormatException ex)
+                    {
+                        ErrorMessage($"Fel vid inmatning: {ex.Message}");
+                    }
+                }
+
+                static void ProcessUserInput(string userInput, IProductServices productServices, ReceiptCreation receiptCreation, IFileManager fileManager)
+                {
+                    if (userInput == "PAY")
+                    {
+                        Console.Clear();
+                        if (receiptCreation.CartIsEmpty())
+                        {
+                            ErrorMessage("Kundvagnen är tom, lägg till lite produkter först.");
+                            Thread.Sleep(1000);
+                            return;
+                        }
+
+                        string receiptText = receiptCreation.CreateReceipt();
+                        SaveReceipt(receiptText, fileManager);
+
+                        MakeSound();
+
+                        Console.ReadKey();
+
+                        MainMenu.Menu(productServices);
+
+                    }
+
+                    if (userInput == "MENU")
+                    {
+                        MainMenu.Menu(productServices);
+                    }
+
+                    string[] productParts = userInput.Split(' ');
+                    Product productID = productServices.GetProduct(productParts[0]);
+
+                    if (productID == null)
+                    {
+                        ErrorMessage("Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)");
                         return;
                     }
 
-                    string receiptText = receiptCreation.CreateReceipt();
-                    SaveReceipt(receiptText, fileManager);
+                    if (productParts.Length != 2 || !decimal.TryParse(productParts[1], out decimal quantity) || quantity > 50000)
+                    {
+                        ErrorMessage("Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)");
+                        return;
+                    }
 
-                    MakeSound();
-
-                    Console.ReadKey();
-
-                    MainMenu.Menu(productServices);
-
+                    receiptCreation.AddingToReceipt(productID, quantity);
+                    Thread.Sleep(1000);
                 }
 
-                if (userInput == "MENU")
+                static void MakeSound()
                 {
-                    MainMenu.Menu(productServices);
+                    string soundFilePath = "../../../Kvittoljud/KACHING.wav";
+                    SoundPlayer soundPlayer = new SoundPlayer(soundFilePath);
+                    soundPlayer.Load();
+                    soundPlayer.Play();
                 }
 
-                string[] productParts = userInput.Split(' ');
-                Product productID = productServices.GetProduct(productParts[0]);
-
-                if (productID == null)
+                static void SaveReceipt(string receiptText, IFileManager fileManager)
                 {
-                    ErrorMessage("Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)");
-                    return;
+                    fileManager.SaveReceipt(receiptText);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Köpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
+                    Console.ResetColor();
                 }
 
-                if (productParts.Length != 2 || !decimal.TryParse(productParts[1], out decimal quantity) || quantity > 50000)
+                /// <summary>
+                /// Menu when user goes through option '1. Ny Kund'
+                /// </summary>
+                static void DisplayMenu()
                 {
-                    ErrorMessage("Det här valet fanns inte, välj id och antal/kg enligt nedan (ex 300 1)");
-                    return;
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    Console.WriteLine("╭──────────────────────────────────╮");
+                    Console.WriteLine("│KASSA                             │");
+                    Console.WriteLine("│Kommandon:                        │");
+                    Console.WriteLine("│<productid> <antal> <PAY> <MENU>  │");
+                    Console.WriteLine("│Exempel: 300 mellanslag 1,5       │");
+                    Console.WriteLine("╰──────────────────────────────────╯");
+                    Console.ResetColor();
+                    Console.Write("Kommando: ");
                 }
 
-                receiptCreation.AddingToReceipt(productID, quantity);
-                Thread.Sleep(1000);
-            }
-
-            static void MakeSound()
-            {
-                string soundFilePath = "../../../Kvittoljud/KACHING.wav";
-                SoundPlayer soundPlayer = new SoundPlayer(soundFilePath);
-                soundPlayer.Load();
-                soundPlayer.Play();
-            }
-
-            static void SaveReceipt(string receiptText, FileManager fileManager)
-            {
-                fileManager.SaveReceipt(receiptText);
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Köpet har genomförts och kvitto nedsparat. Tryck valfri knapp för att komma tillbaka till menyn");
-                Console.ResetColor();
-            }
-
-            /// <summary>
-            /// Menu when user goes through option '1. Ny Kund'
-            /// </summary>
-            static void DisplayMenu()
-            {
-                Console.ForegroundColor = ConsoleColor.DarkCyan;
-                Console.WriteLine("╭──────────────────────────────────╮");
-                Console.WriteLine("│KASSA                             │");
-                Console.WriteLine("│Kommandon:                        │");
-                Console.WriteLine("│<productid> <antal> <PAY> <MENU>  │");
-                Console.WriteLine("│Exempel: 300 mellanslag 1,5       │");
-                Console.WriteLine("╰──────────────────────────────────╯");
-                Console.ResetColor();
-                Console.Write("Kommando: ");
-            }
-
-            static void ErrorMessage(string message)
-            {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(message);
-                Console.ResetColor();
+                static void ErrorMessage(string message)
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(message);
+                    Console.ResetColor();
+                }
             }
         }
     }

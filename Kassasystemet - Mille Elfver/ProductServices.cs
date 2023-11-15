@@ -13,10 +13,10 @@ namespace Kassasystemet___Mille_Elfver
         private IProductCatalog _productCatalog;
         private IFileManager _fileManager;
 
-        public ProductServices()
+        public ProductServices(IProductCatalog productCatalog, IFileManager fileManager)
         {
-            _productCatalog = ProductCatalog.Instance;
-            _fileManager = new FileManager();
+            _productCatalog = productCatalog;
+            _fileManager = fileManager;
         }
 
         /// <summary>

@@ -8,18 +8,15 @@ namespace Kassasystemet___Mille_Elfver
 {
     public class ProductCatalog : IProductCatalog
     {
-        private static IProductCatalog _instance = new ProductCatalog();
-        private Dictionary<string, Product> _products;
-        private IFileManager _fileManager;
+        private readonly Dictionary<string, Product> _products;
+        private readonly IFileManager _fileManager;
 
-        private ProductCatalog()
+        public ProductCatalog(IFileManager fileManager)
         {
             _products = new Dictionary<string, Product>();
-            _fileManager = new FileManager();
+            _fileManager = fileManager;
             DataSeeding();
         }
-
-        public static IProductCatalog Instance => _instance;
 
         public void DataSeeding()
         {

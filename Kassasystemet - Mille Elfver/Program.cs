@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Autofac;
 
 namespace Kassasystemet___Mille_Elfver
 {
@@ -15,9 +16,15 @@ namespace Kassasystemet___Mille_Elfver
             //Console.WriteLine("Tryck valfri knapp för att fortsätta.");
             //Console.ReadKey();
 
-            ProductServices productServices = new ProductServices();
+            using (var container = AutoFacRegistration.RegisteredContainers())
+            {
+                var productServices = container.Resolve<IProductServices>();
+                MainMenu.Menu(productServices);
+            }
 
-            MainMenu.Menu(productServices);
+            //ProductServices productServices = new ProductServices();
+
+            //MainMenu.Menu(productServices);
         }
 
     }

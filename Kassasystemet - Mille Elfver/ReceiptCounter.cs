@@ -9,7 +9,12 @@ namespace Kassasystemet___Mille_Elfver
     public class ReceiptCounter
     {
         private int _receiptCounter = 1337;
-        FileManager fileManager = new FileManager();
+        private readonly IFileManager _fileManager;
+
+        public ReceiptCounter(IFileManager fileManager)
+        {
+            _fileManager = fileManager;
+        }
         public void SetReceiptCounter(int receiptCounter)
         {
             if (receiptCounter > 0)
@@ -36,7 +41,7 @@ namespace Kassasystemet___Mille_Elfver
         public void IncreaseCounter()
         {
             _receiptCounter++;
-            fileManager.SaveReceiptCounter(_receiptCounter);
+            _fileManager.SaveReceiptCounter(_receiptCounter);
         }
     }
 }
