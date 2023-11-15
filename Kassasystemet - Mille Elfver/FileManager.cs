@@ -72,12 +72,6 @@ namespace Kassasystemet___Mille_Elfver
                                 discountEndDate = DateTime.Parse(parts[6].Trim());
                             }
 
-                            if (parts.Length >= 9)
-                            {
-                                buyQuantity = int.Parse(parts[7].Trim());
-                                payForQuantity = int.Parse(parts[8].Trim());
-                            }
-
                             if (parts.Length >= 11)
                             {
                                 buyQuantity = int.Parse(parts[7].Trim());
