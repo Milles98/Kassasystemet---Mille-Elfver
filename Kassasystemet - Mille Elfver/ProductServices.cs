@@ -298,11 +298,11 @@ namespace Kassasystemet___Mille_Elfver
                 {
                     if (DateTime.Today >= product.Discounts.PercentStartDate && DateTime.Today <= product.Discounts.PercentEndDate)
                     {
-                        discountInfo = $" PÅGÅENDE: ({product.Discounts.PercentageDiscount}%) t.o.m. {product.Discounts.PercentEndDate:yyyy-MM-dd}";
+                        discountInfo = $" PÅGÅENDE: ({product.Discounts.PercentageDiscount}% slutar {product.Discounts.PercentEndDate:yyyy-MM-dd})";
                     }
                     else if (product.Discounts.PercentStartDate > DateTime.Today)
                     {
-                        discountInfo = $"*KOMMANDE: ({product.Discounts.PercentageDiscount}%) fr.o.m. {product.Discounts.PercentStartDate:yyyy-MM-dd}";
+                        discountInfo = $"*KOMMANDE: ({product.Discounts.PercentageDiscount}% börjar {product.Discounts.PercentStartDate:yyyy-MM-dd})";
                     }
                     else
                     {
@@ -322,13 +322,13 @@ namespace Kassasystemet___Mille_Elfver
 
                     if (DateTime.Today >= product.Discounts.BuyQuantityStartDate && DateTime.Today <= product.Discounts.BuyQuantityEndDate)
                     {
-                        discountInfo += $" PÅGÅENDE: (Köp {product.Discounts.BuyQuantity}, Betala för {product.Discounts.PayForQuantity}) " +
-                            $"t.o.m. {product.Discounts.BuyQuantityEndDate:yyyy-MM-dd}";
+                        discountInfo += $" PÅGÅENDE: ({product.Discounts.BuyQuantity} för {product.Discounts.PayForQuantity} " +
+                            $"slutar {product.Discounts.BuyQuantityEndDate:yyyy-MM-dd})";
                     }
                     else if (product.Discounts.BuyQuantityStartDate > DateTime.Today)
                     {
-                        discountInfo = $"*KOMMANDE: (Köp {product.Discounts.BuyQuantity}, Betala för {product.Discounts.PayForQuantity}) " +
-                            $"fr.o.m. {product.Discounts.BuyQuantityStartDate:yyyy-MM-dd}";
+                        discountInfo = $"*KOMMANDE: ({product.Discounts.BuyQuantity} för {product.Discounts.PayForQuantity} " +
+                            $"börjar {product.Discounts.BuyQuantityStartDate:yyyy-MM-dd})";
                     }
                     else
                     {
