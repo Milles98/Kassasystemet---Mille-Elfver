@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet___Mille_Elfver
+namespace Kassasystemet___Mille_Elfver.Interfaces
 {
     public interface IProductCatalog
     {

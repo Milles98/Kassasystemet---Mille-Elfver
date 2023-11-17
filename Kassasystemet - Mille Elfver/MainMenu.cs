@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Kassasystemet___Mille_Elfver.Interfaces;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Kassasystemet___Mille_Elfver
@@ -67,6 +68,9 @@ namespace Kassasystemet___Mille_Elfver
 
             } while (programRunning);
         }
+        /// <summary>
+        /// Used to show the history of current days receipts
+        /// </summary>
         public static void DisplayReceipts()
         {
             Console.Clear();

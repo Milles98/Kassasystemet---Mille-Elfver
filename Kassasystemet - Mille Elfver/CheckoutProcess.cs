@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Kassasystemet___Mille_Elfver.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

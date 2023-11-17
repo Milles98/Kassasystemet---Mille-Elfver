@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Kassasystemet___Mille_Elfver.Interfaces;
 
 namespace Kassasystemet___Mille_Elfver
 {
@@ -155,7 +156,10 @@ namespace Kassasystemet___Mille_Elfver
                 ErrorMessage($"Fel vid sparandet av kvitto: {ex.Message}");
             }
         }
-
+        /// <summary>
+        /// Error message
+        /// </summary>
+        /// <param name="message"></param>
         private void ErrorMessage(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;

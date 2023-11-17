@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Kassasystemet___Mille_Elfver.Interfaces;
 
 namespace Kassasystemet___Mille_Elfver
 {
@@ -17,7 +18,9 @@ namespace Kassasystemet___Mille_Elfver
             _fileManager = fileManager;
             DataSeeding();
         }
-
+        /// <summary>
+        /// Seeds the products if they dont exist in a textfile, otherwise loads them
+        /// </summary>
         public void DataSeeding()
         {
             _fileManager.LoadProductsFromFile(_products);
@@ -66,7 +69,7 @@ namespace Kassasystemet___Mille_Elfver
         /// <param name="kiloPrice"></param>
         private void AddProductToCatalog(string productId, string name, decimal unitPrice, decimal kiloPrice)
         {
-            if (_products.ContainsKey(productId)) // om ID redan finns ska en ny product ej skapas
+            if (_products.ContainsKey(productId))
             {
                 _products[productId].Name = name;
                 _products[productId].UnitPrice = unitPrice;

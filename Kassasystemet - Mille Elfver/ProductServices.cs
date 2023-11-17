@@ -1,4 +1,4 @@
-﻿using Kassasystemet___Mille_Elfver;
+﻿using Kassasystemet___Mille_Elfver.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -48,6 +48,14 @@ namespace Kassasystemet___Mille_Elfver
                 ErrorMessage($"\nProdukt med ID {productId} finns ej.");
             }
         }
+        /// <summary>
+        /// Sets buy X pay for Y discount on product
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="buyQuantity"></param>
+        /// <param name="payForQuantity"></param>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
         public void SetQuantityDiscount(string productId, int buyQuantity, int payForQuantity, DateTime startDate, DateTime endDate)
         {
             Dictionary<string, Product> products = _productCatalog.GetProducts();
@@ -168,7 +176,13 @@ namespace Kassasystemet___Mille_Elfver
                 ErrorMessage($"\nProdukt med ID {productId} finns ej.");
             }
         }
-
+        /// <summary>
+        /// Adds a products pricetype (example unit or kilo)
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="productName"></param>
+        /// <param name="priceType"></param>
+        /// <param name="price"></param>
         public void AddProductWithPriceType(string productId, string productName, string priceType, decimal price)
         {
             decimal unitPrice = 0;
@@ -344,12 +358,20 @@ namespace Kassasystemet___Mille_Elfver
                 Console.ResetColor();
             }
         }
+        /// <summary>
+        /// Error message
+        /// </summary>
+        /// <param name="message"></param>
         private void ErrorMessage(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(message);
             Console.ResetColor();
         }
+        /// <summary>
+        /// Message if input was successful
+        /// </summary>
+        /// <param name="message"></param>
         private void InputSuccessMessage(string message)
         {
             Console.ForegroundColor = ConsoleColor.Green;

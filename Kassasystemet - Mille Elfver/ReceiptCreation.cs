@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Kassasystemet___Mille_Elfver.Interfaces;
 
 namespace Kassasystemet___Mille_Elfver
 {
@@ -229,7 +230,10 @@ namespace Kassasystemet___Mille_Elfver
             return receiptText.ToString();
 
         }
-
+        /// <summary>
+        /// Error message
+        /// </summary>
+        /// <param name="msg"></param>
         private void ErrorMessage(string msg)
         {
             Console.ForegroundColor = ConsoleColor.Red;

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Autofac;
+using Kassasystemet___Mille_Elfver.Interfaces;
 
 namespace Kassasystemet___Mille_Elfver
 {
@@ -22,9 +23,6 @@ namespace Kassasystemet___Mille_Elfver
                 MainMenu.Menu(productServices);
             }
 
-            //ProductServices productServices = new ProductServices();
-
-            //MainMenu.Menu(productServices);
         }
 
     }
