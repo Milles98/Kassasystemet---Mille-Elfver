@@ -312,9 +312,9 @@ namespace Kassasystemet___Mille_Elfver
                     }
 
                     Console.Write("Ange startdatum (yyyy-MM-dd): ");
-                    if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate))
+                    if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate) || startDate < DateTime.Today)
                     {
-                        ErrorMessage($"Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.");
+                        ErrorMessage($"Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.\nOBS kan ej börja innan dagens datum");
                         continue;
                     }
 
@@ -354,9 +354,9 @@ namespace Kassasystemet___Mille_Elfver
                     }
 
                     Console.Write("Ange startdatum (yyyy-MM-dd): ");
-                    if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate))
+                    if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate) || startDate < DateTime.Today)
                     {
-                        ErrorMessage($"Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.");
+                        ErrorMessage($"Ogiltigt startdatum. Ange datum i formatet 'yyyy-MM-dd'.\nOBS kan ej börja innan dagens datum");
                         continue;
                     }
 
