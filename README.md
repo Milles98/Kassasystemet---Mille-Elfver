@@ -25,8 +25,11 @@ The solution is composed of several classes, each serving a specific purpose in 
 
 ## Dependencies
 The project uses the following NuGet packages:
+
 •	Autofac version 7.1.0: An addictive Inversion of Control container for .NET.
+
 •	System.Windows.Extensions version 7.0.0: Provides additional functionality related to Windows development.
+
 ## Resources
 The project includes a "Kvittoljud" folder which contains a "KACHING.wav" file. This file is always copied to the output directory.
 ## How to Run
